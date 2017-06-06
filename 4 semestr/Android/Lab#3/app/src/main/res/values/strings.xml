@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Labarator#3</string>
+    <string name="action_setting"> Setting </string>
+    <string name="action_1"> first </string>
+    <string name="action_2"> second </string>
+    <string name="action_3"> third </string>
+    <string name="action_4"> fourth </string>
+    <string name="action_5"> fifth </string>
+</resources>
