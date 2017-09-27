@@ -90,17 +90,67 @@ namespace WindowsFormsApplication1
         #endregion
 
         #region TASK №2
+
+        delegate bool EnumWindowsCB( int hwnd, int lparam );
+
+        [DllImport("user32")]
+        private static extern int EnumWindows( EnumWindowsCB cb, int lparam );
+
+        // В вашем классе
+        public static bool CallBackFunction( int hwnd, int lparam )
+        {
+           
+            return true;
+        }
+
         private void button1_Click( object sender, EventArgs e )
         {
-
+           
+            if(EnumWindows(CallBackFunction, null))
+            
         }
 
         private void button2_Click( object sender, EventArgs e )
         {
-
+           
         }
 
+
         private void btntask2Close_Click( object sender, EventArgs e )
+        {
+            CloseApplication( );
+        }
+
+        #endregion
+
+        #region TASK №3
+
+        [DllImport("Kernel32.dll")]
+        public static extern void GetSystemTime( SystemTime st );
+
+        [DllImport("Kernel32.dll")]
+        public static extern void GetLocalTime( SystemTime st );
+
+        private SystemTime sysTime;
+        private SystemTime localTime;
+
+        private void btnSystime_Click( object sender, EventArgs e )
+        {
+            sysTime = new SystemTime( );
+            GetSystemTime(sysTime);
+            txtSystime.Text = Convert.ToString( sysTime.hour);
+            txtLocalTime.Text = Convert.ToString(sysTime.minute );
+        }
+
+        private void btnLocalTime_Click( object sender, EventArgs e )
+        {
+            localTime = new SystemTime( );
+            GetLocalTime(localTime);
+            txtSystime.Text = Convert.ToString(localTime.hour );
+            txtLocalTime.Text = Convert.ToString( localTime.minute);
+        }
+
+        private void btntask3Close_Click( object sender, EventArgs e )
         {
             CloseApplication( );
         }
@@ -121,9 +171,18 @@ namespace WindowsFormsApplication1
         #region TASK
         #endregion
 
-        #region TASK
-        #endregion
 
-
+    }
+    [StructLayout(LayoutKind.Sequential)]
+    public class SystemTime
+    {
+        public ushort year;
+        public ushort month;
+        public ushort weekday;
+        public ushort day;
+        public ushort hour;
+        public ushort minute;
+        public ushort second;
+        public ushort millisecond;
     }
 }
