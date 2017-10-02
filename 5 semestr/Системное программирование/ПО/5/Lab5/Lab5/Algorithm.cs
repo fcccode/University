@@ -8,10 +8,6 @@ namespace Lab5
 {
     public class Algorithm
     {
-
-
-        public Algorithm() {        }
-
         #region  Сортировка вставками
 
         /// <summary>
@@ -141,7 +137,7 @@ namespace Lab5
         /// Сортировка перемешиванием;
         /// </summary>
         /// <param name="name"></param>
-        public static void ArrSort( int[] name )
+        public  void SheiderSort( int[] name )
         {
             int b = 0;
             int left = 0;//Левая граница

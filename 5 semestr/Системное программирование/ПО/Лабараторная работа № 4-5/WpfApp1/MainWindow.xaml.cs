@@ -34,7 +34,7 @@ namespace WpfApp1
             else
                 txtKey.Text = "Выключена";
 
-            RegisterHotKey(this.Handle, 0, 0, (int)Keys.PrintScreen);
+            RegisterHotKey(System.Diagnostics.Process.GetCurrentProcess( ).MainWindowHandle, 0, 0, (int)Key.PrintScreen);
 
         }
 
@@ -72,7 +72,7 @@ namespace WpfApp1
         private int mouse_coord_y = 100;
 
         [DllImport("user32", SetLastError = true)]
-        static extern bool RegisterHotKey( IntPtr hWnd, int id, ModifierKey fsModifiers, Keys vk );
+        static extern bool RegisterHotKey( IntPtr hWnd, int id, ModifierKey fsModifiers, int vk );
 
         [DllImport("user32")]
         static extern short GetKeyState( int key );
@@ -170,7 +170,7 @@ namespace WpfApp1
             txtConsole.Text += Environment.NewLine;
             return true;
         }
-        string
+
         /// <summary>
         /// Обработчик клавиши определения системного времени
         /// </summary>
