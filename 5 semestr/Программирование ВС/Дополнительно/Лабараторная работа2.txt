@@ -1,0 +1,47 @@
+1) Определить значение при котором яркость будет 100%
+	(Допустим 0 процентов яркости при 100 микросекундах)
+2) Определить значение при котором яркость будет 0%
+
+uint32_t systemClock = 0;
+uint32_t coficent = 1000;
+
+void SysTick()
+{
+	systemClock++;
+}
+
+
+void Delay(uint32_t time)
+{
+	
+	while(time*coficent > systemClock)
+		systemClock = 0;
+	
+}
+
+
+
+int main()
+{
+	InitGPIO();
+	InitTimer();
+	
+	uint32_t color = 100;
+	uint32_t iterator = color;
+	while(1)
+	{
+		LedOn();
+		
+		Delay(iterator);
+		
+		LedOff();
+		
+		Delay(color-iterator);
+		
+		if(iterator == 0)
+			iterator = color;
+		else
+			iterator--;
+	}
+
+}
