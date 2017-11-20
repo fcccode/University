@@ -8,47 +8,75 @@ namespace Labarator_3_1
 {
     class Program
     {
+
         static void Main(string[] args)
         {
+            int min = 0;
+            int max = 100;
+            int[] array = new int[max];             // сортируемый массив
+            Random rand = new Random();
+
+            for(int i = 0; i < array.Length; i++)
+                array[i] = rand.Next(min, max);
+                       
+            Console.WriteLine("Массив до сортировки");
+            DisplayArray(array);
+
+            Console.WriteLine("Массив после сортировки");
+            HoarAlgorithms(array, min, array.Length - 1);
+            DisplayArray(array);
+
+
+            Console.ReadKey();
+            
         }
 
         /// <summary>
         /// Рекурсивная версия алгоритма Хоара
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="data">массив для сортировки</param>
         /// <param name="begin"></param>
         /// <param name="end"></param>
-        static void HoarSort(double[] data, int begin, int end)
+        private static int Partition(int[] array, int start, int end)
         {
-            int iterator = begin, j = end;
-            double temp;
-            double middle = data[(begin + end) / 2];
-
-            do
+            int marker = start;
+            for (int i = start; i <= end; i++)
             {
-                while (data[iterator] < middle)
-                    iterator++;
-
-                while (data[j] > middle)
-                    j--;
-
-                if (iterator <= j)
+                if (array[i] <= array[end])
                 {
-                    if (iterator < j)
-                    {
-                        temp = data[iterator];
-                        data[iterator] = data[j];
-                        data[j] = temp;
-                    }
-                    iterator++;
-                    j--;
+                    int temp = array[marker]; // swap
+                    array[marker] = array[i];
+                    array[i] = temp;
+                    marker += 1;
                 }
-            } while (iterator <= j);
+            }
+            return marker - 1;
+        }
 
-            if (iterator < end)
-                HoarSort(data, iterator, end);
-            if (begin < j)
-                HoarSort(data, begin, j);
+        /// <summary>
+        /// Алгоритм Хоара
+        /// </summary>
+        /// <param name="array">массив</param>
+        /// <param name="start">мин</param>
+        /// <param name="end">макс</param>
+        private static void HoarAlgorithms(int[] array, int start, int end)
+        {
+            if (start >= end)
+                return;
+            
+            int pivot = Partition(array, start, end);
+            HoarAlgorithms(array, start, pivot - 1);
+            HoarAlgorithms(array, pivot + 1, end);
+        }
+
+        /// <summary>
+        /// Отображения содержимого массива в консоли
+        /// </summary>
+        /// <param name="array">массив для отображения</param>
+        private static void DisplayArray(int [] array)
+        {
+            foreach (int value in array)
+                Console.WriteLine(Convert.ToString(value));
         }
     }
 }
