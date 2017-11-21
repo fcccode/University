@@ -3,21 +3,48 @@
 using namespace std;
 
 
-void ReadKey()
-{
-    int key;                        // введенное значение
-    cout << "Введите значение :";   // приглашение ввести значение
-    cin >> key;                     // ввод значения
-    if(key != 0)                    // проверка окончания ввода
-        ReadKey();                  // рекурсивный вызов функции
 
-    cout << key << endl;            // дошли до дна отображаем все
+int counter = 0;
+int n = 10;
+int a[10];
+int temp = 0;
+int t = 0;
+
+
+void Generate()
+{
+    int i =0, j =0;
+    if(t == n)
+    {
+        for(i = 0; i < n; i++)
+            cout << a[i];
+    }
+    else
+    {
+        for(j = t+1; j < n; j++)
+        {
+            temp = a[t+1];
+            a[t+1] =  a[j];
+            a[j] = temp;
+            t = t+1;
+            Generate();
+            t = t-1;
+            temp = a[t+1];
+            a[t+1] =  a[j];
+            a[j] = temp;
+        }
+
+    }
 }
 
 int main()
 {
     setlocale(LC_ALL, "rus");      // локализация
-    ReadKey();                     // вызов функции
+
+    for(int i = 0; i < n; i++)
+        a[i] = i;
+
+    Generate();
     return 0;
 }
 
