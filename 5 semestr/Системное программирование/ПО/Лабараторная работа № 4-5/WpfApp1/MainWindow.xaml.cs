@@ -170,15 +170,7 @@ namespace WpfApp1
             txtConsole.Text += Environment.NewLine;
             return true;
         }
-<<<<<<< HEAD
-      
-=======
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> ae243e2e37927890c5049323d8997bff5f9ea7d4
->>>>>>> 63119e3321cbed3f559ee66e32187f4220ba8423
         /// <summary>
         /// Обработчик клавиши определения системного времени
         /// </summary>
