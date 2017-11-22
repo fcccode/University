@@ -8,28 +8,6 @@ namespace Labarator_2
 {
     class Program
     {
-     //   procedure Generate(k:byte);
-     //   var i, j:byte;
-	    //procedure Swap(var a, b:byte);
-     //   var c:byte;
-	    //begin c:=a;a:=b;b:=c end;
-     //   begin
-	    //if k=N then
-
-     //     begin for i:=1 to N do write(X[i]); writeln end
-	    //else
-	    //  for j:=k+1 to N do
-
-     //   begin
-     //     Swap(X[k + 1], X[j]);
-
-     //     Generate(k+1);
-
-     //     Swap(X[k + 1], X[j])
-
-     //   end
-     // end;
-
         private static int n = 5;
         private static int[] array = new int[n];
         private static int counter = 0;
@@ -44,6 +22,8 @@ namespace Labarator_2
             int t;
             t = 0;
             Function(t);
+
+            Console.WriteLine(counter.ToString());
 
         }
 
@@ -69,10 +49,10 @@ namespace Labarator_2
         }
 
         /// <summary>
-        /// Замена
+        /// Перестановка
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
+        /// <param name="a">первое значение</param>
+        /// <param name="b">второе значение</param>
         private static void Swap(int a, int b)
         {
             int temp = a;
