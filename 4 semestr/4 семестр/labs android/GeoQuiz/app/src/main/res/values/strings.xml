@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">GeoQuiz</string>
+    <string name="true_button"> True</string>
+    <string name="false_button"> False </string>
+    <string name ="action_settings"> Settings</string>
+    <string  name ="question_text"> is Turkey</string>
+    <string name="correct_toast"> correct! </string>
+    <string name="incorrect_toast">incorrect!</string>
+    <string name="next_button"> Next</string>
+
+    <string name="ques_ocean">  The Pacific ocean is large than the
+                                Atlantic ocean</string>
+    <string name="ques_mideast">The Suez Canal connects the Red sea
+                                and the Indian ocean</string>
+    <string name="ques_africa"> The source of the Nile River
+                                is in Egypt.</string>
+    <string name="ques_america">The Amazon River is the longest
+                                river in the Americas</string>
+    <string name="ques_asia">   Lake Baikal is the world\`s oldest
+                                and deepest freshwater lake</string>
+
+</resources>

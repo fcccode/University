@@ -1,0 +1,45 @@
+TEXAS INSTRUMENTS SOFTWARE EVALUATION LICENSE AGREEMENT
+ 
+Texas Instruments Incorporated, acting through its Educational & Productivity Solutions 
+business, with a principal place of business at 7800 Banner Drive, Dallas, TX 75251 
+(hereinafter "TI"), desires to promote the use of certain software by potential purchasers, 
+and, whereas you, the individual receiving this evaluation copy of the software, 
+(hereinafter "Licensee"), desires to evaluate such software: 
+
+Licensee agrees as follows:
+
+License: TI grants Licensee a non-exclusive, non-transferable, personal license to use 
+the software program(s) and any supplied documentation ("Licensed Materials") until 30 
+days from the date of installation, on a single user computer, for the sole purpose of 
+evaluating the licensed materials. During installation the software program(s) will be 
+copied to the hard drive of your computer, you may not make any other copies of the 
+Licensed Materials. 
+
+Restrictions: Licensee will not reverse-assemble or reverse-compile the software 
+program portion of the Licensed Materials that are provided in object code format. 
+Licensee may not sell, rent or lease the Licensed Material or any copies, whether in 
+whole or in part. 
+
+Copyright: The Licensed Materials are copyrighted by TI. Licensee agrees that it will not 
+delete the copyright notice, trademarks or protective notices from the Licensed Materials 
+or copies made during installation. 
+
+Support: The Licensed Materials are provided by TI with the understanding that only 
+limited support for this evaluation copy of the software will be available from TI. 
+
+Warranty: TI does not warrant that the Licensed Materials will be free from errors or will 
+meet your specific requirements. The Licensed Materials are made available "AS IS" to 
+Licensee. 
+
+Limitations: TI makes no warranty or condition, either express or implied, including but 
+not limited to any implied warranties of merchantability and fitness for a particular 
+purpose, regarding the Licensed Materials. In no event shall TI or its suppliers be liable 
+for any indirect, incidental or consequential damages, loss of profits, loss of use or data, 
+or interruption of business, whether the alleged damages are labeled in tort, contract or 
+indemnity. 
+
+Restricted Rights: The Licensed Materials are provided with Restricted Rights. Use, 
+duplication or disclosure by the United States Government is subject to restrictions as set 
+forth in subparagraph [c](1)(ii) of the Rights in Technical Data and Computer Software 
+clause at DFARS 252.227-7013 or in subparagraph [c](1) and (2) of the Commercial 
+Computer Software - Restricted Rights at 48 CFR 52.227-19, as applicable.

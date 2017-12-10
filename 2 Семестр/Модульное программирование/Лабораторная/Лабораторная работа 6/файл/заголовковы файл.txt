@@ -1,0 +1,54 @@
+#ifndef CLASSLIB_H_INCLUDED
+#define CLASSLIB_H_INCLUDED
+
+using namespace std;
+ cout << "Смена атрибутов абстракцииn\n\n";
+       cout << "Введите размер Радиуса основания конуса:"
+   
+
+class conus {
+private:
+
+    double obm = 1;
+    double rad = 1;
+    double plos =1;
+    double vys = 1;
+
+public:
+void PrintDatas();
+void PrintAtributes();
+void ChangeAtributes(double rad, double vys, double plos);
+};
+
+
+
+void conus::PrintDatas()
+{
+    cout << "Информация про разработчика : \n\n";
+    cout << "Студент Группы КИ-15\n"
+         << "Аннаев Арслан \n"
+         << "***KNTU***\n"
+}
+
+
+void conus::PrintAtributes()
+{
+    cout << "Объем конуса     :" << obm  << endl;
+    cout << "Радиус основания :" << rad  << endl;
+    cout << "Высота конуса    :" << vys  << endl;
+    cout << "Площадь основания:" << plos << endl;
+}
+void conus::PrintObm()
+{
+    cout << "Объем конуса     :" << plos*vys  << endl;
+}
+
+void conus:: ChangeAtributes(double rad, double vys, double plos)
+{
+cout << "Старые атрибуты :\n";
+PrintAtributes();
+rad = dob_rad;
+vys = dob_vys;
+plos = dob_plos; 
+}
+#endif // CLASSLIB_H_INCLUDED

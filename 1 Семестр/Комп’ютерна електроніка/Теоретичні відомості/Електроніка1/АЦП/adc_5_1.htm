@@ -1,0 +1,85 @@
+<h2 align="center"><font color="#000080">АЦП многотактного интегрирования</font></h2>
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;Упрощенная схема АЦП, работающего в два основных такта (АЦП двухтактного интегрирования), приведена на рис. 10.<br>
+ 
+<p align="center"><img src="images/components/adc/acim910.gif" width=574 height=291 alt="Упрощенная схема АЦП двухтактного интегрирования" border="0">   
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;Преобразование проходит две стадии: стадию интегрирования и стадию счета. В начале первой стадии ключ S<sub>1</sub> замкнут, а ключ S<sub>2</sub> разомкнут. Интегратор И интегрирует входное напряжение U<sub>вх</sub>. Время интегрирования входного напряжения t<sub>1</sub> постоянно; в качестве таймера используется счетчик с коэффициентом пересчета K<sub>сч</sub>, так что<br><br>
+ 
+<table align="center" width="60%" cellspacing="2" cellpadding="2" border="0">
+<tr>
+    <td align="center"><img src="images/components/adc/form96.gif" width=98 height=64 alt="" border="0"></td>
+    <td align="right">(6)</td>
+</tr>
+</table>
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;К моменту окончания интегрирования выходное напряжение интегратора составляет<br><br>
+ 
+<table align="center" width="60%" cellspacing="2" cellpadding="2" border="0">
+<tr>
+    <td align="center"><img src="images/components/adc/form97.gif" width=333 height=63 alt="" border="0"></td>
+    <td align="right">(7)</td>
+</tr>
+</table>
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;где U<sub>вх.ср.</sub> - среднее за время t<sub>1</sub> входное напряжение. После окончания стадии интегрирования ключ S<sub>1</sub> размыкается, а ключ S<sub>2</sub> замыкается и опорное напряжение U<sub>оп</sub> поступает на вход интегратора. При этом выбирается опорное напряжение, противоположное по знаку входному напряжению. На стадии счета выходное напряжение интегратора линейно уменьшается по абсолютной величине, как показано на рис. 11. <br>
+ 
+<p align="center"><img src="images/components/adc/acim911.gif" width=379 height=411 alt="Временные диаграммы АЦП двухтактного интегрирования" border="0">
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;Стадия счета заканчивается, когда выходное напряжение интегратора переходит через нуль. При этом компаратор К переключается и счет останавливается. Интервал времени, в котором проходит стадия счета, определяется уравнением<br><br>
+ 
+<table align="center" width="60%" cellspacing="2" cellpadding="2" border="0">
+<tr>
+    <td align="center"><img src="images/components/adc/form98.gif" width=206 height=65 alt="" border="0"></td>
+    <td align="right">(8)</td>
+</tr>
+</table>
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;Подставив значение U<sub>и</sub>(t<sub>1</sub>) из (7) в (8) с учетом того, что<br>
+ 
+ 
+<table align="center" width="60%" cellspacing="2" cellpadding="2" border="0">
+<tr>
+    <td align="center"><img src="images/components/adc/form99.gif" width=93 height=58 alt="" border="0"></td>
+    <td align="right">(9)</td>
+</tr>
+</table>
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;где n<sub>2</sub> - содержимое счетчика после окончания стадии счета, получим результат<br>
+ 
+ 
+<table align="center" width="60%" cellspacing="2" cellpadding="2" border="0">
+<tr>
+    <td align="center"><img src="images/components/adc/form910.gif" width=138 height=58 alt="" border="0"></td>
+    <td align="right">(10)</td>
+</tr>
+</table>
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;Из этой формулы следует, что отличительной особенностью метода многотактного интегрирования является то, что ни тактовая частота, ни постоянная интегрирования RC не влияют на результат. Необходимо только потребовать, чтобы тактовая частота в течение времени t<sub>1</sub>+t<sub>2</sub> оставалась постоянной. Это можно обеспечить при использовании простого тактового генератора, поскольку существенные временные или температурные дрейфы частоты происходят за время несопоставимо большее, чем время преобразования. <br>
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;При выводе выражений (6)...(10) мы видели, что в окончательный результат входят не мгновенные значения преобразуемого напряжения, а только значения, усредненные за время t<sub>1</sub>. Поэтому переменное напряжение ослабляется тем сильнее, чем выше его частота.<br>
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;Определим коэффициент передачи помехи Кп для АЦП двухтактного интегрирования. Пусть на вход интегратора поступает гармонический сигнал единичной амплитуды частотой f с произвольной начальной фазой j. Среднее значение этого сигнала за время интегрирования t<sub>1</sub> равно<br><br>
+ 
+<table align="center" width="80%" cellspacing="2" cellpadding="2" border="0">
+<tr>
+    <td align="center"><img src="images/components/adc/form911.gif" width=380 height=63 alt="" border="0"></td>
+    <td align="right">(11)</td>
+</tr>
+</table>
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;Эта величина достигает максимума по модулю при <font face="Symbol">j</font> = +/- <font face="Symbol">p</font>k, k=0, 1, 2,... В этом случае <br><br>
+ 
+ 
+<table align="center" width="60%" cellspacing="2" cellpadding="2" border="0">
+<tr>
+    <td align="center"><img src="images/components/adc/form912.gif" width=124 height=63 alt="" border="0"></td>
+    <td align="right">(12)</td>
+</tr>
+</table>
+ 
+<p align="center"><img src="images/components/adc/acim912.gif" width=298 height=322 alt="Частотная характеристика коэффициента подавления помех АЦП двухтактного интегрирования" border="0">
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;Из (12) следует, что переменное напряжение, период которого в целое число раз меньше t<sub>1</sub>, подавляется совершенно (рис. 12). Поэтому целесообразно выбрать тактовую частоту такой, чтобы произведение K<sub>сч</sub> f<sub>такт</sub> было бы равным, или кратным периоду напряжения промышленной сети.<br>
+ 
+ 

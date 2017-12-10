@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="tas.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="tas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="6"/>
+        <CursorPos X="5" Y="27"/>
+        <UsageCount Value="26"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="123" Column="5" TopLine="23"/>
+      </Position1>
+      <Position2>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="29" Column="6" TopLine="16"/>
+      </Position2>
+      <Position3>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="129" Column="83" TopLine="90"/>
+      </Position3>
+      <Position4>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="28" Column="9" TopLine="16"/>
+      </Position4>
+      <Position5>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="131" Column="12" TopLine="1"/>
+      </Position5>
+      <Position6>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="22" Column="5" TopLine="1"/>
+      </Position6>
+      <Position7>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="18" Column="11" TopLine="1"/>
+      </Position7>
+      <Position8>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="26" Column="29" TopLine="13"/>
+      </Position8>
+      <Position9>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="28" Column="6" TopLine="13"/>
+      </Position9>
+      <Position10>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="17" Column="26" TopLine="1"/>
+      </Position10>
+      <Position11>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="36" Column="11" TopLine="16"/>
+      </Position11>
+      <Position12>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="24" Column="8" TopLine="2"/>
+      </Position12>
+      <Position13>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="12" Column="14" TopLine="4"/>
+      </Position13>
+      <Position14>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="18" Column="15" TopLine="4"/>
+      </Position14>
+      <Position15>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="21" Column="8" TopLine="5"/>
+      </Position15>
+      <Position16>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="25" Column="12" TopLine="5"/>
+      </Position16>
+      <Position17>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="21" Column="8" TopLine="6"/>
+      </Position17>
+      <Position18>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="27" Column="4" TopLine="6"/>
+      </Position18>
+      <Position19>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="18" Column="8" TopLine="6"/>
+      </Position19>
+      <Position20>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="23" Column="7" TopLine="6"/>
+      </Position20>
+      <Position21>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="22" Column="7" TopLine="6"/>
+      </Position21>
+      <Position22>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="18" Column="8" TopLine="6"/>
+      </Position22>
+      <Position23>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="22" Column="13" TopLine="6"/>
+      </Position23>
+      <Position24>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="14" Column="17" TopLine="6"/>
+      </Position24>
+      <Position25>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="22" Column="13" TopLine="6"/>
+      </Position25>
+      <Position26>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="25" Column="10" TopLine="6"/>
+      </Position26>
+      <Position27>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="23" Column="4" TopLine="6"/>
+      </Position27>
+      <Position28>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="22" Column="5" TopLine="6"/>
+      </Position28>
+      <Position29>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="23" Column="5" TopLine="6"/>
+      </Position29>
+      <Position30>
+        <Filename Value="tas.lpr"/>
+        <Caret Line="22" Column="13" TopLine="6"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+  <EditorMacros Count="0"/>
+</CONFIG>

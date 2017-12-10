@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="task_4_1.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="task_4_1"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="19"/>
+        <CursorPos X="18" Y="34"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="18" HistoryIndex="17">
+      <Position1>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="15" Column="10" TopLine="1"/>
+      </Position1>
+      <Position2>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="17" Column="12" TopLine="2"/>
+      </Position2>
+      <Position3>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="18" Column="12" TopLine="3"/>
+      </Position3>
+      <Position4>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="17" Column="16" TopLine="3"/>
+      </Position4>
+      <Position5>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="19" Column="6" TopLine="2"/>
+      </Position5>
+      <Position6>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="20" Column="10" TopLine="2"/>
+      </Position6>
+      <Position7>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="19" Column="15" TopLine="6"/>
+      </Position7>
+      <Position8>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="25" Column="71" TopLine="9"/>
+      </Position8>
+      <Position9>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="15" Column="8" TopLine="3"/>
+      </Position9>
+      <Position10>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="23" Column="11" TopLine="10"/>
+      </Position10>
+      <Position11>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="22" Column="16" TopLine="10"/>
+      </Position11>
+      <Position12>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="27" Column="67" TopLine="8"/>
+      </Position12>
+      <Position13>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="18" Column="3" TopLine="7"/>
+      </Position13>
+      <Position14>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="22" Column="47" TopLine="10"/>
+      </Position14>
+      <Position15>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="27" Column="58" TopLine="12"/>
+      </Position15>
+      <Position16>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="15" Column="11" TopLine="3"/>
+      </Position16>
+      <Position17>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="36" Column="22" TopLine="18"/>
+      </Position17>
+      <Position18>
+        <Filename Value="task_4_1.lpr"/>
+        <Caret Line="35" Column="81" TopLine="20"/>
+      </Position18>
+    </JumpHistory>
+  </ProjectSession>
+  <EditorMacros Count="0"/>
+</CONFIG>

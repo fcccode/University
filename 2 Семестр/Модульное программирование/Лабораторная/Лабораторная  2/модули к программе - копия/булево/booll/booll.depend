@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1459198933 source:d:\kntu\предметы\2 Семестр\Модульное программирование\Лабораторная\Лабораторная 2\модули к программе\булево\booll\bool.cpp
+	<iostream>
+	<iomanip>
+	<clocale>
+

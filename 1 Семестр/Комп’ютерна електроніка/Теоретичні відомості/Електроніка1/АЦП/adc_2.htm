@@ -1,0 +1,320 @@
+
+
+ 
+ 
+<h2 align="center"><font color="#000080">Параллельные АЦП</font></h2>
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;АЦП этого типа осуществляют квантование сигнала одновременно с помощью набора компараторов, включенных параллельно источнику входного сигнала. На рис. 3 показана реализация параллельного метода АЦ-преобразования для 3-разрядного числа.<br>
+ 
+<p align="center"><img src="images/components/adc/acim93.gif" width=441 height=584 alt="Схема параллельного АЦП" border="0">
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;С помощью трех двоичных разрядов можно представить восемь различных чисел, включая нуль. Необходимо, следовательно, семь компараторов. Семь соответствующих эквидистантных опорных напряжений образуются с помощью резистивного делителя.<br>
+ 
+<p align="justify">&nbsp;&nbsp;&nbsp;&nbsp;Если приложенное входное напряжение не выходит за пределы диапазона от <sup>5</sup>/<sub>2</sub>h, до <sup>7</sup>/<sub>2</sub>h, где h=U<sub>оп</sub>/7 - квант входного напряжения, соответствующий единице младшего разряда АЦП, то компараторы с 1-го по 3-й устанавливаются в состояние 1, а компараторы с 4-го по 7-й - в состояние 0. Преобразование этой группы кодов в трехзначное двоичное число выполняет логическое устройство, называемое приоритетным шифратором, диаграмма состояний которого приведена в табл.1.<br>
+ 
+<h4 align="left">Таблица 1</h4>
+ <table align="center" cellspacing="0" cellpadding="2" border="1">
+<tr align="center">
+    <td>Входное напряжение</td>
+    <td colspan="7">Состояние компараторов</td>
+    <td colspan="3">Выходы</td>
+</tr>
+<tr align="center">
+    <td>U<sub>вх</sub>/h</td>
+    <td>К<sub>7</sub></td>
+    <td>К<sub>6</sub></td>
+    <td>К<sub>5</sub></td>
+    <td>К<sub>4</sub></td>
+    <td>К<sub>3</sub></td>
+    <td>К<sub>2</sub></td>
+    <td>К<sub>1</sub></td>
+    <td>Q<sub>2</sub></td>
+    <td>Q<sub>1</sub></td>
+    <td>Q<sub>0</sub></td>
+</tr>
+<tr>
+    <td><table align="center" cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>2</td>
+</tr>
+<tr align="center">
+    <td>3</td>
+</tr>
+<tr align="center">
+    <td>4</td>
+</tr>
+<tr align="center">
+    <td>5</td>
+</tr>
+<tr align="center">
+    <td>6</td>
+</tr>
+<tr align="center">
+    <td>7</td>
+</tr>
+</table>
+</td>
+    <td><table align="center" cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+</table></td>
+    <td><table align="center" cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+</table></td>
+    <td><table align="center" cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+</table></td>
+    <td><table align="center" cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+</table></td>
+    <td><table align="center" cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+</table></td>
+    <td><table align="center" cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+</table></td>
+    <td><table align="center" cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+</table></td>
+    <td><table align="center" cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+</table></td>
+    <td><table align="center" cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+</table></td>
+    <td><table align="center" cellspacing="2" cellpadding="2" border="0">
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</td>
+</tr>
+<tr align="center">
+    <td>0</td>
+</tr>
+<tr align="center">
+    <td>1</t

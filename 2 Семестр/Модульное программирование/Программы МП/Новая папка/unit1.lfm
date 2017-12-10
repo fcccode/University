@@ -1,0 +1,20 @@
+object Form1: TForm1
+  Left = 462
+  Height = 240
+  Top = 178
+  Width = 320
+  Caption = 'Form1'
+  Menu = MainMenu1
+  LCLVersion = '1.2.6.0'
+  object MainMenu1: TMainMenu
+    Tag = 2
+    OnChange = MainMenu1Change
+    object MenuItem1: TMenuItem
+      Tag = 2
+      Caption = 'Главное'
+      Checked = True
+      ShowAlwaysCheckable = True
+      OnClick = MenuItem1Click
+    end
+  end
+end

@@ -1,0 +1,3825 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>3.htm</title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<body background="back1.jpg">
+
+<p>
+<font face="Times New Roman Narrow" size=5><b>3. Специальные интерфейсы</b></font>
+
+<p>
+<font face="Times New Roman" size=2>В этой главе рассматриваются следующие интерфейсы<br>
+IBM PC-совместимых компьютеров: интерфейсы устройств<br>
+ввода (клавиатуры и манипуляторов), аналоговый и диск-<br>
+ретный интерфейсы игрового адаптера, аудиоинтерфейсы и<br>
+интерфейсы мониторов.</font>
+
+<p>
+<font face="Times New Roman Narrow" size=4><b>3.1. Интерфейс клавиатуры</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Для подключения клавиатуры предназначен последователь-<br>
+ный синхронный интерфейс, состоящий из двух обязатель-<br>
+ных сигналов, KB-Data и KB-Clock. Необязательный сигнал<br>
+KB-Reset сбрасывает клавиатуру низким уровнем сигнала.<br>
+Интерфейс на системной плате XT реализован аппаратной<br>
+логикой - регистром сдвига, параллельный выход которого<br>
+подключается ко входам порта А системного интерфейса<br>
+i8255. По приему байта от клавиатуры вырабатывается ап-<br>
+паратное прерывание IRQ2, обработчик которого может про-<br>
+читать принятый байт из порта 60h. С помощью бит 7 и 6<br>
+порта 61h возможны программная блокировка и сброс кла-<br>
+виатуры соответственно. Сброс клавиатуры XT осуществля-<br>
+ется обнулением линии KB-Clock.</font>
+
+<p>
+<font face="Times New Roman" size=2>Интерфейс клавиатуры AT построен на микроконтроллере<br>
+18042, обеспечивающем, в отличие от XT, двунаправленный<br>
+интерфейс с клавиатурой. Передача информации к клавиа-<br>
+туре используется для управления индикаторами ее состоя-<br>
+ния и программирования параметров (автоповтор, набор<br>
+скан-кодов).</font>
+
+<p>
+<font face="Times New Roman" size=2>Хотя электрический интерфейс клавиатур XT и AT совпа-<br>
+дает (за исключением двунаправленного обмена в AT), ло-<br>
+гические форматы посылок существенно отличаются. POST<br>
+способен производить диагностику клавиатуры. Подключе-<br>
+ние клавиатуры неподходящего типа или отсутствие клавиа-<br>
+туры он воспримет как ошибку. Если проверка клавиатуры</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>разрешена в BIOS Setup, то по этой ошибке POST будет<br>
+дожидаться получения кода клавиши F1.</font>
+
+<p>
+<font face="Times New Roman" size=2>Вид разъемов клавиатур (со стороны задней панели) и назна-<br>
+чение контактов приведены на рис. 3.1. Конструктивно воз-<br>
+можны два варианта разъема -обычная 5-контактная розетка<br>
+DIN или малогабаритная розетка mini-DIN (PS/2). На этот<br>
+же разъем через плавкий предохранитель поступает напряже-<br>
+ние питания клавиатуры +5 В. Электрически и логически ин-<br>
+терфейс клавиатуры PS/2 повторяет AT, поэтому для согла-<br>
+сования типа разъема применяют специальные переходники.<br>
+Предпочтительнее использовать переходники, выполненные<br>
+в виде мягкого кабеля с разъемами. Монолитный переход-<br>
+ник, особенно с АТ-клавиатуры на PS/2-разъем, хуже тем, что<br>
+малейшее движение кабеля вызывает большой момент силы,<br>
+выламывающий переходник из маленького гнезда PS/2.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="31.jpg"alt="31.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 3.1.</b> Разъемы подключения клавиатур XT, AT - а и PS/2 - <i>б<br>
+</i>(вид со стороны контактов)</font>
+
+<p>
+<font face="Times New Roman" size=2>Питание от разъема клавиатуры часто используется такими устройствами, как внеш-<br>
+ние накопители или адаптеры локальных сетей, подключаемыми к параллельному<br>
+порту. Плавкий предохранитель, установленный на системной плате, может не вы-<br>
+держать броска тока, потребляемого этими устройствами. При этом откажется ра-<br>
+<u>ботать и клавиатура - ее индикаторы не мигнут при включении.</u></font>
+
+<p>
+<font face="Times New Roman" size=2><i>Программируемый микроконтроллер 18042</i> имеет встроенное<br>
+ПО, которое хранится в масочном внутреннем ПЗУ и обес-<br>
+печивает вырабатывание запроса прерывания по приему скан-<br>
+кода от клавиатуры и отработку управляющих команд от<br>
+ЦП. Кроме управления клавиатурой, через программно-<br>
+управляемые и программно-читаемые линии внешних пор-<br>
+тов контроллера формируются сигналы управления венти-<br>
+лем <i>Gate А20,</i> аппаратного системного сброса, а также<br>
+считываются сигналы от конфигурационных джамперов си-<br>
+стемной платы. Контроллер 18242В, кроме интерфейса кла-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>виатуры, поддерживает аналогичный интерфейс дополни-<br>
+тельного устройства, например PS/2-Mouse. Контроллер<br>
+имеет два порта, доступ к которым осуществляется через<br>
+команды контроллера.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Порт ввода,</i> доступный по команде СО/?, используется для<br>
+чтения состояния джамперов и ключа:</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> Бит 7 - если 0, то клавиатура заблокирована ключом<br>
+<i>(KeyLock).</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>^</i> Бит б - исходный видеорежим: 0=CGA, 1=MDA.<br>
+^ Бит 5 - системная перемычка: 0=замкнута.<br>
+<i>т</i> Бит 4 - системное ОЗУ: 0=512 Кбайт и более, 1-256 Кбайт.<br>
+^ Бит 1 - вход данных дополнительного интерфейса.<br>
+^ Бит 0 - вход данных интерфейса клавиатуры.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Порт вывода,</i> доступный для записи и чтения по командам<br>
+<i>D1h</i> и <i>DOh</i> соответственно, имеет следующее назначение бит:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Бит 7 - последовательные данные клавиатуры.<br>
+?i Бит 6 - синхронизация клавиатуры.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Бит 5 - запрос прерывания от дополнительного интер-<br>
+фейса (IRQ12).</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Бит 4 - запрос прерывания от клавиатуры (IRQ1).<br>
+<i>т</i> Бит 3 - синхронизация дополнительного интерфейса.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Бит 2 - последовательные данные дополнительного ин-<br>
+терфейса.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> Бит 1 - вентиль линии адреса А20 <i>(Gate А20).</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> Бит 0 - альтернативный сброс процессора (без форми-<br>
+рования общего сигнала сброса).</font>
+
+<p>
+<font face="Times New Roman" size=2>Контроллер расположен в пространстве ввода/вывода по<br>
+адресам 60h и 64h, причем по чтению скан-кода клавиату-<br>
+ры из порта 60h сохраняется совместимость с XT. Назначе-<br>
+ние регистров контроллера клавиатуры приведено в табл. 3.1.<br>
+Регистр данных контроллера в режиме записи используется<br>
+для подачи команд, относящихся к клавиатуре и собственно<br>
+контроллеру. Признаком готовности контроллера является<br>
+нулевое значение бита 1 регистра состояния (порт 064h).</font>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Порт,</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R/W</font>
+</td>
+<td>
+
+<p>
+
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>060 RW</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Порт данных 8042</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>064 R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр состояния 8042:</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит 7 - ошибка четности</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит 6 - тайм-аут приемника/общий тайм-аут*</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит 5 - тайм-аут передатчика/выходной буфер</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>дополнительного интерфейса полон*</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит 4: 1 - клавиатура на замке</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>БитЗ:</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1 - команда,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0 - данные</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит 2:</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0 - Power ON,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1 - Reset OK (состояние завершения</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>системного сброса)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит 1:</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1 - входной буфер полон,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0 - готовность к приему команды/данных</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит 0: 1 - выходной буфер полон</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>064 W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр команд 8042</i></font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>* Второе назначение бита относится к контроллеру 18242В, имеющему<br>
+дополнительный интерфейс для подключения PS/2-Mouse.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Общие команды контроллера 18042:</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>т DF -</i> разрешить управление линией А20.<br>
+<i>т DD -</i> запретить управление линией А20.<br>
+^ <i>D1</i> - запись в порт вывода 18042.<br>
+<i>т 00 -</i> чтение порта вывода 18042.<br>
+<i>т СО -</i> чтение порта ввода 18042.<br>
+<i>т АЕ -</i> разрешение клавиатуры.<br>
+^ <i>AD -</i> запрещение клавиатуры.<br>
+<i>т AC -</i> чтение ОЗУ контроллера.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ss <i>AB -</i> тест синхронизации и данных.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>ш АА -</i> внутренний тест контроллера.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т 60 -</i> запись в контроллер.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>20 -</i> чтение контроллера.<br>
+ <i>Команды управления клавиатурой AT:</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>т. FF - Reset -</i> сброс и тест клавиатуры.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>FE - Resend -</i> повтор последней передачи.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>FB-FD - Set Key Types -</i> установка автоповтора отдель-<br>
+ ных клавиш.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т F7-FA -Set All Keys</i> - установка операции автоповтора<br>
+ клавиатуры.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т F6 - Set Default -</i> сброс в начальное состояние и разре-<br>
+ шение сканирования.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>ш F5 - Default Disable -</i> сброс в начальное состояние и за-<br>
+ прет сканирования.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>F4 - Enable KB -</i> клавиатура ответит байтом подтверж-<br>
+ дения <i>АСК</i> и продолжит сканирование.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ F3 - <i>Set Typematic Rate/Delay -</i> задание задержки и час-<br>
+тоты повтора кодов. Последующий байт данных имеет<br>
+следующий формат:</font>
+
+<p>
+<font face="Times New Roman" size=2>Бит 7=0.<br>
+Биты [6:5] - задержка, мс:</font>
+
+<p>
+<font face="Times New Roman" size=2>00=250, 01=500, 10-750. 11=1000.<br>
+Биты I^OJ^OO-lFh - скорость повторов, 1/с:</font>
+
+<p>
+<font face="Times New Roman" size=2>00h=30.0   05h=18,5   OAh=12,0   12h=6,0<br>
+01h=26,7   06h=17,l   OCh-10,0  14h=5,0<br>
+02h=24,0   07h=16,0   ODh=9,2   17h=4,0<br>
+03h=21,8   08h=15,0   OFh=8,0    lAh=3,0<br>
+04h-20,0   09h=13,3   lOh-7,5    lFh=2,0</font>
+
+<p>
+<font face="Times New Roman" size=2><i>m F2 - Read ID Code -</i> запрос на двухбайтный идентифи-<br>
+катор.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>ЕЕ - Echo -</i> эхо-диагностика: возвращает OEEh.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ffi <i>ED - Set/Reset Mode Indicators -</i> управление индикато-<br>
+рами клавиатуры. Последующий байт данных:</font>
+
+<p>
+<font face="Times New Roman" size=2>Бит 0: 1=включить Scroll Lock.</font>
+
+<p>
+<font face="Times New Roman" size=2>Бит 1: 1 ^включить Num Lock.</font>
+
+<p>
+<font face="Times New Roman" size=2>Бит 2: 1=включить Caps Lock.<br>
+8й <i>AD -</i> запрет сканирования.<br>
+<i>т АЕ -</i> разрешение сканирования.</font>
+
+<p>
+<font face="Times New Roman" size=2>По нажатии клавиши ее скан-код попадает в регистр дан-<br>
+ных. По отпускании в регистр данных попадает сначала пре-<br>
+фикс отпускания, затем - скан код. В XT префикса нет, по<br>
+отпускании передается скан-код с единицей в бите 7.</font>
+
+<p>
+<font face="Times New Roman" size=2>Из регистра данных контроллера кроме скан-кодов возмож-<br>
+но получение ответов на команды, префикса кода отпуска-<br>
+ния клавиши (FO) или кодов особых случаев:</font>
+
+<p>
+<font face="Times New Roman" size=2>as <i>FA - АСК -</i> подтверждение приема команды.<br>
+йй <i>АА - Test OK -</i> внутренний тест прошел.<br>
+<i>т FD - Diagnostic Failure -</i> ошибка внутреннего теста.<br>
+^ <i>ЕЕ - Echo Response -</i> ответ на эхо-команду.</font>
+
+<p>
+<font face="Times New Roman" size=2>а? <i>00, FF - Buffer Error -</i> переполнение буфера или неиден-<br>
+тифицированная клавиша.</font>
+
+<p>
+<font face="Times New Roman" size=4><b>3.2. Интерфейсы манипуляторов</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Устройство ввода <i>мышь</i> (mouse) передает в систему инфор-<br>
+мацию о своем перемещении и нажатии-отпускании кнопок.<br>
+Обычная конструкция имеет свободно вращающийся мас-<br>
+сивный обрезиненный шарик, передающий вращение на два<br>
+координатных диска с фотоэлектрическими датчиками - две<br>
+открытые оптопары (светодиод - фотодиод), в оптический<br>
+канал которых входит вращающийся диск с прорезями.</font>
+
+<p>
+<font face="Times New Roman" size=2>По интерфейсу с компьютером различают три основных вида<br>
+мышей: <i>Bus Mouse, Serial Mouse</i> и <i>PS/2-Mouse.</i> Ожидается<br>
+появление мышей с интерфейсом USB.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Bus Mouse</i> (шинная мышь) - вариант, применявшийся в первых<br>
+мышах. Содержит только датчики и кнопки; обработка их сигна-<br>
+лов производится на специализированной плате адаптера. Муль-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>типортовые карты (СОМ-, LPT- и GAME-порты), на которых<br>
+установлен и адаптер Bus Mouse, встречаются редко. Кабель<br>
+9-проводный, разъем специальный (см. рис. 3.2 и табл. 3.2), хотя<br>
+на первый взгляд напоминает разъем PS/2-Mouse.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигналы</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигналы</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vcc (+5 В)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ш - левая кнопка</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ха - датчик Х</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>t/b -</i> средняя кнопка</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ХЬ - датчик Х</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Rb - правая кнопка</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ya - датчик Y</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Yb - датчик Y</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="32.jpg"alt="32.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 3.2.</b> Разъем Bus Mouse</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Serial Mouse -</i> мышь с последовательным интерфейсом, под-<br>
+ключаемая через 25 или 9-штырьковый разъем СОМ-порта<br>
+(табл. 2.3). Имеет встроенный микроконтроллер, который об-<br>
+рабатывает сигналы от координатных датчиков и кнопок.<br>
+Каждое событие кодируется двоичной посылкой по интер-<br>
+фейсу RS-232C (см. 2.5.1).</font>
+
+<p>
+<font face="Times New Roman" size=2><i>PS/2-Mouse -</i> мышь, появившаяся с компьютерами PS/2.<br>
+Ее интерфейс и 6-штырьковый DIN мини-разъем аналогич-<br>
+ны клавиатурному (рис. 3.3). Адаптер и разъем PS/2-Mouse<br>
+устанавливается на современных системных платах brand-<br>
+name. Контроллер такой мыши может входить в контрол-<br>
+лер клавиатуры или занимать дополнительные адреса в про-<br>
+странстве ввода/вывода. Для PS/2-Mouse используется<br>
+прерывание IRQ12.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="33.jpg"alt="33.jpg">
+<br clear=all>
+
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>С интерфейсами Serial Mouse и PS/2-Mouse иногда возни-<br>
+кают недоразумения. Хотя оба они последовательные, но<br>
+имеют принципиальные различия в уровнях сигналов, спо-<br>
+собе синхронизации, частоте и формате посылок:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Интерфейс PS/2 использует однополярный сигнал с уров-<br>
+нями ТТЛ, питание мыши - однополярное с напряжени-<br>
+ем +5 В относительно шины GND. Интерфейс RS-232C,<br>
+применяемый в Serial Mouse, использует двухполярный<br>
+сигнал (см. 2.1.1) с уровнями срабатывания +3 В<br>
+и -3 В, требует двухполярного питания.</font>
+
+<p>
+<font face="Times New Roman" size=2>ж Синхронный интерфейс PS/2-Mouse использует две раз-<br>
+дельные сигнальные линии, одну - для передачи данных,<br>
+другую - для сигналов синхронизации. Serial Mouse ис-<br>
+пользует асинхронный способ передачи данных по одной<br>
+линии.</font>
+
+<p>
+<font face="Times New Roman" size=2>Ясно, что совместимости между этими интерфейсами нет.<br>
+Тем не менее, выпускаются и продаются переходники (пас-<br>
+сивные!), позволяющие выбирать способ подключения мыши.<br>
+Они предназначены только для <i>универсальных</i> мышей, у ко-<br>
+торых встроенный контроллер по напряжению питания спо-<br>
+собен распознать, к какому интерфейсу его подключили, и<br>
+установить соответствующий тип своего выходного интер-<br>
+фейса. Универсальные мыши не особо распространены, по-<br>
+этому часто приходится слышать о неудачньк попытках при-<br>
+менения таких переходников к обычным Serial Mouse или<br>
+PS/2-Mouse.</font>
+
+<p>
+<font face="Times New Roman" size=2>Дополнительную путаницу вносят мыши для компьютеров<br>
+Macintosh, которые имеют разъем, с виду напоминающий<br>
+PS/2. Однако разъемы эти разные,'да и интерфейс совер-<br>
+шенно иной.</font>
+
+<p>
+<font face="Times New Roman" size=2>Манипулятор трекбол <i>(trackball)</i> ("шар") представляет со-<br>
+бой перевернутую мышь, шарик которой вращают пальца-<br>
+ми. Иногда встраивается в клавиатуру.</font>
+
+<p>
+<font face="Times New Roman Narrow" size=4>3.3. Интерфейс игрового адаптера - GAME-порт</font>
+
+<p>
+<font face="Times New Roman" size=2>Интерфейс игрового адаптера занимает особое место в клас-<br>
+сификации. Он позволяет вводить значения <i>дискретных</i></font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>(4 бита) и <i>аналоговых</i> сигналов (сопротивления 4 резисто-<br>
+ров). Изначально порт был предназначен для подключения<br>
+джойстиков и других игровых устройств ввода (Paddle), но<br>
+может применяться и для подключения "серьезных" датчи-<br>
+ков. Метод измерения сопротивления основан на програм-<br>
+мном определении длительности импульса, пропорциональ-<br>
+ной сопротивлению. <i>Преобразование</i> начинается по выводу<br>
+любого байта в регистр адаптера (20 lh), при этом биты 0-3<br>
+устанавливаются в 1. Время измеряется до возврата в нуле-<br>
+вое состояние бит 0-3, соответствующих четырем аналого-<br>
+вым каналам. Если аналоговый вход закорочен на шину GND<br>
+или цепь измеряемого сопротивления разорвана, соответству-<br>
+ющий бит не обнулится. Поэтому в программе преобразова-<br>
+ния должен быть предусмотрен тайм-аут. Для измеряемых<br>
+сопротивлений в диапазоне 0-100 кОм время определяется<br>
+по формуле</font>
+
+<p>
+<font face="Times New Roman" size=2>Т=24,2+ llxR,</font>
+
+<p>
+<font face="Times New Roman" size=2>где <i>Т -</i> время (в микросекундах), a <i>R -</i> сопротивление (в ки-<br>
+лоомах).</font>
+
+<p>
+<font face="Times New Roman" size=2>Точность и линейность преобразования невысока, преобра-<br>
+зование выполняется не быстро (до 1,12 мс) и сильно загру-<br>
+жает процессор. Однако в отличие от "настоящих" аналого-<br>
+цифровых преобразователей этот достается даром - игровой<br>
+адаптер входит в состав практически всех комбинированных<br>
+плат последовательных и параллельных портов, звуковых<br>
+карт или системных плат.</font>
+
+<p>
+<font face="Times New Roman" size=2>Порт имеет <i>разъем-розетку DB-15S.</i> Назначение выводов и<br>
+соответствие сигналов битам регистра приведены в табл. 3.3.<br>
+Резисторы подключаются к шине питания +5 В, кнопки - к<br>
+шине GND (рис. 3.4). Замыканию кнопок соответствуют нули<br>
+в битах 5-7. Аналоговые каналы можно использовать для<br>
+дискретного ввода, если их входы подключить к кнопкам,<br>
+замыкающим их на шину GND, и к резисторам, "подтягива-<br>
+ющим" их к уровню + 5 В. Два джойстика (А и В) подклю-<br>
+чаются через Y-образный переходник-разветвитель. На зву-<br>
+ковых картах через разъем <i>"Game"</i> вместе с джойстиками<br>
+могут подключаться и внешние MIDI-устройства через спе-<br>
+циальный кабель-адаптер, обеспечивающий гальваническую</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>развязку входного сигнала и ограничение выходного тока (см.<br>
+рис. 2.16). Для интерфейса MIDI используются контакты 12<br>
+и 15, ранее предназначавшиеся для шин GND и +5V. Такое<br>
+назначение делает безопасным подключение адаптера MIDI<br>
+к "чистому" игровому порту и обычного джойстика к игро-<br>
+вому порту с сигналами MIDI.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="34.jpg"alt="34.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 3.4.</b> Подключение датчиков к игровому адаптеру</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Джойстик В кнопка #2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Джойстик В кнопка #1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Джойстик А кнопка #2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Джойстик А кнопка # 1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Джойстик В Y-координата</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Джойстик В Х-координата</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Джойстик А Y-координата</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Джойстик А Х-координата</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4, 5, (12)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1, 8, 9,(15)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MIDI-Rx - вход (на звуковой карте)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MIDI-Tx - выход (на звуковой карте)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+<font face="Times New Roman" size=4><b>3.4. Аудиоинтерфейсы</b></font>
+
+<p>
+<font face="Times New Roman" size=2>В первых PC этот интерфейс был однонаправленным - тра-<br>
+диционный канал управления звуком (PC Speaker) представ-<br>
+лял собой примитивный синтезатор. Теперь для звуко-<br>
+воспроизведения (и звукозаписи) используется ставший<br>
+стандартным двунаправленный цифровой аудиоканал. Роль<br>
+PC Speaker сводится к подачам гудков при загрузке, иден-<br>
+тификации ошибок во время POST, а также к сопровожде-<br>
+нию сообщений об ошибках.</font>
+
+<p>
+<font face="Times New Roman Narrow" size=3><b>3.4.1. PC Speaker</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Стандартный канал управления звуком PC Speaker рассчи-<br>
+тан на подключение высокоомного малогабаритного дина-<br>
+мика. Логическая схема канала приведена на рис. 3.5. Звук<br>
+формируется из тонального сигнала от второго канала сис-<br>
+темного таймера, которым можно программно управлять.<br>
+Частоту сигнала можно изменять, программируя коэф-<br>
+фициент деления счетчика-таймера, который расположен в<br>
+пространстве ввода/вывода по адресу 042h. При записи (и<br>
+чтении) 16-битный двоичный код передается парой (обяза-<br>
+тельно!) 8-битных операций (сначала младший байт, потом<br>
+старший). Разрешая/запрещая формирование сигнала про-<br>
+граммно-управляемым битом 0 системного порта 61h, мож-<br>
+но подавать сигналы определенной длительности. Такой спо-<br>
+соб формирования звука не загружает процессор и позволяет<br>
+исполнять незамысловатые мелодии. С учетом инерции слуха<br>
+быстрым переключением частот можно достигать эффекта<br>
+многоголосия.</font>
+
+<p>
+<font face="Times New Roman" size=2>Более интересные звуки можно извлекать, используя прин-<br>
+цип широтно-импульсной модуляции, программно осуще-<br>
+ствляемой через бит 1 порта 61h. В этом случае динамик<br>
+выполняет роль фильтра низких частот (инерционного зве-<br>
+на) демодулятора. Процессоры, начиная с 80286, способны<br>
+формировать поток управляющих сигналов, который позво-<br>
+ляет воспроизводить музыкальный или речевой сигнал с ка-<br>
+чеством карманного радиоприемника. Однако такое форми-<br>
+рование звука практически полностью загружает процессор.<br>
+Качество воспроизведения сильно зависит от частотных</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>свойств динамика. Предпочтительнее более крупные дина-<br>
+мики, у которых лучше воспроизведение нижних частот, - с<br>
+ними можно добиться даже разборчивости речи. Драйвер для<br>
+звукоизвлечения существует также и для Windows З.х/95, но<br>
+в стандартную поставку Windows не входит.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="35.jpg"alt="35.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 3.5.</b> Канал управления звуком</font>
+
+<p>
+<font face="Times New Roman" size=3><b>3.4.2. Цифровой аудиоканал</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Кроме стандартного канала управления звуком, фактичес-<br>
+ки стандартизованными являются средства работы с аудио-<br>
+сигналом, имеющиеся на плате Sound Blaster фирмы<br>
+Creative Labs (табл. 3.4). Звуковые карты обычно имеют<br>
+16-битную шину ISA (8-битные нежелательны), PCI или<br>
+PC Card, новые модели поддерживают РпР. Звуковая кар-<br>
+та в своем составе имеет цифровой канал записи-воспроиз-<br>
+ведения моно- и стереофонического сигнала, микшер, син-<br>
+тезатор и MIDI-порт.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Цифровой аудиоканал</i> обеспечивает возможность моно- или<br>
+стереофонической записи и воспроизведения аудиофайлов<br>
+с уровнем качества от кассетного магнитофона до аудио-CD.<br>
+Запись производится оцифровкой сигнала с частотой диск-<br>
+ретизации 5-44,1 кГц. Разрядность используемых ADC и<br>
+DAC (аналого-цифровых и цифроаналоговых преобразо-<br>
+вателей) варьируется от 8 до 16 бит. Более совершенные схе-<br>
+мы имеют встроенные средства компрессии сигнала, на-<br>
+пример, по методу адаптивной дельта-импульсно-кодовой<br>
+модуляции (ADPCM). В этом случае в цифровом виде хра-<br>
+нятся не значения выборок, а специальным образом обрабо-<br>
+танные разности величин соседних выборок, что позволяет<br>
+(при сохранении качества) значительно уменьшить объем<br>
+записи. Компрессия аудиосигнала применяется, например,<br>
+в кодеках MPEG и голосовых модемах. На стандартных<br>
+аудио-CD компрессия не применяется.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Для передачи потока данных по шине в цифровой аудиока-<br>
+нал и обратно используются 8- и/или 16-битные каналы<br>
+DMA. Звуковой канал использует аппаратные прерывания<br>
+и порты ввода/вывода. Для организации телефонной связи<br>
+по сети (например, IPhone) нужен полнодуплексный режим<br>
+(Full Duplex), реализуемый далеко не на всех картах.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Адрес*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R/W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+0 (388Ь)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>FM music status</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+0 (388h)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>FM music address register</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+1 (389h)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>FM music data register</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+2 (38Ah)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Advanced FM music address register</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+3 (38Bh)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Advanced FM music data register</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Mixer, I/O setup address register</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R/W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Mixer, I/O setup data register</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DSP reset</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>FM music address register</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>FM music data register</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+OAh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DSP read data</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+OCh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DSP write data or command</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+OCh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DSP write buffer status</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+ODh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DSP timer interrupt clear</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+OEh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DSP data available status</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+OFh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16-bit voice interrupt clear</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SB+(10h...l3h)</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MPU+0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R/W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MPU-401 data</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MPU+1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MPU-401 status</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MPU+1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MPU-401 command</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>* 38xh - адреса регистров FM music для плат Adiib.<br>
+SB - базовый адрес Sound Blaster (220h, 240h, 260h, 280h).<br>
+MPU - базовый адрес MIDI-порта (300h, 330h).</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Оцифрованный звук хранится в файлах. Размер файла за-<br>
+висит от длительности записи, разрядности преобразования,<br>
+частоты квантования и количества каналов (моно или сте-<br>
+рео). Эти файлы редактируются ПО, которое позволяет вы-<br>
+вести на экран подобие осциллограмм записанных сиг-<br>
+налов.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Микшер с</i> программным управлением обеспечивает регули-<br>
+ровку входных и выходных сигналов, а также настройку тем-<br>
+бра по низким и высоким частотам. Микшер позволяет сме-<br>
+шивать входные сигналы от нескольких источников.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Синтезатор</i> обеспечивает имитацию звучания музыкальных<br>
+инструментов и воспроизведение различных звуков. В зву-<br>
+ковых картах в основном используют два метода синтеза -<br>
+частотный и волновой.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>FM Music Synthesizer -</i> синтезатор с частотной модуляцией<br>
+(Frequency Modulated) имеет несколько каналов (голосов).<br>
+Каждый канал содержит несколько синусоидальных гене-<br>
+раторов (операторов), управляющих параметрами (часто-<br>
+та, амплитуда) друг друга. Частотный синтезатор при не-<br>
+большом числе операторов не обеспечивает хорошего<br>
+синтеза.</font>
+
+<p>
+<font face="Times New Roman" size=2>Более совершенные платы имеют <i>WT Music Synthesizer -<br>
+</i>синтезаторы на основе таблицы волн (Wave Table) - их на-<br>
+зывают также волновыми синтезаторами, - хранящие в сво-<br>
+ей постоянной памяти образцы некоторых звуков натураль-<br>
+ных инструментов. При воспроизведении звука выходной<br>
+сигнал пересчитывается встроенным процессором на соот-<br>
+ветствующие параметры частоты и амплитуды. Для хране-<br>
+ния большего количества образцов возможна установка<br>
+ОЗУ. Волновые синтезаторы обеспечивают высокое каче-<br>
+ство синтеза.</font>
+
+<p>
+<font face="Times New Roman" size=2>Для подключения внешних MIDI-устройств звуковые кар-<br>
+ты имеют порт <i>MIDI</i> (Musical Instrument Device Interface).<br>
+Интерфейс - токовая петля с питанием от передатчика и<br>
+гальванической развязкой входных цепей приемника (см.<br>
+главу 2) - выведен на контакты 12, 15 разъема игрового адап-<br>
+тера. Обычно MIDI-порт эмулирует UART MPU-401, ис-<br>
+пользующий два порта ввода/вывода и прерывание.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Для создания специальных эффектов (хор, реверберация и<br>
+т. п.) на более сложных звуковых картах применяются про-<br>
+цессоры обработки сигналов DSP (Data Signal Processor).</font>
+
+<p>
+<font face="Times New Roman" size=2>Звуковая карта имеет набор разъемов для подключения вне-<br>
+шних сигналов (входные - микрофон, линейный вход, CD-<br>
+ROM; выходные - линейный выход, выход на колонки или<br>
+наушники), некоторые платы имеют цифровой вход от CD-<br>
+ROM. Встроенный усилитель имеет мощность до 4 Вт на ка-<br>
+нал. Колонки <i>(Speakers)</i> для PC имеют специальный маг-<br>
+нитный экран или улучшенную конструкцию магнитной<br>
+системы динамиков, чтобы предотвратить воздействие маг-<br>
+нитного поля на монитор. Активные колонки <i>(Active<br>
+Speakers)</i> имеют встроенный усилитель и требуют внешнего<br>
+питания. Полоса частот колонок PC недостаточна для Hi-Fi<br>
+воспроизведения. Более качественные системы имеют две<br>
+колонки для средних и высоких частот и одну большую (саб-<br>
+вуфер) - для низких.</font>
+
+<p>
+<font face="Times New Roman" size=2>Для выдачи MIDI-команд существуют специальные <i>MIDI-<br>
+клавиатуры,</i> простейшие фиксируют и передают только факт<br>
+нажатия-отпускания клавиш, более сложные имеют динами-<br>
+ческие датчики, реагирующие на силу и скорость нажатия.<br>
+Динамическая клавиатура в сочетании с хорошим WT-син-<br>
+тезатором обеспечивает достаточно полную имитацию фор-<br>
+тепиано и других инструментов. MIDI-интерфейс имеют<br>
+многие профессиональные и полупрофессиональные клавиш-<br>
+ные синтезаторы.</font>
+
+<p>
+<font face="Times New Roman" size=2>Подключение к звуковой карте внешних устройств осуще-<br>
+ствляется через малогабаритные стереоразъемы - "джеки"<br>
+(Jack) - на задней панели:</font>
+
+<p>
+<font face="Times New Roman" size=2>si <i>Line In -</i> линейный вход от магнитофона, тюнера, проиг-<br>
+рывателя, синтезатора и т. п. Чувствительность поряд-<br>
+ка 0,1-0,3 В.</font>
+
+<p>
+<font face="Times New Roman" size=2>йй <i>Micin</i> - микрофонный вход, чувствительность 3-10 мВ.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>Line Out -</i> линейный выход сигнала на внешний усили-<br>
+тель или магнитофон, уровень сигнала порядка 0,1-0,3 В.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>Speaker Out -</i> выход на акустические системы или голов-<br>
+ные телефоны. Подключать к нему внешний усилитель</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>мощности нецелесообразно, поскольку здесь искажения<br>
+больше, чем на линейном выходе.</font>
+
+<p>
+<font face="Times New Roman" size=2>Ґs <i>Joystick/MIDI -</i> разъем подключения джойстика. Для под-<br>
+ключения MIDI-устройств необходим кабель-адаптер (см.<br>
+рис. 2.16).</font>
+
+<p>
+<font face="Times New Roman" size=2>Для подключения внутренних устройств CD-ROM к анало-<br>
+говым входам используются четырехштырьковые разъемы,<br>
+различающиеся как шагом между выводами, так и их назна-<br>
+чением. Часто ставят рядом несколько разъемов с параллель-<br>
+но соединенными сигнальными контактами. Но это может<br>
+не сработать, если кабель имеет другое расположение сигна-<br>
+лов. Тогда можно переустановить контакты на разъеме ка-<br>
+беля, для чего иголкой нажимают на фиксирующий выступ<br>
+контакта, после чего контакт вытягивают в сторону кабеля<br>
+и переставляют в другое гнездо. Сигнальные контакты аудио-<br>
+входов см. на рис. 3.6. Разъем может иметь ключ с противо-<br>
+положной стороны (по ошибке сборщика кабеля или по внут-<br>
+реннему стандарту его производителя). Задача подключения<br>
+облегчается тем, что требует правильной расстановки толь-<br>
+ко двух сигнальных контактов. Контакты общего провода<br>
+выделяются тем, что на плате соединяются с шиной, а на<br>
+кабеле - с экраном. Положение левого и правого каналов<br>
+аудио-CD в большинстве случаев непринципиально.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="36.jpg"alt="36.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 3.6.</b> Внутренние разъемы подключения аудиосигналов</font>
+
+<p>
+<font face="Times New Roman" size=4>3.5. Интерфейсы видеомониторов</font>
+
+<p>
+<font face="Times New Roman" size=2>В традиционной технике цветного телевизионного вещания<br>
+(PAL, SECAM или NTSC) видеосигнал непосредственно не-<br>
+сет информацию о мгновенном значении яркости, а цвето-<br>
+вая информация передается в модулированном виде на до-<br>
+полнительных частотах. Таким образом обеспечивается<br>
+совместимость черно-белого приемника, игнорирующего цве-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>товую информацию, с цветным передающим каналом. Од-<br>
+нако для вывода графической информации с высоким раз-<br>
+решением ни одна из традиционных вещательных систем не<br>
+подходит, поскольку они имеют существенно ограниченную<br>
+полосу пропускания цветовых каналов.</font>
+
+<p>
+<font face="Times New Roman" size=2>Для графики низкого разрешения, при которой частоты син-<br>
+хронизации были близки к стандартным телевизионным,<br>
+использовался интерфейс <i>Composite Video.</i> По коаксиально-<br>
+му кабелю (75 Ом) передавался полный стандартный видео-<br>
+сигнал с размахом около 1,5 В. В видеотехнике этот сигнал<br>
+называют низкочастотным, имея в виду то, что по нему по-<br>
+дается прямой, а не модулированный сигнал. Соответству-<br>
+ющий ему вход имеется не у каждого телевизора. При нали-<br>
+чии дополнительного радиочастотного модулятора <i>RFM<br>
+</i>(Radio Frequency Modulator) можно было подключаться к<br>
+антенному входу стандартного телевизионного приемника,<br>
+но при этом еще более снижалось реальное разрешение гра-<br>
+фики. Для композитного интерфейса используют коаксиаль-<br>
+ные разъемы RCA ("колокольчик"), широко применяемые<br>
+в видео- и аудиотехнике.</font>
+
+<p>
+<font face="Times New Roman" size=2>Для мониторов при высоком разрешении можно использо-<br>
+вать только прямую подачу сигнала на входы видеоусили-<br>
+телей базовых цветов - <i>RGB-вход (Red Green Blue -</i> крас-<br>
+ный, зеленый и синий). Интерфейс между видеоадаптером<br>
+и монитором может быть как дискретным (с сигналами ТТЛ),<br>
+так и аналоговым.</font>
+
+<p>
+<font face="Times New Roman" size=3><b>3.5.1. Дискретный интерфейс RGB TTL</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Первые мониторы для PC имели цифровой интерфейс с<br>
+уровнями ТТЛ (табл. 3.5) - <i>RGB TTL</i> Для монохромного<br>
+монитора использовали лишь два сигнала - видео (вклю-<br>
+чить/выключить луч) и повышенной яркости. Таким обра-<br>
+зом, монитор мог отобразить три градации яркости:</font>
+
+<p>
+<font face="Times New Roman" size=2>хотя 22=4, но "темный пиксел" и "темный с повышенной<br>
+яркостью" неразличимы. В цветных мониторах класса <i>CD<br>
+(Color Display)</i> имелось по одному сигналу для включения<br>
+каждого луча и общий сигнал повышенной яркости. Таким<br>
+образом, можно было задать 16 цветов. Следующий класс -<br>
+улучшенный цветной дисплей <i>ECD (Enhanced Color Display)</i></font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>имел цифровой интерфейс с двумя сигналами на каждый<br>
+базовый цвет. Сигналы позволяли задавать одну из 4 града-<br>
+ций интенсивности; общее количество кодируемых цветов<br>
+достигло 26=64. Сигналы RED, GREEN, BLUE и Red, Green,<br>
+Blue обозначают, соответственно, старшие и младшие биты<br>
+базисных цветов.</font>
+
+<p>
+<font face="Times New Roman" size=2>Строчная и кадровая синхронизация монитора осуществля-<br>
+ется сигналами H.Sync и V.Sync. Монохромные адаптеры<br>
+MDA и HGC, работающие с высоким разрешением (720х350<br>
+пикселов), используют высокую частоту развертки. Адаптер<br>
+CGA работает с низкими частотами (параметры синхрони-<br>
+зации близки к телевизионным). Адаптеры и мониторы EGA<br>
+могут работать с любыми из этих частот. Для облегчения<br>
+переключения режимов генератора развертки монитора ис-<br>
+пользуют сигнал V.Sync: полярность импульсов определяет<br>
+диапазон частот развертки текущего видеорежима. Для всех<br>
+разновидностей интерфейса RGB TTL используется разъем<br>
+DB-9S.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=1>Контакт</font>
+</td>
+<td colspan=3>
+
+<p>
+<font face="Times New Roman" size=1>Монитор</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>MDA/HGC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>CGA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>EGA Color/Mono</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Red</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>RED</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>RED</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GREEN</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GREEN</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>BLUE</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>BLUE</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Intensiv.</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Intensiv.</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Green/lntens.</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Video</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Blue/Video</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+H.Sync.</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+H.Sync.</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+H.Sync.</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-V.Sync.</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+V.Sync.</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-(+)V.Sync.</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=3>3.5.2. Аналоговый интерфейс RGB</font>
+
+<p>
+<font face="Times New Roman" size=2>Из-за ограничений цифрового интерфейса пришлось перей-<br>
+ти на аналоговый интерфейс, перенеся цифроаналоговые</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>преобразователи сигналов базовых цветов из монитора на<br>
+графический адаптер. Такой интерфейс с 8-разрядными<br>
+ЦАП для каждого цвета в настоящее время позволяет вы-<br>
+водить 16,7 миллиона цветов <i>(True Color).</i> Этот интерфейс<br>
+называется <i>RGB Analog,</i> в нем базовые цвета передаются<br>
+аналоговыми сигналами с отдельными обратными линия-<br>
+ми по витым парам. Черному цвету соответствует нулевой<br>
+потенциал на линиях всех цветов, полной яркости каждого<br>
+цвета соответствует уровень +0,7 В. Сигналы управления,<br>
+состояния и синхронизации передаются сигналами ТТЛ.<br>
+Впервые аналоговый интерфейс был применен на адаптере<br>
+PGA фирмы IBM, где для него использовался 9-контакт-<br>
+ный разъем DB-9S (табл. 3.6). В дальнейшем, начиная с<br>
+адаптеров VGA, стали применять малогабаритный 15-кон-<br>
+тактный разъем с таким же внешним размером (табл. 3.7).<br>
+По назначению сигналов эти интерфейсы в основном со-<br>
+впадают, и существуют даже переходные кабели с 15- на<br>
+9-контактные разъемы (табл. 3.8). В адаптере PGA исполь-<br>
+зуется <i>совмещенная синхронизация (Composite Sync)</i> сигна-<br>
+лом (H+V)Sync., этот режим поддерживают и многие совре-<br>
+менные мониторы.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Red</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Green</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Blue</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>(H+V)Sync</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Mode Control</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Red Return</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Green Return</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Blue Return</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=1>Контакт<br>
+DB-15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Видеоадаптер</font>
+</td>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=1>Монитор</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>MCGA/VGA/SVGA/XGA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Mono</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Color</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Red</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Red</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Green</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Video</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Green</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Blue</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Blue</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ID2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND/DDC Return1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>SelfTest/DDC<br>
+Return</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>SelfTest/DDC<br>
+Return</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Red Return</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Key</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Red Return</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Green Return</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Video Return</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Green Return</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Blue Return</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Blue Return</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Ключ (нет контакта)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>IDO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ID1/SDA1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-/SDA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND/SDA</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>H.Sync/(H+V)Sync2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>H.Sync/(H+V)Sync</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>H.Sync/(H+V)Sync</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>V.Sync</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>V.Sync</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>V.Sync</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>SCL'</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>SCL</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>SCL</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Сигналы DDC Return, SDA и SCL используются только при поддержке<br>
+DDC. При этом контакт 9 может использоваться для питания логики<br>
+монитора.</font>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал (H+V)Sync используется при совмещенной синхронизации<br>
+(Composite Sync).</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт DB9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт DB15</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Red</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Green</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Blue</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>H.Sync</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>V.Sync</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Red Return</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Green Return</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Blue Return</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10, 11</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Несмотря (в прямом смысле) на наличие ключа - D-об-<br>
+разного кожуха - 15-контактные разъемы ухитряются встав-<br>
+лять в перевернутом положении, при этом один из контак-<br>
+тов среднего ряда подгибается, а потом и ломается<br>
+(штырьки этих разъемов тоньше и слабее, чем у 9-контакт-<br>
+ных). Естественно, монитор, подключенный таким образом,<br>
+работать не будет.</font>
+
+<p>
+<font face="Times New Roman" size=2>В компьютерах Macintosh монитор, совместимый по пара-<br>
+метрам с VGA, имеет разъем DB-15P (такой же, как и у<br>
+Game-порта PC). Назначение его выводов приведено в<br>
+табл. 3.9.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Сигнал</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Red Return</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Red</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Comp. Sync</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>IDO</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Green</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Green Return</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ID1</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>He используется</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Blue</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ID2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Sync. GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>V.Sync</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Blue Return</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>H.Sync GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>H.Sync</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Кроме передачи изображения по интерфейсу передают ин-<br>
+формацию, необходимую для автоматизации согласования<br>
+параметров и режимов монитора и компьютера. "Интере-<br>
+сы" компьютера представляет дисплейный адаптер, к кото-<br>
+рому и подключается монитор. С его помощью обеспечива-<br>
+ются идентификация монитора, необходимая для РпР, и<br>
+управление энергопотреблением монитора.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Для простейшей <i>идентификации</i> в интерфейс ввели три ло-<br>
+гических сигнала IDO-ID2, по которым адаптер мог опреде-<br>
+лить тип подключенного монитора IBM (табл. 3.10). Со сто-<br>
+роны монитора эти линии либо подключались к шине GND,<br>
+либо оставлялись неподключенными. Однако из этой систе-<br>
+мы идентификации использовали лишь сигнал ID1, по кото-<br>
+рому определяют подключение монохромного монитора.<br>
+Монохромный монитор может быть опознан адаптером и<br>
+иначе - по отсутствию нагрузки на линиях Red и Blue.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Дисплей</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>IDO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ID1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ID2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Монохромный 12&quot; IBM8503</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>NC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>NC</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Цветной 12&quot; IBM8513</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>NC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>NC</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Цветной 14&quot; IBM8512</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>NC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>NC</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Цветной 15&quot; IBM8514</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>NC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Параллельную идентификацию мониторов заменила после-<br>
+довательная по каналу цифрового интерфейса <i>VESA DDC<br>
+</i>(Display Data Channel). Этот канал построен на интерфейсе<br>
+PC (DDC2B) или <i>ACCESS Bus</i> (DDC2AB), которые исполь-<br>
+зуют всего два ТТЛ-сигнала SCL и SDA. Интерфейс <i>DDC1<br>
+</i>является однонаправленным - монитор посылает адаптеру<br>
+блок своих параметров по линии SDA (контакт 12), которые<br>
+синхронизируются сигналом V.Sync (контакт 14). На время<br>
+приема блока параметров адаптер может повысить частоту<br>
+V.Sync до 25 кГц (генератор кадровой развертки по такой<br>
+высокой частоте синхронизироваться не будет). Интерфейс<br>
+<i>DDC2</i> является двунаправленным; для синхронизации ис-<br>
+пользуется выделенный сигнал SCL (контакт 15). Интерфейс<br>
+<i>DDC2AB</i> отличается тем, что допускает подключение ПУ, не<br>
+требующих высокой скорости обмена, к компьютеру по по-<br>
+следовательной шине <i>ACCESS Bus.</i> При этом внешний разъем<br>
+шины выносится на монитор (см. табл. 7.3).</font>
+
+<p>
+<font face="Times New Roman" size=2>Блок параметров расширенной идентификации дисплея <i>EDID<br>
+</i>(Extended Display Identification) имеет одну и ту же струк-<br>
+туру для любой реализации DDC (табл. 3.11).</font>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Смещение,<br>
+байт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Длина,<br>
+байт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Заголовок (индикатор начала потока<br>
+EDID)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Идентификатор изделия (назначается<br>
+производителем)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Версия EDID</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Основные параметры и возможности<br>
+дисплея</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>35</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Установленные параметры<br>
+синхронизации</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>54</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>72</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Дескрипторы параметров<br>
+синхронизации (байты 4-18)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>126</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Флаг расширения</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>127</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контрольная сумма</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Для <i>управления энергопотреблением</i> монитора в соответствии<br>
+со стандартом VESA <i>DPMS</i> (Display Power Management<br>
+Signaling) используются сигналы кадровой и строчной син-<br>
+хронизации V.Sync и H.Sync (табл. 3.12).</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Режим</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman Narrow" size=2>H.Sync</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman Narrow" size=2>V.Sync</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>On</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Активен</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Активен</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Standby</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Неактивен</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Активен</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Suspend</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Активен</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Неактивен</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Off</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Неактивен</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Неактивен</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Разъемы, применяемые в современных адаптерах и монито-<br>
+рах SVGA, не предназначены для передачи высокочастотных<br>
+сигналов. Пределом для них является примерно 150 МГц, что<br>
+для высокого разрешения и высокой частоты регенерации<br>
+недостаточно. Поэтому на больших профессиональных мо-<br>
+ниторах с высокими разрешением и частотами синхрониза-<br>
+ции и на соответствующих адаптерах имеются <i>BNC-разьемы<br>
+</i>для соединения с помощью коаксиальных кабелей.</font>
+
+<p>
+<font face="Times New Roman" size=1>5 Зак.№530</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=3><b>3.5.3. Комбинированный интерфейс EVC</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Для расширения частотного диапазона и, учитывая тенден-<br>
+цию к использованию последовательных шин USB и<br>
+FireWire, для подключения ПУ к системному блоку компь-<br>
+ютера VESA предложила новый тип разъема <i>EVC</i> (Enhanced<br>
+Video Connector). Кроме обычного аналогового интерфейса<br>
+RGB и канала DDC2 разъем EVC имеет контакты для ви-<br>
+деовхода, входные и выходные стереоаудиосигналы, шины<br>
+USB и FireWire, а также линии питания постоянного тока<br>
+для зарядки аккумуляторов портативных ПК. Разъем имеет<br>
+две секции: высокочастотную для присоединения четырех<br>
+коаксиальных кабелей и низкочастотную на 30 контактов<br>
+(рис. 3.7). Контакты высокочастотной секции, хотя и не яв-<br>
+ляются коаксиальными, позволяют передавать сигналы с<br>
+частотами до 2 ГГц. Контактом экранов является крестооб-<br>
+разная перегородка. При использовании 75-омных коакси-<br>
+альных кабелей на частоте 500 МГц гарантируется уровень<br>
+отражений и перекрестных помех не выше 2%. Контакты С1,<br>
+С2 и С4 используются для передачи цветовых сигналов R,<br>
+G и В соответственно, контакт СЗ служит для передачи син-<br>
+хросигнала пикселов. Низкочастотная секция описана в<br>
+табл. 3.13. Разъем поделен на компактные зоны для каждой<br>
+группы сигналов, правда, шины USB и 1394 используют об-<br>
+щий контакт для экрана. Назначение контактов видеовхода<br>
+(S-Video или композитный, PAL или NTSC) может програм-<br>
+мироваться по каналу DDC2.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="37.jpg"alt="37.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 3.7.</b> Разъем EVC (розетка)</font>
+
+<p>
+<font face="Times New Roman" size=2>Стандарт определяет три уровня реализации: базовый, муль-<br>
+тимедийный и полный. Базовый включает только видеосиг-<br>
+налы и DDC, в мультимедийном должны быть аудиосигна-<br>
+лы. При использовании коннектора в полном объеме монитор<br>
+превращается в коммутационный центр, который соединя-<br>
+ется с компьютером одним кабелем, а все остальные ПУ</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>(включая клавиатуру, мышь, принтер) подключаются к мо-<br>
+нитору. Разъем может использоваться для подключения<br>
+портативного ПК к док-станции. EVC собирает сигналы от<br>
+разных подсистем - графической, видео, аудио, последова-<br>
+тельных шин и питания. Этот общий разъем, устанавливае-<br>
+мый на корпусе системного блока, может соединяться с раз-<br>
+ными платами внутренними кабелями через промежуточные<br>
+разъемы.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Цепь</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Цепь</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Цепь</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Audio Output,<br>
+Right</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Changing<br>
+power input, +</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Audio input,<br>
+left</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Audio Output,<br>
+Left</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Chai-ging<br>
+power input, -</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Audio input,<br>
+right</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Audio Output,<br>
+Return</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Video input,<br>
+Yor<br>
+composite in</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Audio input,<br>
+return</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Sync Return</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Video input,<br>
+return</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Stereo sync<br>
+(TTL)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Horizontal<br>
+Sync (TTL)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Video input,<br>
+С in</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DDC return</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vertical Sync<br>
+(TTL)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>USB data +</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DDC data<br>
+(SDA)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RESERVED 1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>USB data -</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DDC, clock<br>
+(SCL)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RESERVED 2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>USB/1394<br>
+common<br>
+mode shield</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1394 pair A,<br>
+data-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1394 Vg</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1394 pair В,<br>
+clock +</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1394 pair B,<br>
+data+</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1394 Vp</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1394 pair В,<br>
+clock-</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<HR>
+<TABLE WIDTH=100%>
+<TR>
+<TD align=right valign=top> 
+<p>
+<DIV ALIGN=center><i><h5>Электронная библиотека InfoCity</i></h5></DIV>
+<DIV ALIGN=center><i><h5>Автор и координатор проекта:<a href=mailto:mpinkus@mail.ru>Михаил Пинкус</a></i></h5></DIV>
+<DIV ALIGN=center><i><h5>У Вас есть документация, которой нет в нашей библиотеке? <a href="mailto:icity@mail.ru?subject=InfoCity - Doc">Присылайте.</a></h5>
+</TD>
+</TR></table>
+</body>
+</html>

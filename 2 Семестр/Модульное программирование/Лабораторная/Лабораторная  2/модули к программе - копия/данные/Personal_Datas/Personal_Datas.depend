@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1459193485 source:d:\kntu\предметы\2 Семестр\Модульное программирование\Лабораторная\Лабораторная 2\модули к программе\данные\personal_datas\personal_datas.cpp
+	<iostream>
+	<clocale>
+

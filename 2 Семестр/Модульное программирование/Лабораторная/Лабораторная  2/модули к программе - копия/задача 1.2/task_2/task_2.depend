@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1459194457 source:d:\kntu\предметы\2 Семестр\Модульное программирование\Лабораторная\Лабораторная 2\модули к программе\задача 1.2\task_2\main.cpp
+	<iostream>
+	<cmath>
+	<clocale>
+	<conio.h>
+

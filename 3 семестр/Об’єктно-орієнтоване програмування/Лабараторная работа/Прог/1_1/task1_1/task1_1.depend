@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1473537601 source:c:\users\aska\google Диск\Универ\Об’єктно-орієнтоване програмування\Лабараторная работа\Прог\1_1\task1_1\main.cpp
+	<iostream>
+	<clocale>
+	<iomanip>
+

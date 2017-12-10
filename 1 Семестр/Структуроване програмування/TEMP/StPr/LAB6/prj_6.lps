@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="prj_6.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="prj_6"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="11"/>
+        <CursorPos X="97" Y="26"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="3" HistoryIndex="2">
+      <Position1>
+        <Filename Value="prj_6.lpr"/>
+        <Caret Line="32" Column="55" TopLine="11"/>
+      </Position1>
+      <Position2>
+        <Filename Value="prj_6.lpr"/>
+        <Caret Line="19" Column="20" TopLine="8"/>
+      </Position2>
+      <Position3>
+        <Filename Value="prj_6.lpr"/>
+        <Caret Line="24" Column="22" TopLine="11"/>
+      </Position3>
+    </JumpHistory>
+  </ProjectSession>
+  <EditorMacros Count="0"/>
+</CONFIG>

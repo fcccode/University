@@ -1,0 +1,7 @@
+<resources>
+  <string name="app_name">Lab#2</string>
+  <string name="Disable">Приховано</string>
+  <string name="Enable">Неприховано</string>
+  <string name="hello_world">Hello world!</string>
+  <string name="action_settings">Settings</string>
+</resources>

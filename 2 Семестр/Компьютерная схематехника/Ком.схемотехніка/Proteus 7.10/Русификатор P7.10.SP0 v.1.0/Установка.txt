@@ -1,0 +1,2 @@
+Распаковать архив Rus_P7.10.SP0.v1.0.rar с заменой файлов в папку  C:\Program Files\Labcenter Electronics\Proteus 7 Professional\BIN
+Или распаковать архив Rus_P7.10.SP0.v1.0.rar в любую папку, а потом скопировать или переместить файлы с заменой в папку  C:\Program Files\Labcenter Electronics\Proteus 7 Professional\BIN

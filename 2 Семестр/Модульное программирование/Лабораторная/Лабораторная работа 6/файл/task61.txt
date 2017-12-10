@@ -1,0 +1,89 @@
+#include <iostream>
+#include <clocale>
+#include <windows.h>
+#include "clrscr.h"
+#include "PashinskikhModule.h"
+
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "UKR");
+    clrscr();
+
+    cout << "=== LAB6: TASK 6.1 ===" << endl;
+    cout << endl;
+    int m_edge, m_weight, m_seeds;
+    Watermelon Abstraction(m_edge = 25, m_weight = 5, m_seeds = 50);
+    cout << endl;
+
+    do {
+        cout << "ћеню:" << endl;
+        cout << "1. «мiнити довжину гранi, вагу та кiлькiсть насiнн€чок" << endl;
+        cout << "2. ¬ивести повiдомленн€ про значенн€ атрибутiв" << endl;
+        cout << "3. ќтримати iнформацiю про об\'Їм" << endl;
+        cout << "4. ќтримати iнформацiю про мого творц€" << endl;
+        cout << "5. ¬ихiд" << endl;
+        cout << endl;
+        cout << "¬иберiть пункт меню (1-4): ";
+
+        char mopt;
+        cin >> mopt;
+
+        switch (mopt) {
+            case '1' : {
+                clrscr();
+                cout << "¬ведiть довжину гранi: ";
+                while (!(cin >> m_edge) || (cin.peek() != '\n')) {
+                    cin.clear();
+                    while (cin.get() != '\n')
+                        cout << "ѕомилка! ¬ведiть число!" << endl;
+                }
+                cout << "¬ведiть вагу: ";
+                while (!(cin >> m_weight) || (cin.peek() != '\n')) {
+                    cin.clear();
+                    while (cin.get() != '\n')
+                        cout << "ѕомилка! ¬ведiть число!" << endl;
+                }
+                cout << "¬ведiть кiлькiсть насiнн€чок: ";
+                while (!(cin >> m_seeds) || (cin.peek() != '\n')) {
+                    cin.clear();
+                    while (cin.get() != '\n')
+                        cout << "ѕомилка! ¬ведiть число!" << endl;
+                }
+                Abstraction.SetData(m_edge, m_weight, m_seeds);
+                system("pause");
+                clrscr();
+                break;
+            }
+            case '2' : {
+                clrscr();
+                cout << "ƒовжина гранi: " << Abstraction.PrintEdge() << endl;
+                cout << "¬ага: " << Abstraction.PrintWeight() << endl;
+                cout << " iлькiсть насiнн€чок: " << Abstraction.PrintSeeds() << endl;
+                system("pause");
+                clrscr();
+                break;
+            }
+            case '3' : {
+                clrscr();
+                cout << "ќб\'Їм куба: " << Abstraction.V() << "см3" << endl;;
+                system("pause");
+                clrscr();
+                break;
+            }
+            case '4' : {
+                clrscr();
+                cout << Abstraction.About() << endl;
+                system("pause");
+                clrscr();
+                break;
+            }
+            case '5' : exit(0);
+            default : {
+                clrscr();
+                cout << "\a";
+            }
+        }
+    } while (true);
+}

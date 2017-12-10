@@ -1,0 +1,3828 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>10.htm</title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<body background="back1.jpg">
+
+<p>
+<font face="Times New Roman" size=5><b>Приложение Г. Проблемы<br>
+заземления</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Вопросы электропитания играют важную роль в устойчиво-<br>
+сти работы компьютеров, их сетей и ПУ, соединяемых ин-<br>
+терфейсами, а также в обеспечении их долголетия. Понима-<br>
+ние некоторых вопросов электротехники позволит обойтись<br>
+без "пиротехнических эффектов" при соединении устройств.<br>
+Рассмотрим правила подключения к питающей сети с точки<br>
+зрения безопасности как человека, так и компьютера.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="101.jpg"alt="101.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. Г. 1. Входные цепи блока питания</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Практически каждый блок питания компьютера или ПУ<br>
+имеет сетевой фильтр (рис. Г.1). Конденсаторы этого фильт-<br>
+ра предназначены для шунтирования высокочастотных по-<br>
+мех питающей сети на землю через провод защитного зазем-<br>
+ления и соответствующую трехполюсную вилку и розетку.<br>
+"Земляной" провод соединяют с контуром заземления, но<br>
+допустимо его соединять и с "нулем" силовой сети (разни-<br>
+ца ощущается только в особо тяжелых условиях эксплуата-<br>
+ции). При занулении необходимо <i>быть уверенным в том, что<br>
+"нуль" не станет фазой,</i> если кто-нибудь вдруг перевернет<br>
+вилку питания. Если же "земляной" провод устройства ни-<br>
+куда не подключать, на корпусе устройства появится <i>напря-</i></font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>жение порядка НОВ</i> переменного тока (рис. Г.2): конденса-<br>
+торы фильтра работают как емкостной делитель напряже-<br>
+ния, и поскольку их емкость одинакова, 220 В делится по-<br>
+полам.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="102.jpg"alt="102.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. Г.2.</b> Образование потенциала на корпусе компьютера</font>
+
+<p>
+<font face="Times New Roman" size=2>Конечно, мощность этого "источника" ограничена - ток ко-<br>
+роткого замыкания 1к.з на землю составляет от единиц до де-<br>
+сятков миллиампер, причем, чем мощнее блок питания, тем<br>
+больше емкость конденсаторов фильтра и, следовательно, ток:</font>
+
+<p>
+<font face="Times New Roman" size=1>1к.з=ипитХ2яРС,</font>
+
+<p>
+<font face="Times New Roman" size=2>где Uimr= 220 В, F = 50 Гц - частота питающей сети, С -<br>
+емкость конденсатора фильтра. При емкости конденсатора<br>
+С = 0,01 мкФ этот ток будет около 0,7 мА.</font>
+
+<p>
+<font face="Times New Roman" size=2>Такие напряжение и ток <i>опасны для человека.</i> Попасть под<br>
+напряжение можно, прикоснувшись одновременно к неокра-<br>
+шенным металлическим частям корпуса компьютера и, на-<br>
+пример, к батарее отопления. Это напряжение является<br>
+одним из источников разности потенциалов между устрой-<br>
+ствами, от которой страдают интерфейсные схемы.</font>
+
+<p>
+<font face="Times New Roman" size=2>Посмотрим, что происходит при соединении двух устройств<br>
+(компьютера и принтера) интерфейсным кабелем. Общий<br>
+провод интерфейсов последовательных и параллельных пор-<br>
+тов связан со "схемной землей" и корпусом устройства. Если</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>соединяемые устройства надежно <i>заземлены</i> (занулены) <i>че-<br>
+рез отдельный</i> провод на общий контур (рис. Г.3), <i>проблемы<br>
+разности потенциалов не возникает.</i></font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="103.jpg"alt="103.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. Г.3.</b> Правильное подключение ПУ</font>
+
+<p>
+<font face="Times New Roman" size=2>Если же в качестве заземляющего провода использовать ну-<br>
+левой провод питания при разводке питающей сети с трех-<br>
+полюсными розетками <i>двухпроводным</i> кабелем, на нем бу-<br>
+дет набегать <i>разность потенциалов,</i> вызванная падением<br>
+напряжения от протекающего силового тока INUL (рис. Г.4).</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="104.jpg"alt="104.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. Г.4.</b> Появление разности потенциалов при двухпроводном<br>
+кабеле питания</font>
+
+<p>
+<font face="Times New Roman" size=2>Если в эти же розетки включать устройства с большим энер-<br>
+гопотреблением, разность потенциалов (и импульсные по-<br>
+мехи при включении-выключении) будет ощутимой. При<br>
+этом эквивалентный источник напряжения при относитель-<br>
+но невысокой ЭДС. Enui (несколько вольт) будет иметь очень</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>низкое выходное сопротивление, равное сопротивлению уча-<br>
+стка нулевого провода (доли Ом). Уравнивающий ток через<br>
+общий провод интерфейса 1ют можно оценить по формуле</font>
+
+<p>
+<font face="Times New Roman" size=1><b>lint =E„ul/(Rnul+ Pint),</b></font>
+
+<p>
+<font face="Times New Roman" size=2>где Enui= Inui x Rnui, Inui= P/220, Rnui - сопротивление нулево-<br>
+го провода и соединительных контактов розеток, Rmt - со-<br>
+противление общего провода интерфейса, Р - мощность, по-<br>
+требляемая устройствами, расположенными на рис. Г.4 справа<br>
+(Р = Р2 + РЗ).</font>
+
+<p>
+<font face="Times New Roman" size=2>Поскольку обычно сопротивление интерфейсного кабеля боль-<br>
+ше питающего, через общий провод интерфейса потечет ток<br>
+существенно меньший, чем силовой. Но при нарушении кон-<br>
+такта в нулевом проводе питания через интерфейсный про-<br>
+вод может протекать и весь ток, потребляемый устройством.<br>
+Он может достигать нескольких ампер, что повлечет выход<br>
+устройств из строя. Невыровненные потенциалы корпусов<br>
+устройств также являются источником помех в интерфейсах.</font>
+
+<p>
+<font face="Times New Roman" size=2>Если оба соединяемых устройства не заземлены, в случае их<br>
+питания от одной фазы сети разность потенциалов между<br>
+ними будет небольшой (вызванной разбросом емкостей кон-<br>
+денсаторов в разных фильтрах). Уравнивающий ток через об-<br>
+щий провод интерфейса будет мал, и разность потенциалов<br>
+между схемными землями устройств тоже будет мала. Но не<br>
+следует забывать о безопасности человека. Если незаземленные<br>
+устройства подключены к разным фазам, разность потенциалов<br>
+между их несоединенными корпусами будет порядка 190 В,<br>
+при этом уравнивающий ток через интерфейс может достигать<br>
+десятка миллиампер. Когда все соединения/разъединения<br>
+выполняются при отключенном питании, для интерфейсных<br>
+схем такая ситуация почти безопасна. Но при коммутациях<br>
+при включенном питании возможны неприятности: если кон-<br>
+такты общего провода интерфейса соединяются позже (разъе-<br>
+диняются раньше) сигнальных, разность потенциалов между<br>
+схемными землями прикладывается к сигнальным цепям,<br>
+и они выгорают. Самый тяжелый случай - соединение зазем-<br>
+ленного устройства с незаземленным (рис. Г.5), особенно ког-<br>
+да у последнего мощный блок питания.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Для устройств, блоки питания которых имеют шнуры с двух-<br>
+полюсной вилкой, эти проблемы тоже актуальны. Такие блоки<br>
+питания зачастую имеют сетевой фильтр, но с конденсатора-<br>
+ми малой емкости (ток короткого замыкания достаточно мал).</font>
+
+<p>
+<font face="Times New Roman" size=2>Весьма <i>коварны</i> сетевые <i>шнуры компьютеров с двухполюсной<br>
+вилкой,</i> которыми подключаются блоки питания с <i>трехпо-<br>
+люсным разъемом.</i> Пользователи, подключающие свои ком-<br>
+пьютеры в бытовые розетки, могут столкнуться с проблема-<br>
+ми из-за отсутствия заземления.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="105.jpg"alt="105.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. Г.5.</b> Подключение незаземленного устройства</font>
+
+<p>
+<font face="Times New Roman" size=2>Локально проблемы заземления решает применение сетевых<br>
+фильтров типа Pilot и им подобных. Питание от одного фильт-<br>
+ра всех устройств, соединяемых интерфейсами, решает про-<br>
+блему разности потенциалов. Еще лучше, когда этот фильтр<br>
+включен в трехполюсную розетку с заземлением (занулени-<br>
+ем). Однако заземляющие контакты (обжимающие "усики")<br>
+многих розеток могут иметь плохой контакт вследствие сво-<br>
+ей слабой упругости или заусениц в пластмассовом кожухе.<br>
+Кроме того, эти контакты не любят частого вынимания и встав-<br>
+ки вилок, так что обесточивание оборудования по окончании<br>
+работы лучше выполнять выключателем питания фильтра<br>
+[предварительно выключив устройства).</font>
+
+<p>
+<font face="Times New Roman Narrow" size=2>Настоятельно рекомендуется <i>отключать питание при подключении и отключении<br>
+интерфейсных кабелей.</i> Небольшая разность потенциалов, которая практически<br>
+исчезнет при соединении устройств общими проводами интерфейсов, может про-<br>
+бить входные (и выходные) цепи сигнальных линий, если в момент присоединения<br>
+разъема контакты общего провода соединятся позже сигнальных. От такой после-<br>
+довательности^^</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>К помехам, вызванным разностью потенциалов схемных земель<br>
+(корпусов) устройств, наиболее чувствительны параллельные<br>
+порты. У последовательных портов зона нечувствительности<br>
+шире (пороги &plusmn;3 В), еще меньшую чувствительность имеют<br>
+интерфейсы локальных сетей, где обычно имеется гальвани-<br>
+ческая развязка сигнальных цепей от схемной земли с допус-<br>
+тимым напряжением изоляции порядка 100 В.</font>
+
+<p>
+<font face="Times New Roman" size=2>Проблема заземления устройств, сильно <i>разнесенных тер-<br>
+риториально,</i> обостряется. Если разводка питания и заземле-<br>
+ния выполнена двухпроводным кабелем (см. рис. Г.4), раз-<br>
+ность потенциалов, обусловленная падением напряжения на<br>
+заземляющих проводах, будет особенно ощутимой. В ряде<br>
+случаев практикуется прокладка отдельного кабеля или ши-<br>
+ны для цепи заземления. Однако разводка заземления от-<br>
+дельным кабелем не всегда удобна и часто неэффективна<br>
+с точки зрения защиты от помех, поскольку при этом могут<br>
+образовываться замкнутые контуры с широким охватывае-<br>
+мым пространством - своеобразные антенны. Так что развод-<br>
+ку питания к устройствам целесообразно выполнять трехпро-<br>
+водным кабелем, один из проводов которого используется<br>
+для защитного заземления. При этом древовидная схема за-<br>
+земления получается естественным образом (рис. Г.6), защит-<br>
+ный провод в корневой части этого дерева заземляют или<br>
+зануляют. Все устройства, электрически соединяемые между<br>
+собой, <i>желательно питать от одной фазы сети,</i> хотя, с точки<br>
+зрения энергетиков, это требование часто трудновыполнимо.</font>
+
+<p>
+<font face="Times New Roman" size=2>Дополнительные проблемы при разводке электропитания для<br>
+компьютеров обусловлены ярко выраженной динамической<br>
+нелинейностью входной цепи бестрансформаторных блоков<br>
+питания. Традиционные электросети рассчитаны на более или<br>
+менее линейную нагрузку, у которой в спектре тока основ-<br>
+ная мощность приходится на первую гармонику. В трехфаз-<br>
+ной сети с равномерно распределенной по фазам линейной<br>
+нагрузкой в идеале через нейтральный провод ток практичес-<br>
+ки не течет, поскольку токи от нагрузок всех трех фаз ком-<br>
+пенсируют друг друга. Учитывая это свойство, во многих<br>
+четырехпроводных кабелях сечение проводника для нейтра-<br>
+ли существенно меньше, чем сечение фазных проводников.<br>
+При нелинейной симметричной нагрузке фаз при большом</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>уровне третьей гармоники тока (что характерно для бестранс-<br>
+форматорных блоков питания) взаимной компенсации то-<br>
+ков не происходит, и действующее значение тока в нулевом<br>
+проводе оказывается даже больше, чем в каждом из фазных.<br>
+Таким образом, при подключении большого числа компью-<br>
+теров к традиционной 4-проводной трехфазной проводке<br>
+происходит перегрузка нулевого провода. Эта перегрузка<br>
+приводит к следствиям разной степени тяжести - от "набе-<br>
+гания" помехи переменного тока на нулевом проводе до пе-<br>
+регорания нулевого провода, который никогда не защища-<br>
+ют от перегрузки - все автоматы защиты ставятся только<br>
+в фазных проводах. Во избежание перегрузки нулевого про-<br>
+вода и в случае питания от трехфазной сети силовую раз-<br>
+водку к розеткам от распределительного щита следует опять-<br>
+таки вести трехпроводным кабелем. Перегрузки нулевого<br>
+провода подводящего силового кабеля можно избежать, ус-<br>
+тановив в распределительном щите развязывающий трехфаз-<br>
+ный трансформатор 380/220 В. К этому трансформатору<br>
+входное напряжение подводится по схеме "треугольник",<br>
+а выходные обмотки соединяют по схеме "звезда".</font>
+
+<p>
+<font face="Times New Roman" size=2>Розетки питания компьютеров</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="106.jpg"alt="106.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. Г.6.</b> Разводка питания и заземления</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=5>Список сокращений</font>
+
+<p>
+
+<table align=left border=0>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8041/8042</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ИС контроллера клавиатуры</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8237</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ИС контроллера DMA</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8250, 16450, 16550</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ИС последовательного интерфейса<br>
+(UART)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8253/8254</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ИС трехканального таймера PC</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8255</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ИС программируемого<br>
+параллельного интерфейса (PIO)<br>
+и системного порта PC XT</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8259А</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>И С контроллера прерываний<br>
+(PIC).</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ACCESS.Bus</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Accessory Bus, шина подключения ПУ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ADC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Analog to Digital Converter,<br>
+аналого-цифровой преобразователь</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ADPCM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Adaptive Differential Pulse Code<br>
+Modulation, адаптивная<br>
+дифференциальная импульсно-<br>
+кодовая модуляция (АДИКМ)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AGP</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Accelerated Graphic Port, ускоренный<br>
+графический порт</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ASCII</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>American Standard Code for Information<br>
+Interchange, американский стандартный<br>
+код обмена информацией</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ASPI</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Advanced SCSI Programming Interface,<br>
+развитой интерфейс программирования<br>
+SCSI</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AT</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Advanced Technology ("передовая<br>
+технология"), класс PC<br>
+на процессорах 286 и выше</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ATA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AT Attachment, интерфейс подключения<br>
+устройств IDE к компьютеру AT</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=0>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ATAPI</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ATA Package Interface, пакетный</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>интерфейс для ATA (программная</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>спецификация для устройств ATAPI)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BCD</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Binary Coded Decimal,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>двоично-десятичный код</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BDA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BIOS Data Area, область данных BIOS</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>в памяти</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BIOS</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Basic Input/Output System,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>базовая система ввода-вывода</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BIOS INT</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BIOS Interrupt, прерывание,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>обслуживаемое BIOS</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BSC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Binary Synchronous Communications,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>двоичная синхронная передача данных</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CAMATA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Common Access Method ATA, стандарт</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ANSI, обеспечивающий совместимость</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IDE-устройств на уровне сигналов</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>и команд</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CD</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Compact Disk, компакт-диск</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CD-ROM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Compact Disk-Read Only Memory,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>постоянная память на компакт-дисках</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CGA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Color Graphic Adapter, цветной</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>графический адаптер</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CHS</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Cylinder-Head-Sector, цилиндр-головка-<br>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>сектор, традиционная схема трехмерной</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>адресации данных на диске</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CMOS</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Complimentary Metal Oxide Semiconductor,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>комплиментарная структура</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>металл-оксид-полупроводник (КМОП)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CMOS RTC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CMOS Real Time Clock, часы-календарь</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>СОМ Port</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>COMmunication Port, последовательный</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>порт</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CPU</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Central Processor Unit, центральный</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>процессор</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CRC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Cyclic Rendancy Check, контроль</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>с использованием циклического</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>избыточного кода</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DAC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Digital-to-Analog Converter,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>цифроаналоговый преобразователь</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>(ЦАП)</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=0>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DC 1. Digital Control, цифровое</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>управление (монитором);</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2. Direct Current, постоянный ток</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DCE Data Communications Equipment,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>аппаратура передачи данных,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>например модем (АПД или АКД)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DDC Display Data Channel, интерфейс</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>обмена данными с монитором</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>(для РпР-мониторов)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DIN connector Deutsch Industrie Norm connector,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>малогабаритный круглый</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>многоконтактный разъем</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DIP Dual In-line Package, корпус</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>(микросхемы) с двухрядным</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>расположением штырьковых выводов</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DMA Direct Memory Access, прямой доступ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>к памяти</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DPMS Display Power-Management System</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>(Signal), система (сигнал) управления</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>энергопотреблением монитора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DSP Data Signal Processor, процессор</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>обработки сигналов</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DTE Data Terminal Equipment, оконечная</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>аппаратура - СОМ-порт, принтер,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>плоттер (ООД)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ЕСС Error Checking and Correcting</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>(Memory), обнаружение и исправление</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ошибок (в памяти)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ЕСР Extended Capability (Communication)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Port, расширенный LPT-порт</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>для подключения принтеров и сканеров,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>входит в IEEE 1284</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ECU EISA Configuration Utility, утилита</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>конфигурирования устройств шины EISA</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>EEPROM Electrical Erasable Programmable Read-Only</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Memory, электрически перезаписываемая</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>постоянная память</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>EGA Enhanced Graphics Adapter, расширенный</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>графический адаптер</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=0>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>E-IDE</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Enhanced IDE, расширенный интерфейс IDE</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>EISA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Extended Industry Standard Architecture,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>расширенная шина ISA</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>EPP</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Enhanced Parallel Port, расширенный</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LPT-порт для подключения внешней</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>памяти и коммуникационных адаптеров,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>входит в IEEE 1284</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>EPROM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Erasable Programmable Read-Only</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Memory, стираемая (ультрафиолетовым</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>облучением) программируемая память</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>только для чтения</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ESCD</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Extended Static Configuration Data,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>расширенные данные о системной</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>конфигурации (в энергонезависимой</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>памяти или на диске); используются</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>для конфигурирования устройств</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Plug and Play</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>EVC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Enhanced Video Connector, расширенный</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>интерфейс подключения мониторов,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>включающий дополнительные шины</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>FCC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Federal Communications Commission,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>федеральная комиссия США</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>по коммуникациям. Сертификат FCC</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Class В означает малую степень</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>электромагнитного излучения в области</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>радиочастот и пригодность</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>для домашнего использования</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>устройства</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>FIFO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>First-In, First-Out, "первым пришел -</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>первым ушел" (метод обслуживания</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>на основе очереди)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>FM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Frequency Modulation, частотная модуляция</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>FM Music Synthesizer</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>звуковой синтезатор с частотной</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>модуляцией</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GrouND, земля, общий провод питания</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>H</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>High, старший (байт); высокий (уровень</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>сигнала)</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=0>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IBM PC/AT см. AT</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IBM PC/XT CM. XT</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1С Integrated Circuit, интегральная схема,<br>
+чип (ИС)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ICU ISA Configuration Utility, утилита<br>
+конфигурирования унаследованных<br>
+(Legacy) устройств шины ISA для PnP</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ю Identifier, идентификатор (устройства SCSI)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IDC Insulation-Displacement Connector,<br>
+разъем, смещающий изоляцию</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ГОЕ 1. Integrated Drive (Disk) Electronics,<br>
+устройство (диск) со встроенным<br>
+контроллером;</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2. интерфейс этих устройств<br>
+(официальное название -АТА);</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3. Intelligent Drive Equipment,<br>
+интеллектуальное оборудование<br>
+дискового накопителя</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IEC International Electrotechnical Committee,<br>
+Международный комитет по электротехнике<br>
+(МЭК)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IEEE Institute of Electrical and Electronic<br>
+Engineers, Институт электротехники<br>
+и электроники, устанавливающий<br>
+многие стандарты</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IEEE 1284 спецификация режимов LPT-порта<br>
+(SPP, ЕСР, ЕРР и др.)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>INT Interrupt, прерывание (вектор прерывания)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10 Input/Output, ввод-вывод</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IR-CON Infra-Red Connector, разъем<br>
+инфракрасной связи</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IrDA Infrared Data Association, ассоциация<br>
+производителей аппаратуры<br>
+для инфракрасной связи</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=0>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ISA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Industry Standard Architecture,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>промышленная стандартная архитектура,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>тип системной шины</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ISO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>International Standardization Organization,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Международная организация</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>по стандартизации (МОС)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>L</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Low, младший (байт); низкий (уровень</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>сигнала)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LBA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Logical Block Addressing, линейная</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>адресация данных на диске</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>через логический адрес блока</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LPT</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1. Line Printer, построчный принтер;</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2. обозначение параллельного порта</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>для подключения принтера</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LSB</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Least Significant Bit, младший бит</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LSI</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Large Scale Integration, микросхемы</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>с высокой степенью интеграции</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>(БИС, 100-5000 компонентов)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LUN</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Logical Unit Number, логический</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>номер устройства SCSI</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MCA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Micro Channel Architecture,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>микроканальная архитектура</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>(разработана IBM для PS/2)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MDA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Monochrome Display Adapter,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>монохромный видеоадаптер</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MIDI</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Musical Instrument Digital Interface,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>цифровой интерфейс музыкальных</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>инструментов</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MPU-401 UART</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>приемопередатчик MIDI</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MSB</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Most Significant Bit, старший бит</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MSI</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Medium Scale Integration, микросхемы</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>с малой степенью интеграции</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>(ИС из 10-100 компонентов)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>NTSC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>National Television System Committee,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>американский стандарт цветного</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>телевещания</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=0>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>NVRAM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Non-Volatile RAM, энергонезависимая</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>память</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OEM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Original Equipment Manufacturer,<br>
+производитель оборудования<br>
+(в отличие от конечного пользователя)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OS</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>операционная система (ОС)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PAL</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Phase Alternating Line, построчное<br>
+чередование фазы, международный</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>стандарт цветного телевещания</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Personal Computer, персональный<br>
+компьютер, если не сказано обратное,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>подразумевается совместимость<br>
+с IBM PC (ПК)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PC Card</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>стандарт на шину и размеры модулей<br>
+расширения блокнотных PC<br>
+(ранее назывался PCMCIA)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PCI</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Peripherial Component Interconnect bus,<br>
+шина взаимодействия периферийных</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>компонентов</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PCMCIA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Personal Computer Memory Card<br>
+International Association, стандарт на адаптеры<br>
+блокнотных PC; новое название - PC Card</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PGA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1. Professional Graphic Adapter,<br>
+профессиональный графический</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>адаптер</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2. Pin Grid Array, керамический корпус<br>
+ИС с матрицей штырьковых выводов</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PIO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Programming Input/Output,<br>
+программный ввод-вывод</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PnP</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Plug and Play, P&amp;P, "подсоединяй<br>
+и работай"; стандарт автоматической<br>
+настройки конфигурации<br>
+подключаемых устройств</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>POST</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1. Power On Self Test, тест начального</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>включения;<br>
+2. Procedure Of Self-Testing, процедура</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>самотестирования</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=0>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РРМ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Pulse Position Modulation,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>позиционно-импульсная</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>модуляция</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PROM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Programmable Read-Only Memory,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>однократно программируемая</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>постоянная память</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PWM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Pulse Width Modulation, широтно-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>импульсная модуляция (ШИМ)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PXI</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PCI extensions for Instmmentation,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>расширение шины Compact PCI</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>для инструментальных систем</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RAID</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Redundant Array of Inexpensive Drives</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>(Disks), массив дисковых накопителей</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>с избыточностью (тип дисковой памяти</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>с резервированием и/или дублированием</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>данных)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RAM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Random Access Memory, память</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>с произвольным доступом (ОЗУ)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RAMDAC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RAM Digital-to-Analog Converter,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>микросхема видеоадаптера, содержащая</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ЦАП для выходных сигналов RGB</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>и таблицу палитры (color look-up table)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>в виде матрицы RAM</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RFM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Radio Frequency Modulator,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>радиочастотный модулятор (РЧМ)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RGB</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Red-Green-Blue, красный-зеленый-синий,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>базовые цвета монитора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RLE</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Run Length Encoding, метод сжатия</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>данных (применяется в ЕСР)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ROM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Read Only Memory, постоянная</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>память (ПЗУ)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SCSI</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Small Computer System Interface,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>интерфейс малых</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>компьютерных систем</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SCSI ID</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SCSI Identifier, идентификатор</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>устройства SCSI</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=0>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SDLC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Synchronous Data Link Control,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>синхронное управление передачей</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>данных</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SECAM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Sequence Couleur A Memoire,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>французский стандарт цветного</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>телевещания, принятый также</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>в странах бывшего СССР</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SMART</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Self-Monitoring, Analysis and Reporting</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Technology, технология самонаблюдения,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>анализа и сообщения состояния,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>применяемая в современных</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>накопителях на жестких дисках</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SPP</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Standard Parallel Port, стандартный</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>однонаправленный LPT-порт</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SRAM</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Static Random Access Memory, статическая</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>память</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TAP</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Test Access Port, средства доступа</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>для диагностического оборудования</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TTL</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Transistor-Transistor Logic, транзисторно-<br>
+</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>транзисторная логика (ТТЛ)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>UART</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Universal Asynchronous Receiver-Transmitter,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>универсальный асинхронный</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>приемопередатчик (УАПП)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>USART</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Universal Synchronous/Asynchronous</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Receiver-Transmitter, универсальный</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>синхронно-асинхронный приемопередатчик</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>(УСАПП)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>USB</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Universal Serial Bus, универсальная</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>последовательная шина</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VESA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Video Electronics Standards Association,</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ассоциация по стандартизации в области</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>видеоэлектроники</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VGA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Video Graphics Array, видеографический</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>массив (тип графического адаптера)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VLB</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VESA Local Bus, локальная шина VESA</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>WB</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Write Back, обратная запись (алгоритм</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>кэширования)</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=0>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>WT</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1. Write Through, сквозная запись<br>
+(алгоритм кэширования);</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2. Wave Table, волновая таблица<br>
+(содержит оцифрованные фрагменты<br>
+звуковых сигналов)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>WT Synthesizer</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Wave Table Synthesizer, синтезатор<br>
+с табличным синтезом</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>x86</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>семейство процессоров, совместимых<br>
+с 8086/8088: 8086, 286, 386, 486, Pentium,<br>
+Pentium Pro, Pentium II и т. д.</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>XGA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>eXtended Graphic Adapter,<br>
+высокопроизводительный видеоадаптер</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>XT</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>eXtended Technology ("расширенная<br>
+технология"), класс PC на процессорах 8086</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>АКД</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>оконечная аппаратура канала данных,<br>
+например модем (DCE)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>АПД</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>аппаратура передачи данных; то же, что<br>
+и АКД(DCE)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>АЦП</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>аналого-цифровой преобразователь (ADC)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>БИС</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>большая (по степени интеграции) ИС,<br>
+содержащая 100-5000 компонентов</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ИРПР</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>параллельный интерфейс, отличающийся<br>
+от Centronics (IFSP)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ИРПР-М</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>параллельный интерфейс, аналогичный<br>
+Centronics</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ИС</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>интегральная схема (чип)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ИУ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>инициирующее устройство (инициатор)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>КЗ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>короткое замыкание</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ЛУ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>логическое устройство</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ОЗУ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>оперативная память (RAM)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>оод</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>оконечное оборудование данных -<br>
+источник и/или приемник информации<br>
+(DTE)</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=0>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ос</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>операционная система (OS)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ПЗУ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>постоянная память (ROM)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>по</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>программное обеспечение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ПУ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>периферийное устройство</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ТТЛ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>транзисторно-транзисторная логика (TTL)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ттлш</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>транзисторно-транзисторная логика<br>
+с диодами Шоттки (TTLS)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>УАПП</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>универсальный асинхронный<br>
+приемопередатчик (UART)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>УСАПП</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>универсальный синхронно-асинхронный<br>
+приемопередатчик (USART)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ЦАП</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>цифроаналоговый преобразователь (DAC)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ЦУ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>целевое устройство</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>элт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>электронно-лучевая трубка (CRT)</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<HR>
+<TABLE WIDTH=100%>
+<TR>
+<TD align=right valign=top> 
+<p>
+<DIV ALIGN=center><i><h5>Электронная библиотека InfoCity</i></h5></DIV>
+<DIV ALIGN=center><i><h5>Автор и координатор проекта:<a href=mailto:mpinkus@mail.ru>Михаил Пинкус</a></i></h5></DIV>
+<DIV ALIGN=center><i><h5>У Вас есть документация, которой нет в нашей библиотеке? <a href="mailto:icity@mail.ru?subject=InfoCity - Doc">Присылайте.</a></h5>
+</TD>
+</TR></table>
+<HR>
+<TABLE WIDTH=100%>
+<TR>
+<TD align=right valign=top> 
+<p>
+<DIV ALIGN=center><i><h5>Электронная библиотека InfoCity</i></h5></DIV>
+<DIV ALIGN=center><i><h5>Автор и координатор проекта:<a href=mailto:mpinkus@mail.ru>Михаил Пинкус</a></i></h5></DIV>
+<DIV ALIGN=center><i><h5>У Вас есть документация, которой нет в нашей библиотеке? <a href="mailto:icity@mail.ru?subject=InfoCity - Doc">Присылайте.</a></h5>
+</TD>
+</TR></table>
+</body>
+</html>

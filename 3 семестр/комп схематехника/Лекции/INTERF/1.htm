@@ -1,0 +1,7143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>1.htm</title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<body background="back1.jpg">
+
+<p>
+<font face="Times New Roman" size=5><b>1. Параллельные интерфейсы</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Параллельные интерфейсы характеризуются тем, что в них<br>
+для передачи бит в слове используются отдельные сигналь-<br>
+ные линии, и биты передаются одновременно. Параллельные<br>
+интерфейсы используют логические уровни ТТЛ (транзистор-<br>
+но-транзисторной логики), что ограничивает длину кабеля из-<br>
+за невысокой помехозащищенности ТТЛ-интерфейса. Гальва-<br>
+ническая развязка отсутствует. Параллельные интерфейсы<br>
+используют для подключения принтеров. Передача данных<br>
+может быть как однонаправленной <i>(Centronics),</i> так и двунап-<br>
+равленной <i>(Bitronics).</i> Иногда параллельный интерфейс ис-<br>
+пользуют для связи между двумя компьютерами - получает-<br>
+ся сеть, "сделанная на коленке" (LapLink). Ниже будут<br>
+рассмотрены протоколы интерфейсов <i>Centronics,</i> стандарт<br>
+IEEE 1284, а также реализующие их порты PC.</font>
+
+<p>
+<font face="Times New Roman" size=4><b>1.1. Интерфейс Centronics и LPT-порт</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Для подключения принтера по интерфейсу <i>Centronics</i> в PC<br>
+был введен <i>порт параллельного интерфейса -</i> так возникло<br>
+название LPT-порт (Line PrinTer - построчный принтер).<br>
+Хотя сейчас через этот порт подключаются не только по-<br>
+строчные принтеры, название "LPT" осталось.</font>
+
+<p>
+<font face="Times New Roman" size=3><b>1.1.1. Интерфейс Centronics</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Понятие <i>Centronics</i> относится как к набору сигналов и про-<br>
+токолу взаимодействия, так и к 36-контактному разъему на<br>
+принтерах. Назначение сигналов приведено в табл. 1.1, а вре-<br>
+менные диаграммы обмена с принтером - на рис. 1.1.</font>
+
+<p>
+<font face="Times New Roman" size=2>Интерфейс <i>Centronics</i> поддерживается принтерами с парал-<br>
+лельным интерфейсом. Его отечественным аналогом явля-<br>
+ется интерфейс <i>ИРПР-М.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>Традиционный порт <i>SPP</i> (Standard Parallel Port) является<br>
+однонаправленным портом, через который программно реа-<br>
+лизуется протокол обмена <i>Centronics.</i> Порт вырабатывает</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>аппаратное прерывание по импульсу на входе Ack#. Сигна-<br>
+лы порта выводятся на <i>разъем DB-25S</i> (розетка), установ-<br>
+ленный непосредственно на плате адаптера (или системной<br>
+плате) или соединяемый с ней плоским шлейфом. Название<br>
+и назначение сигналов разъема порта (табл. 1.2) соответству-<br>
+ют интерфейсу <i>Centronics.</i></font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I/O*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Strobe"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Строб данных. Данные фиксируют-<br>
+ся по низкому уровню сигнала</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data [0:7]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2-9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Линии данных. Data 0<br>
+(контакт 2) - младший бит</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ack#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Acknowledge - импульс подтверж-<br>
+дения приема байта (запрос на<br>
+прием следующего). Может исполь-<br>
+зоваться для формирования<br>
+запроса прерывания</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Busy</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Занято. Прием данных возможен<br>
+только при низком уровне сигнала</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PaperEnd</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Высокий уровень сигнализирует<br>
+о конце бумаги</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Select</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнализирует о включении прин-<br>
+тера (обьгано в принтере соединя-<br>
+ется резистором с цепью +5 В)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AutoLF#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Автоматический перевод строки.<br>
+При низком уровне принтер,<br>
+получив символ <i>CR</i> (Carriage Re-<br>
+turn - возврат каретки), автомати-<br>
+чески выполняет и функцию <i>Lf<br>
+</i>(Line Feed - перевод строки)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Error"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ошибка: конец бумаги, состояние<br>
+OFF-Line или внутренняя ошибка<br>
+принтера</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lnit#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Инициализация (сброс в режим<br>
+параметров умолчания, возврат<br>
+к началу строки)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Select ln#</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Выбор принтера (низким уровнем).<br>
+При высоком уровне принтер не<br>
+воспринимает остальные сигналы<br>
+интерфейса</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19-30, 33</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Общий провод интерфейса</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="11.jpg"alt="11.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 1.1.</b> Передача данных по протоколу Centronics</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=1>Контакт<br>
+DB-25S</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=1>Номер<br>
+провода<br>
+в кабеле</font>
+</td>
+<td colspan=3>
+
+<p>
+<font face="Times New Roman" size=1>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>I/O*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Reg. Bit**</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Сигнал</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>CR.O\</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Strobe"</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>0(1)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>DR.0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>DataO</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>0(1)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>DR.1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Data 1</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>0(1)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>DR.2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Data 2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>0(1)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>DR.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Data3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>0(1)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>DR.4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Data 4</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>0(1)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>DR.5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Data 5</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>0(1)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>DR.6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Data 6</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>0(1)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>DR.7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Data 7</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>1***</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>SR.6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Ack#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>SR.A</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Busy</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>SR.5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>PaperEnd</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>SR.4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Select</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>CR.1\</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Auto LF#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>SR.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Error*</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>CR.2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>lnit#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>CR.3\</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Select ln#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>18-25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>10, 12,14,<br>
+16, 18.20,<br>
+22, 24, 26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>^</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>~&quot;</i></font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2><i>*</i> I/O задает направление передачи (вход/выход) сигнала порта.<br>
+0/1 обозначает выходные линии, состояние которых считыва-<br>
+ется при чтении из портов вывода; (I) - выходные линии, со-<br>
+стояние которых может быть считано только при особых условиях<br>
+(см. ниже).</font>
+
+<p>
+<font face="Times New Roman" size=2>** Символом "\" отмечены инвертированные сигналы (1 в регистре<br>
+соответствует низкому уровню линии).</font>
+
+<p>
+<font face="Times New Roman" size=2>*** Вход Ack# соединен резистором (10 кОм) с питанием +5 В.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=3><b>1.1.2. Традиционный LPT-порт</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Адаптер параллельного интерфейса представляет собой на-<br>
+бор регистров, расположенных в пространстве ввода/вы-<br>
+вода. Регистры порта адресуются относительно базового<br>
+адреса порта, стандартными значениями которого явля-<br>
+ются 3BCh, 378h и 278h. Порт может использовать линию<br>
+запроса аппаратного прерывания, обычно <i>IRQ7</i> или <i>IRQ5.<br>
+</i>Порт имеет <i>внешнюю</i> 8-битную <i>шину данных,</i> 5-битную<br>
+<i>шину сигналов состояния</i> и 4-битную <i>шину управляющих<br>
+сигналов,</i></font>
+
+<p>
+<font face="Times New Roman" size=2>BIOS поддерживает до четырех (иногда до трех) LPT-пор-<br>
+тов (LPT1-LPT4) своим сервисом - прерыванием <i>INT 17h,<br>
+</i>обеспечивающим через них связь с принтером по интерфей-<br>
+су <i>Centronics.</i> Этим сервисом BIOS осуществляет вывод сим-<br>
+вола (по опросу готовности, не используя аппаратных пре-<br>
+рываний), инициализацию интерфейса и принтера, а также<br>
+опрос состояния принтера.</font>
+
+<p>
+<font face="Times New Roman" size=2>Стандартный порт имеет <i>три 8-битных регистра,</i> располо-<br>
+женных по соседним адресам в пространстве ввода/вывода,<br>
+начиная с базового адреса порта <i>(BASE).</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>Data Register (DR) - регистр данных,</i> адрес=ВЛ5Е. Данные,<br>
+записанные в этот порт, <i>выводятся</i> на выходные линии ин-<br>
+терфейса. Данные, считанные из этого регистра, в зависимо-<br>
+сти от схемотехники адаптера соответствуют либо ранее за-<br>
+писанным данным, либо сигналам на тех же линиях, что не<br>
+всегда одно и то же. Если в порт записать байт с единицами<br>
+во всех разрядах, а на выходные линии интерфейса через<br>
+микросхемы с выходом типа "открытый коллектор" подать<br>
+какой-либо код (или соединить ключами какие-то линии со<br>
+схемной землей), то этот код может быть считан из того же<br>
+регистра данных. Таким образом на многих старых моделях<br>
+адаптеров можно реализовать порт ввода дискретных сигна-<br>
+лов, однако выходным цепям передатчика информации при-<br>
+дется "бороться" с выходным током логической единицы<br>
+выходных буферов адаптера. Схемотехника ТТЛ такие ре-<br>
+шения не запрещает, но если внешнее устройство выполне-<br>
+но на микросхемах КМОП, их мощности может не хватить<br>
+для "победы" в этом шинном конфликте. Однако современ-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ные адаптеры часто имеют в выходной цепи согласующий<br>
+резистор с сопротивлением до 50 Ом. Выходной ток коротко-<br>
+го замыкания выхода на землю обычно не превышает 30 мА.<br>
+Простой расчет показывает, что в случае короткого замыка-<br>
+ния контакта разъема на землю при выводе "единицы" на<br>
+этом резисторе падает напряжение 1,5 В, что входной схе-<br>
+мой приемника будет воспринято как "единица". Так что<br>
+такой способ ввода не будет работать на всех компьютерах.</font>
+
+<p>
+<font face="Times New Roman" size=2>На некоторых адаптерах портов выходной буфер отключа-<br>
+ется перемычкой на плате. Тогда порт превращается в обык-<br>
+новенный порт ввода.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Status Register (SR) - регистр состояния;</i> представляет со-<br>
+бой <i>5-битный порт ввода</i> сигналов состояния принтера (биты<br>
+<i>SR.4-SR.7),</i> адрес==8ЛЗЕ+7. Бит <i>SR. 7</i> инвертируется - низ-<br>
+кому уровню сигнала соответствует единичное значение бита<br>
+в регистре, и наоборот.</font>
+
+<p>
+<font face="Times New Roman" size=2><b>Назначение бит регистра состояния (в скобках даны номера<br>
+контактов разъема):</b></font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>SR. 7 - Busy -</i> инверсные отображения состояния линии<br>
+Busy (11): при низком уровне на линии устанавливается<br>
+единичное значения бита - разрешение на вывод очеред-<br>
+ного байта.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>SR.6 - Ack</i> (Acknowledge) - отображения состояния ли-<br>
+нии Ack# (10).</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>SR.5 - РЕ</i> (Paper End) - отображения состояния линии<br>
+Paper End (12). Единичное значение соответствует высо-<br>
+кому уровню линии - сигналу о конце бумаги в принтере.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>ш SR.4 - Select -</i> отображения состояния линии Select (13).<br>
+Единичное значение соответствует высокому уровню ли-<br>
+нии - сигналу о включении принтера.</font>
+
+<p>
+<font face="Times New Roman" size=2>s8 <i>SR.3 - Error -</i> отображения состояния линии Error (15).<br>
+Нулевое значение соответствует низкому уровню линии -<br>
+сигналу о любой ошибке принтера.</font>
+
+<p>
+<font face="Times New Roman" size=2>&reg;? <i>SR.2 - PIRQ -</i> флаг прерывания по сигналу Ackft (толь-<br>
+ко для порта PS/2). Бит обнуляется, если сигнал Ack#<br>
+вызвал аппаратное прерывание. Единичное значение ус-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>танавливается по аппаратному сбросу и после чтения ре-<br>
+гистра состояния.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>SR[1:OJ -</i> зарезервированы.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Control Register (CR) - регистр управления, wpec^BASE+2.<br>
+</i>Как и регистр данных, этот <i>4-битный порт вывода</i> допуска-<br>
+ет запись и чтение (биты 0-3), но его выходной буфер обычно<br>
+имеет тип "открытый коллектор". Это позволяет корректно<br>
+использовать линии данного регистра как входные при про-<br>
+граммировании их в высокий уровень. Биты О, 1, 3 инвер-<br>
+тируются.</font>
+
+<p>
+<font face="Times New Roman" size=2><b>Назначение бит регистра управления:</b></font>
+
+<p>
+<font face="Times New Roman" size=2>SB <i>CR[7:6] -</i> зарезервированы.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т CR.5 - Direction -</i> бит управления направлением переда-<br>
+чи (только для портов PS/2). Запись единицы переводит<br>
+порт данных в режим ввода. При чтении состояние бита<br>
+не определено.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>CR.4 - AcklntEn</i> (Ack Interrupt Enable) - единичное зна-<br>
+чение разрешает прерывание по спаду сигнала на линии<br>
+Ack# - сигнал запроса следующего байта.</font>
+
+<p>
+<font face="Times New Roman" size=2>is <i>CR.3 - Select In -</i> единичное значение бита соответству-<br>
+ет низкому уровню на выходе Select ln# (17) - сигналу,<br>
+разрешающему работу принтера по интерфейсу <i>Centronics.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>CR.2 - Init -</i> нулевое значение бита соответствует низко-<br>
+му уровню на выходе <i>1п'Л#</i> (16) - сигналу аппаратного<br>
+сброса принтера.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т CR. 1 - Auto LF -</i> единичное значение бита соответствует<br>
+низкому уровню на выходе Auto LF# (14) - сигналу на<br>
+автоматический перевод строки <i>(LF -</i> Line Feed) по при-<br>
+ему байта возврата каретки (CR). Иногда сигнал и бит<br>
+называют <i>AutoFD</i> или <i>AutoFDXT.</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>^ CR.O - Strobe -</i> единичное значение бита соответствует<br>
+низкому уровню на выходе Strobeft (1) - сигналу стро-<br>
+бирования выходных данных.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Запрос аппаратного прерывания</i> (обьлно IRQ7 или IRQ5) вы-<br>
+рабатывается по отрицательному перепаду сигнала на выво-<br>
+де 10 разъема интерфейса (Ack#) при установке <i>CR.4=i.</i> Во</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>избежание ложных прерываний контакт 10 соединен резис-<br>
+тором с шиной +5 В. Прерывание вырабатывается, когда<br>
+принтер подтверждает прием предыдущего байта. Как уже<br>
+было сказано, BIOS это прерывание не использует и не об-<br>
+служивает.</font>
+
+<p>
+<font face="Times New Roman" size=2>Процедура вывода байта по интерфейсу <i>Centronics</i> включает<br>
+следующие шаги (в скобках приведено требуемое количе-<br>
+ство шинных операций процессора):</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Вывод байта в регистр данных (1 цикл IOWR#).</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Ввод из регистра состояния и проверка готовности уст-<br>
+ройства (бит <i>SR. 7 -</i> сигнал Busy). Этот шаг зацикливает-<br>
+ся до получения готовности или до срабатывания про-<br>
+граммного тайм-аута (минимум 1 цикл IORD#).</font>
+
+<p>
+<font face="Times New Roman" size=2><i>ш</i> По получении готовности выводом в регистр управления<br>
+устанавливается строб данных, а следующим выводом строб<br>
+снимается (2 цикла IOWR#). Обычно, чтобы переключить<br>
+только один бит (строб), регистр управления предвари-<br>
+тельно считывается, что добавляет еще один цикл IORD#.</font>
+
+<p>
+<font face="Times New Roman" size=2>Видно, что для вывода одного байта требуется 4-5 операций<br>
+ввода/вывода с регистрами порта (в лучшем случае, когда<br>
+готовность обнаружена по первому чтению регистра состоя-<br>
+ния). Отсюда вытекает главный недостаток вывода через<br>
+стандартный порт - невысокая скорость обмена при значи-<br>
+тельной загрузке процессора. Порт удается разогнать до ско-<br>
+ростей 100-150 Кбайт/с при полной загрузке процессора, что<br>
+недостаточно для печати на лазерном принтере. Другой не-<br>
+достаток - функциональный - сложность использования в<br>
+качестве порта ввода.</font>
+
+<p>
+<font face="Times New Roman" size=2>Стандартный порт асимметричен - при наличии 12 линий<br>
+(и бит), нормально работающих на вывод, на ввод работают<br>
+только 5 линий состояния. Если необходима симметричная<br>
+двунаправленная связь, на всех стандартных портах рабо-<br>
+тоспособен ^ежгш <i>полубайтного обмена - Nibble Mode.</i> В этом<br>
+режиме, называемом также <i>Hewlett Packard Bitronics,</i> одно-<br>
+временно передаются 4 бита данных, пятая линия исполь-<br>
+зуется для квитирования. Таким образом, каждый байт пе-<br>
+редается за два цикла, а каждый цикл требует по крайней<br>
+мере 5 операций ввода/вывода.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=3><b>1.1.3. Расширения параллельного порта</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Недостатки стандартного порта частично устраняли новые<br>
+типы портов, появившиеся в компьютерах PS/2.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Двунаправленный порт 1 (Type 1 parallel port}</i> -интерфейс,<br>
+введенный в PS/2. Такой порт кроме стандартного режима<br>
+может работать в режиме ввода или двунаправленном ре-<br>
+жиме. Протокол обмена формируется программно, а для<br>
+указания направления передачи в регистр управления пор-<br>
+та введен специальный бит <i>CR.5:0 -</i> буфер данных работа-<br>
+ет на вывод, 1 - на ввод. Не путайте этот порт, называемый<br>
+также <i>enhanced bi-directional, с</i> ЕРР. Данный тип порта при-<br>
+жился и в обычных компьютерах.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Порт с прямым доступом к памяти (Type 3 DMA parallelport)<br>
+</i>применялся в PS/2 моделей 57, 90, 95. Был введен для по-<br>
+вышения пропускной способности и разгрузки процессора<br>
+при выводе на принтер. Программе, работающей с портом,<br>
+требовалось только задать в памяти блок данных, подлежа-<br>
+щих выводу, а затем вывод по протоколу <i>Centronics</i> произ-<br>
+водился без участия процессора.</font>
+
+<p>
+<font face="Times New Roman" size=2>Позже появились другие адаптеры LPT-портов, реализую-<br>
+щие протокол обмена <i>Centronics</i> аппаратно - <i>Fast Centronics.<br>
+</i>Некоторые из них использовали FIFO-буфер данных -<br>
+<i>Parallel Port FIFO Mode.</i> He будучи стандартизованными, та-<br>
+кие порты разных производителей требовали использования<br>
+собственных специальных драйверов. Программы, исполь-<br>
+зующие прямое управление регистрами стандартных портов,<br>
+не умели более эффективно их использовать. Такие порты<br>
+часто входили в состав мультикарт VLB. Существуют их ва-<br>
+рианты с шиной ISA, в том числе встроенные.</font>
+
+<p>
+<font face="Times New Roman" size=4><b>1.2. Стандарт IEEE 1284</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Стандарт на параллельный интерфейс <i>IEEE 1284,</i> принятый<br>
+в 1994 году, определяет порты <i>SPP, ЕРР</i> и <i>ЕСР.</i> Стандарт<br>
+определяет 5 режимов обмена данными, метод согласования<br>
+режима, физический и электрический интерфейсы. Соглас-<br>
+но IEEE 1284, возможны следующие режимы обмена дан-<br>
+ными через параллельный порт:</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>Режим совместимости (Compatibility Mode) -</i> однонаправ-<br>
+ленный (вывод) по протоколу <i>Centronics.</i> Этот режим со-<br>
+ответствует стандартному порту SPP.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>Полубайтный режим (Nibble Mode) -</i> ввод байта в два<br>
+цикла (по 4 бита), используя для приема линии состоя-<br>
+ния. Этот режим обмена может использоваться на лю-<br>
+бых адаптерах.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>^ Байтный режим (Byte Mode) -</i> ввод байта целиком, ис-<br>
+пользуя для приема линии данных. Этот режим работает<br>
+только на портах, допускающих чтение выходных дан-<br>
+ных <i>(Bi-Directional</i> или <i>PS/2 Type 1).</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>т Режим ЕРР</i> (Enhanced Parallel Port) <i>(EPP Mode) -</i> дву-<br>
+направленный обмен данными. Управляющие сигналы<br>
+интерфейса генерируются аппаратно во время цикла об-<br>
+ращения к порту. Эффективен при работе с устройства-<br>
+ми внешней памяти и адаптерами локальных сетей.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>Режим ЕСР</i> (Extended Capability Port) <i>(ECP Mode) -</i> дву-<br>
+направленный обмен данными с возможностью аппарат-<br>
+ного сжатия данных по методу <i>RLE</i> (Run Length Encoding)<br>
+и использования FIFO-буферов и DMA. Управляющие<br>
+сигналы интерфейса генерируются аппаратно. Эффекти-<br>
+вен для принтеров и сканеров.</font>
+
+<p>
+<font face="Times New Roman" size=2>В компьютерах с LPT-портом на системной плате режим -<br>
+SPP, ЕРР, ЕСР или их комбинация - задается в BIOS Setup.<br>
+Режим совместимости полностью соответствует стандартно-<br>
+му порту SPP. Остальные режимы подробно рассмотрены<br>
+ниже.</font>
+
+<p>
+<font face="Times New Roman" size=3><b>1.2.1. Физический и электрический интерфейсы</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Стандарт IEEE 1284 определяет физические характерис-<br>
+тики приемников и передатчиков сигналов. Специфика-<br>
+ции стандартного порта не задавали типов выходных схем,<br>
+предельных значений величин нагрузочных резисторов и<br>
+емкости, вносимой цепями и проводниками. На относи-<br>
+тельно невысоких скоростях обмена разброс этих парамет-<br>
+ров не вызывал проблем совместимости. Однако расши-<br>
+ренные (функционально и по скорости передачи) режимы</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>требуют четких спецификаций. IEEE 1284 определяет два<br>
+уровня интерфейсной совместимости. <i>Первый уровень<br>
+</i>(Level I) определен для устройств медленных, но исполь-<br>
+зующих смену направления передачи данных. <i>Второй уро-<br>
+вень</i> (Level II) определен для устройств, работающих в<br>
+расширенных режимах, с высокими скоростями и длин-<br>
+ными кабелями. К <i>передатчикам</i> предъявляются следую-<br>
+щие требования:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Уровни сигналов без нагрузки не должны выходить за<br>
+пределы -0,5... +5,5 В.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Уровни сигналов при токе нагрузки 14 мА должны быть<br>
+не ниже +2,4 В для высокого уровня <i>(Уон)</i> и не выше<br>
++0,4 В для низкого уровня (VoiJ на постоянном токе.</font>
+
+<p>
+<font face="Times New Roman" size=2>ii Выходной импеданс Ro, измеренный на разъеме, должен<br>
+составлять 50&plusmn;5 Ом на уровне VoH~VoL. Для обеспечения<br>
+заданного импеданса используют последовательные резис-<br>
+торы в выходных цепях передатчика. Согласование им-<br>
+педанса передатчика и кабеля снижает уровень импульс-<br>
+ных помех.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Скорость нарастания (спада) импульса должна находить-<br>
+ся в пределах 0,05-0,4 В/нс.</font>
+
+<p>
+<font face="Times New Roman" size=2>Требования к <i>приемникам:</i></font>
+
+<p>
+<font face="Times New Roman" size=2>^ Допустимые пиковые значения сигналов -2,0...+7,0 В.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Пороги срабатывания должны быть не выше 2,0 В (V^)<br>
+для высокого уровня и не ниже 0,8 В (Vi^) для низкого.</font>
+
+<p>
+<font face="Times New Roman" size=2>а Приемник должен иметь гистерезис в пределах 0,2...1,2 В<br>
+(гистерезисом обладают специальные микросхемы - триг-<br>
+геры Шмитта).</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Входной ток микросхемы (втекающий и вытекающий) не<br>
+должен превышать 20 мкА, входные линии соединяются<br>
+с шиной питания +5 В резистором 1,2 кОм.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Входная емкость не должна превышать 50 пФ.</font>
+
+<p>
+<font face="Times New Roman" size=2>Когда появилась спецификация ЕСР, фирма Microsoft ре-<br>
+комендовала применение динамических терминаторов на<br>
+каждую линию интерфейса. Однако в настоящее время сле-<br>
+дуют спецификации IEEE 1284, в которой динамические</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>терминаторы не применяются. Рекомендованные схемы<br>
+входных, выходных и двунаправленных цепей приведены<br>
+на рис. 1.2.</font>
+
+<p>
+<font face="Times New Roman" size=2>Стандарт IEEE 1284 определяет три типа используемых<br>
+<i>разъемов.</i> Типы <i>A (DB-25)</i> и <i>В (Centronics-36)</i> используются<br>
+в традиционных кабелях подключения принтера, тип <i>С -<br>
+</i>новый малогабаритный 36-контактный разъем.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="12.jpg"alt="12.jpg">
+<br clear=all>
+
+
+<p>
+<img border=0 vspace=3 hspace=3 src="13.jpg"alt="13.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 1.2.</b> Оконечные цепи линий интерфейса IEEE 1284:</font>
+
+<p align=center>
+<font face="Times New Roman" size=2>а - однонаправленных, <i>б -</i> двунаправленных</font>
+
+<p>
+<font face="Times New Roman" size=2>Традиционные интерфейсные кабели имеют от 18 до 25 про-<br>
+водов, в зависимости от числа проводников цепи GND. Эти<br>
+проводники могут быть как перевитыми, так и нет. К экра-<br>
+нированию кабеля жестких требований не предъявлялось.<br>
+Такие кабели вряд ли будут надежно работать на скорости<br>
+передачи 2 Мбайт/с и при длине более 2 м. Стандарт<br>
+IEEE 1284 регламентирует <i>свойства кабелей.</i></font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>^ Все сигнальные линии должны быть перевитыми с от-<br>
+дельными обратными (общими) проводами.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Каждая пара должна иметь импеданс 62&plusmn;б Ом в частот-<br>
+ном диапазоне 4-16 МГц.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Уровень перекрестных помех между парами не должен<br>
+превышать 10%.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Кабель должен иметь экран (фольгу), покрывающий не<br>
+менее 85% внешней поверхности. На концах кабеля эк-<br>
+ран должен быть окольцован и соединен с контактом<br>
+разъема.</font>
+
+<p>
+<font face="Times New Roman" size=2>Кабели, удовлетворяющие этим требованиям, маркируются<br>
+надписью <i>"lEEEStd 1284-1994 Compliant^.</i> Они могут иметь<br>
+длину до 10 метров, обозначения типов приведены в табл. 1.3.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Тип</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Расшифровка</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Разъем 1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Разъем 2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>АМАМ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Type A Male - Type A Male</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>А(вилка)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>А(вилка)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AMAF</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Туре A Male - Type A Female</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>А(вилка)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>А (розетка)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>АВ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Type A Male - Туре В Plug<br>
+(стандартный кабель<br>
+к принтеру)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>А(вилка)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>В</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>АС</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Type A Male - Type С Plug<br>
+(новый кабель к принтеру)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>А(вилка)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>С</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ВС</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Type В Plug - Type С Plug</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>С</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>СС</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Туре С Plug - Type С Plug</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>С</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>С</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=3>1.2.2. Режимы передачи данных</font>
+
+<p>
+<font face="Times New Roman" size=2>IEEE 1284 определяет пять <i>режимов обмена,</i> один из кото-<br>
+рых полностью соответствует стандартному выводу по про-<br>
+токолу <i>Centronics.</i> Стандарт определяет способ, по которому<br>
+ПО может определить режим, доступный и хосту (PC), и<br>
+ПУ (или присоединенному второму компьютеру). Режимы<br>
+нестандартных портов, реализующих протокол обмена<br>
+<i>Centronics</i> аппаратно <i>(Fast Centronics, Parallel Port FIFO Mode),</i></font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>могут и не являться режимами IEEE 1284, несмотря на на-<br>
+личие в них черт <i>ЕРР</i> и <i>ЕСР.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>При описании режимов обмена фигурируют следующие по-<br>
+нятия:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>Хост -</i> компьютер, обладающий параллельным портом.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>ПУ -</i> периферийное устройство, подключаемое к этому<br>
+порту.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Ptr - в обозначениях сигналов обозначает передающее ПУ.<br>
+is <i>Прямой канал -</i> канал вывода данных от хоста в ПУ.<br>
+^ <i>Обратный канал -</i> канал ввода данных в хост из ПУ.<br>
+<b>Полубайтный режим ввода - Nibble Mode</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Предназначен для двунаправленного обмена. Может рабо-<br>
+тать на всех стандартных портах. Порты имеют <i>5 линий вво-<br>
+да</i> состояния, используя которые ПУ может посылать в хост<br>
+байт тетрадами (nibble - полубайт, 4 бита) за два приема.<br>
+Сигнал Ack#, вызывающий прерывание, которое может ис-<br>
+пользоваться в данном режиме, соответствует биту 6 регис-<br>
+тра состояния, что усложняет программные манипуляции с<br>
+битами при сборке байта. Сигналы порта приведены в<br>
+табл. 1.4, временные диаграммы - на рис. 1.3.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="14.jpg"alt="14.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 1.3.</b> Прием данных в полубайтном режиме</font>
+
+<p>
+<font face="Times New Roman" size=2>Прием байта данных в полубайтном режиме состоит из сле-<br>
+дующих фаз:</font>
+
+<p>
+<font face="Times New Roman" size=2>1. Хост сигнализирует о готовности приема данных уста-<br>
+новкой низкого уровня на линии HostBusy.</font>
+
+<p>
+<font face="Times New Roman" size=2>2. ПУ в ответ помещает тетраду на входные линии состоя-<br>
+ния.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>3. ПУ сигнализирует о готовности тетрады установкой низ-<br>
+ кого уровня на линии PtrClk.</font>
+
+<p>
+<font face="Times New Roman" size=2>4. Хост устанавливает высокий уровень на линии HostBusy,<br>
+ указывая на занятость приемом и обработкой тетрады.</font>
+
+<p>
+<font face="Times New Roman" size=2>5. ПУ отвечает установкой высокого уровня на линии PtrClk.</font>
+
+<p>
+<font face="Times New Roman" size=2>6. Шаги 1-5 повторяются для второй тетрады.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал SPP</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I/O</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Описание</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AutoFeed#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>HostBusy - сигнал квитирования.<br>
+Низкий уровень означает готовность к<br>
+приему тетрады, высокий подтверждает<br>
+прием тетрады</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Sdectln#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Высокий уровень указывает на обмен<br>
+в режиме IEEE 1284 (в режиме SPP<br>
+уровень низкий)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ack#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PtrClk. Низкий уровень означает<br>
+готовность тетрады, высокий - ответ<br>
+на сигнал HostBusy</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Busy</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Прием бита данных 3, затем бита 7</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РЕ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Прием бита данных 2, затем бита 6</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Sdect</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Прием бита данных 1, затем бита 5</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Error"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Прием бита данных 0, затем бита 4</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Полубайтный режим сильно нагружает процессор, и поднять<br>
+скорость обмена выше 50 Кбайт/с не удается. Безусловное<br>
+его преимущество в том, что он работает <i>на всех портах.</i> Его<br>
+применяют в тех случаях, когда поток данных невелик (на-<br>
+пример, для связи с принтерами). Однако при связи с адап-<br>
+терами локальных сетей, внешними дисковыми накопителя-<br>
+ми и CD-ROM прием больших объемов данных требует<br>
+изрядного терпения со стороны пользователя.</font>
+
+<p>
+<font face="Times New Roman" size=2>Двунаправленный байтный режим - Byte Mode</font>
+
+<p>
+<font face="Times New Roman" size=2>В данном режиме данные принимаются с использованием<br>
+двунаправленного порта, у которого выходной буфер дан-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ных может отключаться установкой бита С/?.5=1. Как и пре-<br>
+дыдущие, режим является программно-управляемым - все<br>
+сигналы квитирования анализируются и устанавливаются<br>
+драйвером. Сигналы порта описаны в табл. 1.5, временные<br>
+диаграммы - на рис. 1.4.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал SPP</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Имя<br>
+в байтном<br>
+режиме</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I/O</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Описание</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Strobe"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>HostClk</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Импульс (низкого уровня)<br>
+подтверждает прием байта<br>
+в конце каждого цикла</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AutoFeed#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>HostBusy</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал квитирования.<br>
+Низкий уровень означает<br>
+готовность хоста принять<br>
+байт; высокий уровень<br>
+устанавливается по приему<br>
+байта</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Selecting</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1284Active</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Высокий уровень указывает<br>
+на обмен в режиме<br>
+IEEE 1284 (в режиме SPP<br>
+уровень низкий)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lnit#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lnit"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Не используется; установ-<br>
+лен высокий уровень</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ack#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PtrClk</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Устанавливается в низкий<br>
+уровень для индикации<br>
+действительности данных<br>
+на линиях Data [0:7].<br>
+Низкий уровень устанавли-<br>
+вается в ответ на сигнал<br>
+HostBusy</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Busy</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PtrBusy</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Состояние занятости пря-<br>
+мого канала</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PE</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AckDataReq*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Устанавливается ПУ для<br>
+указания на наличие обрат-<br>
+ного канала передачи</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Select</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Xflag*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Флаг расширяемости</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Error#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DataAvail#*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Устанавливается ПУ для<br>
+указания на наличие обрат-<br>
+ного канала передачи</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2-9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data [0:7]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data [0:7]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I/</font>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Двунаправленный (прямой<br>
+и обратный) канал данных</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p align=center>
+<font face="Times New Roman" size=2>* Сигналы действуют в последовательности согласования (см. далее).</font>
+<hr>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="15.jpg"alt="15.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 1.4.</b> Прием данных в байтном режиме</font>
+
+<p>
+<font face="Times New Roman" size=2>Фазы приема байта данных:</font>
+
+<p>
+<font face="Times New Roman" size=2>1. Хост сигнализирует о готовности приема данных уста-<br>
+ новкой низкого уровня на линии HostBusy.</font>
+
+<p>
+<font face="Times New Roman" size=2>2. ПУ в ответ помещает байт данных на линии Data [0:7].</font>
+
+<p>
+<font face="Times New Roman" size=2>3. ПУ сигнализирует о действительности байта установкой<br>
+ низкого уровня на линии PtrClk.</font>
+
+<p>
+<font face="Times New Roman" size=2>4. Хост устанавливает высокий уровень на линии HostBusy,<br>
+ указывая на занятость приемом и обработкой байта.</font>
+
+<p>
+<font face="Times New Roman" size=2>5. ПУ отвечает установкой высокого уровня на линии PtrClk.</font>
+
+<p>
+<font face="Times New Roman" size=2>6. Хост подтверждает прием байта импульсом HostCIR.</font>
+
+<p>
+<font face="Times New Roman" size=2>7. Шаги 1-6 повторяются для каждого следующего байта.</font>
+
+<p>
+<font face="Times New Roman" size=2>Побайтный режим позволяет поднять скорость обратного<br>
+канала до скорости прямого канала в стандартном режиме.<br>
+Однако он может работать <i>только на двунаправленных<br>
+портах.</i></font>
+
+<p>
+<font face="Times New Roman" size=2><b>Режим ЕРР</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Протокол <i>ЕРР</i> (Enhanced Parallel Port - улучшенный парал-<br>
+лельный порт) был разработан компаниями Intel, Xircom и<br>
+Zenith Data Systems задолго до принятия IEEE 1284. Он<br>
+предназначен для повышения производительности обмена по<br>
+параллельному порту. <i>ЕРР</i> был реализован в чипсете<br>
+Intel 386SL (микросхема 82360) и впоследствии принят мно-<br>
+жеством компаний как дополнительный протокол параллель-<br>
+ного порта. Версии протокола, реализованные до принятия<br>
+IEEE 1284, отличаются от нынешнего стандарта (см. далее).</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Протокол <i>ЕРР</i> обеспечивает четыре типа циклов обмена:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ запись данных;</font>
+
+<p>
+<font face="Times New Roman" size=2><i>ш</i> чтение данных;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ запись адреса;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ чтение адреса.</font>
+
+<p>
+<font face="Times New Roman" size=2>Назначение циклов записи и чтения данных очевидно. Ад-<br>
+ресные циклы используются для передачи адресной, каналь-<br>
+ной и управляющей информации. Циклы обмена данными<br>
+отличаются от адресных циклов применяемыми стробирую-<br>
+щими сигналами. Назначение сигналов порта <i>ЕРР</i> и их связь<br>
+с сигналами <i>SPP</i> объясняются в табл. 1.6.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал SPP</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Имя в ЕРР</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I/O</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Описание</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Strobe"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Write#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Низкий уровень - цикл<br>
+записи, высокий - цикл<br>
+чтения</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AutoLF#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DataStb#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Строб данных. Низкий<br>
+уровень устанавливается<br>
+в циклах передачи данных</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Selecting</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AddrStbft</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Строб адреса. Низкий уро-<br>
+вень устанавливается в ад-<br>
+ресных циклах</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lnit"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reset"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сброс ПУ (низким уровнем)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ack#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>INTR#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Прерывание от ПУ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Busy</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Wait#</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал квитирования.<br>
+Низкий уровень разрешает<br>
+начало цикла (установку<br>
+строба в низкий уровень),<br>
+переход в высокий - раз-<br>
+решает завершение цикла<br>
+(снятие строба)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2-9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data [0:7]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD[0:7]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I/O</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Двунаправленная шина<br>
+адреса/данных</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PaperEnd</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AckDataReq*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Используется по усмотрению<br>
+разработчика периферии</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Select</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Xflag*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Используется по усмотрению<br>
+разработчика периферии</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Error#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DataAvail#*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>'</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Используется по усмотрению<br>
+разработчика периферии</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>* Сигналы действуют в последовательности согласования (см. далее).</font>
+
+<p>
+<font face="Times New Roman" size=1>2 Зак.№530</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>ЕРР-порт</i> имеет <i>расширенный набор регистров</i> (табл. 1.7),<br>
+который занимает в пространстве ввода/вывода 5-8 смеж-<br>
+ных байт.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Имя регистра</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Смещение</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Режим</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R/W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Описание</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SPP Data Port</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SPP/EPP</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman Narrow" size=2><i>Регистр данных SPP</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman Narrow" size=2><i>SPP Status Port</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SPP/EPP</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр состояния SPP</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman Narrow" size=2><i>SPP Control Port</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SPP/EPP</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр управления SPP</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>EPP Address<br>
+Port</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>EPP</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R/W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр адреса EPP.<br>
+</i>Чтение или запись в<br>
+него генерирует связан-<br>
+ный цикл чтения или<br>
+записи адреса <i>EPP</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>EPP Data Port</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>EPP</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R/W</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр данных EPP.<br>
+</i>Чтение (запись) гене-<br>
+рирует связанный цикл<br>
+чтения (записи) дан-<br>
+ных <i>EPP</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Not Defined</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5...+7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>EPP</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>N/A</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>В некоторых кон-<br>
+троллерах могут исполь-<br>
+зоваться для 16-/<br>
+32-битных операций<br>
+ввода/вывода</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>В отличие от программно-управляемых режимов, описанных<br>
+ранее, внешние сигналы fPP-порта для каждого цикла об-<br>
+мена формируются аппаратно по одной операции записи или<br>
+чтения в регистр порта. На рис. 1.5 приведена диаграмма <i>иик-<br>
+ла записи</i> данных, иллюстрирующая внешний цикл обмена,<br>
+<i>вложенный</i> в цикл записи системной шины процессора (иног-<br>
+да эти циклы называют <i>связанными).</i> Адресный цикл запи-<br>
+си отличается от цикла данных только стробом внешнего ин-<br>
+терфейса.</font>
+
+<p>
+<font face="Times New Roman" size=2>Цикл записи данных состоит из следующих фаз:</font>
+
+<p>
+<font face="Times New Roman" size=2>1. Программа выполняет цикл вывода (IOWR#) в порт 4 (EPP<br>
+<i>Data Port).</i></font>
+
+<p>
+<font face="Times New Roman" size=2>2. Адаптер устанавливает сигнал Write* (низкий уровень),<br>
+и данные помещаются на выходную шину LPT-порта.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>3. При низком уровне Wart# устанавливается строб данных.</font>
+
+<p>
+<font face="Times New Roman" size=2>4. Порт ждет подтверждения от ПУ (перевода Wait# в вы-<br>
+ сокий уровень).</font>
+
+<p>
+<font face="Times New Roman" size=2>5. Снимается строб данных - внешний ЕРР-цикл завер-<br>
+ шается.</font>
+
+<p>
+<font face="Times New Roman" size=2>6. Завершается процессорный цикл вывода.</font>
+
+<p>
+<font face="Times New Roman" size=2>7. ПУ устанавливает низкий уровень Wait#, указывая на<br>
+возможность начала следующего цикла.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="16.jpg"alt="16.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 1.5. Цикл записи данных ЕРР</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Пример адресного <i>цикла чтения</i> приведен на рис. 1.6. Цикл<br>
+чтения данных отличается только применением другого стро-<br>
+бирующего сигнала.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="17.jpg"alt="17.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 1.6.</b> Адресный цикл чтения ЕРР</font>
+
+<p>
+<font face="Times New Roman" size=2>Главной отличительной чертой <i>ЕРР</i> является выполнение<br>
+внешней передачи во время одного процессорного цикла вво-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>да/вывода. Это позволяет достигать высоких скоростей об-<br>
+мена (0,5...2 Мбайт/с). ПУ, подключенное к параллельному<br>
+порту <i>ЕРР,</i> может работать со скоростью устройства, под-<br>
+ключаемого через слот ISA. Протокол блокированного кви-<br>
+тирования <i>(interlocked handshakes)</i> позволяет автоматичес-<br>
+ки настраиваться на скорость обмена, доступную и хосту, и<br>
+ПУ. ПУ может регулировать длительность всех фаз обмена<br>
+с помощью всего лишь одного сигнала Wait#. Протокол ав-<br>
+томатически подстраивается под длину кабеля - вносимые<br>
+задержки приведут только к удлинению цикла. Поскольку<br>
+кабели, соответствующие IEEE 1284 (см. выше), имеют оди-<br>
+наковые волновые свойства для разных линий, нарушения<br>
+передачи, связанного с "состязаниями" сигналов, происхо-<br>
+дить не должно. При подключении сетевых адаптеров или<br>
+внешних дисков к ЈPP-nopTy можно наблюдать непривыч-<br>
+ное явление: снижение производительности по мере удли-<br>
+нения интерфейсного кабеля.</font>
+
+<p>
+<font face="Times New Roman" size=2>Естественно, ПУ не должно "подвешивать" процессор на<br>
+шинном цикле обмена. Это гарантирует механизм тайм-аутов<br>
+PC, который принудительно завершает любой цикл обмена,<br>
+длящийся более 15 мкс. В ряде реализации <i>ЕРР</i> за тайм-аутом<br>
+интерфейса следит сам адаптер - если ПУ не отвечает в те-<br>
+чение определенного времени (5 мкс), цикл прекращается и<br>
+в дополнительном (не стандартизованном) регистре состоя-<br>
+ния адаптера фиксируется ошибка.</font>
+
+<p>
+<font face="Times New Roman" size=2>Устройства с интерфейсом <i>ЕРР,</i> разработанные до принятия<br>
+IEEE 1284, отличаются началом цикла: строб DataStb# или<br>
+AddrStb# устанавливается независимо от состояния WAIT#.<br>
+Это означает, что ПУ не может задержать начало следующе-<br>
+го цикла (хотя может растянуть его на требуемое время).<br>
+Такая спецификация называется <i>ЕРР 1.7</i> (предложена<br>
+Xircom). Именно она применялась в контроллере 82360.<br>
+Периферия, совместимая с <i>ЕРР 17,</i> будет нормально рабо-<br>
+тать и с контроллером <i>ЕРР 1284,</i> но периферия в стандарте<br>
+<i>ЕРР 1284</i> может отказаться работать с контроллером <i>ЕРР 1.7.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>С <i>программной</i> точки зрения контроллер ЯРР-порта выгля-<br>
+дит просто (см. табл. 1.7). К трем регистрам стандартного<br>
+порта, имеющим смещение 0, 1 и 2 относительно базового</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>адреса порта, добавлены два регистра <i>(ЕРР Address Port</i> и<br>
+<i>ЕРР Data Port),</i> чтение и запись в которые вызывает генера-<br>
+цию связанных внешних циклов.</font>
+
+<p>
+<font face="Times New Roman" size=2>Назначение регистров стандартного порта сохранено для со-<br>
+вместимости fPP-порта с ПУ и ПО, рассчитанными на при-<br>
+менение программно-управляемого обмена. Поскольку сиг-<br>
+налы квитирования адаптером вырабатываются аппаратно,<br>
+при записи в регистр управления <i>СП</i> биты 0, 1 и 3, соответ-<br>
+ствующие сигналам Strobeft, AutoFeed# и Selecting должны<br>
+иметь нулевые значения. Программное вмешательство мог-<br>
+ло бы нарушить последовательность квитирования. Некото-<br>
+рые адаптеры имеют специальные средства защиты <i>(ЕРР<br>
+Protect),</i> при включении которых программная модифика-<br>
+ция этих бит блокируется.</font>
+
+<p>
+<font face="Times New Roman" size=2>Использование регистра данных <i>ЕРР</i> позволяет осуществлять<br>
+передачу блока данных с помощью одной инструкции <i>REP<br>
+INSB</i> или <i>REP OUTSB.</i> Некоторые адаптеры допускают <i>16-/<br>
+32-битное обращение</i> к регистру данных <i>ЕРР.</i> При этом адап-<br>
+тер просто дешифрует адрес со смещением в диапазоне 4-7<br>
+как адрес регистра данных <i>ЕРР,</i> но процессору сообщает о раз-<br>
+рядности 8 бит. Тогда 16- или 32-битное обращение по ад-<br>
+ресу регистра данных <i>ЕРР</i> приведет к автоматической гене-<br>
+рации двух или четырех шинных циклов по нарастающим<br>
+адресам, начиная со смещения 4. Эти циклы будут выпол-<br>
+няться быстрее, чем то же количество одиночных циклов.<br>
+Таким образом обеспечивается производительность до<br>
+2 Мбайт/с, достаточная для адаптеров локальных сетей, вне-<br>
+шних дисков, стриммеров и CD-ROM. Адресные циклы <i>ЕРР<br>
+</i>всегда выполняются только в однобайтном режиме.</font>
+
+<p>
+<font face="Times New Roman" size=2>Важной чертой <i>ЕРР</i> является то, что обращение процессора<br>
+к ПУ осуществляется в реальном времени - нет буфериза-<br>
+ции. Драйвер способен отслеживать состояние и подавать<br>
+команды в точно известные моменты времени. Циклы чте-<br>
+ния и записи могут чередоваться в произвольном порядке<br>
+или идти блоками. Такой тип обмена удобен для <i>регистро-<br>
+ориентированных ПУ</i> или ПУ, работающих в <i>реальном вре-<br>
+мени, -</i> сетевых адаптеров, устройств сбора информации и<br>
+управления и т. п.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><b>Режим ЕСР</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Протокол <i>ЕСР</i> (Extended Capability Port - порт с расши-<br>
+ренными возможностями) был предложен Hewlett Packard<br>
+и Microsoft для связи с ПУ типа принтеров или сканеров.<br>
+Как и <i>ЕРР,</i> данный протокол обеспечивает высокопроизво-<br>
+дительный двунаправленный обмен данными хоста с ПУ.</font>
+
+<p>
+<font face="Times New Roman" size=2>Протокол <i>ЕСР</i> в обоих направлениях обеспечивает два типа<br>
+циклов:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ циклы записи и чтения данных;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ командные циклы записи и чтения.</font>
+
+<p>
+<font face="Times New Roman" size=2>Командные циклы подразделяются на два типа: передачу<br>
+канальных адресов и передачу счетчика <i>RLC</i> (Run-Length<br>
+Count).</font>
+
+<p>
+<font face="Times New Roman" size=2>В отличие от <i>ЕРР,</i> вместе с протоколом <i>ЕСР</i> сразу появился<br>
+стандарт на программную (регистровую) модель его адапте-<br>
+ра, изложенный в документе "The IEEE 1284 Extended<br>
+Capabilities Port Protocol and ISA Interface Standard" ком-<br>
+пании Microsoft. Этот документ определяет свойства прото-<br>
+кола, не заданные стандартом IEEE 1284:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ компрессию данных хост-адаптером по методу RLE;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ буферизацию FIFO для прямого и обратного каналов;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ применение DMA и программного ввода/вывода.</font>
+
+<p>
+<font face="Times New Roman" size=2>Компрессия в реальном времени по методу <i>RLE</i> (Run-Length<br>
+Encoding) позволяет достичь коэффициента сжатия 64:1 при<br>
+передаче растровых изображений, которые имеют длинные<br>
+строки повторяющихся байт. Компрессию можно использо-<br>
+вать, только если ее поддерживает и хост, и ПУ.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Канальная адресация ЕСР</i> применяется для адресации мно-<br>
+жества логических устройств, входящих в одно физическое.<br>
+Например, в комбинированном устройстве факс/принтер/<br>
+модем, подключаемом только к одному параллельному пор-<br>
+ту, возможен одновременный прием факса и печать на прин-<br>
+тере. В режиме <i>SPP,</i> если принтер установит сигнал занятос-<br>
+ти, канал будет занят данными, пока принтер их не примет.<br>
+В режиме <i>ЕСР</i> программный драйвер просто адресуется к<br>
+другому <i>логическому каналу</i> того же порта.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Протокол <i>ЕСР</i> переопределяет сигналы <i>SPP</i> (табл. 1.8).</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал SPP</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Имя в ЕСР</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I/O</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Описание</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Strobe"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>HostClk</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Используется в паре<br>
+с PeriphAck для передачи<br>
+в прямом направлении<br>
+(вывод)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AutoLF#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>HostAck</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Указывает тип цикла<br>
+(команда/данные) при<br>
+передаче в прямом на-<br>
+правлении. Использует-<br>
+ся в паре с PeriphClk для<br>
+передачи в обратном на-<br>
+правлении</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Selecting</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1284Active</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Высокий уровень указы-<br>
+вает на обмен в режиме<br>
+IEEE 1284 (в режиме<br>
+<i>SPP</i> уровень низкий)</font>
+</td>
+</tr>
+<tr>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>lnit#</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Низкий уровень пере-<br>
+ключает канал на пере-<br>
+дачу в обратном направ-<br>
+лении</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ReverseRequest*</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ack#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PeriphQk</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Используется в паре<br>
+с HostAck для передачи<br>
+в обратном направлении</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Busy</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PeriphAck</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Используется в паре<br>
+с HostClk для передачи<br>
+в обратном направлении.<br>
+Индицирует тип коман-<br>
+да/данные при передаче<br>
+в обратном направлении</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PaperEnd</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AckReverse#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Переводится в низкий<br>
+уровень как подтверж-<br>
+дение сигналу<br>
+ReverseRequest#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Select</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Xflag*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Флаг расширяемости</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Error#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PeriphRequest#*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Устанавливается ПУ для<br>
+указания на доступность<br>
+(наличие) обратного ка-<br>
+нала передачи*</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2-9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data [0:7]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data [0:7]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I/O</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Двунаправленный канал<br>
+данных</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>* Сигналы действуют в последовательности согласования (см. далее).</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Адаптер <i>ЕСР</i> тоже генерирует внешние протокольные сиг-<br>
+налы квитирования аппаратно, но его работа существенно<br>
+отличается от режима <i>ЕРР.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>На рис. 1.7а приведена диаграмма двух циклов прямой пе-<br>
+редачи: за циклом данных следует командный цикл. <i>Тип цлкла<br>
+</i>задается уровнем на линии HostAck: в цикле данных - вы-<br>
+сокий, в командном цикле - низкий. В командном цикле байт<br>
+может содержать <i>канальный адрес</i> или счетчик RLE. Отли-<br>
+чительным признаком является бит 7 (старший): если он<br>
+нулевой, то биты 0-6 содержат счетчик <i>RLE</i> (0-127), если<br>
+единичный - то канальный адрес. На рис. 1.76 показана пара<br>
+циклов обратной передачи.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="18.jpg"alt="18.jpg">
+<br clear=all>
+
+
+<p>
+<img border=0 vspace=3 hspace=3 src="19.jpg"alt="19.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 1.7.</b> Передача в режиме ЕСР: <i>a -</i> прямая, б - обратная</font>
+
+<p>
+<font face="Times New Roman" size=2>В отличие от диаграмм обмена <i>ЕРР,</i> на рис. 1.7 не приведе-<br>
+ны сигналы циклов системной шины процессора. В данном<br>
+режиме обмен программы с ПУ разбивается на два относи-<br>
+тельно независимых процесса, которые связаны через FIFO-<br>
+буфер. Обмен драйвера с FIFO-буфером может осуществ-<br>
+ляться с использованием как DMA, так и программного</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ввода-вывода. Обмен ПУ с буфером аппаратно выполняет<br>
+адаптер <i>ЕСР.</i> Драйвер в режиме <i>ЕСР</i> не имеет информации<br>
+о точном состоянии процесса обмена, но здесь обычно важ-<br>
+но только то, завершен он или нет. <i>Прямая передача</i> данных<br>
+на внешнем интерфейсе состоит из следующих шагов:</font>
+
+<p>
+<font face="Times New Roman" size=2>1. Хост помещает данные на шину канала и устанавливает<br>
+признак цикла данных (высокий уровень) или команды<br>
+(низкий уровень) на линии HostAck.</font>
+
+<p>
+<font face="Times New Roman" size=2>2. Хост устанавливает низкий уровень на линии HostClk,<br>
+указывая на действительность данных.</font>
+
+<p>
+<font face="Times New Roman" size=2>3. ПУ отвечает установкой высокого уровня на линии<br>
+PeriphAck.</font>
+
+<p>
+<font face="Times New Roman" size=2>4. Хост устанавливает высокий уровень линии HostClk, и<br>
+этот перепад может использоваться для фиксации дан-<br>
+ных в ПУ.</font>
+
+<p>
+<font face="Times New Roman" size=2>5. ПУ устанавливает низкий уровень на линии PeriphAck для<br>
+указания на готовность к приему следующего байта.</font>
+
+<p>
+<font face="Times New Roman" size=2>Поскольку передача в <i>ЕСР</i> происходит через FIFO-буферы,<br>
+которые могут присутствовать на обеих сторонах интерфей-<br>
+са, важно понимать, на каком этапе данные можно считать<br>
+переданными. Данные считаются <i>переданными</i> на шаге 4,<br>
+когда линия HostClk переходит в высокий уровень. В этот<br>
+момент модифицируются счетчики переданных и принятых<br>
+байт. В протоколе <i>ЕСР</i> есть условия, вызывающие прекра-<br>
+щение обмена между шагами 3 и 4. Тогда эти данные не долж-<br>
+ны рассматриваться как переданные.</font>
+
+<p>
+<font face="Times New Roman" size=2>Из рис. 1.7 видно и другое отличие <i>ЕСР</i> от <i>ЕРР.</i> Протокол<br>
+<i>ЕРР</i> позволяет драйверу чередовать циклы прямой и обрат-<br>
+ной передачи, не запрашивая подтверждения на смену на-<br>
+правления. В <i>ЕСР смена направления</i> должна быть согласо-<br>
+вана: хост запрашивает реверс установкой ReverseRequest#,<br>
+после чего он должен дождаться подтверждения сигналом<br>
+AckReverse#. Поскольку предыдущий цикл мог выполнять-<br>
+ся по прямому доступу, драйвер должен дождаться завер-<br>
+шения прямого доступа или прервать его, выгрузить буфер<br>
+FIFO, определив точное значение счетчика переданных байт,<br>
+и только после этого запрашивать реверс.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>Обратная передача</i> данных состоит из следующих шагов:</font>
+
+<p>
+<font face="Times New Roman" size=2>1. Хост запрашивает изменение направления канала, уста-<br>
+навливая низкий уровень на линии ReverseRequest#.</font>
+
+<p>
+<font face="Times New Roman" size=2>2. ПУ разрешает смену направления установкой низкого<br>
+уровня на линии AckReverse#.</font>
+
+<p>
+<font face="Times New Roman" size=2>3. ПУ помещает данные на шину канала и устанавливает<br>
+признак цикла данных (высокий уровень) или команды<br>
+(низкий уровень) на линии PeriphAck.</font>
+
+<p>
+<font face="Times New Roman" size=2>4. ПУ устанавливает низкий уровень на линии PeriphClk,<br>
+указывая на действительность данных.</font>
+
+<p>
+<font face="Times New Roman" size=2>5. Хост отвечает установкой высокого уровня на линии<br>
+HostAck.</font>
+
+<p>
+<font face="Times New Roman" size=2>6. ПУ устанавливает высокий уровень линии PeriphClk; этот<br>
+перепад может использоваться для фиксации данных хос-<br>
+том.</font>
+
+<p>
+<font face="Times New Roman" size=2>7. Хост устанавливает низкий уровень на линии HostAck для<br>
+указания на готовность к приему следующего байта.</font>
+
+<p>
+<font face="Times New Roman" size=2><b>Режимы и регистры ЕСР-порта                     *</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Программный интерфейс и регистры <i>ЕСР</i> для адаптеров<br>
+IEEE 1284 определяет спецификация Microsoft. Определе-<br>
+ны режимы (табл. 1.9), в которых может функционировать<br>
+адаптер. Они задаются полем <i>Mode</i> регистра <i>ECR</i> (биты <i>[7:5]).</i></font>
+
+<p>
+<font face="Times New Roman" size=2>Регистровая модель адаптера <i>ЕСР</i> (табл. 1.10) использует<br>
+свойства архитектуры стандартной шины и адаптеров ISA -<br>
+для дешифрации адресов портов ввода/вывода задействуются<br>
+только 10 младших линий шины адреса. Поэтому, например,<br>
+обращения по адресам <i>Port, Port+400h, Port+800h...</i> будут вос-<br>
+приниматься как обращения к адресу <i>Port,</i> лежащему в диа-<br>
+пазоне 0-3 FFh. Современные PC и адаптеры декодируют<br>
+большее количество адресных бит, поэтому обращения по<br>
+адресам 0378h и 0778h будет адресованы двум различным<br>
+регистрам. Помещение дополнительных регистров <i>ЕСР</i> "за<br>
+спину" регистров стандартного порта (смещение 400-402h)<br>
+преследует две цели. Во-первых, эти адреса никогда не ис-<br>
+пользовались традиционными адаптерами и их драйверами,<br>
+и их применение в <i>ЕСР</i> не приведет к сужению доступного</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>адресного пространства ввода/вывода. Во-вторых, этим обес-<br>
+печивается совместимость со старыми адаптерами на уров-<br>
+не режимов 000-001 и возможность определения присутствия<br>
+ЯСР-адаптера через попытку обращения к его расширенным<br>
+регистрам.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Режим</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Название</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Описание</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>000</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SPPmode</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Стандартный (традиционный) режим</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>001</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Bi-directional mode</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Двунаправленный порт (тип 1 для PS/2)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>010</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Fast Centronics</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Однонаправленный с использованием<br>
+FIFO и DMA</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Oil</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>ECP Parallel Port mode</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>ECP</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>100</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>EPP Parallel Port<br>
+mode*</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Перевод в режим <i>EPP</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>101</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>-</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>110</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Test mode</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Тестирование работы FIFO<br>
+и прерываний</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>111</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Configuration mode</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Доступ к конфигурационным регистрам</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p align=center>
+<font face="Times New Roman" size=2>* Этот режим не входит в спецификацию Microsoft, но трактуется как<br>
+EPP контроллером SMC FDC37C665/666 и многими другими.</font>
+
+<p>
+<font face="Times New Roman" size=2>Каждому режиму <i>ECP</i> соответствуют (и доступны) свои<br>
+функциональные регистры. Переключение режимов осуще-<br>
+ствляется записью в регистр <i>ECR.</i> "Дежурными" режимами,<br>
+включаемыми по умолчанию, являются 000 или 001. В лю-<br>
+бом из них работает полубайтный режим ввода. Из этих ре-<br>
+жимов всегда можно переключиться в любой другой, но из<br>
+старших режимов (010-111) переключение возможно толь-<br>
+ко в 000 или 001. Для корректной работы интерфейса перед<br>
+выходом из старших режимов необходимо дождаться завер-<br>
+шения обмена по прямому доступу и очистки FIFO-буфера.</font>
+
+<p>
+<font face="Times New Roman" size=2>В <i>режиме 000 (SPP)</i> порт работает как стандартный одно-<br>
+направленный программно-управляемый <i>SPP.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>В <i>режиме 001 (Bi-Di PS/2)</i> порт работает как двунаправлен-<br>
+ный порт PS/2 типа 1. От режима 000 отличается возмож-<br>
+ностью реверса канала данных по биту <i>CR.5.</i></font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>Режим 010(Fast Centronics)</i> предназначен только для высо-<br>
+копроизводительного вывода через FIFO-буфер с использо-<br>
+ванием DMA. Сигналы квитирования по протоколу <i>Ceritromcs<br>
+</i>вырабатываются аппаратно. Сигнал запроса прерывания<br>
+вырабатывается по состоянию FIFO-буфера, но не по сиг-<br>
+налу Аск# (запрос одиночного байта "не интересует" драй-<br>
+вер быстрого блочного вывода).</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Режим 011</i> является собственно режимом <i>ЕСР,</i> описанным<br>
+ранее. Поток данных и команд, передаваемых в ПУ, поме-<br>
+щается в FIFO-буфер через регистры <i>ECPDFIFO</i> и <i>ECPAFIFO<br>
+</i>соответственно. Из FIFO они выводятся с соответствующим<br>
+признаком цикла (состояние линии HostAck). Принимаемый<br>
+поток данных от ПУ извлекается из FIFO-буфера через ре-<br>
+гистр <i>ECPDFIFO.</i> Получение адреса в командном цикле от<br>
+ПУ не предусматривается. Обмен с регистром <i>ECPDFIFO</i> мо-<br>
+жет производиться и по каналу DMA.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Компрессия по методу RLE</i> при передаче выполняется про-<br>
+граммно. Для передачи подряд более двух одинаковых байт<br>
+данных в регистр <i>ECPAFIFO</i> записывается байт, у которого<br>
+младшие 7 бит содержат счетчик <i>RLC</i> (значение RLC=127<br>
+соответствует 128 повторам), а старший бит нулевой. После<br>
+этого в <i>ECPDFIFO</i> записывается сам байт. Отсюда очевидно,<br>
+что вывод данных с одновременным использованием комп-<br>
+рессии и DMA невозможен. Принимая эту пару байт (ко-<br>
+мандный байт и байт данных), ПУ осуществляет декомп-<br>
+рессию. При приеме потока от ПУ адаптер <i>ЕСР</i> декомпрессию<br>
+осуществляет аппаратно и в FIFO-буфер помещает уже де-<br>
+компрессированные данные.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Режим 100 (ЕРР) -</i> один из способов включения режима <i>ЕРР.</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>Режим 110 (Test Mode)</i> предназначен для тестирования взаи-<br>
+модействия FIFO и прерываний. Данные могут переда-<br>
+ваться в/из регистра <i>TFIFO с</i> помощью DMA или программ-<br>
+ным способом. На внешний интерфейс обмен не<br>
+воздействует. Адаптер отрабатывает операции вхолостую на<br>
+максимальной скорости интерфейса (как будто сигналы<br>
+квитирования приходят без задержек). Адаптер следит за<br>
+состоянием буфера и по мере необходимости вырабатыва-<br>
+ет сигналы запроса прерывания. Таким образом программа</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>может определить максимальную пропускную способность<br>
+канала.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Режим 111 (Configuration mode)</i> предназначен для доступа к<br>
+конфигурационным регистрам. Вьвделение режима защища-<br>
+ет адаптер и протокол от некорректных изменений конфи-<br>
+гурации в процессе обмена.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>Смещение</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>Имя</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>R/W</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>Режимы ЕСР*</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>Название</b></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>000</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>DR</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>R/W</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>000-001</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Data Register</b></i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>000</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>ECPAF1FO</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>R/W</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>Oil</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>ЕСР Address FIFO</b></i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>001</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>SR</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>R/W</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>Все</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Status Register</b></i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>002</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>CR</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>R/W</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>Все</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Control Register</b></i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>400</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>SDFIFO</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>R/W</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>010</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Parallel Pwt Data FIFO</b></i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>400</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>ECPDFIFO</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>R/W</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>Oil</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>ЕСР Data FIFO</b></i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>400</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>TFIFO</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>R/W</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>110</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Test FIFO</b></i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>400</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>CNFGA</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>R</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>111</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Configuration Register A</b></i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>401</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>CNFGB</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>R/W</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>111</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Configuration Register В</b></i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>402</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>ECR</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>R/W</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>Все</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Extended Control Register</b></i></font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2><i>*</i> Регистры доступны только в указанных режимах (режим задается би-<br>
+тами 7-5 регистра ECR).</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр данных DR</i> используется для передачи данных только<br>
+в программно-управляемых режимах (000 и 001).</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр состояния SR</i> передает значение сигналов на соот-<br>
+ветствующих линиях (как в <i>SPP).</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр управления CR</i> имеет назначение бит, совпадающее<br>
+с <i>SPP.</i> В режимах 010, Oil запись в биты 0, 1 (сигналы<br>
+AutoLFft и Strobe*) игнорируется.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр ECPAF1FO</i> служит для помещения информации ко-<br>
+мандных циклов (канального адреса или счетчика <i>RLE,</i> в за-<br>
+висимости от бита 7) в FIFO-буфер. Из буфера информа-<br>
+ция будет выдана в командном цикле вывода.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр SDFIFO</i> используется для передачи данных в режи-<br>
+ме 010. Данные, записанные в регистр (или посланные по<br>
+каналу DMA), передаются через буфер FIFO по реализо-<br>
+ванному аппаратно протоколу <i>Centronics.</i> При этом должно<br>
+быть задано прямое направление передачи (бит <i>CR.5=0).</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр DFIFO</i> используется для обмена данными в режи-<br>
+ме 011 <i>(ЕСР).</i> Данные, записанные в регистр или считанные<br>
+из него (или переданные по каналу DMA), передаются че-<br>
+рез буфер FIFO по протоколу <i>ЕСР.</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр TFIFO</i> обеспечивает механизм тестирования FIFO-<br>
+буфера в режиме 110.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр ECPCFGA</i> позволяет считывать информацию об адап-<br>
+тере (идентификационный код в битах [7:4].</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр ECPCFGB</i> хранит информацию, необходимую драй-<br>
+веру. Запись в регистр не влияет на работу порта.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Регистр ECR -</i> главный управляющий регистр <i>ЕСР.</i></font>
+
+<p>
+<font face="Times New Roman" size=2><b>Назначение бит регистра <i>ECR'.</b></i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>т ECR[7:5] -ЕСР MODE -</i> задает режим <i>ЕСР.</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>т ECR.4 - ERRINTREN^t</i> (Error Interrupt Disable) - запреща-<br>
+ет прерывания по сигналу Еггог# (при нулевом значении<br>
+бита по отрицательному перепаду на этой линии выра-<br>
+батывается запрос прерывания).</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>ECR.3 - DMAEN</i> (DMA Enable) - разрешает обмен по ка-<br>
+налу DMA.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т ECR.2 - SERVICEINTR</i> (Service Interrupt) - запрещает сер-<br>
+висные прерывания, которые вырабатываются по оконча-<br>
+нии цикла DMA (если он разрешен), по порогу заполне-<br>
+ния/опустошения FIFO-буфера (если не используется<br>
+DMA) и по ошибке переполнения буфера сверху или снизу.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>ECR. 1 - FIFOFS</i> (FIFO Full Status) - сигнализирует о за-<br>
+полнении буфера; при FIFOFS=1 в буфере нет ни одно-<br>
+го свободного байта.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т ECR. О - FIFOES</i> (FIFO Empty Status) - указывает на пол-<br>
+ное опустошение буфера; комбинация <i>FfFOFS=FIFOES=i<br>
+</i>означает ошибку работы с FIFO (переполнение сверху<br>
+или снизу).</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Когда порт находится в стандартном или двунаправленном<br>
+режимах (000 или 001), первые три регистра полностью со-<br>
+впадают с регистрами стандартного порта. Так обеспечива-<br>
+ется совместимость драйвера со старыми адаптерами и ста-<br>
+рых драйверов с новыми адаптерами.</font>
+
+<p>
+<font face="Times New Roman" size=2>По интерфейсу с программой fCP-порт напоминает <i>ЕРР:</i></font>
+
+<p>
+<font face="Times New Roman" size=2>после установки режима (записи кода в регистр <i>ECR)</i> обмен<br>
+данными с устройством сводится к чтению или записи в со-<br>
+ответствующие регистры. За состоянием FIFO-буфера на-<br>
+блюдают либо по регистру <i>ECR,</i> либо по обслуживанию сер-<br>
+висных прерываний от порта. Весь протокол квитирования<br>
+генерируется адаптером аппаратно. Обмен данными с <i>ЕСР-<br>
+</i>портом (кроме явного программного) возможен и по пря-<br>
+мому доступу к памяти (каналу DMA), что эффективно при<br>
+передаче больших блоков данных.</font>
+
+<p>
+<font face="Times New Roman" size=3><b>1.2.3. Согласование режимов IEEE 1284</b></font>
+
+<p>
+<font face="Times New Roman" size=2>ПУ в стандарте IEEE 1284 обычно не требуют от контроллера<br>
+реализации всех режимов, предусмотренных стандартом. Для<br>
+определения режимов и методов управления конкретным<br>
+устройством стандарт предусматривает <i>последовательность<br>
+согласования (negotiation sequence).</i> Последовательность по-<br>
+строена так, что старые устройства, не рассчитанные на при-<br>
+менение IEEE 1284, на нее не ответят, и контроллер оста-<br>
+нется в стандартном режиме. Периферия IEEE 1284 может<br>
+сообщить о своих возможностях, и контроллер установит<br>
+режим, удовлетворяющий и хост, и ПУ.</font>
+
+<p>
+<font face="Times New Roman" size=2>Во время фазы согласования контроллер выставляет на ли-<br>
+нии данных <i>байт расширяемости (extensibility byte),</i> запра-<br>
+шивая подтверждение на перевод интерфейса в требуемый<br>
+режим или прием идентификатора ПУ (табл. 1.11). Иден-<br>
+тификатор передается контроллеру в запрошенном режиме<br>
+(любой режим обратного канала, кроме <i>ЕРР).</i> ПУ использу-<br>
+ет сигнал Xflag (Select в терминах <i>SPP)</i> для подтверждения<br>
+запрошенного режима обратного канала, кроме полубайтно-<br>
+го. Полубайтный режим поддерживается всеми устройства-<br>
+ми IEEE 1284. Бит <i>Extensibility Link request</i> послужит для<br>
+определения дополнительных режимов в будущих расшире-<br>
+ниях стандарта.</font>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Описание</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Допустимые<br>
+комбинации</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>бит [7:0]</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Request Extensibility Link - зарезервирован</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10000000</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запрос режима <i>ЕРР</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>01000000</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запрос режима <i>ЕСР</i> с RLE</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>00110000</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запрос режима <i>ЕСР без</i> RLE</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>00010000</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>00001000</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запрос идентификатора устройства<br>
+с ответом в режиме:</font>
+</td>
+<td>
+
+<p>
+
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>полубайтный</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>00000100</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>байтный</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>00000101</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>ЕСР</i> без RLE</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>00010100</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>ЕСР с RLE</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0011 0100</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>00000010</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запрос полубайтного режима</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>00000001</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>none</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запрос байтного режима</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>00000000</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2><i>Последовательность согласования</i> (рис. 1.8) состоит из сле-<br>
+дующих шагов:</font>
+
+<p>
+<font face="Times New Roman" size=2>1. Хост выводит байт расширяемости на линии данных.</font>
+
+<p>
+<font face="Times New Roman" size=2>2. Хост устанавливает высокий уровень сигнала Selecting и<br>
+низкий - AutoFeed#, что означает начало последователь-<br>
+ности согласования.</font>
+
+<p>
+<font face="Times New Roman" size=2>3. ПУ отвечает установкой низкого уровня сигнала Ack# и<br>
+высокого - Errorft, PaperEnd и Select. Устройство, "не по-<br>
+нимающее" стандарта 1284, ответа не даст, и дальнейшие<br>
+шаги не выполнятся.</font>
+
+<p>
+<font face="Times New Roman" size=2>4. Хост устанавливает низкий уровень сигнала Strobe# для<br>
+записи байта расширяемости в ПУ.</font>
+
+<p>
+<font face="Times New Roman" size=2>5. Хост устанавливает высокий уровень сигналов Strobeft и<br>
+AutoLF#.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>6. ПУ отвечает установкой в низкий уровень сигналов<br>
+PaperEnd и Еггог^, если ПУ имеет обратный канал пере-<br>
+дачи данных. Если запрошенный режим поддерживается<br>
+устройством, на линии Select устанавливается высокий<br>
+уровень, если не поддерживается - низкий.</font>
+
+<p>
+<font face="Times New Roman" size=2>7. ПУ устанавливает высокий уровень на линии Ack# для<br>
+указания на завершение последовательности согласова-<br>
+ния, после чего контроллер устанавливает требуемый ре-<br>
+жим работы.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="110.jpg"alt="110.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 1.8. Последовательность согласования режимов IEEE 1284</b></font>
+
+<p>
+<font face="Times New Roman Narrow" size=3><b>1.2.4. Развитие стандарта IEEE 1284</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Кроме основного стандарта IEEE 1284, который уже при-<br>
+нят, в настоящее время в стадии проработки находятся но-<br>
+вые стандарты, дополняющие его. К ним относятся:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>IEEE Р1284.1</i> "Standard for Information Technology for<br>
+Transport Independent Printer/Scanner Interface (TIP/SI)".<br>
+Этот стандарт разрабатывается для управления и обслу-<br>
+живания сканеров и принтеров на основе протокола NPAP<br>
+(Network Printing Alliance Protocol).</font>
+
+<p>
+<font face="Times New Roman" size=2>n <i>IEEE P1284.2</i> "Standard for Test, Measurement and<br>
+Conformance to IEEE Std. 1284" - стандарт для тестиро-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>вания портов, кабелей и устройств на совместимость с<br>
+IEEE 1284.</font>
+
+<p>
+<font face="Times New Roman" size=2>ai <i>IEEE P12843</i> "Standaixl for Interface and Protocol Extensions<br>
+to IEEE Std. 1284 Compliant Peripheral and Host Adapter<br>
+Ports" - стандарт на драйверы и использование устройств<br>
+прикладным программным обеспечением (ПО). Уже при-<br>
+няты спецификации BIOS для использования <i>ЕРР</i> драй-<br>
+верами DOS. Прорабатывается стандарт на разделяемое<br>
+использование одного порта цепочкой устройств или груп-<br>
+пой устройств, подключаемых через мультиплексор.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>IEEE P1284.4</i> "Standard for Data Delivery and Logical<br>
+Channels for IEEE Std. 1284 Interfaces" направлен на реа-<br>
+лизацию пакетного протокола достоверной передачи дан-<br>
+ных через параллельный порт. Основой служит прото-<br>
+кол MLC  (Multiple Logical Channels) фирмы<br>
+Hewlett-Packard, однако совместимость с ним в оконча-<br>
+тельной версии стандарта не гарантируется.</font>
+
+<p>
+<font face="Times New Roman" size=4><b>1.3. Применение параллельных интерфейсов<br>
+и LPT-портов</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Параллельные интерфейсы применяются в компьютерах раз-<br>
+ных семейств и классов, здесь мы ограничимся рассмотре-<br>
+нием IBM PC-совместимых компьютеров.</font>
+
+<p>
+<font face="Times New Roman" size=3><b>1.3.1. Использование параллельных интерфейсов</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Распространенным применением LPT-порта является<b> под-<br>
+ключение принтера и плоттера.</b> Остановимся на аппаратных<br>
+аспектах - режиме порта и кабеле подключения. Практически<br>
+все принтеры могут работать с портом в режиме <i>SPP,</i> но при-<br>
+менение расширенных режимов дает свои преимущества:</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> Двунаправленный режим <i>(Bi-Di)</i> не повышает произво-<br>
+дительность, но служит для сообщения о состоянии и па-<br>
+раметрах принтера.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>^</i> Скоростные режимы <i>(Fast Centronics)</i> повышают произво-<br>
+дительность принтера, но могут потребовать качественного<br>
+кабеля (см. далее). От принтера не требуется каких-либо<br>
+дополнительных "интеллектуальных" способностей.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>^ Режим <i>ЕСР -</i> потенциально самый эффективный, имеет<br>
+системную поддержку во всех версиях Windows. На не-<br>
+которых принтерах реализован не полностью (может от-<br>
+сутствовать аппаратная компрессия). <i>ЕСР</i> поддерживают<br>
+принтеры HP DeskJet моделей бхх, LaserJet 4 и далее,<br>
+современные модели фирмы Lexmark. Требует примене-<br>
+ния кабеля, по частотным свойствам соответствующего<br>
+IEEE 1284.</font>
+
+<p>
+<font face="Times New Roman" size=2>Простейший вариант <i>кабеля подключения принтера -</i> 18-про-<br>
+водный кабель с неперевитыми проводами. Он используется<br>
+для работы в режиме <i>SPP.</i> При длине более 2 м желательно,<br>
+чтобы хотя бы линии Strobe# и Busy были перевиты с от-<br>
+дельными общими проводами. Для скоростных режимов мо-<br>
+жет оказаться непригодным, причем сбои могут происходить<br>
+нерегулярно и лишь при определенных последовательностях<br>
+передаваемых кодов. Встречаются кабели <i>Centronics,</i> у кото-<br>
+рых отсутствует связь контакта 17 разъема PC с контактом 36<br>
+разъема принтера. При попытке подключения таким кабелем<br>
+принтера, работающего в стандарте 1284, появится сообще-<br>
+ние о необходимости применения "двунаправленного кабе-<br>
+ля". Принтер не может сообщить системе о поддержке рас-<br>
+ширенных режимов, на что рассчитывают драйверы принтера.</font>
+
+<p>
+<font face="Times New Roman" size=2>Неплохие электрические свойства имеют ленточные кабели,<br>
+у которых сигнальные цепи (управляющих сигналов) чере-<br>
+дуются с общими проводами. Но их применение в качестве<br>
+внешнего интерфейса непрактично (нет второго защитного<br>
+слоя изоляции, высокая уязвимость) и неэстетично (круг-<br>
+лые кабели смотрятся лучше).</font>
+
+<p>
+<font face="Times New Roman" size=2>Идеальным вариантом являются кабели, в которых все сиг-<br>
+нальные линии перевиты с общими проводами и заключены<br>
+в общий экран - то, что требует IEEE 1248. Такие кабели<br>
+гарантированно работают на скоростях до 2 Мбайт/с, их<br>
+длина может достигать 10 м.</font>
+
+<p>
+<font face="Times New Roman" size=2>В табл. 1.12 приводится распайка <i>кабеля подключения прин-<br>
+тера с</i> разъемом XI типа <i>A</i> (DB25-P) со стороны PC и Х2<br>
+типа <i>В (Centronics-36)</i> или типа <i>С</i> (миниатюрный) со сторо-<br>
+ны принтера. Использование общих проводов (GND) зави-<br>
+сит от качества кабеля (см. выше). В простейшем случае</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>(18-проводный кабель) все сигналы GND объединяются в<br>
+один провод. Качественные кабели требуют отдельного об-<br>
+ратного провода для каждой сигнальной линии, однако в<br>
+разъемах типа А и В для этого недостаточно контактов (см.<br>
+табл. 1.12, где в скобках указаны номера контактов разъема<br>
+PC типа А, которым соответствуют обратные провода). В<br>
+разъеме типа С обратный провод (GND) имеется для каж-<br>
+дой сигнальной цепи; сигнальным контактам 1-17 этого<br>
+разъема соответствуют контакты GND 19-35.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>XI,разъем<br>
+PC типа А</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Х2, разъем<br>
+PRN типа В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Х2, разъем<br>
+PRN типа С</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Strobe#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DataO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ack#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Busy</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PaperEnd</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Select</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AutoLF#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Error*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lnit#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Selecting</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND(1)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>33</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND (2 3)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2021</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2425</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND (4 5)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2223</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2627</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND (6 7)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2425</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2829</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND (8 9)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2627</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3031</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND (11 15)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1922</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND (10 12 13)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20 21 23</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND (14 16 17)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32 34 35</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Ряд отечественных (и стран бывшего СЭВ) принтеров име-<br>
+ет интерфейс <i>ИРПР (IFSP</i> в документации на принтеры<br>
+ROBOTRON). Он является близким родственником интер-<br>
+фейса <i>Centronics,</i> но со следующими отличиями:</font>
+
+<p>
+<font face="Times New Roman" size=2>as Линии данных инвертированы.<br>
+^ Протокол квитирования несколько иной.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Ко всем входным линиям (на принтере) подключены пары<br>
+согласующих резисторов: 220 Ом к питанию +5 В и 330 Ом<br>
+к общему проводу. Это позволяет использовать длинные<br>
+кабели, но перегружает большинство интерфейсных адап-<br>
+теров PC.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Сигналы ошибки и конца бумаги отсутствуют.</font>
+
+<p>
+<font face="Times New Roman" size=2>Интерфейс ИРПР может быть программно реализован че-<br>
+рез обычный LPT-порт, но для устранения перегрузки вы-<br>
+ходных линий согласующие резисторы из принтера жела-<br>
+тельно удалить. Порт, перегруженный по выходу, может<br>
+преподносить всякого рода сюрпризы (естественно, непри-<br>
+ятные и трудно диагностируемые).</font>
+
+<p>
+<font face="Times New Roman" size=2><b>Для связи двух компьютеров</b> по параллельному интерфейсу<br>
+применяются различные кабели в зависимости от режимов<br>
+используемых портов. Самый простой и медленный - полу-<br>
+байтный режим, работающий на <i>всех</i> портах. Для этого ре-<br>
+жима в кабеле достаточно иметь 10 сигнальных и один об-<br>
+щий провод. Распайка разъемов кабеля приведена в табл. 1.13.<br>
+Связь двух PC данным кабелем поддерживается стандартным<br>
+ПО типа Interink из MS-DOS или Norton Commander.</font>
+
+<p>
+<font face="Times New Roman" size=2>Для машин PS/2 с <i>двунаправленным</i> портом фирма IBM вы-<br>
+пускала переходное устройство в комплекте с программой Data<br>
+Migration Facility. Переходник устанавливался на разъем LPT-<br>
+порта PS/2, а к его разъему Х2 типа <i>Centronics</i> присоединял-<br>
+ся обычный принтерный кабель, подключаемый к LPT-порту<br>
+любого PC. Так предлагалось решить проблему переноса фай-<br>
+лов со старых компьютеров, оснащенных 5&quot; дисководами, на<br>
+компьютеры PS/2 с дисководами 3,5&quot;. Распайка такого пере-<br>
+ходника приведена в табл. 1.14. Как видно, данный переход-<br>
+ник нельзя использовать при связи через Interink или Norton<br>
+Commander. Если обе соединяемые машины имеют двуна-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>правленные порты, переходник обеспечивает симметричную<br>
+двунаправленную связь. По скорости обмена превосходит<br>
+вышеописанное полубайтное соединение в 2 раза. Это соеди-<br>
+нение не соответствует двунаправленному режиму IEEE 1284.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>XI, разъем РС#1</font>
+</td>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Х2, разъем РС#2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.O</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.3</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.1</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.4</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.2</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.5</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.3</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.6</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.4</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.7</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.6</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.3</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.7</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.4</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.5</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.2</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.4</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.1</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.3</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.O</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18-25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18-25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Разъемы XI и Х2 - DB25-P (вилки).</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>XI</font>
+</td>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Х2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>CR.O</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.6</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.O</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.O</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.1</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.1</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.2</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.2</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.3</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.3</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.4</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.4</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.5</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.5</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.6</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.6</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.7</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.7</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.6</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>CR.O</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.5</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>CR.3</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>CR.3</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.5</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18-25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19-30, 33</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Разъемы XI - DB25-P (вилка), Х2 - <i>Centmnics-36</i> (розетка).</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Высокоскоростная связь двух компьютеров может выпол-<br>
+няться и в режиме <i>ЕСР</i> (режим <i>ЕРР</i> неудобен, поскольку<br>
+требует синхронизации шинных циклов ввода/вывода двух<br>
+компьютеров). В табл. 1.15 приведена распайка кабеля. В<br>
+отличие от предыдущих таблиц, описывающих кабели для<br>
+программно-управляемых режимов, в ней приведены имена<br>
+сигналов, которые аппаратно генерируются адаптерами пор-<br>
+тов. Этот же кабель может использоваться и для связи в байт-<br>
+ном режиме. Такая связь поддерживается Windows 95.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Разъем XI</font>
+</td>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Разъем Х2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Имя в ЕСР</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Имя в ЕСР</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>HostClk</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PeriphClk</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>HostAck</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PeriphAck</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1284Active</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PeriphRequest#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ReverseRequest*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AckReverse*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PeriphClk</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>HostClk</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PeriphAck</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>^MostAck</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AckReverse*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ReverseRequest#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Xflag</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>/-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PeriphRequest#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1284Active</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2-9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data [0:7]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data [0:7]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2-9</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2><b>Подключение сканера</b> к LPT-порту эффективно, только если<br>
+порт обеспечивает хотя бы двунаправленный режим <i>(Bi-Di),<br>
+</i>поскольку основной поток - ввод. Лучше использовать порт<br>
+<i>ЕСР,</i> если этот режим поддерживается сканером <i>(или ЕРР,<br>
+</i>что маловероятно).</font>
+
+<p>
+<font face="Times New Roman" size=2><b>Подключение внешних накопителей</b> (lomega Zip Drive, CD-<br>
+ROM и др.), <i>адаптеров ЛВС</i> и других симметричных уст-<br>
+ройств ввода/вывода имеет свою специфику. В режиме <i>SPP<br>
+</i>наряду с замедлением работы устройства заметна принци-<br>
+пиальная асимметрия этого режима: <i>чтение данных</i> проис-<br>
+ходит <i>в два раза медленнее, чем</i> (весьма небыстрая) <i>запись.<br>
+</i>Применение <i>двунаправленного</i> режима <i>(Bi-Di или PS/2<br>
+Type 1}</i> устранит эту асимметрию - <i>скорости сравняются.<br>
+</i>Только перейдя на <i>ЕРР,</i> можно получить <i>нормальную ско-</i></font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>рость работы.</i> В режиме <i>ЕРР</i> подключение к LPT-порту по-<br>
+чти не уступает по скорости подключению через ISA-кон-<br>
+троллер. Это справедливо и при подключении устройств со<br>
+стандартным интерфейсом шин к LPT-портам через преоб-<br>
+разователи интерфейсов (например, LPT - IDE, LPT - SCSI,<br>
+LPT - PCMCIA).</font>
+
+<p>
+<font face="Times New Roman" size=2>В табл. 1.16 описано назначение выводов разъема LPT-пор-<br>
+та в различных режимах и их соответствие битам регистров<br>
+стандартного порта.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I/O</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Бит*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SPP</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ECP</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ЕРР</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>CR.O\</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Strobe#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Hostdk</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Write#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.0</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DataO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DataO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DataO</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.1</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data-l</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data1</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.2</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.3</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.4</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 4</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.5</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 5</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.6</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 6</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>DR.7</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 7</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.6</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ack#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PeriphClk</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>INTR#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.7\</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Busy</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PeriphAck</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Wait"</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.5</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PaperEnd</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AckReveree*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>^*</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.4</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Select</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Xflag</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>**</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>CR.1\</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AutoLF#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>HostAck</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DataStb#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>SR.3</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Error"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PeriphRequest#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>**</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>CR2</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>hit"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ReverseRequest*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reset*</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0/1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>CR.3\</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Selecting</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1284Active</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AddrStb#</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>* Символом "\" отмечены инвертированные сигналы (1 в регистре<br>
+соответствует низкому уровню линии).</font>
+
+<p>
+<font face="Times New Roman" size=2>** - означает "определяется пользователем".</font>
+
+<p>
+<font face="Times New Roman" size=3>1.3.2. Конфигурирование LPT-портов</font>
+
+<p>
+<font face="Times New Roman" size=2>Управление параллельным портом разделяется на два этапа -<br>
+<i>предварительное конфшурирование</i> (Setup) аппаратных средств</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>порта и <i>текущее</i> (оперативное) <i>переключение</i> режимов рабо-<br>
+ты прикладным или системным ПО. Оперативное переклю-<br>
+чение возможно только в пределах режимов, разрешенных при<br>
+конфигурировании. Этим обеспечивается возможность согла-<br>
+сования аппаратуры с ПО и блокирования ложных переклю-<br>
+чении, вызванных некорректными действиями программы.</font>
+
+<p>
+<font face="Times New Roman" size=2>Конфигурирование LPT-порта зависит от его исполнения.<br>
+Порт, расположенный на плате расширения (мультикарте),<br>
+устанавливаемой в слот ISA или ISA+VLB, конфигурирует-<br>
+ся джамперами на самой плате. Порт на системной плате<br>
+конфигурируется через BIOS Setup.</font>
+
+<p>
+<font face="Times New Roman" size=2>Конфигурированию подлежат следующие параметры:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>Базовый адрес -</i> 3BCh, 378h или 278h. При инициализации<br>
+BIOS проверяет наличие портов по адресам именно в этом<br>
+порядке и, соответственно, присваивает обнаруженным<br>
+портам логические имена <i>LPT1, LPT2, LPT3.</i> Адрес 3BCh<br>
+имеет адаптер порта, расположенный на плате MDA или<br>
+HGC. Большинство портов по умолчанию конфигуриру-<br>
+ются на адрес 378h и могут переключаться на 278h.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Используемая <i>линия запроса прерывания:</i> для <i>LPT -</i> IRQ7,<br>
+для <i>LPT2 -</i> IRQ5. Традиционно прерывания от принтера<br>
+не используются, и этот дефицитный ресурс можно<br>
+сэкономить. Однако при использовании скоростных ре-<br>
+жимов <i>ЕСР</i> (или <i>Fast Centronics)</i> работа через прерыва-<br>
+ния может заметно повысить производительность и сни-<br>
+зить загрузку процессора.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> Использование <i>канала DMA</i> для режимов <i>ЕСР</i> и <i>Fast<br>
+Centronics -</i> разрешение и номер канала DMA (по умол-<br>
+чанию - 3).</font>
+
+<p>
+<font face="Times New Roman" size=2>Режимы работы порта:</font>
+
+<p>
+<font face="Times New Roman" size=2>и <i>SPP -</i> порт работает только в стандартном однонаправ-<br>
+ленном программно-управляемом режиме.</font>
+
+<p>
+<font face="Times New Roman" size=2>is <i>PS/2,</i> он же <i>Bi-Directional -</i> отличается от <i>SPP</i> возмож-<br>
+ностью реверса канала (установкой СЯ.5=7).</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>Fast Centronics -</i> аппаратное формирование протокола <i>Cen-<br>
+tronics с</i> использованием FIFO-буфера и, возможно, DMA.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>т ЕРР -</i> в зависимости от использования регистров порт<br>
+работает в режиме <i>SPP</i> или <i>ЕРР.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>ж <i>ЕСР -</i> по умолчанию включается в режим <i>SPP</i> или <i>PS/2,<br>
+</i>записью в <i>ECR</i> может переводиться в любой режим <i>ЕСР,<br>
+</i>но перевод в <i>ЕРР</i> записью в <i>ECR</i> кода 100 не гарантиру-<br>
+ется.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>ЕСР+ЕРР -</i> то же, что и <i>ЕСР,</i> но запись в <i>ECR</i> кода режи-<br>
+ма 100 переводит порт в <i>ЕРР.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>Выбор режима <i>ЕРР, ЕСР</i> или <i>Fast Centronics</i> сам по себе не<br>
+приводит к повышению быстродействия обмена с подклю-<br>
+ченными ПУ, а только дает возможность драйверу и ПУ<br>
+установить оптимальный режим в пределах их "разумения".<br>
+Большинство современных драйверов и приложений пыта-<br>
+ются использовать эффективные режимы, так что "подре-<br>
+зать им крылья" установкой простых режимов без веских<br>
+оснований не стоит.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Принтеры</i> и <i>сканеры</i> могут пожелать режима <i>ЕСР.</i> Windows<br>
+(3-х, 95 и NT) имеет системные драйверы для этого режима.<br>
+В среде DOS печать через <i>ЕСР</i> поддерживается только спе-<br>
+циальным загружаемым драйвером.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Сетевые адаптеры, внешние диски</i> и <i>CD-ROM,</i> подключае-<br>
+мые к параллельному порту, могут использовать режим <i>ЕРР.<br>
+</i>Для этого режима специальный драйвер пока еще не приме-<br>
+няется; использование <i>ЕРР</i> включается в драйвер самого под-<br>
+ключаемого устройства.</font>
+
+<p>
+<font face="Times New Roman" size=2>Большинство современных ПУ, подключаемых к LPT-пор-<br>
+ту, поддерживает стандарт 1284 и РпР. Для поддержки этих<br>
+функций компьютером с аппаратной точки зрения достаточ-<br>
+но иметь контроллер интерфейса, поддерживающий стан-<br>
+дарт 1284. Если подключаемое устройство поддерживает РпР,<br>
+оно по протоколу согласования режимов 1284 способно "до-<br>
+говориться" с портом о возможных режимах обмена. Под-<br>
+ключенное устройство должно сообщить операционной сис-<br>
+теме (ОС) все необходимые сведения о себе - идентификатор<br>
+производителя, модель и набор поддерживаемых команд.<br>
+Более подробная информация может содержать идентифи-<br>
+катор класса, подробное описание и идентификатор устрой-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ства, с которым обеспечивается совместимость. В соответ-<br>
+ствии с принятой информацией ОС может предпринять дей-<br>
+ствия по установке требуемого ПО для поддержки данного<br>
+устройства.</font>
+
+<p>
+<font face="Times New Roman Narrow" size=3><b>1.3.3. Неисправности и тестирование параллельных<br>
+портов</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Тестирование параллельных портов разумно начинать с <i>про-<br>
+верки их наличия</i> в системе. Список адресов установленных<br>
+портов появляется в таблице, выводимой BIOS на экран пе-<br>
+ред загрузкой ОС. Список можно посмотреть и с помощью<br>
+тестовых программ или прямо в B/OS <i>Data Area</i> с помощью<br>
+отладчика.</font>
+
+<p>
+<font face="Times New Roman" size=2>Если BIOS обнаруживает меньше портов, чем установлено<br>
+физически, скорее всего, двум портам присвоен один адрес.<br>
+При этом работоспособность ни одного из конфликтующих<br>
+портов не гарантируется: они будут одновременно выводить<br>
+сигналы, но при чтении состояния конфликт на шине ско-<br>
+рее всего приведет к искажению данных. Программное тес-<br>
+тирование порта без диагностической заглушки (Loop Back)<br>
+не покажет ошибок, поскольку при этом читаются данные<br>
+выходных регистров, а они у всех конфликтующих (по от-<br>
+дельности исправных) портов совпадут. Именно такое тес-<br>
+тирование производит BIOS при проверке на наличие пор-<br>
+тов. Разбираться с такой ситуацией следует, последовательно<br>
+устанавливая порты и наблюдая за адресами, появляющи-<br>
+мися в списке.</font>
+
+<p>
+<font face="Times New Roman" size=2>Если физически установлен только один порт, a BIOS его<br>
+не обнаруживает, то либо порт отключен при конфигуриро-<br>
+вании, либо он вышел из строя (скорее всего из-за наруше-<br>
+ний правил подключения). Иногда вам везет, и неисправ-<br>
+ность устраняется при "передергивании" платы в слоте -<br>
+там возникают проблемы с контактами.</font>
+
+<p>
+<font face="Times New Roman" size=2>Наблюдаются и такие "чудеса" - при "теплой" перезагруз-<br>
+ке DOS после Windows 95 порт не виден (и приложения не<br>
+могут печатать из MS-DOS). Однако после повторной пере-<br>
+загрузки ПО^Гпорт оказывается на месте. С этим явлением<br>
+легче смириться, чем бороться.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Тестирование портов с помощью диагностических программ<br>
+позволяет проверить выходные регистры, а при использова-<br>
+нии специальных заглушек - и входные линии. Поскольку<br>
+количество выходных линий порта (12) и входных (5) раз-<br>
+лично, то полная проверка порта с помощью пассивной за-<br>
+глушки принципиально невозможна. Разные программы те-<br>
+стирования требуют применения разных заглушек (рис. 1.9).</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="111.jpg"alt="111.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 1.9.</b> Схема заглушки для тестирования LPT-порта<br>
+программой Checkit</font>
+
+<p>
+<font face="Times New Roman" size=2>Большинство неприятностей при работе с LPT-портами до-<br>
+ставляют <i>разъемы и кабели.</i> Для проверки порта, кабеля и<br>
+принтера можно воспользоваться специальными тестами из<br>
+популярных диагностических программ (Checkit, PCCheck<br>
+и т. п.), а можно и попытаться вывести на принтер какой-<br>
+либо символьный файл.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> Если вывод файла с точки зрения DOS проходит (копи-<br>
+рование файла на устройство с именем <i>LPTn</i> или <i>PRN</i> со-<br>
+вершается быстро и успешно), а принтер (исправный) не<br>
+напечатал ни одного символа - скорее всего, это обрыв<br>
+(неконтакт в разъеме) цепи Strobed.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Если принтер находится в состоянии <i>On Line,</i> но появ-<br>
+ляется сообщение о его неготовности, причину следует<br>
+искать в линии Busy.</font>
+
+<p>
+<font face="Times New Roman" size=2>^Если принтер, подключенный к порту, в стандартном ре-<br>
+жиме <i>(SPP)</i> печатает нормально, а при переходе в <i>ЕСР<br>
+</i>начинаются сбои, следует проверить кабель - соответству-<br>
+ет ли он требованиям IEEE 1284 (см. выше). Дешевые</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>кабели с неперевитыми проводами нормально работают<br>
+на скоростях 50-100 Кбайт/с, но при скорости 1-<br>
+2 Мбайт/с, обеспечиваемой ЕСР, имеют полное право не<br>
+работать, особенно при длине более 2 м.</font>
+
+<p>
+<font face="Times New Roman" size=2>йя Если при установке драйвера РпР-принтера появилось<br>
+сообщение о необходимости применения "двунаправлен-<br>
+ного кабеля", проверьте наличие связи контакта 17 разъе-<br>
+ма DB-25 с контактом 36 разъема <i>Centronics.</i> Хотя эта<br>
+связь изначально предусматривалась, в ряде кабелей она<br>
+отсутствует.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Если принтер искажает информацию при печати, возмо-<br>
+жен обрыв (или замыкание) линий данных. В этом слу-<br>
+чае удобно воспользоваться файлом, содержащим после-<br>
+довательность кодов всех печатных символов. Вот пример<br>
+программы на языке Basic:</font>
+
+<p>
+<font face="Times New Roman Narrow" size=2>10 OPEN &quot;b-incod.chr&quot; FOR OUTPUT AS #1<br>
+20 FOR J-2 TO 15<br>
+30 FOR 1=0 TO 15<br>
+40    PRINT#1. СНР$(1б*]+1);</font>
+
+<p>
+<font face="Times New Roman Narrow" size=2>50 NEXT I<br>
+60 PRINT#1<br>
+70 NEXT J<br>
+80 CLOSE #1<br>
+90 END</font>
+
+<p>
+<font face="Times New Roman" size=2>Файл <i>BINCOD.CHR,</i> созданный данной программой, представ-<br>
+ляет собой таблицу всех печатных символов (управляющие<br>
+коды пропущены), расположенных по 16 символов в строке.<br>
+Если файл печатается с повтором некоторых символов или<br>
+их групп, по периодичности повтора можно легко вычис-<br>
+лить обирванный провод данных интерфейса. Этот же файл<br>
+удобно использовать для проверки аппаратной русифика-<br>
+ции принтера.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Аппаратные прерывания</i> от LPT-порта используются не все-<br>
+гда. Даже DOS-программа фоновой печати <i>PRINT</i> работает с<br>
+портом по опросу состояния, а ее обслуживающий процесс<br>
+запускается по прерыванию от таймера. Поэтому неисправ-<br>
+ности, связанные с цепью прерывания от порта, проявляют-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ся не часто. Однако по-настоящему многозадачные ОС (на-<br>
+пример, NetWare) стараются работать с портом по прерыва-<br>
+ниям. Протестировать линию прерывания можно, только<br>
+подключив к порту ПУ или заглушку. Если к порту с неис-<br>
+правным каналом прерывания подключить адаптер локаль-<br>
+ной сети, то он, возможно, будет работать, но с очень низ-<br>
+кой скоростью: на любой запрос ответ будет приходить с<br>
+задержкой в десятки секунд - принятый из адаптера пакет<br>
+будет приниматься не по прерыванию (сразу по приходу), а<br>
+по внешнему тайм-ауту.</font>
+
+<p>
+<font face="Times New Roman" size=3><b>1.3.4. Функции BIOS для LPT-порта</b></font>
+
+<p>
+<font face="Times New Roman" size=2>BIOS обеспечивает поддержку LPT-порта, необходимую для<br>
+организации <i>вывода по интерфейсу Centronics.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>В процессе начального тестирования POST BIOS проверяет<br>
+наличие параллельных портов по адресам 3BCh, 378h и 278h<br>
+и помещает базовые адреса обнаруженных портов в ячейки<br>
+<i>BIOS Data Area 0:0408h, 040Ah, 040Ch, 040Eh.</i> Эти ячейки<br>
+хранят адреса портов <i>LPT1-LPT4,</i> нулевое значение адреса<br>
+является признаком отсутствия порта с данным номером. В<br>
+ячейки 0:0478, 0479, 047А, 047В заносятся константы, зада-<br>
+ющие тайм-аут для этих портов.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Поиск портов</i> обычно ведется достаточно примитивно - по<br>
+базовому адресу (в регистр данных предполагаемого порта)<br>
+выводится тестовый байт (ААЬ или 55h), затем производит-<br>
+ся ввод по тому же адресу. Если считанный байт совпал с<br>
+записанным, предполагается, что найден LPT-порт; его ад-<br>
+рес помещается в ячейку <i>BIOS Data Area.</i> Базовые адреса пор-<br>
+тов могут быть впоследствии изменены программно. Адрес<br>
+порта <i>LPT4</i> BIOS самостоятельно установить не может, по-<br>
+скольку в списке стандартных адресов поиска имеются толь-<br>
+/ ко три указанных.</font>
+
+<p>
+<font face="Times New Roman" size=2>Обнаруженные порты <i>инициализируются -</i> записью в ре-<br>
+гистр управления формируется и снимается сигнал lnit#,<br>
+после чего записывается значение OCh, соответствующее ис-<br>
+ходному состоянию сигналов интерфейса. В некоторых слу-<br>
+чаях сигнал lnit# активен с момента аппаратного сброса до<br>
+инициализации порта во время загрузки ОС. Это можно за-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>метить по поведению включенного принтера во время пере-<br>
+загрузки компьютера - у принтера надолго гаснет индика-<br>
+тор <i>On-Line.</i> Следствие этого явления - невозможность рас-<br>
+печатки экранов (например, параметров BIOS Setup) no<br>
+клавише <i>Print Screen</i> до загрузки ОС.</font>
+
+<p>
+<font face="Times New Roman" size=2>Программное прерывание BIOS <i>INT 17h</i> обеспечивает следу-<br>
+ющие функции поддержки LPT-порта:</font>
+
+<p>
+<font face="Times New Roman" size=2>is OOh - <i>вывод символа</i> из регистра <i>AL</i> по протоколу<br>
+<i>Centronics</i> (без аппаратных прерываний). Данные поме-<br>
+щаются в выходной регистр, и, дождавшись готовности<br>
+принтера (снятия сигнала Busy), формируется строб.</font>
+
+<p>
+<font face="Times New Roman" size=2>sa Olh - <i>инициализация</i> интерфейса и принтера (установка<br>
+исходных уровней управляющих сигналов, формирова-<br>
+ние импульса lnit#, запрет аппаратных прерываний и пе-<br>
+реключение на вывод двунаправленного интерфейса).</font>
+
+<p>
+<font face="Times New Roman" size=2>^ 02h - <i>опрос состояния</i> принтера (чтение регистра состо-<br>
+яния порта).</font>
+
+<p>
+<font face="Times New Roman" size=2>При вызове <i>INT 17h</i> номер функции задается в регистре <i>АН,<br>
+</i>номер порта - в регистре <i>DX(Q - LPT1,</i> 1 - <i>LPT2...).</i> При воз-<br>
+врате регистр <i>АН</i> содержит <i>код состояния -</i> биты регистра<br>
+состояния <i>SR[7:3]</i> (биты 6 и 3 инвертированы) и флаг тайм-<br>
+аута в бите 0. Флаг тайм-аута устанавливается при неудач-<br>
+ной попытке вывода символа, если сигнал Busy не снимает-<br>
+ся в течение времени, определенного для данного порта в<br>
+ячейках тайм-аута. В этом случае, согласно протоколу<br>
+<i>Centronics,</i> строб данных не вырабатывается.</font>
+
+<p>
+<font face="Times New Roman" size=2>Перехват прерывания <i>INT 17h</i> является удобным способом<br>
+внедрения собственных драйверов принтера. Потребность в<br>
+них может возникать при подключении к порту принтера с<br>
+интерфейсов <i>ИРПР</i> или необходимости перекодировки сим-<br>
+волов.</font>
+<HR>
+<TABLE WIDTH=100%>
+<TR>
+<TD align=right valign=top> 
+<p>
+<DIV ALIGN=center><i><h5>Электронная библиотека InfoCity</i></h5></DIV>
+<DIV ALIGN=center><i><h5>Автор и координатор проекта:<a href=mailto:mpinkus@mail.ru>Михаил Пинкус</a></i></h5></DIV>
+<DIV ALIGN=center><i><h5>У Вас есть документация, которой нет в нашей библиотеке? <a href="mailto:icity@mail.ru?subject=InfoCity - Doc">Присылайте.</a></h5>
+</TD>
+</TR></table>
+</body>
+</html>

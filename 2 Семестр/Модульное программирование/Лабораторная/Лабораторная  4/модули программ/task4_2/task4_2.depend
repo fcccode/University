@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1461613873 source:d:\kntu\предметы\2 Семестр\Модульное программирование\Лабораторная\Лабораторная  4\модули программ\task4_2\task4_2.cpp
+	<iostream>
+	<fstream>
+	<clocale>
+

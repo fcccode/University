@@ -1,0 +1,10290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>5.htm</title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<body background="back1.jpg">
+
+<p>
+<font face="Times New Roman" size=5><b>5. Шина SCSI</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Системный интерфейс малых компьютеров <i>SCSI</i> (Small<br>
+Computer System Interface, произносится "скази") был стан-<br>
+дартизован ANSI в 1986 году (ХЗ. 131-1986). Интерфейс пред-<br>
+назначен для соединения устройств различных классов - па-<br>
+мяти прямого (жесткие диски) и последовательного<br>
+(стриммеры) доступа, CD-ROM, оптических дисков одно-<br>
+кратной и многократной записи, устройств автоматической<br>
+смены носителей информации, принтеров, сканеров, комму-<br>
+никационных устройств и процессоров. <i>Устройством SCSI -<br>
+SCSI Device -</i> называется как <i>хост-адаптер,</i> связывающий<br>
+шину SCSI с какой-либо внутренней шиной компьютера, так<br>
+и <i>контроллер -целевого устройства - target controller,</i> с помо-<br>
+щью которого оно подключается к шине SCSI. С точки зре-<br>
+ния шины все устройства могут быть равноправными и яв-<br>
+ляться как <i>инициаторами обмена (инициализирующими<br>
+устройствами, ИУ),</i> так и <i>целевыми устройствами (ЦУ),</i> од-<br>
+нако чаще всего в роли И У выступает хост-адаптер. К одно-<br>
+му контроллеру может подключаться несколько ПУ, по от-<br>
+ношению к которым контроллер может быть как внутренним,<br>
+так и внешним. Широкое распространение получили ПУ со<br>
+встроенным контроллером SCSI (embeded SCSI controller),<br>
+к которым относятся накопители на жестких магнитных дис-<br>
+ках, CD-ROM, стриммеры. Каждое ЦУ может содержать до<br>
+8 независимо <i>адресуемых логических устройств</i> (ЛУ) со сво-<br>
+ими номерами <i>LUN (Logical Unit Number),</i> представляющи-<br>
+ми ПУ или их части.</font>
+
+<p>
+<font face="Times New Roman" size=2>По физической реализации интерфейс является 8-битной<br>
+параллельной шиной с тактовой частотой 5 МГц. Скорость<br>
+передачи данных достигает 5 Мбайт/с. Впоследствии по-<br>
+явилась спецификация - <i>SCSI-2</i> (ХЗ. 131-1994), расширя-<br>
+ющая возможности шины. Тактовая частота шины <i>Fast</i> (бы-<br>
+стрый) <i>SCSI-2</i>достигает 10 МГц, a <i>Ultra SCSI-2 -</i> 20 МГц.<br>
+Разрядность данных может быть увеличена до 16 бит - эта<br>
+версия называется <i>Wide</i> (широкий) <i>SCSI-2,</i> а 8-битную вер-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>сию стали называть <i>Narrow</i> (узкий), 16-битная шина до-<br>
+пускает 16 устройств. Стандарт SCSI-2 определяет 32-бит-<br>
+ную версию интерфейса, но такие устройства обладают нео-<br>
+правданно высокой стоимостью интерфейса. Спецификация<br>
+SCSI-2 определяет систему команд, которая включает на-<br>
+бор базовых команд <i>CCS</i> (Common Command Set), обяза-<br>
+тельных для всех ПУ, и специфических команд для пери-<br>
+ферии различных классов. Стандарт полностью описывает<br>
+протокол взаимодействия устройств, включая структуры<br>
+передаваемой информации. Поддержка устройствами испол-<br>
+нения цепочек команд (до 256 команд) и независимость их<br>
+работы друг от друга обусловливают высокую эффектив-<br>
+ность применения SCSI в многозадачных системах. Возмож-<br>
+ность присутствия на шине более одного контроллера (ини-<br>
+циатора обмена) позволяет обеспечить разделяемое<br>
+использование периферии несколькими компьютерами,<br>
+подключенными к одной шине.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>SCSI-3 -</i> дальнейшее развитие стандарта, направленное на<br>
+увеличение количества подключаемых устройств, расшире-<br>
+ние системы команд и поддержку Plug and Play. В качестве<br>
+альтернативы параллельному интерфейсу SPI (SCSI-3 Parallel<br>
+Interface) появляется возможность применения последова-<br>
+тельного, в том числе волоконно-оптического, интерфейса<br>
+со скоростью 100 Мбайт/с. SCSI-3 существует в виде широ-<br>
+кого спектра документов, определяющих отдельные аспек-<br>
+ты интерфейса. <i>Архитектурная модель SAM</i> (SCSI-3<br>
+Architecture Model) изображена на рис. 5.1. Первичный на-<br>
+бор <i>общих команд SCP</i> (SCSI-3 Primary Commands) для уст-<br>
+ройств различных классов дополняется набором <i>команд</i> со-<br>
+ответствующего <i>класса устройств'.</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>^ SBC</i> (SCSI-3 Block Commands) - для устройств памяти<br>
+прямого доступа,</font>
+
+<p>
+<font face="Times New Roman" size=2>it <i>SSC</i> (SCSI-3 Stream Commands) - для устройств памяти<br>
+последовательного доступа,</font>
+
+<p>
+<font face="Times New Roman" size=2>&sect;s <i>SGC</i> (SCSI-3 Graphic Commands) - для принтеров и ска-<br>
+неров,</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>SMC</i> (SCSI-3 Medium Changer Commands) - для уст-<br>
+оойств смены носителей,</font>
+<hr>
+
+<p align=center>
+<font face="Times New Roman" size=2>sa <i>SCC</i> (SCSI-3 Controller Commands) - для хост-контрол-<br>
+леров.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Транспортный уровень</i> может использовать различные про-<br>
+токолы с соответствующей поддержкой <i>физических соедине-<br>
+ний:</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>^ SIP</i> (SCSI-3 Interlocked Protocol) - протокол обмена тра-<br>
+диционного интерфейса, физически реализуемый интер-<br>
+фейсом <i>SPL</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>^ FCP</i> (Fibre Channel Protocol) - протокол оптоволоконно-<br>
+го канала с соответствующим физическим уровнем <i>FC-PH.</i></font>
+
+<p align=center>
+<font face="Times New Roman" size=2>^ <i>SBP</i> (Serial Bus Protocol) - протокол последовательной<br>
+шины, реализуемый интерфейсом 1394 (FireWire).</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т GPP</i> (Generic Packetized Protocol) - обобщенный пакет-<br>
+ный протокол, реализуемый любым пакетным интерфей-<br>
+сом.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>SSP</i> (Serial Storage Protocol) - последовательный прото-<br>
+кол памяти, реализованный на архитектуре последователь-<br>
+ной памяти SSA (Serial Storage Architecture).</font>
+
+<p>
+<font face="Times New Roman" size=2>К примеру, дисковый накопитель SCSI-3 с параллельным<br>
+интерфейсом описывает набор стандартов SPI+SIP+SAM+<br>
+SPC+SBC, а для того же устройства, но с последовательным<br>
+интерфейсом вместо SPC+SBC будет связка FCP+FC-PH.</font>
+
+<p>
+<font face="Times New Roman" size=2>Заявка о поддержке устройством стандарта SCSI-3 непо-<br>
+средственно на повышение производительности по сравне-<br>
+нию со SCSI-2 не указывает. Однако устройства SCSI-3 в<br>
+большинстве случаев показывают более высокую произво-<br>
+дительность.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="51.jpg"alt="51.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 5.1.</b> Архитектурная модель SCSI-3</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Для параллельных шин скорость передачи данных опреде-<br>
+ляется <i>частотой передач,</i> измеряемой в миллионах передач<br>
+в секунду - МТ/с (Mega Transfer/sec), и <i>разрядностью.</i> Ком-<br>
+бинации частоты и разрядности обеспечивают широкий ди-<br>
+апазон пропускной способности (табл. 5.1), достигающей<br>
+80 Мбайт/с для версии <i>Ultrd2 Wide SCSI. SCSI Fast</i> означает<br>
+частоту передач 10 МТ/с, временные диаграммы для такого<br>
+режима определены в SCSI-2. Название <i>SCSI Fast-20</i> указы-<br>
+вает на частоту передач 20 МТ/с. Этот режим, более извест-<br>
+ный как <i>SCSI Ultra,</i> определен для параллельного интерфей-<br>
+са в SCSI-3. <i>SCST Fast-40</i> указывает на частоту передач<br>
+40 МТ/с. Этот режим, определенный в SCSI-3 и называе-<br>
+мый <i>Ultra2 SCSI,</i> в настоящее время является самым быст-<br>
+рым для параллельной шины. Он реализован только в низ-<br>
+ковольтной дифференциальной версии интерфейса - LVD.<br>
+В SCSI-3 предусмотрен режим <i>SCSI Fast-80.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>Для Narrow SCSI использовался разъем, изображенный на<br>
+рис. 5.2. <i>Wide SCSI</i> использует разъем, изображенный на<br>
+рис. 5.3. Для устройств с "горячей" заменой применяют ми-<br>
+ниатюрный D-образный разъем SCA-2, общий для питания<br>
+и сигнальных цепей (рис. 5.4).</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="52.jpg"alt="52.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 5.2.</b> Разъем 8-битного устройства SCSI</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="53.jpg"alt="53.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 5.3.</b> Разъем 16-битного устройства SCSI<br>
+80-Pin SCSI SCA Connector</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="54.jpg"alt="54.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 5.4.</b> Разъем устройства SCSI с "горячей" заменой</font>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2><b>Разрядность<br>
+шины, бит</b></font>
+</td>
+<td colspan=4>
+
+<p>
+<font face="Times New Roman" size=2><b>Разновидность</b></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>Обычный</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>Fast</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman Narrow" size=2><b>Fast-20 (Ultra)</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman Narrow" size=2><b>Fast-40 (Ultra2)</b></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>8 (Narrow)</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>5</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>10</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>20</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>40</b></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>16 (Wide)</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>10</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>20</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>40</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>80</b></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>32 (Wide)*</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>20</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>40</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>80</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>160</b></font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Реализации не встречаются.</font>
+
+<p>
+<font face="Times New Roman" size=2>Последовательный интерфейс <i>FCAL</i> (Fibre Channel Arbitrated<br>
+Loop - кольцо волоконного канала с арбитражем) по реали-<br>
+зации ближе к интерфейсам локальных сетей. Этот интерфейс,<br>
+известный также как <i>Fibre Channel SCSI,</i> может иметь как элек-<br>
+трическую (коаксиальный кабель), так и оптоволоконную<br>
+реализацию. В обоих случаях частота 1 ГГц обеспечивает<br>
+скорость передачи данных 100 Мбайт/с. Медный кабель до-<br>
+пускает длину шины до 30 м, оптический - до 10 км. Здесь<br>
+используются иные протокольный и физический уровни ин-<br>
+терфейса и имеется возможность подключения 126 устройств.</font>
+
+<p>
+<font face="Times New Roman" size=2>В настоящее время наибольшее распространение имеют уст-<br>
+ройства SCSI-2, которые сохраняют совместимость с исход-<br>
+ной версией, теперь называемой <i>SCSI-1.</i> Однако смешивать<br>
+устройства SCSI-1 и SCSI-2 неэффективно, да и не всегда воз-<br>
+можно из-за проблем, о которых речь пойдет далее. Для крат-<br>
+кости номер версии SCSI будем опускать, по умолчанию под-<br>
+разумевая Narrow SCSI-2. На ее примере разберем работу<br>
+интерфейса, а особенности версии <i>Wide</i> отметим отдельно.</font>
+
+<p>
+<font face="Times New Roman Narrow" size=4><b>5.1. Физический интерфейс</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Физически SCSI представляет собой шину, состоящую из<br>
+25 сигнальных цепей. Для защиты от помех каждая сигналь-<br>
+ная цепь имеет свой отдельный обратный провод. На при-<br>
+меняемых двухрядных разъемах контакты сигнальных и об-<br>
+ратных цепей располагаются друг против друга. Это<br>
+позволяет применять в качестве кабелей как витые пары про-<br>
+водов, так и плоские шлейфы, где сигнальные и обратные<br>
+провода чередуются.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>По типу сигналов различают <i>линейные</i> (Single Ended) и <i>диф-<br>
+ференциальные</i> (Differential) версии SCSI. Их кабели и разъе-<br>
+мы идентичны, но<b> <i>электрической совместимости уст-<br>
+ройств нет.</b></i> Символические обозначения для разных версий<br>
+приведены на рис. 5.5.</font>
+
+<p align=center>
+<font face="Times New Roman" size=2>SCSI ^\SE            SCSI <i>/^\^</i> DIFF</font>
+
+<p align=center>
+<font face="Times New Roman" size=6><i>\7   \7</i></font>
+
+<p align=center>
+<font face="Times New Roman" size=2>Линейный                Дифференциальный<br>
+(Single Ended)                   (Differential)</font>
+
+<p>
+<font face="Times New Roman" size=2><b>Рис. 5.5.</b> Универсальные символические обозначения версий SCSI</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Дифференциальная</i> версия для каждой цепи задействует пару<br>
+проводников, по которым передается парафазный сигнал.<br>
+Здесь используются специальные дифференциальные приемо-<br>
+передатчики, применяемые и в интерфейсе RS-485, что по-<br>
+зволяет значительно увеличить длину кабеля, сохраняя час-<br>
+тоту обмена (табл. 5.2). Дифференциальный интерфейс<br>
+применяется в дисковых системах серверов. Традиционный<br>
+дифференциальный интерфейс получил название "высоко-<br>
+вольтный" - High Voltage Differential (HVD), поскольку в<br>
+SCSI-3 ему появилась низковольтная альтернатива - Low<br>
+Voltage Differential (LVD). Низковольтный вариант достигает<br>
+частоты 40 МТ/с в устройствах Ultra2 SCSI при длине шины<br>
+25 м (8 устройств) или 12 м (16 устройств).</font>
+
+<p>
+<font face="Times New Roman" size=2>В широко используемой <i>линейной</i> версии каждый сигнал пе-<br>
+редается потенциалом с ТТЛ-уровнями относительно обще-<br>
+го провода. Здесь общий (обратный) провод для каждого сиг-<br>
+нала тоже должен быть отдельным. В дальнейшем речь<br>
+пойдет об этой версии.</font>
+
+<p>
+<font face="Times New Roman" size=2>Новые устройства с интерфейсом LVD могут работать на<br>
+шине вместе с устройствами с линейным интерфейсом - для<br>
+этого их буферные схемы содержат автоматический опреде-<br>
+литель типа интерфейса. Однако совместимость относится<br>
+только к LVD - традиционные устройства с HVD могут ра-<br>
+ботать только с себе подобными.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>Плоский кабель</i> используется для соединения устройств, рас-<br>
+положенных в одном корпусе. На нем может быть наколото<br>
+несколько разъемов. При необходимости кабели могут сра-<br>
+щиваться через специальные переходные разъемы. Кабели<br>
+сращиваются только через концевые разъемы, Т-образные<br>
+ответвления недопустимы. <i>Круглый кабель,</i> состоящий из<br>
+витых пар, используется для соединения вне корпусов уст-<br>
+ройств. ПУ внешнего исполнения обычно имеют два разъе-<br>
+ма, что позволяет соединить их в цепочку. Длина кабеля за-<br>
+висит от версии интерфейса и частоты (см. табл. 5.2). При<br>
+подсчете суммарной длины кабеля следует учитывать воз-<br>
+можность использования одного порта хост-адаптера одно-<br>
+временно для внешних и внутренних подключений и сум-<br>
+мировать длины внутренних и внешних кабелей.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Тип интерфейса</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Обычный<br>
+(5МТ/С)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Fast<br>
+(ЮМТ/с)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ultra<br>
+(20МТ/С)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ultra 2<br>
+(40МТ/С)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Линейный<br>
+(Single ended)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6м</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зм</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1,5м</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Дифференциальный<br>
+(HVD)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25м</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12м</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6м</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Дифференциальный<br>
+низковольтный<br>
+(LVD)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25м</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25м</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25м</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25м<br>
+(8 устройств)<br>
+12м<br>
+(16 устройств)</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Ассортимент кабелей SCSI довольно широк:</font>
+
+<p>
+<font face="Times New Roman" size=2><i>ш А-кабель:</i> стандартный для 8-битного интерфейса, 25 пар<br>
+проводов. Для внутренних устройств используется плос-<br>
+кий шлейф с разъемами IDC-50, для внешних - экрани-<br>
+рованный круглый кабель с разъемами <i>CENTRONICS-50.</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>^ В-кабель:</i> малораспространенный 16/32-битный расшири-<br>
+тель SCSI-2.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>ш Р-кабель:</i> 8/16-битный кабель с 34 парами проводов,<br>
+снабжен улучшенными миниатюрными экранированны-<br>
+ми разъемами. Применяется в интерфейсах SCSI-2/3, в<br>
+8-битном варианте контакты 1-5, 31-39, 65-68 не исполь-<br>
+зуются. Разъемы для внешнего подключения выглядят как</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>миниатюрный вариант <i>Centronics</i> с плоскими контакта-<br>
+ми, внутренние имеют штырьковые контакты.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>Q-кабель:</i> 68-проводное расширение до 32 бит, использу-<br>
+ется в паре с Р-кабелем и имеет аналогичную конструк-<br>
+цию.</font>
+
+<p>
+<font face="Times New Roman" size=2>ж <i>Кабель с разъемами DB-25P -</i> 8-битный, стандартный для<br>
+Macintosh (см. табл. 5.5), используется на некоторых<br>
+внешних устройствах (lomega ZIP Drive). Встречается<br>
+иная раскладка цепей, если 25-контактный разъем уста-<br>
+новлен на хост-адаптере.</font>
+
+<p>
+<font face="Times New Roman" size=2>Возможны также различные варианты кабелей-переходников.</font>
+
+<p>
+<font face="Times New Roman" size=2>Назначение контактов разъемов кабелей приведено в<br>
+табл. 5.3-5.6. Неудобство вызывает система нумерации кон-<br>
+тактов, которая различна для внешних и внутренних разъе-<br>
+мов. Однако физическая раскладка проводов на разъеме и в<br>
+плоском кабеле одинакова.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Контакт разъема</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Контакт разъема</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внутреннего</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внешнего</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внутреннего</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внешнего</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBO#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB1#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB2#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB3#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB4#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB5#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB6#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>33</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB7#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>34</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBPO#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>35</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>37</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Open</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>38</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWR</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>39</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Контакт разъема</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Контакт разъема</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внутреннего</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внешнего</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внутреннего</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внешнего</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>40</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>41</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ATN#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>33</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>34</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>42</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>35</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>43</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BSY#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>37</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>38</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>44</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ACK#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>39</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>40</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>45</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RST#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>41</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>42</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>46</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MSG#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>43</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>44</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>47</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SELft</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>45</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>46</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>48</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>C/D#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>47</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>48</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>49</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>REQ#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>49</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>50</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>50</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1/0#</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Контакт разъема</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Контакт разъема</font>
+</td>
+<td rowspan=3>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+</tr>
+<tr>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Внутреннего</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Внешнего</font>
+</td>
+<td rowspan=2>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внутреннего</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Внешнего</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>35</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB8#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>37</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB9#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>38</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB10#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>39</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB11#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>40</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB12#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>41</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB13#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>42</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB14#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>43</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB15#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>44</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBP1#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>45</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ACKB#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>46</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>47</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>REQB#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>48</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB16#</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Контакт разъема</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Контакт разъема</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внутреннего</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внешнего</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внутреннего</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Внешнего</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>49</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB17#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>50</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB18#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>33</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWR</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>34</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>51</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWR</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>35</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWR</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>52</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWR</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>37</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>38</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>53</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB19#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>39</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>40</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>54</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB20#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>41</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>42</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>55</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB21#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>43</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>44</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>56</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB22#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>45</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>46</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>57</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB23#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>47</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>48</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>58</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBP2#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>49</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>50</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>59</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB24#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>51</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>52</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>60</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB25#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>53</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>54</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>61</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB26#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>55</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>56</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>62</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB27#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>57</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>58</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>63</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB28#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>59</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>60</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>64</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB29#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>61</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>62</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>65</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB30#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>53</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>64</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>66</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB31#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>65</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>33</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>66</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>67</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBP2#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>67</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>34</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>68</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>68</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>REO#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB3#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SEL#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MSG#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB5#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBPO#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1/0#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB6#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB1#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RST#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB7#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB2#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>АСК#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB4#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BSY#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>C/D#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWR</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBO#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ATN#</font>
+</td>
+<td colspan=2 rowspan=2>
+
+<p>
+
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Р- и Q-кабели,<br>
+сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Р-кабель,<br>
+сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Q-кабель,<br>
+сигнал</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>35</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB12#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB28#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB13#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB29#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>37</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB14#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB30#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>38</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB15#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB31#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>39</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBP1#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBP3#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>40</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBO#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB16#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>41</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB1#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB17#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>42</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB2#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB18#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>43</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB3#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB19#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>44</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB4#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB20#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>45</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB5#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB21#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>46</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB6#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB22#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>47</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB7#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB23#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>48</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBPO#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBP2#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>49</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>50</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWR</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>51</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWR</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWRQ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWR</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>52</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWR</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWRQ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>53</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>54</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>55</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ATN#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Terminated</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>56</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>57</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BSY#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Terminated</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>58</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ACK#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ACKQ#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>59</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RST#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Terminated</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>60</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MSG#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Terminated</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>61</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SEL#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Terminated</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>62</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>C#/D</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Terminated</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>63</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>REQ#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>REQQ#</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Р-иО-кабели,<br>
+сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Р-кабель,<br>
+сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Q-кабель,<br>
+сигнал</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>64</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1/0#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Terminated</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>65</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB8#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB24#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>66</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB9#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB25#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>33</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>67</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB10#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB26#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>34</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>68</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB11#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB27#</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Назначение сигналов раскрывает табл. 5.7. Все сигналы шины<br>
+являются <i>L-активными:</i> активному состоянию и логической<br>
+единице соответствует низкий потенциал. На концах кабель-<br>
+ных шлейфов обязательно устанавливаются <i>терминаторы,<br>
+</i>согласованные по импедансу с кабелем. Они предназначены<br>
+для "подтягивания" уровня сигналов линий к высокому по-<br>
+тенциалу. Терминаторы служат и для предотвращения отра-<br>
+жения сигналов от концов кабеля. По исполнению термина-<br>
+торы могут быть <i>внутренние</i> (размещенные на печатной плате<br>
+устройства) и <i>внешние</i> (устанавливаемые на разъемы кабеля<br>
+или устройства). По электрическим свойствам различают<br>
+следующие типы терминаторов:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ <i>Пассивные</i> (SCSI-1) с импедансом 132 Ом, представляю-<br>
+щие собой обычные резисторы. Не пригодны для режи-<br>
+мов SCSI-2 с частотой выше 5 МГц.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т Активные с</i> импедансом 110<b> Ом</b> - специальные термина-<br>
+торы для работы на частоте 10 МГц.</font>
+
+<p align=center>
+<font face="Times New Roman" size=2>^ <i>FPT</i> (Forced Perfect Terminator) - улучшенный вариант<br>
+активных терминаторов с ограничителями выбросов.</font>
+
+<p>
+<font face="Times New Roman" size=2>Активные терминаторы требуют питания, для чего в интер-<br>
+фейсе имеются специальные линии TERMPWR. Питание по-<br>
+ступает от ИУ.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BSY#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Busy -</i> шина занята</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SEL#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Select -</i> выбор ЦУ инициатором <i>(Select)</i> или<br>
+инициатора ЦУ <i>(Reselect)</i></font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>C/D#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Control/Data -</i> управление (низкий<br>
+уровень/данные (высокий уровень)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1/0#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Input/Output -</i> направление передачи относительно<br>
+ИУ: вводу в ИУ соответствует низкий уровень.<br>
+Используется для различия прямой <i>(Select)<br>
+</i>и обратной <i>(Reselect)</i> выборки: фазе <i>Selection<br>
+</i>соответствует низкий уровень</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>MSG#</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Message -</i> передача сообщения</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB[0:31]#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Data Bus -</i> инверсная шина данных</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DP[0:3]#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Data Parity -</i> инверсные биты паритета, дополняют<br>
+количество единичных бит байта до нечетного.<br>
+DPO# относится к DB[0:7],... DP3# - к DB[24:31].<br>
+В фазе арбитража не действуют</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TERMPWR</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Terminator Power -</i> питание терминаторов</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ATN#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Attention -</i> внимание</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>REQ#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Request -</i> запрос от ЦУ на пересылку данных</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ACK#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Acknowledge -</i> подтверждение передачи (ответ<br>
+на REQ#)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RST#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Reset -</i> сброс</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Каждое устройство SCSI, подключенное к шине, должно<br>
+иметь свой уникальный <i>адрес,</i> назначаемый при конфигу-<br>
+рировании. Для 8-битной шины диапазон значений адреса<br>
+0-7, для 16-битной - 0-15. Адрес задается предварительной<br>
+установкой переключателей или джамперов. Для хост-адап-<br>
+тера возможно программное конфигурирование. Адресация<br>
+устройств на шине в фазах выборки осуществляется через<br>
+<i>идентификатор SCSI ID,</i> представляющий адрес в позици-<br>
+онном коде. Адрес определяет номер линии шины данных,<br>
+которой осуществляется выборка данного устройства. Уст-<br>
+ройство с нулевым адресом выбирается низким уровнем на<br>
+линии DBO# (SCSI ID=00000001), с адресом 7 - на линии<br>
+DB7# (SCSI ID=10000000). Для ИУ значение идентифика-<br>
+тора определяет приоритет устройства при использовании<br>
+шины, наибольший приоритет имеет устройство с большим<br>
+значением адреса. Адрес и идентификатор - всего лишь две<br>
+различные формы представления одного и того же параметра.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>В любой момент обмен информацией по шине может про-<br>
+исходить только между парой устройств. Операцию начинает<br>
+И У, а ЦУ ее исполняет. И У выбирает ЦУ по его идентифи-<br>
+катору. Чаще всего роли устройств фиксированы: хост-адап-<br>
+тер является инициатором (ИУ), а ПУ - целевым (ЦУ).<br>
+Возможны комбинированные устройства, выступающие в<br>
+роли и И У, и ЦУ. В ряде случаев роли устройств меняются:</font>
+
+<p>
+<font face="Times New Roman" size=2>ЦУ может, пройдя фазу арбитража, выполнить обратную<br>
+выборку <i>(Reselect)</i> ИУ для продолжения прерванной опера-<br>
+ции. При выполнении команды копирования <i>(Copy)</i> ИУ дает<br>
+указание <i>ведущему устройству копирована (Copy Master)<br>
+</i>на обмен данными, который может производиться и с дру-<br>
+гим ЦУ (для которых ведущее устройство копирования вы-<br>
+ступит в роли И У).</font>
+
+<p>
+<font face="Times New Roman" size=2>Информация по шине данных передается побайтно <i>асинх-<br>
+ронно,</i> используя механизмы запросов (REQuest) и подтвер-<br>
+ждений (ACKnowledge). Каждый байт контролируется на<br>
+нечетность (кроме фазы арбитража), но контроль может быть<br>
+отключен. Интерфейс имеет возможность <i>синхронной</i> пере-<br>
+дачи данных, ускоряющей обмен.</font>
+
+<p>
+<font face="Times New Roman" size=4>5.2. Фазы шины</font>
+
+<p>
+<font face="Times New Roman" size=2>Шина может находиться в одной из перечисленных <i>фаз.</i> Роли<br>
+источников сигналов между ИУ и ЦУ описаны в табл. 5.8.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Фаза<br>
+шины</font>
+</td>
+<td colspan=5>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BSYft</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SELft</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>REQ#,</font>
+
+<p>
+<font face="Times New Roman" size=2>C/Dft,<br>
+I/Oft,<br>
+MSG#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ACK#,<br>
+ATN#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DBx#,<br>
+DBPxtf</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Bus Free</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Arbitration</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>WA</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SID</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Selection</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I,T</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Reselection</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I,T</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>T</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>T</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>T</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Command</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>T</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>T</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2><b>Фаза<br>
+шины</b></font>
+</td>
+<td colspan=5>
+
+<p>
+<font face="Times New Roman" size=2><b>Сигнал</b></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>BSYff</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>SEL#</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>REQff,<br>
+C/D#,<br>
+<i>I/O",<br>
+</i>MSG#</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>ACKff,<br>
+ATNff</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>DBx#,<br>
+DBPx#</b></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Data IN</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>-</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>I</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Data OUT</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>-</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>I</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>I</b></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Status</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>-</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>I</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Message IN</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>-</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>I</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b><i>Message OUT</b></i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>-</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>T</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>I</b></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><b>I</b></font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>I - источник сигнала - И У;</font>
+
+<p>
+<font face="Times New Roman" size=2>Т - источник сигнала - ЦУ;</font>
+
+<p>
+<font face="Times New Roman" size=2>АА - источник сигнала - устройство, активное в арбитраже;</font>
+
+<p>
+<font face="Times New Roman" size=2>WA - источник сигнала - устройство-победитель в арбитраже;</font>
+
+<p>
+<font face="Times New Roman" size=2>SID - каждое устройство управляет только битом данных, соответству-<br>
+ющим значению его SCSI ID.</font>
+
+<p>
+<font face="Times New Roman" size=2>В фазе <i>Bus Free</i> шина находится в состоянии покоя - нет<br>
+никаких процессов обмена; она готова к арбитражу. Призна-<br>
+ком является пассивное состояние линий BSY# и SEL#.</font>
+
+<p>
+<font face="Times New Roman" size=2>В фазе <i>Arbitration</i> устройство может получить право на<br>
+управление шиной. Дождавшись покоя шины <i>(Вш Free),</i> ус-<br>
+тройство вводит сигнал BSY# и свой идентификатор SCSI<br>
+ID. Если идентификаторы выставили несколько устройств<br>
+одновременно, то право на управление шиной получает уст-<br>
+ройство с наибольшим адресом, а остальные устройства от-<br>
+ключаются до следующего освобождения шины. Устройство,<br>
+выигравшее арбитраж, вводит сигнал SEL# и переходит в<br>
+фазу <i>Selection</i> или <i>Reselection.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>В фазе <i>Selection</i> ИУ, выигравшее арбитраж, вводит на шину<br>
+данных результат логической функции ИЛИ от пары иден-<br>
+тификаторов - своего и ЦУ, - сопровождая его битом пари-<br>
+тета. Установкой сигнала ATN# И У указывает, что следую-<br>
+щей фазой будет <i>Message OUT.</i> ИУ снимает сигнал BSY#.<br>
+Отсутствие сигнала 1/0# отличает данную фазу от <i>Reselection.<br>
+</i>Адресованное ЦУ отвечает сигналом BSY#, если паритет кор-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ректный и на шине данных присутствует только пара иден-<br>
+тификаторов (его и И У). На некорректные значения дан-<br>
+ных устройства отвечать не должны. Если за заданное вре-<br>
+мя ЦУ не ответило, срабатывает тайм-аут, И У освобождает<br>
+шину или вводит сигнал сброса RST#.</font>
+
+<p>
+<font face="Times New Roman" size=2>Фаза <i>Reselection</i> аналогична предыдущей, но ее вводит ЦУ.<br>
+Фаза появляется в том случае, когда ЦУ на время исполне-<br>
+ния команды отключалось от шины. По завершении внут-<br>
+ренней операции это устройство, выиграв арбитраж, будет<br>
+вызывать ИУ, которое ранее породило исполнение операции.<br>
+ЦУ снимает сигнал BSY#, активность сигнала 1/0# отличает<br>
+данную фазу от фазы <i>Selection.</i> Адресованное ИУ отвечает<br>
+сигналом BSY#, условия ответа и тайм-аут аналогичны пре-<br>
+дыдущей фазе.</font>
+
+<p>
+<font face="Times New Roman" size=2>В фазах <i>Command, Data, Status</i> и <i>Message</i> по шине данных<br>
+передается информация, фазы идентифицируются сигнала-<br>
+ми MSG#, C/D# и <i>\/0#</i> (табл. 5.9), которыми управляет ЦУ.<br>
+ИУ может потребовать посылки сообщения (фаза <i>Message<br>
+OUT)</i> введением сигнала ATN#, a ЦУ может освободить шину,<br>
+сняв сигналы MSG#, C/D#, 1/0# и BSY#.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td colspan=3>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Фаза</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Направление</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MSGft</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>C/D#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I/0#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Data OUT</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1ФТ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Data IN</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>l^T</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Command</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I^T</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Status</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1ФТ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+<td>
+
+<p>
+
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+<td>
+
+<p>
+
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Message OUT</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>I^T</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Message IN</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1ФТ</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Временные диаграммы <i>асинхронного обмена</i> приведены на<br>
+рис. 5.6. Здесь передача каждого байта сопровождается вза-<br>
+имосвязанной парой сигналов REQ#/ACK#. ИУ фиксирует<br>
+принимаемые данные, получив сигнал REQ# (по отрицатель-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ному перепаду). ЦУ считает принимаемые данные действи-<br>
+тельными по отрицательному перепаду сигнала АСК#. Асин-<br>
+хронный обмен поддерживается всеми устройствами для всех<br>
+фаз передачи информации.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="55.jpg"alt="55.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 5.6. Временные диаграммы асинхронного обмена (Dl -<br>
+данные от ИУ, DT - данные от ЦУ)</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Фазы передачи данных <i>Data OUT и Data IN no</i> предваритель-<br>
+ной "договоренности" устройств могут выполняться и в <i>син-<br>
+хронном режиме</i> обмена, диаграммы которого приведены на<br>
+рис. 5.7. При согласовании синхронного режима определяют-<br>
+ся минимальные длительности и периоды управляющих им-<br>
+пульсов АСК# и REQ#, а также допустимое отставание под-<br>
+тверждений от запросов <i>(REQ/ACK offset agreement).</i> ЦУ<br>
+передает серию данных, сопровождаемых стробами REQ#<br>
+(рис. 5.7а) в темпе, ограниченном установленными времен-<br>
+ными параметрами. ИУ фиксирует принимаемые данные по<br>
+отрицательному перепаду сигнала REQ#, но отвечать на них<br>
+сигналом АСК# может с некоторым опозданием. Как только<br>
+отставание числа принятых сигналов АСК# от числа послан-<br>
+ных REQ# достигнет оговоренного предельного значения (в<br>
+данном примере 2), ЦУ приостановит обмен до прихода оче-<br>
+редного подтверждения АСК#. Операция будет считаться за-<br>
+вершенной, когда число принятых подтверждений совпадет с<br>
+числом посланных запросов. При приеме данных ЦУ меха-<br>
+низм согласования остается тем же, но данные фиксируются<br>
+по отрицательному перепаду сигнала АСК# (рис. 5.76).</font>
+
+<p>
+<font face="Times New Roman Narrow" size=2>В спецификации SCSI-1 момент возобновления передачи по устранении отстава-<br>
+ния описан нечетко, в результате чего разработчики могли считать, что очередной<br>
+запрос (и данные) может последовать лишь после окончания (положительного пе-<br>
+репада) сигнала<b> АСК#.</b> Устройство, на это рассчитанное, может терять данные:</font>
+
+<p>
+<font face="Times New Roman Narrow" size=2>для него последний ситал REQ# (и данные) будет неожиданным и выглядеть как<br>
+<u>превышение согласованного смещения.</u></font>
+<hr>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="56.jpg"alt="56.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 5.7. Временные диаграммы синхронного обмена:</b></font>
+
+<p align=center>
+<font face="Times New Roman" size=2><i>а -</i> передача, б - прием.</font>
+
+<p>
+<font face="Times New Roman" size=2>Обмен при разрядности 16 и 32 бит происходит аналогич-<br>
+но, но при использовании двух кабелей (В и Q) передачи по<br>
+ним управляются сигналами REQB#/ACKB# и REQQ#/ACKQ#<br>
+соответственно. По обоим кабелям передачи выполняются в<br>
+одинаковых режимах. Если в последней фазе данных исполь-<br>
+зуются не все байты, передатчик обязан снабдить их кор-<br>
+ректным битом паритета.</font>
+
+<p>
+<font face="Times New Roman" size=2>При описании фаз шины не говорилось о временных задерж-<br>
+ках. Они определяются спецификацией так, чтобы возмож-<br>
+ный "перекос" - неодновременный приход сигналов, выз-<br>
+ванный задержкой как в электронных схемах, так и в разных<br>
+проводах кабеля, - не влиял на устойчивость протокола. В<br>
+асинхронном режиме обмена на скорость передачи инфор-<br>
+мации влияет и длина кабеля, поскольку изменения состоя-<br>
+ний участников обмена привязываются к сигналам, распро-<br>
+страняющимся по кабелю с ограниченной скоростью. Из-за<br>
+необходимости учета задержек в случае применения пары<br>
+кабелей в каждом из них используется своя пара REQ#/ACK#.</font>
+
+<p>
+<font face="Times New Roman" size=2>В фазе <i>Command</i> ЦУ запрашивает от ИУ команду. В фазе<br>
+<i>Status</i> ЦУ делает запрос на передачу ИУ информации о сво-<br>
+ем состоянии. В фазах <i>Data IN</i> и <i>Data OUT</i> ЦУ делает за-</font>
+
+<p>
+<font face="Times New Roman" size=1>7 Зак.№530</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>просы на передачу данных к И У и от него соответственно.<br>
+Фазы <i>Message IN и Message О UT</i> служат для передачи <i>сооб-<br>
+щений.</i> Фазу <i>Message OUT</i> ЦУ вводит в ответ на <i>условие<br>
+Attention,</i> порождаемое ИУ сигналом ATN#, когда оно нуж-<br>
+дается в посылке сообщения ЦУ. Фазу <i>Message IN</i> ЦУ вво-<br>
+дит при необходимости посылки сообщения ИУ.</font>
+
+<p>
+<font face="Times New Roman" size=2>Между фазами передачи информации сигналы BSY#, SEL#,<br>
+REQ# и АСК# должны оставаться в неизменном состоянии,<br>
+меняться могут только значения сигналов C/D#, 1/0#, MSG#<br>
+и шины данных.</font>
+
+<p>
+<font face="Times New Roman" size=2>Сигналы ATN# и RST# могут порождать <i>условия Attention</i> и<br>
+<i>Reset</i> соответственно, причем асинхронно по отношению к<br>
+фазам шины. Эти условия могут привести к изменению пред-<br>
+определенного порядка фаз. Сигнал ATN# вводится ИУ во<br>
+время любой фазы, кроме арбитража и состояния покоя<br>
+шины. Сигнал RST# вводится в любой момент любым уст-<br>
+ройством, и по условию <i>Reset</i> все устройства должны не-<br>
+медленно освободить шину. В зависимости от настройки,<br>
+принятой для всех устройств конкретной системы, возмож-<br>
+но выполнение одного из двух вариантов сброса. "Жесткий"<br>
+сброс переводит устройства в состояние, принятое по вклю-<br>
+чению питания, сбрасывая все текущие процессы, очереди и<br>
+т. п. В случае "мягкого" сброса после освобождения шины<br>
+устройства пытаются завершить начатые операции, сохра-<br>
+няя текущие назначения настроек.</font>
+
+<p>
+<font face="Times New Roman" size=2>Каждый <i>процесс ввода/вывода</i> состоит из следующей после-<br>
+довательности фаз шины: из состояния <i>Bus Free</i> через фазу<br>
+<i>Arbitration</i> переход к фазе <i>Selection</i> или <i>Reselection.</i> Далее сле-<br>
+дуют фазы передачи информации <i>(Command, Data, Status,<br>
+Message).</i> Завершающей фазой является <i>Message In,</i> в кото-<br>
+рой передается сообщение <i>Disconnect</i> или <i>Command Complete,<br>
+</i>после чего шина переходит в состояние покоя <i>Bus Free.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>Архитектура SCSI обеспечивает для каждого процесса вво-<br>
+да/вывода сохранение набора из трех <i>указателей - Saved<br>
+SCSI Pointers,</i> для команды, состояния и данных. ИУ имеет<br>
+текущий набор указателей (только один), в который копи-<br>
+руется сохраненный набор для текущего процесса. Текущие<br>
+указатели указывают на очередной байт команды, состоя-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ния и данных, которые будут передаваться между памятью<br>
+ИУ и ЦУ. Сохраненные указатели команды и состояния все-<br>
+гда указывают на начала блоков дескрипторов команд и со-<br>
+стояния. Сохраненный указатель данных указывает на на-<br>
+чало блока данных до тех пор, пока ЦУ не пришлет<br>
+сообщение <i>Save Data Pointer.</i> По его приему будет сохранен<br>
+текущий указатель данных. Когда ЦУ отключается от шины,<br>
+информация о текущем процессе ввода/вывода содержится<br>
+в сохраненном наборе указателей. При возобновлении про-<br>
+цесса ЦУ сообщением <i>Restore Pointers</i> может потребовать у<br>
+И У скопировать сохраненный набор в текущий и продол-<br>
+жить выполнение команд данного процесса ввода/вывода.</font>
+
+<p>
+<font face="Times New Roman" size=2>Поскольку указатель данных может быть модифицирован ЦУ до завершения ввода/<br>
+вывода, использование указателя для определения реального количества передан-<br>
+<u>ных данных дает ненадежные результаты.</u></font>
+
+<p>
+<font face="Times New Roman" size=4>5.3. Управление интерфейсом</font>
+
+<p>
+<font face="Times New Roman" size=2>Для управления интерфейсом служит система сообщений -<br>
+<i>Message System,</i> которыми обмениваются ИУ и ЦУ. Обмен<br>
+происходит в фазах <i>Message IN/OUT</i> (см. выше), в одной <i>фазе<br>
+</i>может передаваться несколько сообщений. Одно сообщение<br>
+не может расщепляться на несколько фаз. Форматы сообще-<br>
+ний стандартизованы; каждое сообщение начинается с кода.<br>
+Существуют однобайтные (коды OOh, 02h-lFh, SOh-FFh),<br>
+двухбайтные (коды 20h-2Fh) и расширенные сообщения (код<br>
+Olh). В двухбайтном сообщении второй байт является аргу-<br>
+ментом сообщения. В расширенных сообщениях второй байт<br>
+задает длину, а последующие байты несут код и аргументы<br>
+сообщения. Коды сообщений приведены в табл. 5.10.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Код</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Направление</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сообщение</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OOh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Command<br>
+Complete</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Процесс ввода/вывода<br>
+завершен, информация<br>
+о состоянии послана<br>
+в сообщении Status</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>02h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Save Data<br>
+Pointer</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сохранение указателя<br>
+данных</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Код</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Направление</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сообщение</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>03h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Restore Pointers</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Восстановление<br>
+указателей</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>04h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Disconnect</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Текущее соединение<br>
+разрывается, но для<br>
+продолжения процесса<br>
+потребуется повторное<br>
+соединение (не вызывает<br>
+сохранения текущих<br>
+указателей)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>04h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Disconnect</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Инструкция ЦУ<br>
+на разрыв соединения</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>05h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Initiator<br>
+Detected Error</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ИУ обнаружило ошибку<br>
+на шине</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>06h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Abort</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сброс всех процессов,<br>
+связанных с данной<br>
+парой 1Т, и<br>
+освобождение шины</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>07h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In/Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Message Reject</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сообщение (или его<br>
+параметры)<br>
+недействительны для<br>
+получателя</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>08h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>No Operation</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ИУ нечего ответить<br>
+на запрос сообщения</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>09h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Message Parity<br>
+Error</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Последний байт<br>
+сообщения принят<br>
+с неверным паритетом</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OAh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Linked<br>
+Command<br>
+Complete</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Цепочка команд<br>
+завершена. ИУ может<br>
+инициализировать<br>
+указатели для новой<br>
+цепочки</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OBh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Linked<br>
+Command<br>
+Complete (With<br>
+Flag)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же, но ИУ между<br>
+цепочками команд<br>
+вызывает прерывание<br>
+в хост-системе</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ОСЬ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Bus Device<br>
+Reset</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Аппаратный сброс ЦУ<br>
+и освобождение шины</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ODh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Abort Tag</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сброс текущего процесса,<br>
+связанного с данной парой<br>
+1Т, и освобождение шины</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>код</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Направление</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сообщение</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OEh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>QearQueue</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сброс всех процессов<br>
+и освобождение шины<br>
+(эквивалентно серии<br>
+сообщений Abort,<br>
+принятых от всех ИУ)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OFh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In/Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Initiate<br>
+Recovery</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сообщение<br>
+для уведомления<br>
+об асинхронных событиях<br>
+(ЦУ временно<br>
+становится ИУ)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lOh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Release<br>
+Recovery</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Завершение обработки<br>
+асинхронных событий</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>llh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Terminate I/O<br>
+Process</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Принудительное<br>
+завершение текущего<br>
+процесса без логического<br>
+повреждения носителя<br>
+уЦУ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12h-lFh,<br>
+30h-7Fh</font>
+</td>
+<td colspan=3>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервированы для 1-байтных сообщений</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>80h-FFh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Identify</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Установление связи типа<br>
+ITL или ITR</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>80h-FFh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Identify</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Восстановление связи<br>
+типа ITL или ITR при<br>
+повторном соединении.<br>
+Вызывает восстановление<br>
+сохраненных указателей</font>
+</td>
+</tr>
+<tr>
+<td colspan=4>
+
+<p>
+<font face="Times New Roman" size=2>2-байтные сообщения</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman Narrow" size=2><i>Simple Queue<br>
+Tag</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Процесс помещен<br>
+в очередь, аргумент - тег<br>
+(OOh-FFh)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman Narrow" size=2><i>Simple Queue<br>
+Tag</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Обращение к конкретному<br>
+процессу маркированной<br>
+очереди, аргумент - тег<br>
+(OOh-FFh)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Head Of Queue<br>
+Tag</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Помещение процесса<br>
+в начало маркированной<br>
+очереди для данного LUN,<br>
+аргумент - тег (OOh-FFh)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman Narrow" size=2><i>Ordered Queue<br>
+Tag</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Помещение процесса<br>
+в конец маркированной<br>
+очереди для данного LUN,<br>
+аргумент - тег (OOh-FFh)</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Код</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Направление</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сообщение</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Ignorv Wide<br>
+Residue</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Последние байты<br>
+последнего переданного<br>
+слова недействительны<br>
+(аргумент см. в табл. 5.11)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24h-2Fh</font>
+</td>
+<td colspan=3>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервированы для 2-байтных сообщений</font>
+</td>
+</tr>
+<tr>
+<td colspan=4>
+
+<p>
+<font face="Times New Roman" size=2>Расширенные сообщения. Первый байт - Olh, в поле "код" первым<br>
+байтом указана длина, вторым - расширенный код</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>05h, OOh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Modify Data<br>
+Pointer</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запрос модификации<br>
+указателя данных -<br>
+суммирование текущего<br>
+указателя с 4-байтным<br>
+аргументом сообщения</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>03h, Olh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In/Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Synchronous<br>
+Data Transfer<br>
+Request</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Параметры синхронного<br>
+режима обмена, 1-й байт<br>
+аргумента определяет<br>
+период посылки, 2-й -<br>
+допустимое смещение<br>
+REQ/ACK</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>02h, 03h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>In/Out</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Wide Data<br>
+Transfer<br>
+Request</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Разрядность передач<br>
+в фазах данных. Ар1умент<br>
+задает число байт:<br>
+0 -1 байт,<br>
+1 -2 байта,<br>
+2-4 байта</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Значение<br>
+2-го байта</font>
+</td>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Игнорировать биты данных<br>
+при разрядности обмена</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32 бит</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16 бит</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Olh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB[31:24]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB[15:8]</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>02h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB[31:16]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>03h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DB[31:8]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OOh, 04h - FFh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>В SCSI-2 для установления связи процесса с конкретным<br>
+<i>логическим устройством I_T_L (lnitiator_Target_LUN)</i> или с<br>
+конкретной <i>целевой программой I_T_R (lnitiator_Target_TRN),</i></font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>а также предоставления права разрыва соединения служат<br>
+сообщения <i>Identify.</i> В байте их кодов биты [2:0] в зависимо-<br>
+сти от бита 5 <i>LUNTAR</i> задают номер <i>LUN (LUNTAR=0)</i> или<br>
+<i>TRN (LUNTAR=i).</i> Каждый процесс может быть адресован<br>
+только одному <i>LUN или TRN.</i> Если ЦУ во время выполне-<br>
+ния процесса обнаружит сообщение с иным адресом связи,<br>
+оно обязано освободить шину (ситуация неожиданного раз-<br>
+рыва). Единичным значением бита 6 <i>DiscPriv</i> при передаче<br>
+сообщения ИУ наделяет ЦУ правом разрыва соединения.</font>
+
+<p>
+<font face="Times New Roman" size=2>ИУ может проинструктировать ЦУ на <i>разрыв соединения,<br>
+</i>послав ему сообщение <i>Disconnect.</i> Получив сообщение, ЦУ<br>
+посылает одноименное сообщение (предварительно ЦУ мо-<br>
+жет потребовать сохранения указателя данных, послав сооб-<br>
+щение <i>Save Data Pointer)</i> и освобождает шину. Если ЦУ не<br>
+поддерживает эту возможность, оно отвечает сообщением<br>
+<i>Message Reject.</i> Когда процесс, продолжающийся в устрой-<br>
+стве, потребует передачи данных, через фазу арбитража ЦУ<br>
+обратится к ИУ за продолжением обмена.</font>
+
+<p>
+<font face="Times New Roman" size=2>С помощью сообщений согласуются параметры синхронно-<br>
+го режима и разрядность данных. Процесс согласования син-<br>
+хронного обмена называется <i>Synchronous Negotiation.</i> Уст-<br>
+ройство, запрашивающее синхронный обмен, посылает<br>
+сообщение <i>Synchronous Data Transfer Request</i> с указанием до-<br>
+пустимого периода цикла и отставания REQ/ACK. Если дру-<br>
+гой участник обмена поддерживает синхронный режим, он<br>
+предложит свои параметры. Согласованными параметрами<br>
+будут максимальный период и минимальное отставание (ну-<br>
+левое отставание эквивалентно асинхронному режиму). Выб-<br>
+ранный режим будет относиться только к фазам передачи<br>
+между данной парой устройств. Отвергнутое сообщение яв-<br>
+ляется требованием асинхронного режима. Поскольку ста-<br>
+рые хост-адаптеры не поддерживали согласование синхрон-<br>
+ного режима, на ЦУ запрос синхронного режима может быть<br>
+заблокирован. О возможности работы в синхронном режи-<br>
+ме хост может узнать, послав команды <i>Request Sense</i> и <i>Inquiry.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>Разрядность передач согласуется аналогично посредством<br>
+сообщений <i>Wide Data Transfer Request.</i> Согласованные режи-<br>
+мы будут действовать до сброса устройств по сообщению<br>
+<i>Bus Device Reset или</i> "жесткого" сброса, что приведет к ус-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>тановке предопределенных режимов по включению. Согла-<br>
+сование режимов не должно инициироваться в каждом про-<br>
+цессе, поскольку затраты времени на эту процедуру сведут<br>
+на нет выигрыш в производительности.</font>
+
+<p>
+<font face="Times New Roman Narrow" size=4><b>5.4. Типы ПУ</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Каждое ЛУ может представлять одно или несколько одно-<br>
+типных <i>периферийных устройств (ПУ),</i> перечень их стан-<br>
+дартизованных типов приведен в табл. 5.12. Сложное ПУ<br>
+может представляться несколькими ЛУ SCSI. По характеру<br>
+обмена данных устройства разделяются на 2 класса - блоч-<br>
+ные (Block Device) с типами 0, 4, 5, 7 и поточные (Stream<br>
+Device) с типами 1, <i>2,</i> 3, 9.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Код типа</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OOh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Direct-access device - устройства прямого доступа<br>
+(накопители на магнитных дисках)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Olh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Sequential-access device - устройства последовательного<br>
+доступа (накопители на магнитных лентах)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>02h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Printer device - принтеры</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>03h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Processor device - процессоры (устройства обработки<br>
+данных)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>04h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Write-once device - устройства однократной записи<br>
+(некоторые оптические диски)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>05h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CD-ROM device - приводы CD-ROM</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>06h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Scanner device - сканеры</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>07h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Optical memory device - устройства оптической памяти</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>08h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Medium Changer device - устройства смены носителей<br>
+(jukebox)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>09h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Communications device - коммуникационные устройства</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OAh-OBh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Устройства класса ASC ITS (Graphic Arts Pre-Press<br>
+Devices - высококачественные устройства печати)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OCh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Array controller device - контроллеры массивов<br>
+накопителей</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ODh-lEh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IFh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Неизвестный тип или устройство отсутствует</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>Устройства прямого доступа (0)</i> позволяют сохранять блоки<br>
+данных. Каждый блок хранится по уникальному <i>логическому<br>
+адресу LBA - Logical Block Address.</i> Взаимное расположение<br>
+логических блоков на носителе не регламентируется. Адрес<br>
+первого логического блока - нулевой, последнего - (п-1),<br>
+где n - общее число блоков. В цепочках команд устройства-<br>
+ми может поддерживаться относительная адресация, когда ис-<br>
+полнительный адрес в команде определяется смещением от-<br>
+носительно адреса, действовавшего в предыдущей команде.</font>
+
+<p>
+<font face="Times New Roman" size=2>Блоки данных хранятся на носителе вместе с дополнитель-<br>
+ной информацией, используемой контроллером для управ-<br>
+ления чтением и записью, а также обеспечения надежности<br>
+хранения данных (ЕСС или CRC-коды). Формат дополни-<br>
+тельных данных не регламентируется, ЦУ скрывает эти дан-<br>
+ные от ИУ.</font>
+
+<p>
+<font face="Times New Roman" size=2>Для каждого блока может быть установлена своя длина, но<br>
+чаще используют единую длину блока для всего носителя.<br>
+Группа смежных блоков одинаковой длины называется <i>эк-<br>
+стентом (extent),</i> экстенты определяются командой <i>MODE<br>
+SELECT,</i> длину блока можно узнать по команде <i>MODE SENSE.<br>
+</i>После изменения длины блока для активизации экстента<br>
+обычно требуется форматирование.</font>
+
+<p>
+<font face="Times New Roman" size=2>Носитель может быть разделен на области, одна из которых<br>
+используется для хранения блоков данных, другая резерви-<br>
+руется для замены дефектных блоков, часть носителя может<br>
+использоваться контроллером для обслуживания устройства.<br>
+Дефектные блоки области данных могут быть переназначе-<br>
+ны на другую область носителя, что позволяет их скрыть.</font>
+
+<p>
+<font face="Times New Roman" size=2>Носитель может быть <i>фиксированным</i> и <i>сменяемым<br>
+(Removable).</i> Сменяемый носитель в картридже (или чехле)<br>
+называют <i>томом (Volume).</i> Для чтения/записи том должен<br>
+быть <i>смонтирован.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>Устройство может быть <i>зарезервировано</i> И У, при этом до-<br>
+ступ к нему других И У ограничивается. Ограничения рас-<br>
+пространяются на ЛУ или экстент.</font>
+
+<p>
+<font face="Times New Roman" size=2>Устройства, имеющие кэш данных, могут поддерживать по-<br>
+литику обратной записи (Write Back). При этом появляют-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ся интервалы времени, в течение которых внезапное отклю-<br>
+чение питания устройства приведет к потере данных, по-<br>
+скольку сообщение о завершении команды посылается пос-<br>
+ле записи в кэш, а не на носитель. Сообщения об ошибках<br>
+при WB поступают к ИУ с опозданием. Чтобы избежать этих<br>
+неудобств, ИУ может запретить устройству использовать<br>
+WB. Отдельные блоки в кэше можно фиксировать, не до-<br>
+пуская их замещения при последующих операциях обмена.</font>
+
+<p>
+<font face="Times New Roman" size=2>Типичный пример устройств прямого доступа - накопитель<br>
+на магнитном диске. Есть устройства прямого доступа на лен-<br>
+точном носителе - Floppy Tape. Именно для них эффективна<br>
+команда <i>SEEK.</i> Устройства прямого доступа могут не иметь<br>
+подвижных носителей, а быть основаны на памяти разной<br>
+природы: SRAM, DRAM, FRAM, EEPROM, флэш-память.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Устройства последовательного доступа (1)</i> имеют ряд особен-<br>
+ностей, связанных с принципом их действия. Носитель пред-<br>
+ставляет собой магнитную ленту с многодорожечным, серпан-<br>
+тинным или наклонно-строчным типом записи. Носитель -<br>
+всегда сменяемый, с некоторым конструктивньш обрамлени-<br>
+ем (катушка, картридж) - также называется <i>томом.</i> Том име-<br>
+ет начало носителя ВОМ (beginning-of-medium) и конец но-<br>
+сителя ЕОМ (end-of-medium). При записи ИУ должен заранее<br>
+узнавать о приближении конца носителя, для чего определя-<br>
+ется позиция раннего предупреждения EW (Early Warning) с<br>
+соответствующим маркером. Это позволяет после записи блока<br>
+данных из буфера поместить на носитель соответствующий<br>
+концевой маркер. Том может иметь один или несколько <i>раз-<br>
+делов</i> (Partitions), нумеруемых с нуля. Разделы располагают-<br>
+ся друг за другом, без перекрытия. Каждый раздел <i>х</i> имеет<br>
+начало ВОР <i>х</i> (Begining-Of- Partition <i>х),</i> конец ЕОР <i>х</i> и ран-<br>
+нее предупреждение EW <i>х.</i> Между началом и концом разде-<br>
+ла помещаются блоки данных и маркеры. Блоки данных, пе-<br>
+редаваемые ИУ, называются логическими. Логический блок<br>
+может занимать один или несколько физических блоков дан-<br>
+Hbix на носителе, в последнем случае за блокирование-дебло-<br>
+кирование отвечает ЦУ. Описатели записанных физических<br>
+и/или логических блоков могут храниться на носителе<br>
+(определяется форматом записи). Буфер устройства должен<br>
+вмещать по крайней мере один логический блок.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>Принтеры (2),</i> подключаемые через интерфейс SCSI, не тре-<br>
+буют особых команд для управления, поскольку эти функ-<br>
+ции реализуются через поток передаваемых данных. Одна-<br>
+ко двунаправленная связь по шине позволяет ввести<br>
+дополнительные команды, служащие для отслеживания со-<br>
+стояния принтеров с буферной памятью, и обеспечить це-<br>
+лостность заданий. Принтеры могут иметь встроенный кон-<br>
+троллер SCSI или подключаться ЛУ к внешнему контроллеру<br>
+по интерфейсу Centronics или RS-232. Параметры подклю-<br>
+чения определяются командой <i>MODE SELECT,</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>Процессорными устройствами (3)</i> в терминологии SCSI яв-<br>
+ляются источники и потребители пакетов информации, трак-<br>
+товка которой стандартом не определена. Примерами процес-<br>
+сорных устройств являются компьютеры, обменивающиеся<br>
+сообщениями односторонним или двухсторонним образом.<br>
+Процессорным устройством является и какое-либо сложное<br>
+устройство отображения (графический дисплей), которое за-<br>
+нято выводом потока сообщений. От коммуникационных ус-<br>
+тройств процессорные отличаются тем, что они являются ис-<br>
+точниками или потребителями информации, в то время как<br>
+коммуникационные служат лишь посредниками.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Устройства оптической памяти (7)</i> близки к устройствам<br>
+прямого доступа со сменными носителями, но имеют ряд ха-<br>
+рактерных особенностей. Большая емкость носителя вызывает<br>
+необходимость применения команд с 12-байтным дескрипто-<br>
+ром. Устройства могут обеспечивать считывание, однократную<br>
+или многократную запись. На носителе могут быть определены<br>
+зоны, недоступные для записи. Блоки носителя имеют состо-<br>
+яние "чистый" и "записанный", что отмечается соответству-<br>
+ющим атрибутом. Для устройств многократной записи перед<br>
+повторной записью блока необходимо его стереть. Стирание<br>
+может выполняться специальной командой или автоматичес-<br>
+ки по команде записи. В записи фаза стирания может отсут-<br>
+ствовать. К этим устройствам применимо понятие <i>обновле-<br>
+ния (update)</i> логического блока - запись новых данных по тому<br>
+же адресу логического блока, но на другое место носителя.<br>
+Прежние данные могут быть считаны специальной командой,<br>
+указывающей кроме логического адреса блока и его <i>поколе-<br>
+ние (generation).</i> Емкость носителя в таком случае сообщает-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ся без учета множества поколений. Оптические носители по<br>
+сравнению с магнитными имеют существенно более высокий<br>
+уровень ошибок, так что приходится использовать более слож-<br>
+ные алгоритмы восстановления информации.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Устройства однократной записи (4),</i> обычно оптические, от-<br>
+личаются невозможностью перезаписи ранее записанного<br>
+блока. Попытка повторной записи в зависимости от реали-<br>
+зации устройства может приводить к потере записанных дан-<br>
+ных. Каждый блок имеет состояние "записан" или "не за-<br>
+писан", инициализация (форматирование) не применяется.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Приводы CD-ROM (5)</i> предназначаются для работы с CD-<br>
+дисками. Изначально диски содержали звукозапись и при-<br>
+воды были рассчитаны не только на чтение блоков данных,<br>
+но и на потоковый вывод на внешний аудиоинтерфейс. За-<br>
+пись не предусмотрена. Данные на диске адресуются по-раз-<br>
+ному. Физический сектор имеет 2352 байт, из которых обычно<br>
+используется 2048, поле синхронизации 12 байт и поле тега<br>
+адреса сектора 4 байт. Дополнительное поле 288 байт исполь-<br>
+зуется для исправления ошибок данных, но если ошибки до-<br>
+пустимы, его тоже используют для хранения данных. Таким<br>
+образом, физический сектор данных может иметь размер<br>
+2048 байт (CD-ROM Data Mode 1) или 2336 и даже 2340<br>
+(вместе с полем тега) байт (CD-ROM Data Mode 2). В зави-<br>
+симости от размера логического блока (1024, 512 или<br>
+256 байт) сектор может вмещать 2,4 или 8 блоков.</font>
+
+<p>
+<font face="Times New Roman" size=2>Один сектор, или кадр (frame), аудиодиска хранит 1/75 с<br>
+звукозаписи. От этого происходит адресация MSF: 75 смеж-<br>
+ных кадров, адресуемых полем F (0-74), объединяются в бо-<br>
+лее крупную единицу, адресуемую полем S (0-59), звуча-<br>
+щую 1 с. 60 полей S соответствуют полю М (0-74),<br>
+звучащему 1 мин. Адресация MSF может использоваться как<br>
+абсолютная или относительно начала трека.</font>
+
+<p>
+<font face="Times New Roman" size=2>Носитель делится на треки <i>(track),</i> характерные однотипно-<br>
+стью записанной информации. Каждый трек (они нумеру-<br>
+ются от 1 до 99) делится на последовательно нумеруемые<br>
+(1-99) индексы <i>(index).</i></font>
+
+<p>
+<font face="Times New Roman" size=2>Носитель CD-ROM и CD-DA кроме основного канала име-<br>
+ет субканал (sub-channel), разделенный на 8 частей, называ-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>емых Р, Q, R, S, Т, U, V и W. К примеру, часть Q несет ин-<br>
+формацию для контроллера и привода - управляющие поля<br>
+и MSF-адрес. Каждая часть имеет производительность, рав-<br>
+ную 1/192 основного канала.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Сканеры. (6)</i> передают ИУ данные, описывающие растровое<br>
+изображение сканируемого объекта. Команды позволяют за-<br>
+давать окна сканирования, определяя в них режим и разре-<br>
+шение. Для некоторых функций требуется посылка данных<br>
+в сканер (например, полутоновые маски). Для сканеров с<br>
+автоподачей имеются команды позиционирования.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Устройства смены, носителей (8)</i> предназначены для авто-<br>
+матического манипулирования сменными носителями - дис-<br>
+ками и картриджами с магнитными лентами. В SCSI они<br>
+представляются ЛУ, отличающимися от <i>первичных устройств<br>
+</i>хранения, которые они обслуживают. Модель устройства<br>
+состоит из набора адресуемых <i>элементов,</i> каждый из кото-<br>
+рых может "держать" только одну единицу носителя:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Medium Transport Element - элемент транспортировки<br>
+носителя;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Storage Element - место хранения единицы носителя, ког-<br>
+да он не находится ни в одном из элементов трех других<br>
+типов;</font>
+
+<p align=center>
+<font face="Times New Roman" size=2>^ Import Export Element - элемент, с помощью которого<br>
+устройство принимает носители извне или отдает их;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Data Transfer Element - позиция первичного устройства,<br>
+осуществляющего обмен данными с носителем.</font>
+
+<p>
+<font face="Times New Roman" size=2>Элементы адресуются 16-битными адресами; доступна ин-<br>
+формация об их состоянии. Каждый том носителя снабжа-<br>
+ется идентификатором-тегом, по которому определяется его<br>
+нахождение в элементах.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Коммуникационные устройства (9)</i> предназначены для об-<br>
+мена информацией с устройствами через внешнюю по отно-<br>
+шению к шине SCSI среду передачи данных. Внешние про-<br>
+токолы стандартом SCSI не описываются: вся необходимая<br>
+для них информация заключена в сообщениях, передавае-<br>
+мых и принимаемых ИУ по командам <i>SEND MESSAGE</i> и GET&quot;<br>
+<i>MESSAGE.</i></font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=4><b>5.5. Адресация и система команд</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Как указывалось ранее, любое устройство SCSI на шине ад-<br>
+ресуется идентификатором SCSI ID, соответствующим за-<br>
+данному уникальному адресу. В ЦУ может быть определено<br>
+до 8 ЛУ со своими номерами <i>LUN (Logical Unit Number)</i> в<br>
+диапазоне 0-7. Понятие <i>LUN</i> неприменимо к ИУ, но SCSI-<br>
+устройство двойного назначения может иметь Л У.</font>
+
+<p>
+<font face="Times New Roman" size=2>Система команд и сообщений позволяет адресовать как ЦУ<br>
+в целом, так и любое его Л У. В ЦУ может быть определено<br>
+до 8 <i>целевых программ TRN (Target Routine),</i> которые не име-<br>
+ют непосредственной привязки к ЛУ. Целевые программы<br>
+появились в SCSI-2, их адресация также производится че-<br>
+рез сообщения.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Система команд</i> SCSI включает общие команды, применимые<br>
+для устройств всех классов, и специфические для каждого<br>
+класса. Как общие, так и специфические наборы команд со-<br>
+держат обязательные (Mandatory), дополнительные (Optional)<br>
+и фирменные (Vendor Specific) команды. Любое SCSI-устрой-<br>
+ство должно поддерживать обязательные команды общего<br>
+набора и своего класса, чем обеспечивается высокий уровень<br>
+совместимости. Команда передается ИУ в ЦУ через блок дес-<br>
+криптора команды <i>Command Descriptor Block,</i> посылаемый в<br>
+фазе <i>Command.</i> Некоторые команды сопровождаются блоком<br>
+параметров, следующим за блоком дескриптора в фазе <i>Data.<br>
+</i>Форматы блоков стандартизованы, длина блока определяет-<br>
+ся кодом операции <i>Operation Code,</i> который всегда является<br>
+первым байтом блока и может составлять 6, 10 или 12 байт.<br>
+Типовой блок содержит следующие поля (рис. 5.8):</font>
+
+<p>
+<font face="Times New Roman" size=2>as <i>OpCode -</i> код операции, 1 байт (графа "Код" в табл. 5.14).<br>
+Биты [7:5] определяют группу, а биты [4:0] - код команды.<br>
+В группе 0 блок дескриптора имеет длину 6 байт, в группах<br>
+1 и 2 - 10 байт, в группе 5-12 байт. Группы 3 и 4 зарезерви-<br>
+рованы, группы б и 7 отданы на усмотрение разработчиков.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т LUN -</i> номер ЛУ (для совместимости со SCSI-1), всегда<br>
+занимает биты [7:5] байта 1. Если для идентификации ис-<br>
+пользуются сообщения <i>Identify,</i> то это поле игнорируется<br>
+(рекомендуется устанавливать <i>LUN=0).</i></font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>LBA -</i> адрес логического блока, 21 бит для 6-байтных<br>
+блоков и 32 бит - для 10- и 12-байтных. В ряде команд<br>
+поле не используется.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Lengfh -</i> длина (количество блоков или байт) передавае-<br>
+мых данных <i>Transfer Length,</i> блока параметров <i>Parameter<br>
+List Length</i> или блока, резервируемого И У под данные<br>
+<i>Allocation Length</i> (один из трех вариантов в зависимости<br>
+от команды). При однобайтном задании длины 0 соответ-<br>
+ствует значению 256, в длинных формах 0 указывает на<br>
+отсутствие передач. В ряде команд поле не используется.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Control -</i> байт управления. Биты [7:6] отданы на усмот-<br>
+рение разработчику, биты [5:2] - зарезервированы, бит 1 -<br>
+<i>Flag,</i> бит 0 - <i>Link</i> (служит признаком объединения команд<br>
+в цепочку). <i>Flag</i> определяет сообщение, передаваемое в<br>
+случае успешного выполнения команд цепочки, при<br>
+<i>Flag=i</i> сообщение <i>Linked Command Complete (With Flag)<br>
+</i>будет вызывать прерывания между командами цепочки.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="57.jpg"alt="57.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 5.8.</b> Форматы блоков дескрипторов команд: а-б байт,<br>
+б-10 байт, в-12 байт</font>
+
+<p>
+<font face="Times New Roman" size=2>Обратим внимание на порядок байт: первыми передаются<br>
+старшие байты (бит MSB - самый старший), за ними - млад-<br>
+шие (бит LSB - самый младший). Зарезервированные поля<br>
+для совместимости с будущими стандартами должны иметь<br>
+нулевые значения.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Исполнение команды завершается в фазе <i>Status</i> передачей<br>
+<i>байта состояния Status Byte.</i> Байт не передается, если ко-<br>
+манда завершена по сообщению <i>Abort, Abort Tag, Bus Device<br>
+Reset, Clear Queue,</i> по условию <i>Hard Reset</i> или в случае не-<br>
+ожиданного разъединения. В байте состояния используются<br>
+только биты [5:1], возможные состояния приведены в<br>
+табл. 5.13 (остальные зарезервированы).</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Биты</font>
+
+<p>
+<font face="Times New Roman" size=2>76543210</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Состояние</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Значение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman Narrow" size=2>RROOOOOR</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Good</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Успешное завершение команды</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RR00001R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Check Condition</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Указание на асинхронное событие</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R R 0 0 0 1 0 R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Condition Met</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запрошенная операция выполнена<br>
+(команды <i>Search Data</i> и <i>Pre-Fetch)</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R R 0 0 1 0 0 R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Busy</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Занято (невозможен прием команды)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R R 0 1 0 0 0 R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Intermediate</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Успешное выполнение команды<br>
+в цепочке</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RR01010R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Intermediate<br>
+Condition Met</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Удовлетворение запрошенной опера-<br>
+ции в цепочке команд</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R R 0 1 1 0 0 R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Reservation<br>
+Conflict</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Попытка обратиться к ЛУ, зарезер-<br>
+вированному другим И У</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RR10001R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Command<br>
+Terminated</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Завершение текущего процесса<br>
+по сообщению <i>Terminate I/O Process<br>
+</i>или по асинхронному событию</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>R R 1 0 1 0 0 R</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>QueueFull</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Очередь (маркированная) заполнена,<br>
+процесс в очередь не поставлен</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2><i>Набор команд</i> для устройств классов 0-9 приведен в<br>
+табл. 5.14. Любое ЦУ SCSI-2 обязано поддерживать четыре<br>
+команды: <i>Inquiry, Request Sense, Send Diagnostic, Test Unit<br>
+Ready.</i> Они используются для конфигурирования системы,<br>
+тестирования устройств и сообщений об ошибках и исклю-<br>
+чительных ситуаций. Команда <i>Inquiry</i> позволяет получить<br>
+информацию о ЛУ через стандартизованный блок данных<br>
+длиной 96 байт: тип подключенного ПУ, возможность сме-<br>
+ны носителя, поддержка 32- или 16-битного расширения, син-<br>
+хронного обмена, относительной адресации, цепочек ко-<br>
+манд, очередей и уведомления об асинхронных событиях.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Здесь же описываются уровень поддержки стандартов SCSI<br>
+(ISO, ANSI, ECMA), идентификаторы производителя, уст-<br>
+ройства и т. п. Формат блока по усмотрению производителя<br>
+может быть расширен.</font>
+
+<p>
+<font face="Times New Roman" size=2>В графе "Применимость" указаны номера типов ПУ, соот-<br>
+ветствующие табл. 5.12 (символ * соответствует всем ти-<br>
+пам). Команды для каждого типа устройств могут быть <i>обя-<br>
+зательными -</i> номер сопровождается символом m<br>
+(Mandatory) - или <i>необязательными -</i> номер типа сопро-<br>
+вождается символом о (Optional). Часть команд в устрой-<br>
+ствах разных классов реализуется по-разному, что отмече-<br>
+но обозначением *z.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Команда</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Код</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Применимость</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Change<br>
+Definition</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>40h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>*0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Модификация определений<br>
+операций для ЛУ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Compare</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>39h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>*0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Побайтное сравнение данных<br>
+двухЛУ1</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Copy</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>18h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>*0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Копирование данных с одно-<br>
+го ЛУ на другое'</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Copy And Verify</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>3Ah</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>*0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Копирование данных с одно-<br>
+го ЛУ на другое с верифи-<br>
+кацией1</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Erase</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>19h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>1m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Стирание (участка или<br>
+до конца носителя)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Erase (10)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>2Ch</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>То же с 10-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Erase (12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ACh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>То же с 12-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Exchange<br>
+Medium</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>A6h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>80</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Обмен носителями между<br>
+двумя элементами устройства</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Format</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>04h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>2o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Выбор шрифтов и форм</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Format Unit</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>04h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Om 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Форматирование устройства</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Get Data Buffer<br>
+Status</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>34h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>60</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Опрос состояния буфера<br>
+данных</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Get Message</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>08h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>9o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Прием пакета из коммуни-<br>
+кационного устройства</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Команда</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Код</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Применимость</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Get Message<br>
+(10)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>To же с 10-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Get Message<br>
+(12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>A8h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 12-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Get Window</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>60</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Получение информации<br>
+о предварительно определен-<br>
+ном окне</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Initialize<br>
+Element Status</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>07h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Инициализация состояния<br>
+элемента</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Inquiry</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>*m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Опрос типа устройства, уров-<br>
+ня стандарта, идентифика-<br>
+тора производителя, модели<br>
+и т. п.</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Load Unload</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IBh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lo</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Загрузка/разгрузка носителя</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Locate</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2Bh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lo</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Позиционирование<br>
+на заданный логический блок</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Lock-Unlock<br>
+Cache</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Oo 4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Фиксация заданных логи-<br>
+ческих блоков в кэше<br>
+устройства и ее отмена</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Log Select</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4Ch</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>*o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запись статистической ин-<br>
+формации, обработка которой<br>
+поддерживается устройством,<br>
+в ЦУ или ЛУ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Log Sense</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4Dh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>*o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Считывание статистической<br>
+информации с ЦУ или ЛУ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Medium Scan</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>38h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4o7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сканирование - поиск не-<br>
+прерывной области чистых<br>
+или записанных блоков</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Mode Select (6)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>*z</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запись параметров носителя,<br>
+ЦУ или ЛУ (с 6-байтным<br>
+блоком дескриптора)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Mode Select<br>
+(10)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>55h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>*z</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 10-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Mode Sense (6)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lAh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>*z</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Считывание параметров<br>
+носителя, ЦУ или ЛУ<br>
+(с 6-байтным блоком де-<br>
+скриптора)</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Команда</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Код</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Прииенимость</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Mode Sense<br>
+(10)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5Ah</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>*г</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 10-байтньш блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Move Medium</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>A5h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8ro</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Передача носителя</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Object Position</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Позиционирование (загруз-<br>
+ка/выгрузка) сканируемого<br>
+объекта</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Pause/Resume</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4Bh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Пауза/продолжение воспро-<br>
+изведения аудио</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Play Audio (10)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>45h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Аудиовоспроизведение ука-<br>
+занных логических блоков</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Play Audio (12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>A5h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 12-байтньш блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Play Audio MSF</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>47h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Аудиовоспроизведение с адре-<br>
+сацией MSF</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Play Audio<br>
+Track/Index</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>48h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Аудиовоспроизведение с ука-<br>
+занием треков и индексов</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Play Track<br>
+Relative (10)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>49h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Аудиовоспроизведение с адре-<br>
+сацией относительно трека</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Play Track<br>
+Relative (12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>A9h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 12-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Position To<br>
+Bement</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2Bh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Позиционирование транс-<br>
+портного элемента к указан-<br>
+ному элементу</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Pre-Fetch</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>34h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Оо 4о 5о 7о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Считывание блоков данных в<br>
+кэш (без передачи ИУ)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Prevent Allow<br>
+Medium<br>
+Removal</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lEh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Оо 1о 4о 5о 7о<br>
+8о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запрет/разрешение смены<br>
+носителя в ЛУ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Print</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OAh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2т</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Печать блока данных</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Read (6)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>08h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>От 1т 4о 5о<br>
+7о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Чтение данных (с 6-байтным<br>
+блоком дескриптора)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Read(10)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>От 4т 5т 6т<br>
+7т</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 10-байтньш блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Read(12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>A8h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4о 5о 7о</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 12-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Read Block<br>
+Limits</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>05h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1т</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запрос ограничений на дли-<br>
+ну блока (минимальная и<br>
+максимальная длины)</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Команда</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Код</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Применимость</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read Buffer</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>3Ch</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>*0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Чтение буфера</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read Capacity</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>25h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Om 4m 7m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Определение емкости Л У</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>ReadCd-Rom<br>
+Capacity</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>25h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>5m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Определение емкости<br>
+CD-ROM (возможно быстрое<br>
+определение с погрешностью)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read Defect<br>
+Data</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>37h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Oo7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Чтение списков дефектных<br>
+блоков (Plist - исходный<br>
+список от изготовителя,<br>
+Glist - список, заполняемый<br>
+при эксплуатации)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read Defect<br>
+Data (12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>B7h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>То же с 12-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read Bement<br>
+Status</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>B8h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>80</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Чтение состояния элементов</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read<br>
+Generation</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>29h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Чтение максимально возмож-<br>
+ного поколения для указан-<br>
+ного логического блока</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read Header</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>44h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>5o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Чтение заголовка логического<br>
+блока CD-ROM</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read Long</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>3Eh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Oo 4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>"Длинное" чтение - данные<br>
+блока и поля ЕСС</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read Position</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>34h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>lo</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Запрос позиции данных,<br>
+находящихся в буфере (адрес<br>
+начала и конца, количество<br>
+блоков и байт)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read Reverse</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>OFh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>lo</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Чтение блоков с текущей по-<br>
+зиции в обратном направ-<br>
+лении</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read<br>
+Sub-Channel</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>42h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>5o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Чтение данных субканала<br>
+CD-ROM</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read Toe</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>43h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>5o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Чтение таблицы содержимого<br>
+CD-ROM</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Read Updated<br>
+Block</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>2Dh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Чтение определенного поко-<br>
+ления обновленного логичес-<br>
+кого блока</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Reassign Blocks</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>07h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Oo4o7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Переназначение дефектных<br>
+блоков</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Команда</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Код</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Применимость</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Receive</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>08h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>3o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Прием пакета</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Receive<br>
+Diagnostic<br>
+Results</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ICh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>*o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Получение результатов диа-<br>
+гностики</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Recover<br>
+Buffered Data</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>14h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>lo2o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Восстановление данных, по-<br>
+сланных в буфер, но не запи-<br>
+санных (не напечатанных)<br>
+из-за ошибки</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Release</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>17h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Om 2m 4m 5m<br>
+6m 7m 80</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Освобождение зарезервиро-<br>
+ванного ЛУ, экстента или<br>
+элемента</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Request Sense</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>03h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Jj</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Опрос уточненного состояния</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Request Volume<br>
+Element<br>
+Address</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>B5h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>80</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Передача результатов коман-<br>
+ды <i>SEND VOLUME TAG</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Reserve</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>16h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Om 1m 2m 4m<br>
+5m 6m 7m 80</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Предотвращение использо-<br>
+вания Л У (его экстента или<br>
+элемента) другим ИУ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>f i\y^flli^J</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Olh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>1m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Перемотка носителя к началу<br>
+раздела</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Rezero Unit</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Olh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Oo 4o 5o 7o 80</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Приведение ЛУ в определен-<br>
+ное состояние</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Scan</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>IBh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>6o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Сканирование данных в<br>
+определенном окне</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Search Data<br>
+Equal</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>31h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Oo 4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Поиск данных, (не) совпа-<br>
+дающих с эталоном2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Search Data<br>
+Equal (12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Blh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>То же с 12-байтным блоком<br>
+дескриптора2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Search Data<br>
+High</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>30h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Oo 4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Поиск данных, (не) больших<br>
+эталона2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Search Data<br>
+High (12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>BOh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>То же с 12-байтным блоком<br>
+дескриптора2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Search Data<br>
+Low</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>32h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Oo5o7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Поиск данных, (не) меньших<br>
+эталона2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Search Data<br>
+Low (12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>B2h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>То же с 12-байтным блоком<br>
+дескриптора2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>Seek(6)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>OBh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Oo 4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Позиционирование (с 6-байт-<br>
+ным блоком дескриптора)3</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Команда</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Код</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Применимость</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Seek(10)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2Bh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Oo 4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Позиционирование - поиск<br>
+логического адреса (с 10-байт-<br>
+ным блоком дескриптора)3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Send</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OAh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Посылка пакета</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Send (10)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2Ah</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>60</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Посылка данных в устройство</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Send Diagnostic</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IDh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>*m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запуск теста ЦУ. Ответом<br>
+будет состояние <i>Good,</i> если<br>
+тест прошел успешно, или<br>
+<i>Check Condition</i> в случае<br>
+ошибки</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Send Message</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OAh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Посылка пакета в коммуни-<br>
+кационное устройство</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Send Message<br>
+(10)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2Ah</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 10-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Send Message<br>
+(12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AAh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 12-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Send Volume<br>
+Tag</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>B6h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>80</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Посылка тега тома (шаблона)<br>
+для поиска его в элементах<br>
+или создания нового тега</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Set Limits</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>33h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Oo 4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Определение области логи-<br>
+ческих адресов, над которыми<br>
+могут выполняться операции<br>
+цепочки команд</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Set Limits (12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>B3h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 12-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Set Window</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Определение окна сканиро-<br>
+вания</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Slew And Print</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OBh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Прогон бумаги и печать</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Space</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>llh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Относительное позициони-<br>
+рование (вперед и назад) на<br>
+заданное число блоков,<br>
+файлов, маркеров и т. п.</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Start Stop Unit</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IBh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Oo 4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Разрешение/запрет операций<br>
+с носителем, извлечение но-<br>
+сителя*</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Stop Print</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IBh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Останов печати с очисткой<br>
+буфера или без нее</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Конаида</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Код</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Применимость</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Synchronize<br>
+Buffer</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lOh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Синхронизация буфера -<br>
+печать всего содержимого,<br>
+при невозможности - сооб-<br>
+щение об ошибке</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Synchronize<br>
+Cache</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>35h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Oo 4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Синхронизация кэша -<br>
+запись несохраненных дан-<br>
+ных заданного диапазона ад-<br>
+ресов на носитель</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Test Unit Ready</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OOh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>*m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Опрос готовности ЛУ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Update Block</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3Dh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Обновление логического<br>
+блока</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Verify</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2Fh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Oo5o7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Верификация - проверка<br>
+возможности безошибочного<br>
+считывания блоков данных с<br>
+носителя</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Verify</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lo</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Тоже</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Verify (10)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2Fh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4o5o7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же или проверка чистоты<br>
+блоков (с 10-байтным блоком<br>
+дескриптора)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Verify (12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AFh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4o 5o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 12-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Write (6)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OAh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Oo 1m 4o 7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запись блоков данных,<br>
+переданных ИУ (с 6-байт-<br>
+ным блоком дескриптора)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Write (10)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2Ah</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Oo4m 7m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запись блоков данных,<br>
+переданных ИУ (с 10-байт-<br>
+ным блоком дескриптора)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Write (12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AAh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4o7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 10-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Write And Verify</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2Eh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Oo4o7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запись блоков данных,<br>
+переданных ИУ, с верифика-<br>
+цией записи</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Write And Verify<br>
+(12)</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AEh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7o4o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>То же с 12-байтным блоком<br>
+дескриптора</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Write Buffer</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3Bh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>*o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запись в буфер (но не<br>
+на носитель) или загрузка<br>
+микрокода</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Команда</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Код</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Применимость</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Write Filemarks</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>lOh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1m</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запись маркера файлов</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Write Long</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3Fh</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Oo4o7o</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>"Длинная" запись - блока<br>
+данных и поля ЕСС</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Write Same</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>41h</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Oo</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запись блока данных, пере-<br>
+данных ИУ, в группу смеж-<br>
+ных блоков или до конца<br>
+носителя5</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>1 Команды копирования и сравнения данных оперируют парой Л У, ко-<br>
+торые могут принадлежать как одному ЦУ, так и разным, если эту воз-<br>
+можность поддерживает ведущее устройство копирования - <i>Copy<br>
+Master.</i> Копирование возможно между устройствами любых классов.<br>
+Для устройств типов 8 и 9 эти команды не применяются.</font>
+
+<p>
+<font face="Times New Roman" size=2>2 Данные ищутся сравнением указанного числа логических записей с<br>
+эталоном. Логические записи определяются длиной, начальным логи-<br>
+ческим блоком и смещением внутри него. Можно потребовать попада-<br>
+ния искомых данных в один логический блок.</font>
+
+<p>
+<font face="Times New Roman" size=2>3 Команда эффективна для ленточных устройств прямого доступа.</font>
+
+<p>
+<font face="Times New Roman" size=2>4 Команда STOP UNIT для устройств с кэшированием перед остановом<br>
+автоматически выполняет синхронизацию кэша.</font>
+
+<p>
+<font face="Times New Roman" size=2>5 Первые 4 байта в записываемых блоках могут быть заменены на физи-<br>
+ческий или логический адрес блока.</font>
+
+<p>
+<font face="Times New Roman" size=4>5.6. Выполнение команд</font>
+
+<p>
+<font face="Times New Roman" size=2>Мы не будем рассматривать различные ситуации, приводя-<br>
+щие к отклонениям от нормальной последовательности со-<br>
+бытий интерфейса. К ним относятся некорректные соедине-<br>
+ния со стороны ИУ, выбор несуществующего ЛУ,<br>
+неожиданные выборки ИУ, округление параметров, реакция<br>
+на асинхронные события и т. п.</font>
+
+<p>
+<font face="Times New Roman" size=2>Рассмотрим процесс на шине SCSI на примере <i>одиночной<br>
+команды чтения Read.</i> ИУ имеет активный набор указате-<br>
+лей и несколько сохраненных наборов, по одному на каж-<br>
+дый из допустимого числа одновременных конкурирующих<br>
+процессов. ИУ восстанавливает указатели процесса в актив-<br>
+ный набор и, выиграв арбитраж, выбирает ЦУ. Как только</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ЦУ выбрано, оно берет на себя управление процессом. В фазе<br>
+<i>Selection</i> И У вводит сигнал ATN^, сообщая о намерении по-<br>
+слать сообщение Identify с указанием адресуемого ЛУ. Та-<br>
+ким образом устанавливается связь <i>1_T_L</i> с данным процес-<br>
+сом и его набором указателей. ЦУ переходит в фазу <i>Command<br>
+</i>и принимает блок дескриптора команды <i>Read.</i> Интерпрети-<br>
+ровав команду, ЦУ переходит в фазу <i>Data IN,</i> передает дан-<br>
+ные, затем переводится в фазу <i>Status</i> и посылает состояние<br>
+<i>Good.</i> Затем в фазе <i>Message IN</i> устройство посылает сообще-<br>
+ние <i>Command Complete,</i> после чего освобождает шину (фаза<br>
+<i>Bus Free).</i> Процесс завершен.</font>
+
+<p>
+<font face="Times New Roman" size=2>Рассмотрим тот же пример, но с <i>использованием отключения<br>
+от шины (Disconnect)</i> в процессе выполнения команды. Если<br>
+устройство определит, что для получения затребованных дан-<br>
+ных потребуется много времени, получив команду <i>Read,</i> оно<br>
+освобождает шину, послав сообщение <i>Disconnect.</i> Как только<br>
+требуемые данные готовы в ЦУ, оно, выиграв арбитраж, вы-<br>
+берет ИУ (в фазе <i>Reselect)</i> и в фазе <i>Message IN</i> пошлет ему<br>
+сообщение <i>Identify.</i> По определенной этим сообщением свя-<br>
+зи <i>1_T_L</i> ИУ восстановит соответствующий набор указате-<br>
+лей в активный и продолжит выполнение процесса, как опи-<br>
+сано выше. Если ЦУ хочет отсоединиться, когда часть данных<br>
+уже передана (например, головка дошла до конца цилиндра<br>
+и требуется время на позиционирование), оно посылает со-<br>
+общение <i>Save Data Pointer,</i> а затем <i>Disconnect.</i> После повтор-<br>
+ного соединения передача данных возобновится с точки,<br>
+определенной последним сохраненным значением указате-<br>
+ля. Если произошла ошибка или исключение, ЦУ может по-<br>
+вторить обмен данными, послав сообщение <i>Restore Pointers<br>
+</i>или отсоединившись без сообщения <i>Save Data Pointers.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>Теперь рассмотрим процесс с <i>цепочкой связанных команд.</i> По<br>
+успешному завершению каждой команды цепочки ЦУ авто-<br>
+матически переходит к исполнению следующей. Все коман-<br>
+ды цепочки адресуются к одной и той же связи <i>1_Т_х</i> и яв-<br>
+ляются частью одного процесса. Команды не являются<br>
+полностью независимыми: при использовании бита относи-<br>
+тельной адресации последний блок, адресованный предыду-<br>
+щей командой, доступен для следующей. Так, например, мож-<br>
+но исполнить команду <i>Search Data,</i> по которой на диске будет</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>найден блок, содержащий информацию, совпадающую с эта-<br>
+лоном поиска. Связав с ней команду чтения <i>Read,</i> можно<br>
+прочитать этот блок или блок с указанным смещением от-<br>
+носительно найденного. По выполнении связанных команд<br>
+ЦУ посылает сообщения <i>Linked Command Complete</i> (возмож-<br>
+но, с флагом), а ИУ обновляет набор сохраненных указате-<br>
+лей так, что они указывают на очередную команду цепочки.<br>
+Команды в цепочке выполняются как одиночные, но с воз-<br>
+можностью относительной адресации.</font>
+
+<p>
+<font face="Times New Roman" size=2>Команды могут исполняться с использованием <i>очередей.</i> ЦУ<br>
+могут поддерживать немаркированные и маркированные<br>
+очереди. Поддержка <i>немаркированных очередей,</i> определен-<br>
+ная еще в SCSI-1, позволяет любому ЛУ <i>(LUN)</i> или целевой<br>
+программе <i>(TRN),</i> занятым процессом от одного ИУ, прини-<br>
+мать команды (начинать процесс) с другими И У. При этом<br>
+каждый процесс идентифицируется связью <i>1_Т_х,</i> где х - <i>LUN<br>
+</i>или <i>TRN.</i></font>
+
+<p>
+<font face="Times New Roman" size=2><i>Маркированные очереди (Tagged Queue)</i> определены в SCSI-2<br>
+для ЛУ <i>(LUN,</i> но не <i>TRN).</i> Для каждой связи <i>1_T_L</i> суще-<br>
+ствует своя очередь размером до 256 процессов (немаркиро-<br>
+ванные очереди можно считать вырожденным случаем мар-<br>
+кированных с одноместными очередями). Каждый процесс,<br>
+использующий маркированные очереди, идентифицируется<br>
+связью <i>1_T_L_Q,</i> где Q - однобайтный тег очереди <i>(Queue Tag).<br>
+</i>Теги процессам назначаются ИУ, их значения на порядок<br>
+выполнения операций не влияют. Повторное использование<br>
+тега возможно лишь по завершении процесса с этим тегом.<br>
+Постановка в очередь выполняется через механизм сообще-<br>
+ний, при этом очередной процесс можно поставить в оче-<br>
+редь "по-честному", а можно пропихнуть вне очереди: про-<br>
+цесс, поставленный в очередь с сообщением <i>Head Of Queue<br>
+Tag,</i> будет выполняться сразу после завершения текущего<br>
+активного процесса. Процессы, поставленные в очередь с со-<br>
+общением <i>Simple Queue Tag,</i> исполняются ЦУ в порядке, ко-<br>
+торый оно сочтет оптимальным. Процесс, поставленный в<br>
+очередь с сообщением <i>Ordered Queue Tag,</i> будет исполняться<br>
+последним. ИУ может удалить процесс из очереди, сослав-<br>
+шись на него по тегу. Изменение порядка выполнения ко-<br>
+манд ЦУ не касается порядка команд в цепочке, поскольку</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>цепочка принадлежит одному процессу, а в очередь ставят-<br>
+ся именно процессы.</font>
+
+<p>
+<font face="Times New Roman" size=4><b>5.7. Конфигурирование устройств SCSI</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Все устройства на шине должны быть согласованно скон-<br>
+фигурированы. Для них требуется программно или с помо-<br>
+щью джамперов установить следующие основные параметры:</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Идентификатор устройства SCSI ID -</i> адрес 0-7 (для Wide<br>
+SCSI 0-15), уникальный для каждого устройства на шине.<br>
+Обычно хост-адаптеру, который должен иметь высший прио-<br>
+ритет, назначается адрес 7 (15 для Wide SCSI, если все устрой-<br>
+ства 16-битные). Позиционный код, используемый для адре-<br>
+сации, обеспечивает совместимость адресации 8- и 16-битных<br>
+устройств на одной шине. Типовые заводские назначения иден-<br>
+тификаторов устройств приведены в табл. 5.15, хотя они не<br>
+являются обязательными. В настоящее время прорабатывает-<br>
+ся спецификация РпР для устройств SCSI, позволяющая ав-<br>
+томатизировать процесс назначения идентификаторов. Она<br>
+обеспечивает сосуществование традиционных (Legacy SCSI)<br>
+устройств, идентификаторы которых задаются джамперами,<br>
+с автоматически конфигурируемыми РпР-устройствами.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Контроль паритета - SCSI Parity.</i> Если хотя бы одно уст-<br>
+ройство не поддерживает контроль паритета, он должен быть<br>
+отключен для всех устройств на шине. Контроль паритета,<br>
+особенно для дисковых устройств, является надежным сред-<br>
+ством защиты от искажения данных при передаче по шине.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Включение терминаторов - Termination.</i> В современных уст-<br>
+ройствах применяются активные терминаторы, которые мо-<br>
+гут включаться одним джампером или программно управ-<br>
+ляемым сигналом. Терминаторы включаются только на<br>
+крайних устройствах в цепочке. Современные хост-адапте-<br>
+ры позволяют автоматически включать свой терминатор, если<br>
+они являются крайними, и отключать, если используются<br>
+внутренний и внешний разъем канала. Это позволяет под-<br>
+ключать и отключать внешние устройства, не заботясь о пе-<br>
+реключении терминаторов. Ранее приходилось открывать<br>
+корпус и переставлять джампер, а пассивные терминаторы<br>
+устанавливать в специальные гнезда (и извлекать их оттуда).</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>При отсутствии внутренних терминаторов пользователь .вы-<br>
+нужден был использовать внешние, устанавливаемые на ка-<br>
+бель.</font>
+
+<p>
+<font face="Times New Roman" size=2>Правильная установка терминаторов крайне существенна -отсутствие/избыток тер-<br>
+<u>минаторов может привести к неустойчивости или неработоспособности интерфейса.</u></font>
+
+<p>
+<font face="Times New Roman" size=2><i>Питание терминаторов (Terminator Power).</i> Когда использу-<br>
+ются активные терминаторы (для современных устройств -<br>
+всегда), питание терминаторов должно быть включено (джам-<br>
+пером или программно) хотя бы на одном устройстве.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Согласование скорости синхронного обмена (SCSI Synchronous<br>
+Negotiation).</i> Режим синхронного обмена, обеспечивающий<br>
+высокую производительность, включается по взаимному со-<br>
+гласию устройств. Если хотя бы одно устройство на шине<br>
+его не поддерживает, рекомендуют согласование запретить<br>
+на хост-адаптере. Если обмен будет инициирован синхрон-<br>
+ным устройством, хост-адаптер поддержит этот режим.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Старт по команде (Start on Command) или задержанный<br>
+старт (Delayed Start).</i> При включении этой опции запуск<br>
+двигателя устройства выполняется только по команде от<br>
+хост-адаптера, что позволяет снизить пик нагрузки блока<br>
+питания в момент включения. Хост будет запускать устрой-<br>
+ства последовательно.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Разрешение отключения (Enable Disconnection).</i> Позволяет ус-<br>
+тройствам отключаться от шины при неготовности данных<br>
+во время длительных операций с носителем, что весьма эффек-<br>
+тивно в многозадачном режиме при нескольких ПУ на шине.<br>
+В случае одного устройства отключение приводит только к<br>
+дополнительным затратам времени на повторное соединение.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SCSI ID</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Устройство</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Хост-адаптер</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Накопитель на магнитных дисках</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ленточный или R/W-оптический накопитель</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CD-ROM</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SGIID</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Устройство</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сканер, принтер</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>НЖМД, поддерживаемый BIOS хост-адаптера</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>НЖМД, поддерживаемый BIOS хост-адаптера</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Устройства SCSI допускают программирование - <i>Pmgfvmmable<br>
+Operating Definition.</i> Программированием определений опера-<br>
+ций для ЛУ можно изменить такие параметры, как иденти-<br>
+фикация производителя, типа и модели устройства, уровень<br>
+соответствия SCSI, номер спецификации, набор команд и т. д.<br>
+Однако низкоуровневые параметры интерфейса (параметры<br>
+временных диаграмм, определение паритета) сохраняются<br>
+неизменными. Текущие определения могут быть считаны ИУ<br>
+по командам <i>Inquiry, Mode Sense</i> и <i>Read Capacity.</i></font>
+
+<p>
+<font face="Times New Roman" size=4><b>5.8. Хост-адаптер SCSI</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Хост-адаптер является важнейшим узлом интерфейса, опреде-<br>
+ляющим производительность системы SCSI. Существует ши-<br>
+рокий спектр адаптеров. К простейшим можно подключать<br>
+только устройства, не критичные к производительности. Такие<br>
+адаптеры входят в комплект поставки сканеров, а подключение<br>
+к ним диска невозможно. Высокопроизводительные адаптеры<br>
+имеют собственный специализированный процессор, большой<br>
+объем буферной памяти и используют высокоэффективные<br>
+режимы прямого управления шиной для доступа к памяти<br>
+компьютера. Адаптеры SCSI существуют для всех шин: ISA<br>
+(8-16 бит), EISA, МСД PCI, VLB, PCMCIA и для параллель-<br>
+ного порта. Ряд системных плат имеют встроенный<br>
+SCSI-адаптер, подключенный к одной из локальных шин. При<br>
+выборе интерфейса, к которому подключается хост-адаптер,<br>
+учитывайте производительность - интерфейс не должен стать<br>
+узким местом при обмене с высокопроизводительными устрой-<br>
+ствами SCSI. Наибольшую эффективность имеют хост-адапте-<br>
+ры для шины PCI. Конечно, за мощный адаптер для сервера<br>
+приходится платить - его цена может превышать цену рядово-<br>
+го настольного компьютера. Еще дороже хост-адаптеры со<br>
+встроенными контроллерами RAID-массивов, которые содержат<br>
+мощный RISC-процессор и большой объем локальной памяти.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Конфигурирование хост-адаптеров с точки зрения шины<br>
+SCSI не отличается от конфигурирования других устройств.<br>
+Для современных адаптеров вместо джамперов использует-<br>
+ся программное конфигурирование. Утилита конфигуриро-<br>
+вания обычно входит в расширение BIOS, установленное на<br>
+плате адаптера, и приглашение к ее вызову выводится на<br>
+экран во время POST.</font>
+
+<p>
+<font face="Times New Roman" size=2>Как и всякая карта расширения, хост-адаптер должен быть<br>
+сконфигурирован и с точки зрения шины расширения, к ко-<br>
+торой он подключается. Системные ресурсы для шинного<br>
+SCSI-адаптера включают:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ область памяти для расширения ROM BIOS, необходи-<br>
+мого для поддержки конфигурирования устройств и дис-<br>
+ковых функций. Если в системе установлено несколько<br>
+однотипных хост-адаптеров, ROM BIOS для них исполь-<br>
+зуется с одного адаптера. Разнотипные хост-адаптеры не<br>
+всегда могут работать вместе;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ область разделяемой буферной памяти;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ область портов ввода-вывода (I/O Port);</font>
+
+<p>
+<font face="Times New Roman" size=2><i>ш</i> IRQ - запрос прерывания;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ DMA - канал прямого доступа к памяти (для шин<br>
+ISA/EISA), часто используемый для захвата управления<br>
+шиной (Bus-Mastering).</font>
+
+<p>
+<font face="Times New Roman" size=2>Все устройства SCSI требуют специальных драйверов. Базо-<br>
+вый драйвер дисковых устройств входит в BIOS хост-адапте-<br>
+ра. Расширения, например ASPI (Advanced SCSI Programming<br>
+Interface), загружаются отдельно. От драйверов сильно зави-<br>
+сит производительность устройств SCSI. "Умное" ПО спо-<br>
+собно эффективно загружать работой устройства, а иногда и<br>
+"срезать углы" - выполнять копирование данных между<br>
+устройствами без выхода на системную шину компьютера.</font>
+<HR>
+<TABLE WIDTH=100%>
+<TR>
+<TD align=right valign=top> 
+<p>
+<DIV ALIGN=center><i><h5>Электронная библиотека InfoCity</i></h5></DIV>
+<DIV ALIGN=center><i><h5>Автор и координатор проекта:<a href=mailto:mpinkus@mail.ru>Михаил Пинкус</a></i></h5></DIV>
+<DIV ALIGN=center><i><h5>У Вас есть документация, которой нет в нашей библиотеке? <a href="mailto:icity@mail.ru?subject=InfoCity - Doc">Присылайте.</a></h5>
+</TD>
+</TR></table>
+</body>
+</html>

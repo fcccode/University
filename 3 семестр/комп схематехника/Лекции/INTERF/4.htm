@@ -1,0 +1,9309 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>4.htm</title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<body background="back1.jpg">
+
+<p>
+<font face="Times New Roman" size=5><b>4. Шины расширения</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Шины расширения (Expansion Bus) предназначены для под-<br>
+ключения различных адаптеров ПУ. Интерфейсы шин рас-<br>
+ширения PC ведут историю с 8-битной шины <i>ISA.</i> Ее от-<br>
+крытость обеспечила появление широкого спектра плат<br>
+расширений, позволивших использовать PC в различных<br>
+сферах. С появлением АТ-286 шина была расширена по раз-<br>
+рядности и возможностям. Шина <i>EISA</i> была призвана сде-<br>
+лать обмен еще более производительным и надежным. Она<br>
+содержала прогрессивные идеи автоматизации конфигури-<br>
+рования (прототип РпР), позволяя устанавливать и ISA-адап-<br>
+теры. Шина <i>МСА,</i> предложенная IBM, не была поддержана<br>
+производителями PC, так как ее спецификация была закры-<br>
+той. С появлением процессора 486 родилась высокоскорост-<br>
+ная локальная шина <i>VLB.</i> Однако она являлась дополнени-<br>
+ем к слоту шины ISA/EISA и использовалась в основном<br>
+лишь для графических карт и дисковых контроллеров. Прин-<br>
+ципиальная привязка к шине процессора 486 не обеспечила<br>
+ей долголетия. Современная скоростная шина <i>PCI</i> является<br>
+стандартной для компьютеров с процессорами х86 всех по-<br>
+колений старше четвертого, она используется в Power PC и<br>
+других платформах. Развитием шины PCI, нацеленным на<br>
+дальнейшее ускорение обмена, явился порт <i>AGP,</i> предназна-<br>
+ченный для подключения графических адаптеров. Для блок-<br>
+нотных компьютеров, поначалу имевших закрытую архитек-<br>
+туру, потребность в подключении периферии привела к<br>
+появлению стандартизованной шины <i>PCMCIA,</i> впоследствии<br>
+переименованной в <i>PC Card.</i></font>
+
+<p>
+<font face="Times New Roman" size=2>Шины расширения системного уровня позволяют адаптерам<br>
+максимально использовать системные ресурсы PC: простран-<br>
+ства памяти и ввода/вывода, прерывания, каналы прямого<br>
+доступа к памяти. Как следствие, изготовителям модулей<br>
+расширения приходится точно следовать протоколам шины,<br>
+выдерживая жесткие частотные и нагрузочные параметры, а</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>также временные диаграммы. Отклонения приводят к не-<br>
+совместимости с некоторыми системными платами. Если при<br>
+подключении к внешним интерфейсам это приведет к нера-<br>
+ботоспособности только самого устройства, то некорректное<br>
+подключение к системной шине может блокировать работу<br>
+всего компьютера. Следует также учитывать ограниченность<br>
+ресурсов PC. Самые дефицитные из них - линии запросов<br>
+прерываний (каналы прямого доступа можно заменить на<br>
+активное управление шиной PCI). Проблемы распределения<br>
+ресурсов на шинах решаются по-разному, но чаще всего при-<br>
+меняется технология РпР.</font>
+
+<p>
+<font face="Times New Roman" size=2>В табл. 4.1 даны характеристики стандартных шин расши-<br>
+рения PC.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=1>Шина</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=1>Пропускная<br>
+способность,<br>
+Мбайт/с*</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=1>Bus-<br>
+Master</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=1>ACFG**</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=1>Разрядность<br>
+данных</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=1>Разрядность<br>
+адреса</font>
+</td>
+<td rowspan=2>
+
+<p>
+<font face="Times New Roman" size=1>Частота,<br>
+МГц</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>DMA</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>БД-8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>20 (1 Мбайт)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>8</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>БД-16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>8Д16)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>24 (16 Мбайт)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>8/(16)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ЕБД</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>33,3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>32 (4 Гбайт)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>8.33</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>МСД-16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>24 (16 Мбайт)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>10</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>МСД-32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>32 (4 Гбайт)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>10</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>VLB</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>132</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>(+)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>32/64</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>32 (4 Гбайт)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>33-50(66)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>pa</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>132/264</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>32/64</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>32 (4 Гбайт)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>33(66)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>гсмад</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>+</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>26 (64 Мбайт)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>33</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>* Указана максимальная пропускная способность. Реальная примерно в 2<br>
+раза ниже за счет прерываний, регенерации и протокольных процедур.</font>
+
+<p>
+<font face="Times New Roman" size=2>** Поддержка автоматического конфигурирования. Для ISA PnP являет-<br>
+ся позднейшей надстройкой, реализуемой адаптерами и ПО.</font>
+
+<p>
+<font face="Times New Roman" size=2>Шины расширения конструктивно оформляются в виде ще-<br>
+левых разъемов (слотов) на системной плате для установки<br>
+плат адаптеров. Унификация системных плат, корпусов и<br>
+плат расширения обеспечивается:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ стандартизацией размеров, количества контактов и элект-<br>
+рического интерфейса слотов шин расширения;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ фиксированным расстоянием от слота до задней кромки<br>
+платы;</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> фиксированным шагом между соседними слотами, а также<br>
+их привязкой к крепежным точкам и разъему клавиатуры;</font>
+
+<p>
+<font face="Times New Roman" size=2>йй определением максимальных габаритов (длины и высо-<br>
+ты) карт расширения;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ определением геометрии нижнего края платы расшире-<br>
+ния, формы и размера фиксирующей скобки.</font>
+
+<p>
+<font face="Times New Roman" size=2>Размеры карт расширения для самой популярной шины -<br>
+ISA - приведены на рис. 4.1.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="41.jpg"alt="41.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 4.2.</b> Вид и положение слотов шин расширения</font>
+
+<p>
+<font face="Times New Roman" size=2>Типы слотов легко определить визуально (рис. 4.2). На этом<br>
+рисунке присутствие всех типов шин условно - реально на</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>системных платах находится не более двух-трех типов сло-<br>
+тов. Распространенные сочетания: ISA+PCI, ISA+VLB,<br>
+EISA+PCI, EISA+VLB. Фирмой ASUSTek применяется слот<br>
+"Media BUS", дополняющий слот PCI сигналами шины ISA.</font>
+
+<p>
+<font face="Times New Roman" size=2>У адаптеров для шины PCI, в отличие от ISA/EISA и VLB,<br>
+компоненты расположены на левой стороне печатной пла-<br>
+ты. Для экономии места на системной плате используют так<br>
+называемый <i>разделяемый слот</i> (Shared Slot). На самом деле<br>
+это разделяемое окно на задней стенке корпуса, которое мо-<br>
+жет использоваться либо картой ISA, либо картой PCI. Та-<br>
+ким образом, максимальное суммарное количество доступ-<br>
+ных слотов оказывается на единицу меньшим, чем видимое<br>
+количество.</font>
+
+<p>
+<font face="Times New Roman" size=2>Для <i>низкопрофильных корпусов</i> системные платы имеют всего<br>
+один слот расширения, в который устанавливается специаль-<br>
+ная плата-переходник <i>Riser Card.</i> Этот переходник специфи-<br>
+чен для модели системной платы (корпуса), поскольку на<br>
+его краевой разъем заводятся линии нескольких системных<br>
+шин. Если Riser Card имеет слоты только шины ISA, он обыч-<br>
+но вставляется в стандартный слот ISA-16. С точки зрения<br>
+уменьшения наводок и паразитных емкостей лучше использо-<br>
+вать специальные платы с одним разъемом, чтобы не перегру-<br>
+жать шину неиспользуемыми проводниками и разъемами.</font>
+
+<p>
+<font face="Times New Roman" size=2>Шины расширения допускают конфигурирование, которое<br>
+предполагает в основном настройку их временных параметров:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Для шины VLB применяется перемычка, управляющая де-<br>
+лителем частоты сигнала синхронизации в зависимости от<br>
+того, превышает ли системная частота 33,3 МГц.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>^</i> Для шины PCI частота синхронизации определяется ча-<br>
+стотой системной шины процессора. Кроме того, режи-<br>
+мы могут определяться в BIOS Setup.</font>
+
+<p>
+<font face="Times New Roman" size=2>йа Для шины ISA кроме частоты (которая должна быть по-<br>
+рядка 8 МГц) задают время восстановления для 8- и<br>
+16-битных обращений к памяти и вводу/выводу. Неус-<br>
+тойчивая работа адаптеров может потребовать замедле-<br>
+ния шины ISA. Понижение ее производительности не от-<br>
+ражается на общей производительности современных<br>
+компьютеров.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>^ Иногда для шин ISA и PCI опциями BIOS Setup прихо-<br>
+дится распределять системные ресурсы (линии запросов<br>
+прерываний)(см. приложение А).</font>
+
+<p>
+<font face="Times New Roman" size=4><b>4.1. Шины ISA, EISA и PC-104</b></font>
+
+<p>
+<font face="Times New Roman" size=2><i>ISA Bus</i> (Industry Standard Architecture) - шина расшире-<br>
+ния, применявшаяся с первых моделей PC и ставшая про-<br>
+мышленным стандартом. В компьютере XT использовалась<br>
+шина с разрядностью данных 8 бит и адреса - 20 бит. В<br>
+компьютерах AT ее расширили до 16 бит данных и 24 бит<br>
+адреса. В таком виде она существует и поныне. Конструк-<br>
+тивно шина выполнена в виде двух щелевых разъемов с ша-<br>
+гом выводов 2,54 мм (0,1 дюйма) (см. рис. 4.3). Подмноже-<br>
+ство ISA-8 использует только 62-контактный слот (ряды А,<br>
+В), в ISA-16 применяется дополнительный 36-контактный<br>
+слот (ряды С, D).</font>
+
+<p>
+<font face="Times New Roman" size=2>Шина обеспечивает возможность отображения 8- или 16-бит-<br>
+ных регистров на пространство ввода/вывода и памяти.<br>
+Диапазон адресов памяти ограничен областью UMA (выше<br>
+AOOOOh). Для шины ISA-16 опциями BIOS Setup может быть<br>
+разрешено пространство <i>между</i> 15-м и 16-м мегабайтами па-<br>
+мяти (при этом компьютер не сможет использовать более<br>
+15 Мбайт ОЗУ). <i>Диапазон адресов ввода/вывода</i> сверху огра-<br>
+ничен количеством используемьк для дешифрации бит адре-<br>
+са, нижняя граница ограничена областью адресов 0-FFh, за-<br>
+резервированных под устройства системной платы. В PC была<br>
+принята 10-битная адресация ввода/вывода, при которой ли-<br>
+нии адреса А[15:10] устройствами игнорировались. Таким об-<br>
+разом, диапазон адресов устройств шины ISA ограничивает-<br>
+ся областью 100h-3FFh, то есть всего 758 адресов 8-битных<br>
+регистров. На некоторые из адресов претендуют системные<br>
+устройства (см. табл. А.1). Впоследствии стали применять<br>
+12-битную адресацию (диапазон lOOh-FFFh). При ее исполь-<br>
+зовании необходимо учитывать возможность присутствия на<br>
+шине старых 10-битных адаптеров, которые "отзовутся" на<br>
+адрес с подходящими ему битами А[9:0] во всей допустимой<br>
+области 12-битного адреса четыре раза (у каждого 10-битно-<br>
+го адреса будет еще по три 12-битных псевдонима).</font>
+<hr>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="42.jpg"alt="42.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 4.3.</b> Слот ISA</font>
+
+<p>
+<font face="Times New Roman" size=2>Шина ISA-8 может предоставить до 6 линий запросов пре-<br>
+рываний, ISA-16 - 11. Часть их могут "отобрать" устрой-<br>
+ства системной платы или шина PCI.</font>
+
+<p>
+<font face="Times New Roman" size=2>Шина позволяет использовать до трех 8-битных <i>каналов DMA.<br>
+</i>На 16-битной шине доступны еще три 16-битных канала. Сиг-<br>
+налы 16-битных каналов могут использоваться для прямого<br>
+управления шиной устройством <i>Bus-Master.</i> При этом канал<br>
+DMA применяется для арбитража шины, а адаптер Bus-Master<br>
+формирует все адресные и управляющие сигналы шины, не<br>
+забывая передать управление шиной процессору не позднее,<br>
+чем через 15 мкс (чтобы не нарушить регенерацию памяти).</font>
+
+<p>
+<font face="Times New Roman" size=2>Все перечисленные ресурсы системной шины должны быть<br>
+бесконфликтно распределены. Бесконфликтность подразу-<br>
+мевает следующее:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Каждое устройство должно управлять шиной данных<br>
+только при чтении по своим адресам или по используе-<br>
+мому им каналу DMA. Области адресов для чтения не<br>
+должны пересекаться. "Подсматривать" операции запи-<br>
+си, "адресованные не ему", не возбраняется.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>ш</i> Назначенную линию IRQx или DRQx устройство должно<br>
+держать на низком уровне в пассивном состоянии и пере-<br>
+водить в высокий уровень для активации запроса. Неис-<br>
+пользуемыми линиями запросов устройство управлять не<br>
+имеет права, они должны быть электрически откоммути-<br>
+рованы или подключаться к буферу, находящемуся в тре-<br>
+тьем состоянии. Одной линией запроса может пользовать-<br>
+ся только одно устройство. Такая нелепость (с точки<br>
+зрения схемотехники ТТЛ) была допущена в первых PC<br>
+и из требований совместимости тиражируется до сих пор.</font>
+
+<p>
+<font face="Times New Roman" size=2>Задача распределения ресурсов для старых адаптеров реша-<br>
+лась с помощью джамперов, затем появились программно<br>
+конфигурируемые устройства, которые вытесняются авто-<br>
+матически конфигурируемыми платами РпР.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>С появлением 32-битных процессоров делались попытки<br>
+расширения разрядности шины, но все 32-битные шины ISA<br>
+не являются стандартизованными, кроме EISA.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>EISA Bus</i> (Extended ISA) - стандартизованное расширение<br>
+ISA до 32 бит. Конструктивное исполнение обеспечивает со-<br>
+вместимость с ней ISA-адаптеров (рис. 4.4). Узкие дополни-<br>
+тельные контакты расширения (ряды Е, F, G, Н) располо-<br>
+жены между ламелями (контактными площадками) разъема<br>
+ISA и ниже ламелей А, В, С, D таким образом, что адаптер<br>
+ISA, не имеющий дополнительных ключевых прорезей в кра-<br>
+евом разъеме, не достает до них. Установка карт EISA в сло-<br>
+ты ISA недопустима, поскольку ее цепи попадут на контак-<br>
+ты ISA, в результате чего системная плата окажется<br>
+неработоспособной (к счастью, "без дыма").</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="43.jpg"alt="43.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 4.4.</b> Разъем шины EISA</font>
+
+<p>
+<font face="Times New Roman" size=2>Для режимов EISA используются дополнительные управля-<br>
+ющие сигналы, обеспечивающие более эффективные режи-<br>
+мы передачи. В обычном (не пакетном) режиме передачи за<br>
+каждую пару тактов может быть передано до 32 бит (один<br>
+такт на фазу адреса, один - на фазу данных). В <i>пакетном<br>
+режиме</i> (Burst Mode) пакеты данных пересылаются без ука-<br>
+зания текущего адреса внутри пакета. В пакете очередные<br>
+данные передаются в каждом такте шины, длина пакета дос-<br>
+тигает 1024 байт. Шина предусматривает более производи-<br>
+тельные режимы DMA (см. прил. А4), при которых скорость<br>
+обмена может достигать 33 Мбайт/с. Линии запросов пре-<br>
+рываний допускают разделяемое использование, причем со-<br>
+храняется совместимость с ISA-картами: каждая линия за-<br>
+проса может программироваться на чувствительность как по<br>
+высокому (как в ISA), так и по низкому уровню. Шина до-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>пускает потребление каждой картой расширения мощности<br>
+до 45 Вт, но это не означает, что мощность блока питания<br>
+для 8 слотов должна быть более 360 Вт - полную мощность<br>
+не потребляет ни один из адаптеров.</font>
+
+<p>
+<font face="Times New Roman" size=2>Многие решения EISA напоминают МСА. Каждый слот (мак-<br>
+симум - 8) и системная плата имеют селективное разреше-<br>
+ние адресации ввода/вывода и отдельные линии запроса и<br>
+подтверждения управления шиной. Арбитраж запросов вы-<br>
+полняет устройство <i>ISP</i> (Integrated System Peripheral). При-<br>
+оритеты (в порядке убывания): регенерация, DMA, CPU, Bus-<br>
+Master. Обязательной принадлежностью системной платы с<br>
+шиной EISA является <i>энергонезависимая память конфигу-<br>
+рации NVRAM,</i> в которой хранится информация об ус-<br>
+тройствах EISA для каждого слота. Формат записей стан-<br>
+дартизован, для модификации информации применяется<br>
+специальная утилита <i>ECU</i> (EISA Configuration Utility). Ар-<br>
+хитектура позволяет при использовании программно кон-<br>
+фигурируемых адаптеров автоматически разрешать конфлик-<br>
+ты, но в отличие от РпР не допускает динамического<br>
+конфигурирования - после выхода из режима конфигури-<br>
+рования необходима перезагрузка. Изолированный доступ<br>
+к портам ввода/вывода каждой карты во время конфигури-<br>
+рования обеспечивается просто: сигнал AEN, разрешающий<br>
+декодирование адреса в цикле ввода/вывода, на каждый слот<br>
+приходит по отдельной линии AENx, в это время программ-<br>
+но-управляемой. Так можно обращаться и к картам ISA, но<br>
+из этого нельзя извлечь выгоды, поскольку они не поддер-<br>
+живают обмена конфигурационной информацией. Идеи кон-<br>
+фигурирования EISA были использованы в спецификации<br>
+РпР для шины ISA (формат конфигурационных записей<br>
+ESCD напоминает NVRAM EISA).</font>
+
+<p>
+<font face="Times New Roman" size=2>EISA - дорогая, но оправдывающая себя архитектура, при-<br>
+меняющаяся в многозадачных системах и на серверах, где<br>
+требуется высокоэффективное расширение шины ввода/вы-<br>
+вода. Перед шиной PCI у нее есть преимущество в количе-<br>
+стве слотов (8 против 4).</font>
+
+<p>
+<font face="Times New Roman" size=2>Назначение контактов слотов шин ISA и EISA приведено в<br>
+табл. 4.2 и 4.3.</font>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РядР</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ряд В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>N"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РЯДА</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РЯДЕ</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10СНК</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CMD^</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reset</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>START"</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>EXRDY</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Unused</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRQ 2/9'</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>EX32#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Unused</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-5В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Key</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DRQ2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Key</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Unused</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-12В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>EX16#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Unused</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>OWS#2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SLBURSTft</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+12 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+12 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MSBURST^</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>M/-IO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IOCHDRY</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>W/R#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-LOCK</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SmemWR#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AENx</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SmemRD#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>EMB66#3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IOWR#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addi-18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>EMB133#3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IORD#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>ВЕЗ"</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DACK3#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Key</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DRQ3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Key</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BE2#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DACK 1#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BE 1#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BEO#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DRQ1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 31^</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Refr"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Bclock</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA30#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA29#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRQ 7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA28#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRQ 6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA27#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA26#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRQ 5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA25#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA24#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRQ 4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Key</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRQ3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Key</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DACK2#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 15</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 13</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BALE</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 12</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA11</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Osc.</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AddrO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA9</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>'B4: XT=IRQ2, AT-IRQ9.</font>
+
+<p>
+<font face="Times New Roman" size=2>^8: XT-Card Selected.</font>
+
+<p>
+<font face="Times New Roman" size=2>^12, E13 - только для Fast EISA.</font>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РядН</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ряд О</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>N#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РядС</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Рядб</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MCS16#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SBHE#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA7</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IOCS16#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRQ 10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA4</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRQ 11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRQ 12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Key</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRQ 15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Key</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRQ 14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 17</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DACKO#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LA 17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 19</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DRQO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MemRD#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 20</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DACK5^</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MemWR*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 22</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DRQ5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DACK6#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 25</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DRQ6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 26</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DACK7#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 28</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Key</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DRQ7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Key</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Master*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 30</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 31</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>МАКх#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>MREQx</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>Сигналы шины ISA восходят к шинам Microbus и Multibus,<br>
+они естественны для периферийных микросхем фирмы Intel<br>
+для процессоров 8080 и 80х86/88. <i>Набор сигналов</i> ISA-8 пре-<br>
+дельно прост. <i>Программное обращение</i> к ячейкам памяти и<br>
+пространства ввода/вывода обеспечивают следующие сигналы:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Data[7:0] - шина данных.<br>
+^ Addr[19:0] -шина адреса.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> AEN - разрешение адресации портов (запрещает ложную<br>
+дешифрацию адреса в цикле DMA).</font>
+
+<p>
+<font face="Times New Roman" size=2>^ IOWR# - запись в порт.<br>
+^ IORD# - чтение порта.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>^ SMemWR-ft - запись в память<br>
+ (в диапазоне адресов 0-FFFFFh).</font>
+
+<p>
+<font face="Times New Roman" size=2>^ SMemRD# - чтение памяти</font>
+
+<p>
+<font face="Times New Roman" size=2>(в диапазоне адресов 0-FFFFFh).</font>
+
+<p>
+<font face="Times New Roman" size=2>К сигналам <i>запросов прерывания</i> и <i>каналам прямого доступа<br>
+к памяти</i> относятся следующие:</font>
+
+<p>
+<font face="Times New Roman" size=2>йй IRQ2/9, IRQ[3:7] - запросы прерываний. Положительный<br>
+перепад сигнала вызывает запрос аппаратного прерыва-<br>
+ния. Для идентификации источника высокий уровень<br>
+должен сохраняться до подтверждения прерывания про-<br>
+цессором, что затрудняет разделяемое использование пре-<br>
+рываний. Линия IRQ2/9 в шинах XT вызывает аппарат-<br>
+ное прерывание с номером <i>2,</i> а в AT - с номером 9.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ DRQ[1:3] - запросы 8-битных каналов DMA (положитель-<br>
+ным перепадом).</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> DACK[1:3]# - подтверждение запросов 8-битных каналов<br>
+DMA.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ ТС - признак завершения счетчика циклов DMA.</font>
+
+<p>
+<font face="Times New Roman" size=2>Шина имеет и несколько служебных сигналов <i>синхрониза-<br>
+ции, сброса и регенерации памяти,</i> установленной на адап-<br>
+терах:</font>
+
+<p>
+<font face="Times New Roman" size=2><i>ш</i> IOCHRDY - готовность устройства, низкий уровень удли-<br>
+няет текущий цикл (не более 15 мкс).</font>
+
+<p>
+<font face="Times New Roman" size=2>^ BALE - разрешение защелки адреса. После его спада в<br>
+каждом цикле процессора линии Addr 0-19 гарантиро-<br>
+ванно содержат действительный адрес.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Refr# - цикл регенерации памяти (в XT называется<br>
+DACK 0#). Сигнал появляется каждые 15 мкс, при этом<br>
+шина адреса указывает на очередную регенерируемую<br>
+строку памяти.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> 10СНК - контроль канала. Низкий уровень сигнала вы-<br>
+зывает NMI CPU (разрешение и индикация в системных<br>
+портах 061h, 062h).</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Reset - сигнал аппаратного сброса (активный уровень -<br>
+высокий).</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>^ BCIock - синхронизация шины с частотой около 8 МГц.<br>
+ПУ могут не использовать этот сигнал, работая только<br>
+по управляющим сигналам записи и чтения.</font>
+
+<p align=center>
+<font face="Times New Roman" size=2><i>т</i> OSC - частота 14,431818 МГц, несинхронизированная с ши-<br>
+ной (использовалась старыми дисплейными адаптерами).</font>
+
+<p>
+<font face="Times New Roman" size=2>Кроме логических сигналов шина имеет контакты для раз-<br>
+водки <i>питания</i> +5, -5, +12 и -12В.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Дополнительный разъем,</i> расширяющий шину до 16-битной,<br>
+содержит линии данных, адреса, запросов прерываний и ка-<br>
+налов прямого доступа:</font>
+
+<p>
+<font face="Times New Roman" size=2>as Data[15:8] -шина данных.<br>
+^ SB HE - признак наличия данных на линиях Data [15:8].</font>
+
+<p>
+<font face="Times New Roman" size=2>^ LA[23:17j - нефиксированные сигналы адреса, требующие<br>
+защелкивания по спаду сигнала BALE. Такой способ по-<br>
+дачи адреса позволяет сократить время цикла (схемы де-<br>
+шифратора адреса памяти плат расширения начинают де-<br>
+кодирование несколько раньше спада BALE).</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> IRQ[10:12], IRQ[14:15] - дополнительные запросы преры-<br>
+ваний.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ DRQ[5:7] - запросы 16-битных каналов DMA (положи-<br>
+тельным перепадом).</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> DACK[5:7]# - подтверждение запросов 16-битных каналов<br>
+DMA.</font>
+
+<p>
+<font face="Times New Roman" size=2>С <i>переключением разрядности данных</i> связаны сигналы:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ MCS16# - адресуемое устройство поддерживает 16-бит-<br>
+ные обращения к памяти.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ IOCS16# - адресуемое устройство поддерживает 16-бит-<br>
+ные обращения к портам.</font>
+
+<p>
+<font face="Times New Roman" size=2>К <i>новым управляющим сигналам</i> относятся следующие:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ MemWR# - запись в память в любой области до<br>
+16 Мбайт.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ MemRD# - чтение памяти в любой области до 16 Мбайт.</font>
+
+<p align=center>
+<font face="Times New Roman" size=2>^ OWS# - сигнал от устройства, разрешающий системной пла-<br>
+те укоротить текущий цикл (устранить такты ожидания).</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>^ MASTERS - запрос от устройства, использующего 16-бит-<br>
+ный канал DMA на управление шиной. При получении<br>
+подтверждения DACK [5:7] Bus-Master может захватить<br>
+шину (не более чем на 15 мкс).</font>
+
+<p>
+<font face="Times New Roman" size=2>Обобщенные временные диаграммы циклов чтения или за-<br>
+писи памяти или ввода/вывода приведены на рис. 4.5. Здесь<br>
+условный сигнал CMD* изображает один из сигналов:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ SMEMRD#, MEMRD# - в цикле чтения памяти;</font>
+
+<p>
+<font face="Times New Roman" size=2><i>s</i> SMEMWR#, MEMWR# - в цикле записи памяти;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ IORD# - в цикле чтения порта ввода/вывода;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ IOWR# - в цикле записи порта ввода/вывода.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="44.jpg"alt="44.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 4.5.</b> Временные диаграммы циклов чтения или записи<br>
+на шине ISA</font>
+
+<p>
+<font face="Times New Roman" size=2>В каждом из рассматриваемых циклов активными (с низ-<br>
+ким уровнем) могут быть только сигналы лишь из одной<br>
+строки данного списка. Цикл прямого доступа к памяти, в<br>
+котором это правило не соблюдается, рассмотрен в прило-<br>
+жении А (см. рис. А.2).</font>
+
+<p>
+<font face="Times New Roman" size=2>По адресованному ему спаду сигнала <i>чтения</i> устройство долж-<br>
+но выдать на шину данных содержимое адресуемой ячейки<br>
+и удерживать его, пока не произойдет подъем сигнала. Во<br>
+время циклов <i>записи</i> процессор выставляет действительные<br>
+данные несколько позже начала (спада) сигнала записи. Уст-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ройство должно фиксировать для себя эти данные в конце<br>
+цикла по подъему сигнала. Обращение к портам ввода/вы-<br>
+вода отличается тем, что сигналы LA[32:17] не используются.</font>
+
+<p>
+<font face="Times New Roman" size=2>Минимальная длительность цикла определяется чипсетом и<br>
+может программироваться опциями BIOS Setup заданием<br>
+тактов ожидания. При этом циклы обращения к памяти ко-<br>
+роче циклов обращения к портам ввода/вывода. В шине AT<br>
+для управления минимальной длительностью цикла исполь-<br>
+зуются также сигналы управления разрядностью передачи:</font>
+
+<p>
+<font face="Times New Roman" size=2>если устройство поддерживает 16-битные передачи, предпо-<br>
+лагается, что оно может работать с меньшим количеством<br>
+тактов ожидания. Этим объясняется, что в Setup длитель-<br>
+ности циклов ISA задаются раздельно как для памяти и вво-<br>
+да/вывода, так и для 8- и 16-битных операций.</font>
+
+<p>
+<font face="Times New Roman" size=2>Если устройство не работает с заданными циклами, оно мо-<br>
+жет вводить дополнительные такты ожидания, используя<br>
+сигнал IOCHRDY, но при этом недопустимо удлинять цикл<br>
+более чем на 15 мкс.</font>
+
+<p>
+<font face="Times New Roman" size=2>Шина <i>EISA</i> позволяет устройствам работать как в режиме<br>
+ISA, так и в новых режимах EISA. Из сигналов ISA исполь-<br>
+зуются линии адреса/данных с расширением их до 32 бит,<br>
+сигналы прерываний и прямого доступа к памяти и синхро-<br>
+низации. Для своих циклов обмена EISA использует соб-<br>
+ственный набор управляющих сигналов с обязательной син-<br>
+хронизацией по сигналу BCLK. Сигналы IORD# и IOWR# при<br>
+обращении к EISA-портам не используются. Вместо них при-<br>
+меняются сигналы обращения М/10# и W/R#. В EISA-цик-<br>
+лах не используется сигнал SBHE; он заменен сигналами раз-<br>
+решения байт ВЕ[3:0]. Вместо общего сигнала AEN каждый<br>
+слот имеет собственный сигнал AENx. К <i>сигналам расшире-<br>
+ния шины EISA</i> относятся следующие:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ LA[23:16] - опережающие сигналы адреса, требующие за-<br>
+щелкивания по спаду сигнала BALE.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>ж</i> LA[31:24]# - аналогично LA [2:23], но с инверсией.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ ВЕ[3:0]# - индикаторы действительности данных в бай-<br>
+тах 0-3 при EISA-цикле.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ М/Ю# - обращение к памяти (1) или портам (0) EISA.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>m </i>W/R# - запись (1) или чтение (0) EISA.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ ЕХ16#, ЕХ32# - индикаторы разрядности ресурсов.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т </i>SI-BURSTS - адресуемое устройство поддерживает пакет-<br>
+ ный режим обмена.</font>
+
+<p align=center>
+<font face="Times New Roman" size=2>ж MSBURST^ - уведомление устройства, подавшего сигнал<br>
+ SLBURST, о намерении инициировать пакетный обмен.</font>
+
+<p align=center>
+<font face="Times New Roman" size=2>ва LOCK# - обеспечение исключительного права доступа<br>
+активного EISA Bus-Master к памяти или портам.</font>
+
+<p>
+<font face="Times New Roman" size=2>ss EXRDY - готовность EISA-устройства; аналогично сигна-<br>
+лу IOCHRDCY.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ STARTS - отмечает начало цикла EISA-доступа. Во вре-<br>
+мя действия этого сигнала фиксируется адрес и опреде-<br>
+ляется тип обращения.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ CMD# - задает временные параметры цикла; действует<br>
+после сигнала STARTS.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>^</i> MREQx# - EISA Bus-Master слота "х" запрашивает<br>
+управление шиной.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ МАКх# - EISA Bus-Master слота "х" получает управле-<br>
+ние шиной от арбитра.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="45.jpg"alt="45.jpg">
+<br clear=all>
+
+
+<p>
+<font face="Times New Roman" size=2><b>Рис. 4.6.</b> Временные диаграммы одиночных циклов на шине EISA</font>
+<hr>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="46.jpg"alt="46.jpg">
+<br clear=all>
+
+
+<p>
+<font face="Times New Roman" size=2><b>Рис. 4.7.</b> Временные диаграммы пакетных циклов на шине EISA</font>
+
+<p>
+<font face="Times New Roman" size=2>Временные диаграммы одиночных и пакетных циклов об-<br>
+мена по шине EISA приведены на рис. 4.6 и 4.7. Обратим<br>
+внимание на то, что действительные значения сигналов дол-<br>
+жны фиксироваться по положительному перепаду BCLKft, a<br>
+готовность проверяется по отрицательному.</font>
+
+<p>
+<font face="Times New Roman" size=2>Для шин ISA ряд фирм выпускают <i>карты-прототипы<br>
+</i>(Prototype Card), представляющие собой печатные платы<br>
+полного или уменьшенного формата с крепежной скобой. На<br>
+платах установлены обязательные интерфейсные цепи - бу-<br>
+фер данных, дешифратор адреса и некоторые другие. Осталь-<br>
+ная часть платы свободна, и здесь разработчик может раз-<br>
+местить макетный вариант своего устройства. Эти платы<br>
+удобны для проверки нового изделия, а также для монтажа<br>
+единичных экземпляров устройства, когда разработка и из-<br>
+готовление печатной платы нерентабельно.</font>
+
+<p>
+<font face="Times New Roman" size=2>На некоторых системных платах (ASUSTek) имеется неболь-<br>
+шой разъем с загадочным названием <i>Media Bus,</i> расположен-<br>
+ный позади разъема шины PCI одного из слотов. На этот<br>
+разъем выводятся сигналы шины ISA. Он предназначен для</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>того, чтобы на графическом адаптере с шиной PCI можно было<br>
+разместить недорогой чипсет звуковой карты, предназначен-<br>
+ный для шины ISA. Этот разъем и такие комбинированные<br>
+аудиовидеокарты широкого распространения не получили.</font>
+
+<p>
+<font face="Times New Roman" size=2>Обычно в PC разъемы шины расширения устанавливают на<br>
+системную плату. Для компьютеров инструментального и<br>
+промышленного назначения по ряду причин удобнее исполь-<br>
+зовать модули, соединяемые пассивной объединяющей пла-<br>
+той. Самый простой соответствующий конструктив заклю-<br>
+чается в использовании стандартной шины и карты ISA. Все<br>
+компоненты с традиционной системной платы перенесли на<br>
+карту ISA, получив одноплатный компьютер, называемый<br>
+<i>микроРС</i> (mPC - microPC). На такой карте содержатся про-<br>
+цессор, память, графический адаптер, контроллеры портов<br>
+и дисковые интерфейсы, иногда дополнительные контрол-<br>
+леры цифрового и аналогового ввода/вывода. Для подклю-<br>
+чения к модулям расширения используют пассивную кросс-<br>
+плату с обычными разъемами ISA. Если требуется более<br>
+высокопроизводительный канал, применяют шину PCI. При<br>
+этом на плате системного контроллера присутствуют два<br>
+краевых разъема - ISA на обычном месте и PCI примерно<br>
+на том месте, где располагался разъем VLB. Кросс-плата для<br>
+таких систем становится неоднородной - часть ее слотов<br>
+имеет разъемы PCI, другая часть - ISA, место для систем-<br>
+ного контроллера оборудовано обоими разъемами.</font>
+
+<p>
+<font face="Times New Roman" size=2>Логически эквивалентной ISA является шина <i>PC-104,</i> предна-<br>
+значенная для построения встраиваемых контроллеров. 104 -<br>
+число контактов коннектора, на который выводятся сигналы<br>
+шины ISA. От ISA шина PC-104 отличается только типом<br>
+коннектора и нагрузочными характеристиками линий. Осно-<br>
+вой контроллера является mPC с разъемом PC-104 (розетка).<br>
+Если требуется подключение платы расширения, она своей<br>
+вилкой PC-104 вставляется в плату контроллера. Кроме вил-<br>
+ки на плате расширения имеется розетка PC-104 (коннектор<br>
+двухсторонний), так что можно собрать "бутерброд" из не-<br>
+скольких плат. Если плат более трех, то сверху "бутерброда"<br>
+устанавливают терминатор. Для фиксации плат стандартизо-<br>
+вано расположение крепежных отверстий. Платы скрепляют-<br>
+ся несущими стойками (длинными винтами со втулками).</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=4><b>4.2. Шина МСА</b></font>
+
+<p>
+<font face="Times New Roman" size=2><i>МСА</i> (MicroChannel Architecture) - микроканальная архи-<br>
+тектура - была введена фирмой IBM для своих компьюте-<br>
+ров PS/2, начиная с модели 50. Шина МСА абсолютно не-<br>
+совместима с ISA/EISA. Состав управляющих сигналов,<br>
+протокол и архитектура ориентированы на асинхронное<br>
+функционирование шины и процессора, что снимает про-<br>
+блемы согласования скоростей процессора и ПУ. Архитек-<br>
+тура позволяет эффективно и автоматически конфигуриро-<br>
+вать все устройства программным путем (в картах МСА нет<br>
+ни одного переключателя).</font>
+
+<p>
+<font face="Times New Roman" size=2>Слоты МСА имеют контакты с шагом 0,05 дюйма. Число сло-<br>
+тов на системной плате зависит от модели компьютера.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="47.jpg"alt="47.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 4.8.</b> Слоты МСА: а - 16-битный, б - 32-битный,<br>
+в - 16-битный с расширением</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>&sect;? <i>16-битный слот</i> (рис. 4.8а) использует контакты А1/В1-<br>
+А45/В45 для 8-битных операций и А48/В48-А58/В58<br>
+для 16-битных. Пропущенные номера 46, 47 - ключ для<br>
+всех слотов.</font>
+
+<p>
+<font face="Times New Roman" size=2>&sect;* <i>32-битный слот</i> (рис. 4.86) имеет удлиненную вторую<br>
+секцию с контактами А48/В48-А89/В89.</font>
+
+<p>
+<font face="Times New Roman" size=2>Перед контактами А1/В1 возможно одно из <i>двух расшире-<br>
+ний</i> за счет удлинения первой секции (рис. 4.8в):</font>
+
+<p>
+<font face="Times New Roman" size=2>ж АМ1/ВМ1-АМ4/ВМ4 - для плат расширения памяти;</font>
+
+<p>
+<font face="Times New Roman" size=2><i>т</i> AV1/BV1-AV10/BV10 - для плат видеоадаптеров. Позво-<br>
+ляет использовать общие цепи встроенного в системную<br>
+плату VGA-адаптера, теоретически удешевляя расшире-<br>
+ние видеосистемы. По составу сигналов видеорасшире-<br>
+ние близко к разъему VGA Auxiliary Video Connector или<br>
+VESA Feature Connector.</font>
+
+<p>
+<font face="Times New Roman" size=2>При всей прогрессивности архитектуры МСА не пользуется<br>
+популярностью, в частности, из-за полной несовместимости<br>
+с ISA. МСА находит применение в мощных файл-серверах,<br>
+где требуется высоконадежный производительный ввод/<br>
+вывод.</font>
+
+<p>
+<font face="Times New Roman" size=4><b>4.3. Локальная шина VLB</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Шины ввода/вывода ISA, МСА, EISA имеют низкую<br>
+производительность, обусловленную их ролью в структуре<br>
+PC. Современные приложения требуют существенного по-<br>
+вышения пропускной способности шины. Одним из реше-<br>
+ний проблемы стало применение локальной шины процес-<br>
+сора 486. Шину процессора использовали как место<br>
+подключения периферии (контроллера дисков и графичес-<br>
+кого адаптера).</font>
+
+<p>
+<font face="Times New Roman" size=2><i>VLB</i> (VESA Local Bus) - стандартизованная 32-битная ло-<br>
+кальная шина, практически представляющая собой сигналы<br>
+системной шины процессора 486, выведенные на дополни-<br>
+тельные разъемы системной платы. Шина ориентирована<br>
+на процессор 486, хотя возможно ее использование с 386. Для</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>процессоров Pentium была принята спецификация 2.0, в ко-<br>
+торой разрядность шины данных увеличена до 64, но она<br>
+распространения не получила.</font>
+
+<p>
+<font face="Times New Roman" size=2>Конструктивно VLB-слот аналогичен 16-битному МСА-сло-<br>
+ту, но является расширением системного слота шины ISA-<br>
+16, EISA или МСА, располагаясь позади него вблизи от<br>
+процессора. Из-за ограниченной нагрузочной способности<br>
+шины процессора больше трех слотов VLB на системной<br>
+плате не устанавливают. Максимальная тактовая частота<br>
+шины - 66 МГц, хотя шина работает надежнее на частоте<br>
+33 МГц. Декларируется пиковая пропускная способность<br>
+132 Мбайт/с (33 МГцх4 байта), но она достигается только<br>
+при пакетной передаче. Реально в пакетном цикле передача<br>
+4х4 = 16 байт данных требует 5 тактов шины, так что даже<br>
+в нем пропускная способность составляет 105,6 Мбайт/с, а<br>
+в обычном режиме (по такту на фазу адреса и на фазу дан-<br>
+ных) - 66 Мбайт/с. Жесткие требования к временным ха-<br>
+рактеристикам процессорной шины при большой нагрузке<br>
+(со стороны микросхем внешнего кэша) могут привести к<br>
+неустойчивой работе: все три VLB-слота могут использо-<br>
+ваться только на частоте 40 МГц. При нагруженной сис-<br>
+темной плате на 50 МГц может работать только один слот.<br>
+Шина допускает применение активных (Bus-Master) адап-<br>
+теров, но арбитраж запросов возлагается на сами адапте-<br>
+ры. Разрешена установка не более двух Bus-Master-адапте-<br>
+ров, один из которых устанавливается в "Master"-слот.</font>
+
+<p>
+<font face="Times New Roman" size=2>Шину VLB использовали для подключения графического<br>
+адаптера и контроллера дисков. Встречаются системные пла-<br>
+ты, которые имеют встроенный графический и дисковый<br>
+адаптеры с шиной VLB, но самих слотов VLB нет. Это озна-<br>
+чает, что на плате установлены микросхемы указанных адап-<br>
+теров для шины VLB. Такая неявная шина по производи-<br>
+тельности не уступает обычной, а с точки зрения надежности<br>
+и совместимости она даже лучше.</font>
+
+<p>
+<font face="Times New Roman" size=2>Назначение контактов шины VLB представлено в табл. 4.4.<br>
+В названиях сигналов можно узнать сигналы процессо-<br>
+ра 486.</font>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Ряд В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>№</font>
+</td>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>РЯДА</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32/64-<br>
+битный<br>
+обмен</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>64-битный<br>
+обмен</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32/64-битный<br>
+обмен</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>64-битный<br>
+обмен</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 63</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 62</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 60</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 61</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 58</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 59</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 57</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 56</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 55</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 54</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 53</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>Ряд В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>№</font>
+</td>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=2>РЯДА</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32/64-<br>
+битный<br>
+обмен</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>64-битный<br>
+обмен</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32/64-битный<br>
+обмен</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>64-битный<br>
+обмен</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 51</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 52</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 50</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 49</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 48</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 47</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 46</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 44</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 45</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>33</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 42</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 43</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>34</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 40</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 41</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>35</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 39</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 38</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 37</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>37</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 36</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>38</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Write Back</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 35</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>39</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Byte Enable 0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Byte<br>
+Enable 4</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 34</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>40</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Unused</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LBS64*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>41</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Byte Enable 1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Byte<br>
+Enable 5</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reset</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>42</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Byte Enable 2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Byte<br>
+Enable 6</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data-Code<br>
+Status</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>43</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Mem-l/0<br>
+Status</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 33</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>44</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Byte Enable 3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Byte<br>
+Enable 7</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Wr-Rd Status</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>45</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Address Data<br>
+Strobe</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ключ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>46</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ключ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ключ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>47</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ключ</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ready Return</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>48</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Local Ready</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>49</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Local Device</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRQ 9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>50</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Local Request</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Burst Ready</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>51</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Burst Last</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>52</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Local Bus Grant</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=1>Ряд В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>№</font>
+</td>
+<td colspan=2>
+
+<p>
+<font face="Times New Roman" size=1>РЯДА</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>32/64-<br>
+битный<br>
+обмен</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>64-битный<br>
+обмен</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>32/64-битный<br>
+обмен</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>64-битный<br>
+обмен</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ID 0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>53</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>VCC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ID1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>54</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ID 2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>55</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>IDS</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Local Clock</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>56</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ID 4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>ACK64#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>VCC</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>57</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Unused</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>-</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Local Bus<br>
+Size 16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>^~</i></font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>58</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1>Loc/Ext<br>
+Address Data<br>
+Strobe</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=1><i>&quot;~</i></font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=4><b>4.4. Шина PCI</b></font>
+
+<p>
+<font face="Times New Roman" size=2><i>PCI (Peripheral Component Interconnect) local bus -</i> шина со-<br>
+единения периферийных компонентов. Будучи локальной, эта<br>
+шина занимает особое место в современной архитектуре PC,<br>
+являясь мостом (mezzanine bus) между системной шиной про-<br>
+цессора и шиной ввода/вывода ISA/EISA или МСА. Шина<br>
+PCI разрабатывалась в расчете на Pentium-системы, но хоро-<br>
+шо сочетается и с процессорами 486. Является четко стандар-<br>
+тизованной высокопроизводительной и надежной шиной рас-<br>
+ширения. В настоящее время действует спецификация PCI 2.1.<br>
+При частоте шины 33 МГц скорость теоретически достигает<br>
+132/264 Мбайт/с для 32/64 бит; при частоте синхронизации<br>
+66 МГц - в два раза выше (версия 2.1 допускает частоту до<br>
+66 МГц при согласии всех устройств на шине).</font>
+
+<p>
+<font face="Times New Roman" size=2>Шина является <i>синхронной -</i> фиксация всех сигналов вы-<br>
+полняется по положительному перепаду (фронту) сигнала<br>
+CLK. В каждой транзакции (обмене по шине) участвуют два<br>
+устройства - <i>инициатор обмена</i> (Initiator или Master, ини-<br>
+циирующее устройство, ИУ) и <i>целевое устройство</i> (Target<br>
+или Slave, ЦУ).</font>
+
+<p>
+<font face="Times New Roman" size=2>Шина PCI все транзакции трактует как пакетные: каждая<br>
+транзакция начинается фазой адреса, за которой может сле-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>довать одна или несколько фаз данных. Для адреса и дан-<br>
+Hbix используются общие мультиплексированные линии AD.<br>
+Четыре мультиплексированные линии С/ВЕ[3:0] использу-<br>
+ются для кодирования команд в фазе адреса и разрешения<br>
+байт в фазе данных. В начале транзакции И У активизирует<br>
+сигнал FRAME#, по шине AD передает целевой адрес, а по<br>
+линиям С/ВЕ# - информацию о типе транзакции (коман-<br>
+де). Адресованное ЦУ отзывается сигналом DEVSEL#, после<br>
+чего И У может указать на свою готовность к обмену данны-<br>
+ми сигналом IRDY#. Когда к обмену данными будет готово и<br>
+ЦУ, оно установит сигнал TRDY#. Данные по шине AD могут<br>
+передаваться только при одновременном наличии сигналов<br>
+IRDYft и TRDY#. С помощью этих сигналов ИУ и ЦУ согла-<br>
+суют свои скорости, вводя такты ожидания. На рис. 4.9 при-<br>
+ведена временная диаграмма обмена, в которой и ИУ, и ЦУ<br>
+вводят такты ожидания. Если бы они оба ввели сигналы го-<br>
+товности в конце фазы адреса и не снимали их до конца<br>
+обмена, то в каждом такте после фазы адреса передавались<br>
+бы по 32 бита данных, что обеспечило бы выход на предель-<br>
+ную производительность обмена.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="48.jpg"alt="48.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 4.9.</b> Цикл обмена на шине РС1</font>
+
+<p>
+<font face="Times New Roman" size=2>Количество фаз (циклов) данных в пакете заранее не опре-<br>
+делено, но перед последним циклом ИУ при введенном сиг-<br>
+нале IRDY# снимает сигнал FRAMED. После последней фазы<br>
+данных ИУ снимает сигнал IRDY#, и шина переходит в со-<br>
+стояние покоя <i>(PCI Idle) - оба.</i> сигнала FRAME# и IRDY# на-<br>
+ходятся в пассивном состоянии. Максимальное количество</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>циклов данных в пакете может быть неявно ограничено тай-<br>
+мером, определяющим максимальное время, в течение кото-<br>
+рого И У может пользоваться шиной. И У завершает тран-<br>
+закцию одним из следующих способов:</font>
+
+<p>
+<font face="Times New Roman" size=2><i>^</i> Нормальное завершение выполняется по окончании об-<br>
+мена данными.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Завершение по тайм-ауту <i>(Time-out)</i> происходит, когда<br>
+во время транзакции у ИУотбирают право на управле-<br>
+ние шиной (снятием сигнала GNT#) или когда истекает<br>
+время, указанное в его таймере MLT (медленное ЦУ или<br>
+слишком длинная транзакция).</font>
+
+<p align=center>
+<font face="Times New Roman" size=2>^ Транзакция отвергается <i>(Abort),</i> когда в течение заданно-<br>
+го времени ИУ не получает ответа ЦУ (DEVSEL#).</font>
+
+<p>
+<font face="Times New Roman" size=2>Транзакция может быть прекращена и по инициативе ЦУ,<br>
+для этого оно может ввести сигнал STOP#. Возможны три<br>
+типа прекращения:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Отключение <i>(Disconnect) -</i> сигнал STOP# вводится во<br>
+время активности TRDY#. В этом случае транзакция за-<br>
+вершается после фазы данных.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Отключение с повтором <i>(Disconnect/Retry) -</i> сигнал<br>
+STOP# вводится при пассивном состоянии TRDY#, и по-<br>
+следняя фаза данных отсутствует. Является указанием ИУ<br>
+на необходимость повтора транзакции.</font>
+
+<p>
+<font face="Times New Roman" size=2>^ Отказ <i>(Abort) -</i> сигнал STOP# вводится одновременно со<br>
+снятием DEVSEL# (в предыдущих случаях во время по-<br>
+явления сигнала STOP# сигнал DEVSEL^ был активен). В<br>
+этом случае последняя фаза данных тоже отсутствует, но<br>
+повтор не запрашивается.</font>
+
+<p>
+<font face="Times New Roman" size=2>Протокол квитирования обеспечивает <i>надежность обмена -<br>
+</i>ИУ всегда получает информацию об отработке транзакции<br>
+ЦУ. Средством повышения надежности (достоверности) яв-<br>
+ляется применение контроля паритета: линии AD[31:0] и<br>
+С/ВЕ#[3:0] и в фазе адреса, и в фазе данных защищены <i>битом<br>
+паритета</i> PAR (количество единичных бит этих линий, вклю-<br>
+чая PAR, должно быть четным). Действительное значение PAR<br>
+появляется на шине с задержкой в один такт относительно<br>
+линий AD и С/ВЕ#. При обнаружении ошибки ЦУ со сдви-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>том на такт вырабатывается сигнал PERFW. В подсчете пари-<br>
+тета при передаче данных учитываются все байты, включая<br>
+и недействительные (отмеченные высоким уровнем сигнала<br>
+C/BE#i). Состояние бит и недействительных байт данных во<br>
+время фазы данных должно оставаться стабильным.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Арбитражем запросов</i> на использование шины занимается<br>
+специальный узел, входящий в чипсет системной платы. Каж-<br>
+дое ИУ имеет пару сигналов - REQft для запроса на управ-<br>
+ление шиной и GNT# для подтверждения предоставления<br>
+управления шиной. Схема приоритетов (фиксированный,<br>
+циклический, комбинированный) определяется программи-<br>
+рованием арбитра.</font>
+
+<p>
+<font face="Times New Roman" size=2>Каждое устройство - потенциальное ИУ <i>(PCIMaster) -</i> име-<br>
+ет собственный программируемый <i>таймер MLT (Master<br>
+Latency Timer),</i> определяющий максимальное количество так-<br>
+тов шины, допустимое для одной транзакции. Его конфигу-<br>
+рированием осуществляется распределение полосы пропус-<br>
+кания шины между устройствами.</font>
+
+<p>
+<font face="Times New Roman" size=2>Каждое ЦУ имеет <i>инкрементный механизм слежения</i> за дли-<br>
+тельностью циклов <i>(Incremental Latency Mechanism),</i> который<br>
+не позволяет интервалу между соседними фазами данных в<br>
+пакете превышать 8 тактов шины. Если ЦУ не успевает ра-<br>
+ботать в таком темпе, оно обязано остановить транзакцию.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Адресация</i> памяти, портов и конфигурационных регистров<br>
+различна. Байты шины AD, несущие действительную инфор-<br>
+мацию, выбираются сигналами С/ВЕ[3:0] в фазах данных<br>
+(внутри пакета эти сигналы могут менять состояние). В цик-<br>
+лах обращения к памяти адрес, выровненный по границе<br>
+двойного слова, передается по линиям AD[31:2], линии<br>
+AD[1:0] задают порядок чередования адресов в пакете:</font>
+
+<p>
+<font face="Times New Roman" size=2>^ 00 - линейное инкрементирование;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ 01 - чередование адресов с учетом длины строки кэш-<br>
+памяти;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ 1х -зарезервировано.</font>
+
+<p>
+<font face="Times New Roman" size=2>В циклах обращения к портам ввода/вывода для адресации<br>
+любого байта используются все линии AD[31:0]. В циклах<br>
+конфигурационной записи/считывания устройство выбира-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ется индивидуальным сигналом IDSEL#, конфигурационные<br>
+регистры выбираются двойными словами по линиям AD[7:2],<br>
+при этом AD[1:0]=00. Сигнал выборки IDSEL# воспринима-<br>
+ется устройством только в фазе адреса, поэтому обычно в<br>
+качестве него используют старшие биты адреса с позицион-<br>
+ным кодированием адреса устройства.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Команды шины PCI</i> определяются значениями бит С/ВЕ# в<br>
+фазе адреса в соответствии с табл. 4.5.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>С/ВЕ[3:0]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Тип команды</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0000</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Interrupt Acknowledge -</i> подтверждение прерывания</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0001</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Special Cycle -</i> специальный цикл</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0010</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>I/O Read -</i> чтение порта ввода/вывода</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0011</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>I/O Write -</i> запись в порт ввода/вывода</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0100</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0101</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0110</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Memory Read -</i> чтение памяти</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>0111</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Memory Write -</i> запись в память</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1000</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1001</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Зарезервировано</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1010</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Configuration Read -</i> конфигурационное считывание</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1011</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Configuration Write -</i> конфигурационная запись</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1100</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Multiple Memory Read -</i> множественное чтение памяти</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1101</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Dual Address Cycle -</i> двухадресный цикл</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1110</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Memory Read Line -</i> чтение строк памяти</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1111</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Memory Write and Invalidate -</i> запись с инвалидацией</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>В команде <i>подтверждение прерывания</i> контроллер прерыва-<br>
+ний передает вектор прерывания по шине AD.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Специальный цикл</i> декодируется содержимым линий AD[15:0]<br>
+и используется для указания на отключение <i>(Shutdown),</i> ос-<br>
+танов <i>(Halt)</i> процессора или специфические функции процес-<br>
+сора, связанные с кэшем и трассировкой. Этим состояниям<br>
+соответствуют коды 0000, 0001 и 0002; коды 0003-FFFFh за-<br>
+резервированы.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>В командах <i>чтения и записи ввода/вывода</i> линии AD содер-<br>
+жат адрес байта, причем декодированию подлежат и биты<br>
+ADO и AD1 (несмотря на то, что имеются сигналы ВЕх#).<br>
+Порты PCI могут быть 8-, 16- или 32-битными. Для адреса-<br>
+ции портов на шине PCI доступны все 32 бита адреса, но<br>
+процессоры х86 могут использовать только младшие 16 бит.<br>
+Порты с адресами OCF8 и OCFC зарезервированы под реги-<br>
+стры адреса и данных для доступа к конфигурационному<br>
+пространству. Обращение к порту данных приведет к гене-<br>
+рации шинного цикла конфигурационного чтения или за-<br>
+писи по предварительно записанному адресу.</font>
+
+<p>
+<font face="Times New Roman" size=2>В командах <i>чтения и записи памяти</i> шина AD содержит ад-<br>
+реса двойных слов, и линии ADO, AD1 не должны декодиро-<br>
+ваться - на конкретные байты указывают сигналы С/<br>
+ВЕ[3:0]#.</font>
+
+<p>
+<font face="Times New Roman" size=2>Команды <i>конфигурационного чтения и записи</i> адресуются к<br>
+конфигурационному пространству и обеспечивают доступ<br>
+к 256-байтным структурам. Обращение производится двой-<br>
+ными словами. Структура содержит идентификатор устрой-<br>
+ства и производителя, состояние и команду, информацию об<br>
+используемых ресурсах и ограничения на использование<br>
+шины.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Множественное чтение памяти</i> используется для транзак-<br>
+ций, пересекающих границы строк кэш-памяти.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Двухадресный цикл</i> применяется, когда физическая шина<br>
+имеет 32 бита адреса, а требуется передача с 64-битной ад-<br>
+ресацией. В этом случае младшие 32 бита адреса передают-<br>
+ся в цикле данного типа, а за ним следует обычный цикл,<br>
+определяющий тип обмена и несущий старшие 32 бита ад-<br>
+реса. Шина PCI допускает 64-битную адресацию даже для<br>
+портов ввода/вывода (для х86 это бесполезно, но PCI суще-<br>
+ствует и на других платформах).</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Чтение строк памяти</i> применяется, когда в транзакции пла-<br>
+нируется более двух 32-битных передач (обычно это чтение<br>
+до конца строки кэша).</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Запись с инвалидацией</i> применяется к целым строкам кэша<br>
+и позволяет оптимизировать циклы обратной записи "гряз-<br>
+ных" строк кэша.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Выделение специальных циклов множественного чтения,<br>
+чтения строк и записи с инвалидацией позволяет контрол-<br>
+леру памяти предпринять определенные меры для оптими-<br>
+зации данных передач.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Слоты PCI с</i> шагом 0,05 дюйма расположены несколько даль-<br>
+ше от задней панели, чем ISA/EISA или МСА. Компоненты<br>
+карт PCI расположены на левой поверхности плат. По этой<br>
+причине крайний PCI-слот обычно разделяет использование<br>
+посадочного места адаптера с соседним ISA-слотом (Shared<br>
+slot). Шина имеет версии с питанием <i>5 В, 33 В</i> и <i>универ-<br>
+сальную</i> (с переключением линий +V I/O с 5 В на 3,3 В). Клю-<br>
+чами являются пропущенные ряды контактов 12, 13 и 50, 51.<br>
+Для слота на 5 В ключ расположен на месте контактов 50, 51;</font>
+
+<p>
+<font face="Times New Roman" size=2>для 3 В - 12, 13; для универсального - два ключа: 12, 13<br>
+и 50, 51. Ключи не позволяют установить карту в слот с не-<br>
+подходящим напряжением питания, 32-битный слот закан-<br>
+чивается контактами А62/В62, 64-битный - А94/В94. На<br>
+рис. 4.10 изображена 32-битная плата максимального размера<br>
+(Long Card), длина короткой платы (Short Card) - 6,875&quot;.<br>
+Плата может иметь обрамление (скобки), стандартное для<br>
+конструктива ISA или МСА. Назначение выводов универ-<br>
+сального разъема приведено в табл. 4.6, назначение сигна-<br>
+лов - в табл. 4.7.</font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="49.jpg"alt="49.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 4.10.</b> Карта расширения для шины PCI</font>
+
+<p>
+<font face="Times New Roman" size=2>На одной шине PCI может быть не более четырех устройств<br>
+(следовательно, и слотов). Для подключения к другим ши-<br>
+нам применяются специальные аппаратные средства - <i>мос-</i></font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2><i>ты PCI</i> (PCI Bridge). <i>Главный мост</i> (Host Bridge) использу-<br>
+ется для подключения PCI к системной шине. <i>Одноранго-<br>
+вый мост</i> (Peer-to-Peer Bridge) используется для соединения<br>
+двух шин PCI. Несколько шин PCI применяются в серве-<br>
+рах - это позволяет увеличить число подключаемых уст-<br>
+ройств. Для подключения шин ISA/EISA используются спе-<br>
+циальные мосты, входящие в чипсеты системных плат.<br>
+Каждый мост программируется - ему указываются диапа-<br>
+зоны адресов пространств памяти и ввода/вывода, отведен-<br>
+ные устройствам его шин. Если адрес ЦУ текущей транзак-<br>
+ции на одной шине (стороне) моста относится к шине<br>
+противоположной стороны, мост перенаправляет транзакцию<br>
+на соответствующую шину и выполняет действия по согла-<br>
+сованию протоколов шин. Таким образом, совокупность мо-<br>
+стов PCI выполняет маршрутизацию <i>(routing)</i> обращений по<br>
+связанным шинам. Считается, что устройство с конкретным<br>
+адресом может присутствовать только на одной из шин, а<br>
+на какой именно, "знают" запрограммированные мосты. Ре-<br>
+шать задачу маршрутизации призван также сигнал DEVSEL#.<br>
+Обращения, не востребованные абонентами PCI, обычно пе-<br>
+ренаправляются на шину ISA/EISA.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ряд В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Nft</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РЯДА</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ряд В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>N#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РЯДА</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>-12 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TRST#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PRSNT2#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>тек</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+12 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND/Ключ<br>
+3,3В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND/Ключ<br>
+3,3В</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TMS</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND/Ключ<br>
+3,3В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND/Ключ<br>
+3,3В</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TDO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TDI</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RST#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>INTRA#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Clock</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+VI/0</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>INTRB#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>INTRC#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GNT#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>INTRD#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>REQ#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PRSNT1#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+VI/0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+VI/0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 30</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ряд В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>N#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РЯДА</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ряд В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>N#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РЯДА</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3,3 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND/Ключ<br>
+5В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>50</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND/Ключ<br>
+5В</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND/Ключ<br>
+5В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>51</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND/Ключ<br>
+5В</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>52</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>С/ВЕО#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>53</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3,3 В</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3,3 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3,3 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>54</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 6</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>С/ВЕЗ#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IDSELff</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>55</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 4</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3,3 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>56</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>57</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>58</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ADO</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+VI/0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>59</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+VI/0</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3.3 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>АСК64#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>60</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>REQ64#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>61</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>С/ВЕ2#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>33</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3,3 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>62</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>34</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>FRAMED</font>
+</td>
+<td colspan=3>
+
+<p>
+<font face="Times New Roman" size=2>Конец 32-битного разъема</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRDY#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>35</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>63</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3,3 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TRDY#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>64</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>C/BE7#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DEVSEL#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>37</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>С/ВЕ6#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>65</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>С/ВЕ5#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>38</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>STOP*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>С/ВЕ4#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>66</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+VI/0</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LOCK*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>39</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3,3 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>67</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PAR64</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PERR#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>40</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SDONE#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD63</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>68</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 62</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3,3 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>41</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SDOFF^</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD61</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>69</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SERR#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>42</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+VI/0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>70</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 60</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3,3 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>43</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PAR</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD59</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>71</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 58</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>С/ВЕ1#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>44</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD57</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>72</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>45</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+3,3 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>73</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 56</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>46</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD55</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>74</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 54</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>47</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD53</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>75</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+VI/0</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>48</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>76</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 52</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND/M66EN1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>49</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD51</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>77</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 50</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ряд В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>N"</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РЯДА</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ряд В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ntf</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РЯДА</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 49</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>78</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 37</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>87</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+VI/0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>79</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 48</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+VI/0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>88</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 36</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 47</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>80</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 46</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 35</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>89</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 34</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 45</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>81</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 33</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>90</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>82</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 44</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>91</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 32</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 43</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>83</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 42</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>92</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 41</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>84</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+VI/0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>93</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>85</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 40</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>94</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 39</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>86</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD 38</font>
+</td>
+<td colspan=3>
+
+<p>
+<font face="Times New Roman" size=2>Конец 64-битного разъема</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+
+<p>
+<font face="Times New Roman" size=2>' Сигнал M66EN определен в PCI 2.1.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD[31:0]</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Address/Data -</i> мультиплексированная шина адре-<br>
+са/данных. В начале транзакции передается<br>
+адрес, в последующих тактах - данные</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>C/BE[3:0]#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Command/Byte Enable -</i> команда/разрешение обра-<br>
+щения к байтам. Команда, определяющая тип оче-<br>
+редного цикла шины, задается четырехбитным<br>
+кодом в фазе адреса</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>FRAME*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Кадр. Введением сигнала отмечается начало тран-<br>
+закции (фаза адреса), снятие сигнала указывает<br>
+на то, что последующий цикл передачи данных<br>
+является последним в транзакции</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DEVSEL#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Device Select -</i> устройство выбрано (ответ ЦУ<br>
+на адресованную ему транзакцию)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRDY#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Initiator Ready -</i> готовность И У к обмену данными</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TRDY#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Target Ready -</i> готовность ЦУ к обмену данными</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>STOP#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Запрос ЦУ к ИУ на останов текущей транзакции</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>LOCK#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Используется для установки, обслуживания<br>
+и освобождения захвата ресурса PCI</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>REQ#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Request -</i> запрос от PCI-мастера на захват шины</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GNT#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Grant -</i> предоставление мастеру управления шиной</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PAR</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Parity -</i> общий бит паритета для линий AD[31:0]<br>
+и С/ВЕ[3:0]</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Назначение</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PERR#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>ParityError -</i> сигнал об ошибке паритета (от устрой-<br>
+ства, ее обнаружившего)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PRSNT[1,2]#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Present -</i> индикаторы присутствия платы, коди-<br>
+рующие запрос потребляемой мощности</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RSTft</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Reset -</i> сброс всех регистров в начальное состояние</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IDSEL#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Initialization Device Select -</i> выбор устройства в циклах<br>
+конфигурационного считывания и записи</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SERR</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>System Error -</i> системная ошибка. Активизируется<br>
+любым устройством PCI и вызывает NMI</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>REQ64#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Request 64 bit -</i> запрос на 64-битный обмен</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ACK64#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Подтверждение 64-битного обмена</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>INTRA#<br>
+INTRB#<br>
+INTRC#<br>
+INTRD#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Interrupt А, В, С, D -</i> линии запросов прерывания.<br>
+Циклически сдвигаются в слотах и направляются на<br>
+доступные линии IRQ. Запрос по низкому уровню<br>
+допускает разделяемое использование линий</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CLK</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Clock -</i> тактовая частота шины. Должна быть<br>
+в пределах 20-33 МГц, в PCI 2.1 - до 66 МГц</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>M66EN</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>66MHzEriable -</i> разрешение частоты синхронизации<br>
+до 66 МГц</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SDONE</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Snoop Done -</i> сигнал завершенности цикла слежения<br>
+для текущей транзакции. Низкий уровень указывает<br>
+на незавершенность цикла слежения за когерент-<br>
+ностью памяти и кэша. Необязательный сигнал, ис-<br>
+пользуется только устройствами шины с кэшируемой<br>
+памятью</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SBO#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Snoop Backoff -</i> попадание текущего обращения к<br>
+памяти абонента шины в модифицированную строку<br>
+кэша. Необязательный сигнал, используется только<br>
+абонентами шины с кэшируемой памятью при<br>
+алгоритме обратной записи</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TCK</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Test Clock -</i> синхронизация тестового интерфейса<br>
+JTAG</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TDI</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Test Data Input -</i> входные данные тестового<br>
+интерфейса JTAG</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TDO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Test Data Output -</i> выходные данные тестового<br>
+интерфейса JTAG</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TMS</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Test Mode Select -</i> выбор режима для тестового<br>
+интерфейса JTAG</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TRST</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2><i>Test Logic Reset -</i> сброс тестовой логики</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Одной из особенностей шины PCI является возможность<br>
+обмена данными между процессором и памятью одновремен-<br>
+но с обменом между другими устройствами PCI - <i>Concurrent<br>
+PCI Transferring.</i> Эта возможность реализуется не всеми чип-<br>
+сетами (в описаниях она всегда специально подчеркивает-<br>
+ся), а обь1чными устройствами (видеокарты и контроллеры<br>
+дисков) используется редко.</font>
+
+<p>
+<font face="Times New Roman" size=2>С мостами PCI/ISA связано понятие <i>VGA Palette Snooping,<br>
+</i>которое обеспечивает исключение из правила однозначной<br>
+маршрутизации обращений. Графическая карта в компью-<br>
+тере с шиной PCI обычно устанавливается на шину PCI. На<br>
+VGA-карте имеются регистры палитр (Palette Registers), при-<br>
+писанные к пространству ввода/вывода. Если графическая<br>
+система содержит еще и карту смешивания сигналов графи-<br>
+ческого адаптера с сигналом "живого видео", перехватывая<br>
+двоичную информацию о цвете текущего пиксела по шине<br>
+<i>VESA Feature Connector</i> (снимаемую до регистра палитр),<br>
+цветовая гамма будет определяться регистром палитр, раз-<br>
+мещенным на этой дополнительной карте. Возникает ситуа-<br>
+ция, когда операция записи в регистр палитр должна отра-<br>
+батываться одновременно и в графическом адаптере (на шине<br>
+PCI), и в карте видеорасширения, которая часто размещает-<br>
+ся на шине ISA. В BIOS Setup может присутствовать опция<br>
+<i>PCI VGA Palette Snoop.</i> При ее разрешении запись в порты<br>
+ввода/вывода по адресу регистра палитр будет вызывать<br>
+транзакцию как на шине PCI, так и на шине ISA, чтение же<br>
+по этим адресам будет выполняться только PCI. Реализа-<br>
+ция может возлагаться на графическую карту PCI. Для это-<br>
+го она во время записи в регистр палитр фиксирует данные,<br>
+но сигналы квитирования DEVSEL# и TRDY# не вырабаты-<br>
+вает, в результате чего мост распространяет этот неопознан-<br>
+ный запрос на шину ISA. В других реализациях мосту явно<br>
+указывают на данное исключение, и он сам распространяет<br>
+запись в регистры палитр на шину ISA.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Автоконфигурирование устройств</i> (выбор адресов и преры-<br>
+ваний) поддерживается средствами BIOS и ориентировано<br>
+на технологию Plug and Play. Стандарт PCI определяет для<br>
+каждого слота конфигурационное пространство размером<br>
+до 256 8-битных регистров, не приписанных ни к простран-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>ству памяти, ни к пространству ввода/вывода. Доступ к ним<br>
+осуществляется по специальным циклам шины Configuration<br>
+Read и Configuration Write, вырабатываемым контроллером<br>
+при обращении процессора к регистрам контроллера шины<br>
+PCI, расположенным в его пространстве ввода/вывода. После<br>
+аппаратного сброса (или по включении питания) устройства<br>
+PCI не отвечают на обращения к пространству памяти и вво-<br>
+да/вывода, они доступны только для операций конфигура-<br>
+ционного считывания и записи. В этих операциях устрой-<br>
+ства&quot;'выбираются по индивидуальным сигналам IDSEL# и<br>
+сообщают о потребностях в ресурсах и возможных диапазо-<br>
+нах памяти. После распределения ресурсов, выполняемого<br>
+программой конфигурирования (во время POST), в устрой-<br>
+ства записываются параметры конфигурирования. Только<br>
+после этого к устройствам становится возможным доступ по<br>
+командам обращения к памяти и портам ввода/вывода.</font>
+
+<p>
+<font face="Times New Roman" size=2>Для ПЗУ расширения BIOS, установленных на картах PCI,<br>
+принят стандарт, несколько отличающийся от традицион-<br>
+ных дополнительных модулей ROM BIOS. Поскольку шина<br>
+PCI используется не только в PC, в ПЗУ карты может хра-<br>
+ниться несколько модулей. Тип платформы (процессора)<br>
+указывается в заголовке модуля, и при инициализации<br>
+BIOS активизируется нужный. Такой механизм позволяет,<br>
+например, один и тот же графический адаптер устанавли-<br>
+вать и в IBM PC, и в Power PC.</font>
+
+<p>
+<font face="Times New Roman" size=2>В состав шины PCI введены сигналы для тестирования адап-<br>
+теров по интерфейсу <i>JTAG.</i> На системной плате эти сигналы<br>
+задействованы не всегда, но они могут и организовывать ло-<br>
+гическую цепочку тестируемых адаптеров.</font>
+
+<p>
+<font face="Times New Roman" size=2>Некоторые фирмы выпускают для PCI карты-прототипы, но<br>
+доукомплектовать их адаптером собственной разработки<br>
+сложнее, чем карту ISA. Здесь сказываются сложные прото-<br>
+колы и высокие частоты.</font>
+
+<p>
+<font face="Times New Roman" size=2>Слот PCI достаточен для подключения адаптера (в отличие<br>
+от VLB), на системной плате он может сосуществовать с<br>
+любой из шин ввода/вывода и даже с VLB. На некоторых<br>
+системных платах позади одного из слотов PCI имеется<br>
+разъем Media Bus, на который выводятся сигналы ISA. Он</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>используется для размещения на <i>графическом</i> адаптере PCI<br>
+звукового чипсета, предназначенного для шины ISA.</font>
+
+<p>
+<font face="Times New Roman" size=2>Для <i>устройств промышленного назначения</i> в начале 1995 г.<br>
+был принят стандарт <i>Compact PCI.</i> Шина Compact PCI <i>(сРСГ)<br>
+</i>разрабатывалась на основе спецификации PCI 2.1. Эта шина<br>
+отличается большим количеством поддерживаемых слотов:</font>
+
+<p>
+<font face="Times New Roman" size=2>8 против 4. Появились новые 4 пары сигналов запросов и<br>
+предоставления управления шиной. Шина поддерживает<br>
+32-битный и 64-битный обмен (с индивидуальным разреше-<br>
+нием байт). При частоте шины 33 МГц максимальная про-<br>
+пускная способность составляет 133 Мбайт/с для 32 бит и<br>
+266 Мбайт/с для 64 бит (в середине пакетного цикла). Воз-<br>
+можна работа на частоте 66 МГц. Шина поддерживает спе-<br>
+цификацию РпР. Кроме того, в шине возможно применение<br>
+<i>географической адресации,</i> при этом адрес модуля (на кото-<br>
+рый он отзывается при программном обращении) определя-<br>
+ется его положением в каркасе. Для этого на коннекторе J1<br>
+имеются контакты GAO...GA4, коммутацией которых на "зем-<br>
+лю" для каждого слота задается его двоичный адрес. Геогра-<br>
+фическая адресация позволяет переставлять однотипные мо-<br>
+дули, не заботясь о конфигурировании их адресов (хорошая<br>
+альтернатива системе РпР - модуль "встанет" всегда в одни<br>
+и те же адреса, которые без физического вмешательства боль-<br>
+ше не изменятся). Конструктивно платы Compact PCI пред-<br>
+ставляют собой еврокарты высотой 3U (100х160 мм) с одним<br>
+коннектором (J1) или 6U (233х160 мм) с двумя кон-<br>
+некторами (J1 nJ2). Коннекторы - 7-рядные штырьковые<br>
+разъемы с шагом 2 мм между контактами, на кросс-плате -<br>
+вилка, на модулях - розетки. Контакты коннекторов имеют<br>
+разную длину: более длинные контакты цепей питания при<br>
+установке модуля соединяются раньше, а при вынимании<br>
+разъединяются позже, чем сигнальные. Такое решение по-<br>
+зволяет производить "горячую" замену модулей. Собствен-<br>
+но шина использует только один коннектор (J1), причем<br>
+в 32-битном варианте не полностью - часть контактов мо-<br>
+жет задействовать пользователь, 64-битная шина использу-<br>
+ет коннектор полностью. Одно посадочное место на кросс-<br>
+плате резервируется под контроллер шины, на который<br>
+возлагаются функции арбитража и синхронизации. На его</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>коннекторе шиной используется большее число контактов,<br>
+чем на остальных. У больших плат коннектор J2 предостав-<br>
+ляется пользователю, а между коннекторами J 1 и J2 может<br>
+устанавливаться 95-контактный коннектор J3. Конструкция<br>
+коннекторов позволяет для J2 применять специфические мо-<br>
+дификации (например, с разделяющим экраном и механи-<br>
+ческими ключами). В шине предусматривается наличие не-<br>
+зависимых источников питания +5 В, +3,3 В и &plusmn;12 В.</font>
+
+<p>
+<font face="Times New Roman" size=2>На базе шины Compact PCI фирмой National Instruments раз-<br>
+работана <i>спецификация PXI</i> (PCI extensions for Instrumenta-<br>
+tion - расширение PCI для инструментальных систем) в тех<br>
+же конструктивах. В шине PXI часть контактов, определенных<br>
+в Compact PCI как свободно используемые, предназначается<br>
+для дополнительных шин. Шина <i>Trigger Bus</i> (8 линий) звез-<br>
+дообразно соединяет слот своего контроллера (первый после<br>
+системного контроллера PCI) с остальными слотами. Шина<br>
+позволяет осуществлять синхронизацию разных модулей, что<br>
+зачастую требуется в измерительных системах. Для прецизи-<br>
+онной синхронизации имеется сигнал опорной частоты 10 МГц<br>
+PXI_CLK, который звездообразно (с одинаковыми задержка-<br>
+ми распространения сигнала) разводится по слотам. В PXI<br>
+определены локальные шины, предназначенные для связи со-<br>
+седних пар слотов. Каждая локальная шина имеет 13 линий,<br>
+которые могут использоваться как для цифровых, так и для<br>
+аналоговых (до 48 В) сигналов. Локальные шины объединя-<br>
+ют смежные слоты попарно (исключая слот системного кон-<br>
+троллера), образуя цепочку. Кроме механических и электри-<br>
+ческих характеристик PXI определяет ПО модулей: основной<br>
+ОС считается Windows NT/95, и модули должны поставляться<br>
+с соответствующими драйверами. Это экономит время, необ-<br>
+ходимое для системной интеграции. Модули PXI совмести-<br>
+мы с шиной Compact PCI, и модули Compact PCI - с шиной<br>
+PXI. Однако все преимущества спецификации реализуются<br>
+только при установке модулей PXI в шину PXI.</font>
+
+<p>
+<font face="Times New Roman Narrow" size=4><b>4.5. Магистральный интерфейс AGP</b></font>
+
+<p>
+<font face="Times New Roman" size=2>В настоящее время самой быстрой универсальной шиной рас-<br>
+ширения является PCI, имеющая при тактовой частоте</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>66 МГц и разрядности 32 бит пиковую пропускную способ-<br>
+ность 264 Мбайт/с. Одним из главных потребителей про-<br>
+пускной способности шины является графический адаптер.<br>
+По мере увеличения разрешения и глубины цвета требова-<br>
+ния к пропускной способности шины, связывающей дис-<br>
+плейный адаптер с памятью и центральным процессором<br>
+компьютера, повышаются. Одно из решений состоит в умень-<br>
+шении потока графических данных, передаваемых по шине.<br>
+Для этого графические платы снабжают акселераторами и<br>
+увеличивают объем видеопамяти, которой пользуется ак-<br>
+селератор при выполнении построений. В результате поток<br>
+данных в основном циркулирует внутри графической карты,<br>
+слабо нагружая внешнюю шину. Однако при трехмерных<br>
+построениях акселератору становится тесно в ограниченном<br>
+объеме видеопамяти, и его поток данных снова выплескива-<br>
+ется на внешнюю шину.</font>
+
+<p>
+<font face="Times New Roman" size=2>Фирма Intel на базе шины PCI 2.1 разработала новый стан-<br>
+дарт подключения графических адаптеров - <i>AGP</i> (Accelerated<br>
+Graphic Port - ускоренный графический порт). Этот порт<br>
+представляет собой 32-разрядную шину с тактовой частотой<br>
+66 МГц, по составу сигналов (табл. 4.8) напоминающую шину<br>
+PCI. Чипсет системной платы связывает AGP с памятью и<br>
+системной шиной процессора, не пересекаясь с "узким мес-<br>
+том" - шиной PCI. "Ускоренность" порта обеспечивается<br>
+следующими факторами:</font>
+
+<p>
+<font face="Times New Roman" size=2>йк конвейеризацией обращений к памяти;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ сдвоенной передачей данных;</font>
+
+<p>
+<font face="Times New Roman" size=2>^ демультиплексированием шин адреса и данных.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Конвейеризацию обращений</i> к памяти иллюстрирует<br>
+рис. 4.11, где сравниваются обращения к памяти PCI и AGP.<br>
+В PCI во время реакции памяти на запрос шина простаи-<br>
+вает. Конвейерный доступ AGP позволяет в это время пе-<br>
+редавать следующие запросы, а потом получить поток от-<br>
+ветов. AGP предусматривает постановку в очередь до 256<br>
+запросов, но при конфигурировании по РпР реальные воз-<br>
+можности конкретной системы уточняются (возможности<br>
+контроллера памяти ограничены). AGP поддерживает две<br>
+пары очередей для операций записи и чтения из памяти с</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>высоким и низким приоритетами. В передачу данных лю-<br>
+бого запроса может вмешаться следующий запрос, в том<br>
+числе запрос в режиме PCI.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РЯДА</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>№</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ряд В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>РЯДА</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>№</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ряд В</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Spare</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12V</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vddq3.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>34</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vddq3.3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5.0V</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Spare</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>35</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD22</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5.0V</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD20</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>USB+</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>USB-</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>37</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>38</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD18</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>INTB#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>INTA#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>C/BE2#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>39</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD16</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>CLK</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RST#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vddq3.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>40</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vddq3.3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RECW</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GNT#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>IRDY#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>41</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>FRAME#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC3.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC3.3</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>42</font>
+</td>
+<td>
+
+<p>
+
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>STO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ST1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>43</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ST2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>44</font>
+</td>
+<td>
+
+<p>
+
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RBF#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PIPE#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC3.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>45</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC3.3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>DEVSEL#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>46</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>TRDY#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Spare</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Spare</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vddq3.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>47</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>STOP#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SBAO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SBA1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PERR#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>48</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Spare</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC3.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC3.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>49</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SBA2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SBA3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SERR#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>50</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>PAR</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SBSTB</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>C/BE1#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>51</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD15</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vddq3.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>52</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vddq3.3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SBA4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SBA5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>53</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD13</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SBA6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SBA7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>54</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD11</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>KEY</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>KEY</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>55</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>KEY</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>KEY</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>56</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD9</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>KEY</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>KEY</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>57</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>C/BEO#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>KEY</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>KEY</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vddq3.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>58</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vddq3.3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ADSTBO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>59</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>60</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD6</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC3.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>VCC3.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>61</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ADS</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>62</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD4</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>63</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vddq3.3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>64</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vddq3.3</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ADSTB1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reserved</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>65</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>ADO</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AD23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>33</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>C/BE3#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SMBO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>66</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>SMB1</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p align=center>
+<font face="Times New Roman" size=2>4.5. Магистральный интерфейс AG P<b>                          171</b></font>
+
+<p>
+<img border=0 vspace=3 hspace=3 src="410.jpg"alt="410.jpg">
+<br clear=all>
+
+
+<p align=center>
+<font face="Times New Roman" size=2><b>Рис. 4.11.</b> Циклы обращения к памяти РС1 и AGP</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Сдвоенная передача данных</i> обеспечивает при частоте 66 МГц<br>
+пропускную способность до 532 Мбайт/с, что для 32-битной<br>
+шины неожиданно. В AGP кроме "классического" режима,<br>
+называемого теперь <i>"х1",</i> в котором за один такт синхрони-<br>
+зации передается один 4-байтный блок данных, есть режим<br>
+".г2", когда блоки данных передаются как по фронту, так и<br>
+по спаду сигнала синхронизации (как в АТА Ultra DMA).<br>
+Управление передачей в таком режиме названо <i>Sideband<br>
+Control</i> (приставка SB к имени сигнала). Заказать режим <i>х2<br>
+</i>может только графическая карта, если она его поддержива-<br>
+ет. При переходе на тактовую частоту 100 МГц пропускная<br>
+способность повышается до 800 Мбайт/с.</font>
+
+<p>
+<font face="Times New Roman" size=2><i>Демультиплексирование</i> (разделение) <i>шины адреса и данных<br>
+</i>сделано несколько необычным образом. Демультиплексиро-<br>
+вание подразумевает наличие двух полноразрядных шин -<br>
+адреса и данных. Однако такой вариант дорог. Поэтому шину<br>
+адреса в демультиплексированием режиме AGP представля-<br>
+ют 8 линий SBA <i>(Sideband Address),</i> по которым за три так-<br>
+та синхронизации передаются четыре байта адреса, длина за-<br>
+проса (1 байт) и команда (1 байт). За каждый такт<br>
+передаются по два байта - один по фронту, другой по спаду<br>
+тактового сигнала. Поддержка демультиплексированной<br>
+адресации не является обязательной для карты AGP. Требу-<br>
+ется также поддержка хост-контроллера. Альтернативным<br>
+способом подачи адреса является обычный - по мультиплек-<br>
+сированной шине AD.</font>
+
+<p>
+<font face="Times New Roman" size=2>AGP может реализовать всю пропускную способность 64-бит-<br>
+ной системы памяти компьютера на процессорах Pentium и<br>
+выше. При этом возможны конкурирующие обращения к</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>памяти как со стороны процессора, так и со стороны мостов<br>
+шин PCI.</font>
+
+<p>
+<font face="Times New Roman" size=2>Порт AGP может работать как в своем "естественном" ре-<br>
+жиме с конвейеризацией и сдвоенными передачами, так и в<br>
+режиме шины PCI. В конвейеризированном режиме, в кото-<br>
+ром начало цикла отмечается сигналом Р1РЕ#, возможны<br>
+только обращения к памяти. В режиме PCI циклы начина-<br>
+ются с сигнала FRAME#, и обращения возможны как к про-<br>
+странству памяти, так и к пространству ввода/вывода и кон-<br>
+фигурационному пространству. Кроме собственно AGP, в<br>
+порте AGP заложены сигналы шины USB, которую предпо-<br>
+лагается заводить в монитор. Внешне карты с портом AGP<br>
+похожи на PCI, но у них используется разъем повышенной<br>
+плотности с "двухэтажным" (как у EISA) расположением<br>
+ламелей. Сам разъем располагается дальше от задней кром-<br>
+ки платы, чем разъем PCI.</font>
+
+<p>
+<font face="Times New Roman" size=2>Фирма Intel ввела поддержку AGP в чипсеты для процессо-<br>
+ров Pentium Pro и Pentium II. Однако нет "противопоказа-<br>
+ний" для применения AGP с Pentium.</font>
+
+<p>
+<font face="Times New Roman" size=2>AGP строился исключительно для графического акселера-<br>
+тора. Порт позволяет работать в двух режимах - DMA и<br>
+исполнения <i>(Executive Mode).</i> В <i>режиме DMA</i> акселератор<br>
+при вычислениях рассматривает видеопамять как первичную,<br>
+а когда ее недостаточно, подкачивает данные из основной<br>
+памяти. При этом для трафика порта характерны длитель-<br>
+ные блочные передачи. В <i>режиме DIME (Direct Memory<br>
+Execute)</i> видеопамять и основная память для акселератора<br>
+равнозначны и располагаются в едином адресном простран-<br>
+стве. Трафик порта при этом будет насыщен короткими про-<br>
+извольными запросами.</font>
+
+<p>
+<font face="Times New Roman" size=2>Отметим, что многие преимущества AGP носят потенциаль-<br>
+ный характер и могут быть реализованы лишь при поддержке<br>
+аппаратных средств графического адаптера и ПО. Что каса-<br>
+ется большой пропускной способности AGP, то следует на-<br>
+помнить, что в графических адаптерах с памятью WRAM<br>
+или RDRAM внутренняя скорость обмена данными акселе-<br>
+ратора с видеопамятью достигает 1,6 Гбайт/с, так что DIME<br>
+выигрывает только за счет объема доступной памяти.</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=4><b>4.6. Шины PCMCIA (PC Card)</b></font>
+
+<p>
+<font face="Times New Roman" size=2>Организация PCMCIA (Personal Computer Memory Card Inter-<br>
+national Association - международная ассоциация производи-<br>
+телей карт памяти для персональных компьютеров) ввела ряд<br>
+стандартов на шины расширения блокнотных компьютеров.<br>
+Первый из них назывался <i>PCIMCIA.</i> Впоследствии он был<br>
+переименован в <i>PC Card.</i> Шина PC Card позволяет подклю-<br>
+чать расширители памяти, модемы, контроллеры дисков и<br>
+стриммеров, SCSI-адаптеры, сетевые адаптеры и т. д. Недо-<br>
+статочно строгое следование производителей этому стандар-<br>
+ту приводит к проблемам совместимости. Назначение контак-<br>
+тов разъема шины приведено в табл. 4.9. Шина адресует<br>
+64 Мбайт памяти, разрядность данных 16 бит, частота до<br>
+33 МГц, DMA и Bus-Mastering не поддерживаются. Теоре-<br>
+тически допускается до 4080 слотов PC Card. Шина ориен-<br>
+тирована на программное конфигурирование адаптеров. Боль-<br>
+шинство адаптеров выпускаются с поддержкой РпР и<br>
+предусматривают "горячее" подключение - интерфейсные кар-<br>
+ты могут вставляться и выниматься без выключения компь-<br>
+ютера. Для этого контакты шин питания имеют большую дли-<br>
+ну, чем сигнальные, чем обеспечивается их упреждающее<br>
+подключение и запаздывающее отключение. Два контакта об-<br>
+наружения карты (Card Detect) короче остальных. Все уст-<br>
+ройства имеют свою поддержку BIOS. Несмотря на возмож-<br>
+ность динамического конфигурирования, в некоторых случаях<br>
+при изменении конфигурации требуется перезагрузка системы.</font>
+
+<p>
+<font face="Times New Roman" size=2>Различают 4 типа PC Card. Электрически идентичные, они<br>
+варьируются по габаритам при совместимости снизу вверх<br>
+(меньшие адаптеры встают в большие гнезда). Адаптер типа 1<br>
+имеет размеры 54х85 мм и толщину не более 3,3 мм, типа 2 -<br>
+48х75 мм и толщину 5 мм, типа 3 толщину 10,5 мм (однако<br>
+HDD типа 3 имеет толщину 13 мм!).</font>
+
+<p>
+<font face="Times New Roman" size=2>Все устройства PC Card имеют минимальное энергопотреб-<br>
+ление. Существуют предпосылки для введения этой шины<br>
+как дополнительной в настольные PC.</font>
+
+<p>
+<font face="Times New Roman" size=2>Шина <i>CardBus с</i> тем же 68-контактным разъемом обеспечи-<br>
+вает расширение разрядности данных до 32 бит за счет муль-</font>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>типлексирования шины адреса и данных, обеспечивая об-<br>
+ратную совместимость с PC Card.</font>
+
+<p>
+
+<table align=left border=1>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Контакт</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Сигнал</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>35</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>36</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Card Detect 1#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>37</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 11</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>38</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 12</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>39</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 13</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>40</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 14</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Card Enable 1#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>41</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 15</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addi-10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>42</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Card Enable <i>2#</i></font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Out Enable*</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>43</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Refresh</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>10</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addi-11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>44</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RFU (IOR#)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>11</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr9</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>45</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RFU (IOW#)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr8</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>46</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr17</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr13</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>47</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 18</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addi-14</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>48</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 19</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>WrEnable#/Prog#</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>49</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 20</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Ready/Busyft (IREQ)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>50</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 21</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>17</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>51</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>+5 В</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>18</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vpp1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>52</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Vpp2</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>19</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr16</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>53</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 22</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>20</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 15</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>54</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 23</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>21</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr12</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>55</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 24</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>22</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 7</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>56</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 25</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>23</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 6</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>57</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RFU</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>24</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 5</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>58</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Reset</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>25</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 4</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>59</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>WAIT#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>26</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr3</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>60</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>RFU (INPACK#)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>27</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>61</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Register Select*</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>28</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Addr 1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>62</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BatVDet2 (SPKR#)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>29</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>AddrO</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>63</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>BatVDetl (STSCHG#)</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>30</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 0</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>64</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 8</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>31</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 1</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>65</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 9</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>32</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 2</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>66</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Data 10</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>33</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>WRProt/(IOCS16#)</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>67</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>Card Detect 2#</font>
+</td>
+</tr>
+<tr>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>34</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>68</font>
+</td>
+<td>
+
+<p>
+<font face="Times New Roman" size=2>GND</font>
+</td>
+</tr>
+</table>
+<br clear=all>
+<hr>
+
+<p>
+<font face="Times New Roman" size=2>Для карт памяти (динамической, статической, постоянной<br>
+и флэш-памяти) существует стандарт <i>Miniature Card,</i> пред-<br>
+ставляющий подмножество шины PC Card. Миниатюрная<br>
+карта размером 33х38х3,5 мм с 60-контактным разъемом<br>
+через переходный адаптер может устанавливаться и в слот<br>
+PC Card типа 2.</font>
+<HR>
+<TABLE WIDTH=100%>
+<TR>
+<TD align=right valign=top> 
+<p>
+<DIV ALIGN=center><i><h5>Электронная библиотека InfoCity</i></h5></DIV>
+<DIV ALIGN=center><i><h5>Автор и координатор проекта:<a href=mailto:mpinkus@mail.ru>Михаил Пинкус</a></i></h5></DIV>
+<DIV ALIGN=center><i><h5>У Вас есть документация, которой нет в нашей библиотеке? <a href="mailto:icity@mail.ru?subject=InfoCity - Doc">Присылайте.</a></h5>
+</TD>
+</TR></table>
+</body>
+</html>

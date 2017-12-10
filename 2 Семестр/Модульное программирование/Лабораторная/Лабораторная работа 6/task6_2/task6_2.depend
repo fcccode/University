@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1463680554 source:c:\users\Арслан\desktop\2 Семестр\Модульное программирование\Лабораторная\Лабораторная работа 6\task6_2\main.cpp
+	<iostream>
+	<fstream>
+	<windows.h>
+	<cstring>
+	"Personal_Datas.h"
+
+1463679892 c:\users\Арслан\desktop\2 Семестр\Модульное программирование\Лабораторная\Лабораторная  2\модули к программе\данные\personal_datas\personal_datas.h
+

@@ -1,0 +1,23 @@
+#masthead {
+	width:1020px;
+	height:82px;
+	z-index:999 !important;
+	float:left;
+}
+.logo {
+	padding:27px 0px 0px 10px;
+	float:left;
+	width:200px;
+}
+.navigation {
+	float:left;
+}
+.search{
+	width:289px;
+	height:28px;
+	background-image:url(../images/search_bg.gif);
+	background-repeat:no-repeat;
+	border:#cbcbcb solid 1px;
+	float:right;
+	margin-top:25px;
+}

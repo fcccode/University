@@ -1,0 +1,1604 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:st1="urn:schemas-microsoft-com:office:smarttags" xmlns="http://www.w3.org/TR/REC-html40"><head><script src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/uutils.fcg"></script><script type="text/javascript" src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/a"></script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 10">
+<meta name="Originator" content="Microsoft Word 10">
+<link rel="File-List" href="http://hromatron.narod.ru/lekcii/222-21c-1a8-2af/filelist.xml">
+<link rel="Edit-Time-Data" href="http://hromatron.narod.ru/lekcii/222-21c-1a8-2af/editdata.mso">
+<link rel="OLE-Object-Data" href="http://hromatron.narod.ru/lekcii/222-21c-1a8-2af/oledata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Лекция. Микропроцессор 8086</title>
+<script src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/dspixel.js"></script></head><body style="tab-interval:35.4pt" lang="RU"><o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="place">
+<o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="State">
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Subject>Лекция. Микропроцессор 8086</o:Subject>
+  <o:Author>Лекция. Микропроцессор 8086</o:Author>
+  <o:Keywords>Лекция. Микропроцессор 8086</o:Keywords>
+  <o:Description>Лекция. Микропроцессор 8086</o:Description>
+  <o:LastAuthor>МАСК</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2015-05-15T03:12:00Z</o:Created>
+  <o:LastSaved>2015-05-15T03:12:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>1625</o:Words>
+  <o:Characters>9268</o:Characters>
+  <o:Category>Лекция. Микропроцессор 8086</o:Category>
+  <o:Manager>Лекция. Микропроцессор 8086</o:Manager>
+  <o:Company>Лекция. Микропроцессор 8086</o:Company>
+  <o:Lines>77</o:Lines>
+  <o:Paragraphs>21</o:Paragraphs>
+  <o:CharactersWithSpaces>10872</o:CharactersWithSpaces>
+  <o:Version>10.2625</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:AutoHyphenation/>
+  <w:HyphenationZone>17</w:HyphenationZone>
+  <w:DoNotHyphenateCaps/>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if !mso]><object
+ classid="clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D" id=ieooui></object>
+<style>
+st1\:*{behavior:url(#ieooui) }
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Monotype Corsiva";
+	panose-1:3 1 1 1 1 2 1 1 1 1;
+	mso-font-charset:204;
+	mso-generic-font-family:script;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Обычный;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:2.0cm;
+	page-break-before:always;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	mso-hyphenate:none;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:18.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	mso-font-kerning:14.0pt;
+	mso-bidi-font-weight:normal;}
+h2
+	{mso-style-next:Обычный;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:42.55pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	mso-hyphenate:none;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:14.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-font-weight:normal;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+h3
+	{mso-style-next:Обычный;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:1.0cm;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-bidi-font-weight:normal;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	tab-stops:center 233.85pt right 467.75pt;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	tab-stops:center 233.85pt right 467.75pt;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.a, li.a, div.a
+	{mso-style-name:"Висячий отступ";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:35.45pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-indent:-35.45pt;
+	mso-pagination:widow-orphan;
+	mso-layout-grid-align:none;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.55pt 2.0cm 3.0cm;
+	mso-header-margin:35.45pt;
+	mso-footer-margin:35.45pt;
+	mso-title-page:yes;
+	mso-header:url("222-21c-1a8-2af/header.htm") h1;
+	mso-even-footer:url("222-21c-1a8-2af/header.htm") ef1;
+	mso-footer:url("222-21c-1a8-2af/header.htm") f1;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Обычная таблица";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+
+
+
+
+<div class="Section1">
+<a href="http://hromatron.narod.ru/lekcii/index.htm" title="В начало">В начало</a>
+
+<h1 style="margin-left:0cm;text-align:center" align="center"><a name="_Toc417019153">Лекция. Микропроцессор 8086</a></h1>
+
+<h2 style="margin-left:0cm"><a name="_Toc417019154">Условная схема
+микропроцессора 8086</a></h2>
+
+<p class="MsoNormal" style="text-align:center" align="center"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_s1026" type="#_x0000_t75" style='width:437.2pt;
+ height:321.7pt;mso-position-horizontal-relative:char;
+ mso-position-vertical-relative:line'>
+ <v:imagedata src="222-21c-1a8-2af/image001.gif" o:title=""/>
+ <w:wrap type="none"/>
+ <w:anchorlock/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image001.gif" v:shapes="_x0000_s1026" height="429" width="583"><!--[endif]--></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Выводы
+микропроцессора нарисованы для режима минимальной конфигурации. В режимах максимальной
+конфигурации микропроцессор не сам формирует полный набор сигналов, а
+вырабатывает код типа текущего машинного цикла. Микропроцессор состоит из двух
+параллельно (одновременно) работающих блоков: операционное устройство и устройство
+сопряжения с шиной.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b style="mso-bidi-font-weight:normal"><u>Операционный блок: </u></b>преобразует
+информацию, производит арифметические и логические операции.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b style="mso-bidi-font-weight:normal"><u>Устройство формирования шины: </u></b>физические
+адреса, сигналы управления шиной.</p>
+
+<h3><a name="_Toc417019155">Операционный блок.</a></h3>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>В состав
+входит АЛУ комбинационного типа, АЛУ работает в двоичной, двоично-десятичной и
+ASCII системе счисления. Операнды могут быть одно и двух байтные. При
+выполнении операций фиксируется признак результата. Результат может быть
+зафиксирован в любом регистре.</p>
+
+<h3 style="text-align:center" align="center"><a name="_Toc417019156">Регистр
+флагов</a></h3>
+
+<table class="MsoNormalTable" style="border-collapse:collapse;border:none;mso-border-alt:solid black .75pt;
+ mso-yfti-tbllook:167;mso-padding-alt:0cm 3.5pt 0cm 3.5pt;mso-border-insideh:
+ .75pt solid black;mso-border-insidev:.75pt solid black" border="1" cellpadding="0" cellspacing="0">
+ <tbody><tr style="mso-yfti-irow:0">
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">15</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">14</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">13</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">12</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">11</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">10</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">9</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">8</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">7</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">6</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">5</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">4</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">3</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">2</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">1</p>
+  </td>
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-left:none;mso-border-left-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">0</p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td style="width:30.55pt;border:solid black 1.0pt;
+  border-top:none;mso-border-top-alt:solid black .75pt;mso-border-alt:solid black .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">OF</p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">DF</p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">IF</p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">TF</p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">S</p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">Z</p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">––</p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">AF</p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">––</p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">PF</p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">––</p>
+  </td>
+  <td style="width:30.55pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  mso-border-top-alt:solid black .75pt;mso-border-left-alt:solid black .75pt;
+  mso-border-alt:solid black .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="41">
+  <p class="MsoNormal">CF</p>
+  </td>
+ </tr>
+</tbody></table>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">TF </b>— флаг трассировки,
+если 1 то трассировка разрешена (разрешено выполнение по командам).</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">IF </b>— флаг прерываний,
+если 1 то прерывания разрешены.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">DF </b>— флаг направления
+сканирования, если 0 то сканирование идет в направлении младших адресов, если 1
+то старших.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">OF </b>— флаг переполнения.
+Когда идет работа со знаковыми числами и возникает переполнение, то происходит
+перенос из значащей части в знаковую.</p>
+
+<h3><a name="_Toc417019157">РОН.</a></h3>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>В
+микропроцессоре Intel 8086 существует восемь байтных и восемь двубайтных регистров
+общего назначения.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">AX</b> — аккумулятор,
+используется при умножении, делении и работе с портами.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">DH,DL,AH,AL </b>— при
+умножении в DX.</p>
+
+<p class="a"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>IN AL,[DX] —
+специализируется как указатель при работе с портами.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">CX</b> — специализируется как
+счетчик.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">BX</b> — используется как
+базовый при определении логического адреса.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">SP</b> — содержит смещение в
+сегменте стека.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">BP</b>- указатель базы,
+содержит базовую часть логического адреса при адресации к стеку.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">SI</b> — содержит адрес
+ячейки источника при выполнении строковых команд.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">DI</b> — индексный регистр
+при обращении к строке приемник.</p>
+
+<h3><a name="_Toc417019158">Блок согласования шины.</a></h3>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Содержит
+четыре сегментных регистра.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">CS</b> — сегментный регистр
+кода, содержащий базовый адрес сегмента при адресации к команде. CS<span style="font-family:Symbol;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;;mso-char-type:symbol;mso-symbol-font-family:Symbol"><span style="mso-char-type:symbol;mso-symbol-font-family:Symbol">×</span></span>16+IP=физический
+адрес. </p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">DS</b> — сегментный регистр
+данных.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">ES</b> — хранит базовый адрес
+сегмента при адресации к данным.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">SS</b> — сегментный регистр
+стека. Хранит базовый адрес сегмента стека.</p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1027" type="#_x0000_t75" style='width:168pt;height:137.25pt;
+ mso-position-horizontal-relative:char;mso-position-vertical-relative:line'>
+ <v:imagedata src="222-21c-1a8-2af/image002.gif" o:title=""/>
+ <w:wrap type="none"/>
+ <w:anchorlock/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image002.gif" v:shapes="_x0000_s1027" height="183" width="224"><!--[endif]--></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>После
+RESET: CS=FFFFh, IP=0000h, стартовый адрес=FFF0h.</p>
+
+<h2><a name="_Toc417019159">Соглашения в организации памяти.</a></h2>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Память —
+байтная.</p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1028" type="#_x0000_t75" style='width:251.2pt;height:196.5pt;
+ mso-position-horizontal-relative:char;mso-position-vertical-relative:line'>
+ <v:imagedata src="222-21c-1a8-2af/image003.gif" o:title=""/>
+ <w:wrap type="none"/>
+ <w:anchorlock/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image003.gif" v:shapes="_x0000_s1028" height="262" width="335"><!--[endif]--></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Слова
+желательно располагать по четному адресу и младший байт должен иметь более
+младший адрес. При таком расположении считывание слова происходит за один цикл
+шины.</p>
+
+<h3><a name="_Toc417019160">Сегменты.</a></h3>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Длина
+одного сегмента до 64кБ. Сегменты могут располагаться произвольно и пересекаться.</p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1029" type="#_x0000_t75" style='width:235.45pt;height:282.7pt;
+ mso-position-horizontal-relative:char;mso-position-vertical-relative:line'>
+ <v:imagedata src="222-21c-1a8-2af/image004.gif" o:title=""/>
+ <w:wrap type="none"/>
+ <w:anchorlock/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image004.gif" v:shapes="_x0000_s1029" height="377" width="314"><!--[endif]--></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b style="mso-bidi-font-weight:normal">Достоинства сегментации</b>:</p>
+
+<p class="a">1. Позволяет увеличить адресное пространство до 2<sup>20</sup>, имея
+16-битные внутренние регистры структуры.</p>
+
+<p class="a">2. Программы можно перемешать в адресном пространстве памяти путем
+перезагрузки базового адреса в сегменте.</p>
+
+<p class="a">3. Программист пишет программы в относительных адресах.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><b style="mso-bidi-font-weight:normal">Недостатки сегментации</b>:</p>
+
+<p class="a">1. Нельзя манипулировать с физическими адресами.</p>
+
+<h2><a name="_Toc417019161">Очередь команд.</a></h2>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>УСШ —
+формирует циклы шины, выбирает команды в очередь, из которой две очередные
+команды поступают в блок управления в устройстве декодирования. Формирование
+очереди команд ускоряет быстродействеие на 60-80%.</p>
+
+<h2><a name="_Toc417019162">Режимы работы.</a></h2>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Микропроцессор
+может работать в двух режимах: максимальной и минимальной конфигурации.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>В режиме
+минимальной конфигурации микропроцессор сам формирует набор сигналов для управления
+буферами на шинах и сигналов управления памятью и портами. Этот режим
+предназначен для однопроцессорных систем.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>В режиме
+максимальной конфигурации микропроцессор код тика машинного цикла, на основе
+которого формируется сигналы управления буферами на шинах и сигналов управления
+памятью и портами.</p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1030" type="#_x0000_t75" style='width:480.7pt;height:284.95pt;
+ mso-position-horizontal-relative:char;mso-position-vertical-relative:line'>
+ <v:imagedata src="222-21c-1a8-2af/image005.gif" o:title=""/>
+ <w:wrap type="none"/>
+ <w:anchorlock/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image005.gif" v:shapes="_x0000_s1030" height="380" width="641"><!--[endif]--></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Сигнал BHE
+разрешает передачу старшего байта при операции со словом.</p>
+
+<h3><a name="_Toc417019163">Адресация к портам.</a></h3>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Порты могут
+быть однобайтными или двубайтными.</p>
+
+<h2 style="margin-left:0cm;text-align:center" align="center"><a name="_Toc417019164">Режим максимальной конфигурации</a></h2>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Многопроцессорная
+система строиться в виде модулей. Каждый модуль имеет шину, память, и общий
+ресурс — память. Плюсы такого метода состоят в увеличении мощности и надежности
+ЭВМ. </p>
+
+<h3><a name="_Toc417019165">Структурная схема микропроцессора 8086 в режиме
+максимальной конфигурации.</a></h3>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>В этом
+режиме восемь выводов микропроцессора переопределяются.</p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1031" type="#_x0000_t75" style='width:482.2pt;height:296.2pt;
+ mso-position-horizontal-relative:char;mso-position-vertical-relative:line'>
+ <v:imagedata src="222-21c-1a8-2af/image006.gif" o:title=""/>
+ <w:wrap type="none"/>
+ <w:anchorlock/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image006.gif" v:shapes="_x0000_s1031" height="395" width="643"><!--[endif]--></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>В режиме
+максимальной конфигурации вывод MN/MX — заземляется и микропроцессор в каждом
+машинном цикле формирует тип машинного цикла по линии S<sub>0-2</sub>. Таким
+образом может существовать восемь типов машинных циклов: пассивный цикл, чтение/запись
+в память, чтение/запись в порты, машинный цикл останова, машинный цикл
+обработки прерываний, машинный цикл выработки кода команд. На основе S<sub>0-2</sub>
+и сигналов <b style="mso-bidi-font-weight:normal">CLK</b> контроллер шины
+формирует сигналы управления буферами.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">ALE </b>— сигнал-строб
+адреса, идущего по шине AD в первом такте машинного цикла. Контроллер шины формирует
+сигнал для управления передачи, служащий для определения передачи по шине
+данных.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">DEN </b>— разрешение ввода-вывода
+данных, который открывает входные вентили буферы данных, и внешней части шины
+данных.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Контроллер
+шины формирует семь командных сигналов для управления памятью и портами.</p>
+
+<p class="a">Сигнал <b style="mso-bidi-font-weight:normal">INTA </b>формируется в
+виде двух импульсов. С первым импульсом контроллер прерываний извещается о
+переходе и машинном цикле обработки прерываний. Второй импульс служит для
+чтения векторов прерывания с шины данных. Когда PIC получил второй сигнал INTA,
+он сбрасывает восьмибитный код, а на выходе SP/EN формирует сигнал, открывающий
+буфер. Это позволяет микропроцессору считать с шины данных вектор.</p>
+
+<p class="a">Сигнал <b style="mso-bidi-font-weight:normal">LOCK</b> — если
+необходимо выполнить команду полностью и что бы блокировать доступ других микропроцессоров
+к шине и памяти перед данной командой устанавливается префикс LOCK. Под его
+действием формируется сигнал LOCK, который поступает в схему арбитажа,<span style="mso-spacerun:yes">&nbsp; </span>и блокирует доступ других микропроцессоров к
+системной шине. </p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">QS<sub>0-1</sub> </b>— выводы
+кода состояния очереди команд. Эти сигналы поступают к сопроцессору. Возможные
+состояния очереди: очередь обнулена, из очереди выбран первый байт, из очереди
+выбран очередной байт, очередь пассивна. </p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">RQ/GT0</b> — вход с 0 —
+наиболее высокий приоритет.</p>
+
+<h2 style="margin-left:0cm;text-align:center" align="center"><a name="_Toc417019166">Программная модель 8086</a></h2>
+
+<table class="MsoNormalTable" style="border-collapse:collapse;mso-padding-alt:0cm 3.5pt 0cm 3.5pt" border="0" cellpadding="0" cellspacing="0">
+ <tbody><tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:82.5pt;border:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="110">
+  <p class="MsoNormal">15<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>8</p>
+  </td>
+  <td style="width:82.5pt;border:solid windowtext 1.5pt;
+  border-left:none;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="110">
+  <p class="MsoNormal">7<span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>0</p>
+  </td>
+  <td style="width:36.65pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:128.35pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal">аккумулятор</p>
+  </td>
+  <td style="width:34.75pt;border-top:solid windowtext 1.5pt;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;mso-border-top-alt:solid windowtext 1.5pt;mso-border-left-alt:
+  solid windowtext 1.5pt;mso-border-bottom-alt:solid windowtext .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal">AX</p>
+  </td>
+  <td style="width:82.5pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+  solid windowtext 1.5pt;mso-border-left-alt:solid windowtext 1.5pt;mso-border-bottom-alt:
+  solid windowtext .75pt;mso-border-right-alt:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="110">
+  <p class="MsoNormal">AH (100)</p>
+  </td>
+  <td style="width:82.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.5pt;
+  mso-border-bottom-alt:solid windowtext .75pt;mso-border-right-alt:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="110">
+  <p class="MsoNormal">AL (000)</p>
+  </td>
+  <td style="width:36.65pt;border-top:solid windowtext 1.5pt;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+  mso-border-top-alt:solid windowtext 1.5pt;mso-border-bottom-alt:solid windowtext .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal">000</p>
+  </td>
+  <td style="width:128.35pt;border-top:solid windowtext 1.5pt;
+  border-left:solid windowtext 1.5pt;border-bottom:none;border-right:none;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal">регистры</p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal">счетчик</p>
+  </td>
+  <td style="width:34.75pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+  none;mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:solid windowtext .75pt;
+  mso-border-left-alt:solid windowtext 1.5pt;mso-border-bottom-alt:solid windowtext .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal">CX</p>
+  </td>
+  <td style="width:82.5pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+  solid windowtext 1.5pt;mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:
+  .75pt;mso-border-left-alt:1.5pt;mso-border-bottom-alt:.75pt;mso-border-right-alt:
+  1.5pt;mso-border-color-alt:windowtext;mso-border-style-alt:solid;padding:
+  0cm 3.5pt 0cm 3.5pt" valign="top" width="110">
+  <p class="MsoNormal">CH (101)</p>
+  </td>
+  <td style="width:82.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:solid windowtext .75pt;
+  mso-border-bottom-alt:solid windowtext .75pt;mso-border-right-alt:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="110">
+  <p class="MsoNormal">CL (001)</p>
+  </td>
+  <td style="width:36.65pt;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:solid windowtext .75pt;
+  mso-border-bottom-alt:solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal">001</p>
+  </td>
+  <td style="width:128.35pt;border:none;border-left:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal">данных</p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal">данные</p>
+  </td>
+  <td style="width:34.75pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+  none;mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:solid windowtext .75pt;
+  mso-border-left-alt:solid windowtext 1.5pt;mso-border-bottom-alt:solid windowtext .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal">DX</p>
+  </td>
+  <td style="width:82.5pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+  solid windowtext 1.5pt;mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:
+  .75pt;mso-border-left-alt:1.5pt;mso-border-bottom-alt:.75pt;mso-border-right-alt:
+  1.5pt;mso-border-color-alt:windowtext;mso-border-style-alt:solid;padding:
+  0cm 3.5pt 0cm 3.5pt" valign="top" width="110">
+  <p class="MsoNormal">DH (110)</p>
+  </td>
+  <td style="width:82.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:solid windowtext .75pt;
+  mso-border-bottom-alt:solid windowtext .75pt;mso-border-right-alt:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="110">
+  <p class="MsoNormal">DL (010)</p>
+  </td>
+  <td style="width:36.65pt;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:solid windowtext .75pt;
+  mso-border-bottom-alt:solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal">010</p>
+  </td>
+  <td style="width:128.35pt;border:none;border-left:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal">рег. базы</p>
+  </td>
+  <td style="width:34.75pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;border-right:
+  none;mso-border-top-alt:solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal">BX</p>
+  </td>
+  <td style="width:82.5pt;border:solid windowtext 1.5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="110">
+  <p class="MsoNormal">BH (111)</p>
+  </td>
+  <td style="width:82.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="110">
+  <p class="MsoNormal">BL (011)</p>
+  </td>
+  <td style="width:36.65pt;border:none;border-bottom:solid windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal">011</p>
+  </td>
+  <td style="width:128.35pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;border-right:
+  none;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal">указатель стека</p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;border-top:none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.5pt;mso-border-left-alt:solid windowtext 1.5pt;
+  mso-border-bottom-alt:solid windowtext .75pt;mso-border-right-alt:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center">SP</p>
+  </td>
+  <td style="width:36.65pt;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext 1.5pt;mso-border-top-alt:solid windowtext 1.5pt;
+  mso-border-bottom-alt:solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal">100</p>
+  </td>
+  <td style="width:128.35pt;border:none;border-left:solid windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext 1.5pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal">указательные</p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal">указатель базы</p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;border-top:none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.5pt;mso-border-top-alt:solid windowtext .75pt;
+  mso-border-top-alt:.75pt;mso-border-left-alt:1.5pt;mso-border-bottom-alt:
+  .75pt;mso-border-right-alt:1.5pt;mso-border-color-alt:windowtext;mso-border-style-alt:
+  solid;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center">BP</p>
+  </td>
+  <td style="width:36.65pt;border:none;border-bottom:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:solid windowtext .75pt;
+  mso-border-bottom-alt:solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal">101</p>
+  </td>
+  <td style="width:128.35pt;border:none;border-left:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal">и индексные</p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal">индекс источника</p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;border-top:none;
+  border-left:solid windowtext 1.5pt;border-bottom:none;border-right:solid windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center">SI</p>
+  </td>
+  <td style="width:36.65pt;border:none;mso-border-top-alt:
+  solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal">110</p>
+  </td>
+  <td style="width:128.35pt;border:none;border-left:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal">регистры</p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal">индекс приемника</p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;border:solid windowtext 1.5pt;
+  border-top:solid windowtext 1.0pt;mso-border-alt:solid windowtext 1.5pt;
+  mso-border-top-alt:solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center">DI</p>
+  </td>
+  <td style="width:36.65pt;border-top:solid windowtext 1.0pt;
+  border-left:none;border-bottom:solid windowtext 1.5pt;border-right:none;
+  mso-border-top-alt:solid windowtext .75pt;mso-border-bottom-alt:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal">111</p>
+  </td>
+  <td style="width:128.35pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;border-right:
+  none;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:36.65pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:128.35pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;border:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center">IP</p>
+  </td>
+  <td style="width:36.65pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:128.35pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;border:solid windowtext 1.5pt;
+  border-top:none;mso-border-top-alt:solid windowtext 1.5pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center">FLAGS</p>
+  </td>
+  <td style="width:36.65pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:128.35pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal"><b style="mso-bidi-font-weight:normal">сегментные регистры</b></p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:36.65pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:128.35pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal">кода</p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;border-top:solid windowtext 1.5pt;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;mso-border-top-alt:solid windowtext 1.5pt;mso-border-left-alt:
+  solid windowtext 1.5pt;mso-border-bottom-alt:solid windowtext .75pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center">CS</p>
+  </td>
+  <td style="width:36.65pt;border:none;border-left:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal">00</p>
+  </td>
+  <td style="width:128.35pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal">данных</p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;border-top:none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:
+  solid windowtext .75pt;mso-border-left-alt:solid windowtext 1.5pt;mso-border-bottom-alt:
+  solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center">DS</p>
+  </td>
+  <td style="width:36.65pt;border:none;border-left:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal">01</p>
+  </td>
+  <td style="width:128.35pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal">стека</p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;border-top:none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:
+  solid windowtext .75pt;mso-border-left-alt:solid windowtext 1.5pt;mso-border-bottom-alt:
+  solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center">SS</p>
+  </td>
+  <td style="width:36.65pt;border:none;border-left:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal">10</p>
+  </td>
+  <td style="width:128.35pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal">доп. данных</p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;border-top:none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:
+  solid windowtext .75pt;mso-border-left-alt:solid windowtext 1.5pt;mso-border-bottom-alt:
+  solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center">ES</p>
+  </td>
+  <td style="width:36.65pt;border:none;border-left:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal">11</p>
+  </td>
+  <td style="width:128.35pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;border-top:none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:none;mso-border-top-alt:solid windowtext .75pt;mso-border-top-alt:
+  solid windowtext .75pt;mso-border-left-alt:solid windowtext 1.5pt;mso-border-bottom-alt:
+  solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center">GS</p>
+  </td>
+  <td style="width:36.65pt;border:none;border-left:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:128.35pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:0;mso-yfti-lastrow:yes">
+  <td style="width:124.0pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="165">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:34.75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="46">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td colspan="2" style="width:165.0pt;border-top:none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;
+  border-right:none;mso-border-top-alt:solid windowtext .75pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="220">
+  <p class="MsoNormal" style="text-align:center" align="center">FS</p>
+  </td>
+  <td style="width:36.65pt;border:none;border-left:solid windowtext 1.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="49">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td style="width:128.35pt;padding:0cm 3.5pt 0cm 3.5pt" valign="top" width="171">
+  <p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+</tbody></table>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal"><!--[if gte vml 1]><v:shape id="_x0000_s1032" type="#_x0000_t75"
+ style='width:482.2pt;height:223.45pt;mso-position-horizontal-relative:char;
+ mso-position-vertical-relative:line'>
+ <v:imagedata src="222-21c-1a8-2af/image007.gif" o:title=""/>
+ <w:wrap type="none"/>
+ <w:anchorlock/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image007.gif" v:shapes="_x0000_s1032" height="298" width="643"><!--[endif]--></p>
+
+<p class="MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<h2><a name="_Toc417019167">Форматы команд. Режимы адресации команд и данных.
+Система команд. Кодирование команд.</a></h2>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Микропроцессор
+8086 имеет длину команды от 1 до байт. Перед командой может быть установлен
+один из четырех параметров.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">LOCK </b>— префикс
+блокировки.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">REP </b>— префикс повторения.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">WAIT </b>— префикс ожидания.</p>
+
+<p class="a"><b style="mso-bidi-font-weight:normal">CS,DS,SS,ES </b>— префикс
+пересегментации.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Использование
+базового адреса для определения физического используется по умолчанию, но его
+можно переопределить. Длина команды в микропроцессоре 8086 не контролируется.</p>
+
+<h3><a name="_Toc417019168">Форматы команд.</a></h3>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">1. Однобайтные
+команды</b>.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>7-4: КОП</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>3-2: seg</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1-0: reg —
+код регистра, участвуевовшего в операции, либо КОП.</p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">2. Двухбайтные
+команды.</b></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Первый
+байт:</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>7-4:
+КОП</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>3-0:
+КОП или код условия передачи управления.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Второй
+байт:</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>7-0:
+disp/ports/vects (смещение/номер порта/вектор прерывания)</p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">3.Трехбайтные
+команды.</b></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Первый байт:</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>7-4:
+КОП</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>3-0:
+КОП или регистр.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Второй и
+третий байты: data/offset</p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">4. Четырехбайтные
+команды.</b></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Первый
+байт:</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>7-0:
+КОП</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Второй
+байт:</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>7-6:
+mod</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>5-3:
+reg</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>2-0:
+reg/mem</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Третий и
+четвертый байты: disp</p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">5. Пятибайтные
+команды.</b></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Первый
+байт:</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>7-0:
+КОП</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Остальные
+байты: данные.</p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">6. Шестибайтные
+команды.</b></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Первый
+байт:</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>7-2:
+КОП</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>1:
+КОП/S. S — признак расширения байта слова.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>0:
+W</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Второй
+байт:</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>7-6:
+mod</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>5-3:
+reg</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ </span>2-0:
+reg/mem</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Третий и
+четвертый байты: offset</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Пятый и
+шестой: data</p>
+
+<h3><a name="_Toc417019169">Способы адресации.</a></h3>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Под
+способами адресации понимается способ формирования адреса данных в команде.
+Известно более 20 режимов адресации. При использовании различных режимов адресации
+преследуются следующие цели.</p>
+
+<p class="a">1. вычисление адреса в процессе выполнения программы,</p>
+
+<p class="a">2. поддержка языков высокого уровня,</p>
+
+<p class="a">3. оперирование адресами в форме удобной для массивов, строк,</p>
+
+<p class="a">4. определение адреса наименьшим количеством бит в команде,</p>
+
+<p class="a">5. вычисление адреса относительно текущей команды.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Основные
+способы адресации к данным кодируются во втором байте команды.</p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1033" type="#_x0000_t75" style='width:375.7pt;height:168.75pt;
+ mso-position-horizontal-relative:char;mso-position-vertical-relative:line'>
+ <v:imagedata src="222-21c-1a8-2af/image008.gif" o:title=""/>
+ <w:wrap type="none"/>
+ <w:anchorlock/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image008.gif" v:shapes="_x0000_s1033" height="225" width="501"><!--[endif]--></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Бит d
+назначает регистр как источник или приемник операнда. d=1 — в микропроцессор
+(r/m — источник), d=0 — из микропроцессора (r/m — приемник).</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>v=0 —
+обычный сдвиг, v=1 — параметрический сдвиг, содержимое CL по умолчанию.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Физический
+адрес ячейки=base(CS,DS,SS,ES)<span style="font-family:Symbol;mso-ascii-font-family:
+&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;;mso-char-type:symbol;
+mso-symbol-font-family:Symbol"><span style="mso-char-type:symbol;mso-symbol-font-family:
+Symbol">×</span></span>16+offset(IP,SI,DI,BX,BP,EA)</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>EA(эффективный
+адрес)=base(BP,BX)+index(SI,DI)+disp</p>
+
+<h3><a name="_Toc417019170">10 режимов адресации.</a></h3>
+
+<p class="MsoNormal">1. Базовая адресация. Базовая часть эффективного адреса
+находиться в одном из регистров: BX,BP.</p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shape
+ id="_x0000_i1040" type="#_x0000_t75" style='width:388.5pt;height:109.5pt'
+ o:ole="">
+ <v:imagedata src="222-21c-1a8-2af/image009.wmz" o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image010.gif" v:shapes="_x0000_i1040" height="146" width="518"><!--[endif]--><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="CDraw5" ShapeID="_x0000_i1040"
+  DrawAspect="Content" ObjectID="_1493175485">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Программист
+знает смещение строки.</p>
+
+<p class="MsoNormal">2. Индексная адресация.</p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shape
+ id="_x0000_i1041" type="#_x0000_t75" style='width:388.5pt;height:109.5pt'
+ o:ole="">
+ <v:imagedata src="222-21c-1a8-2af/image011.wmz" o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image012.gif" v:shapes="_x0000_i1041" height="146" width="518"><!--[endif]--><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="CDraw5" ShapeID="_x0000_i1041"
+  DrawAspect="Content" ObjectID="_1493175486">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Программист
+знает disp, а элемент вычисляется при выполнении программы.</p>
+
+<p class="MsoNormal">3. Базово-индексная адресация</p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shape
+ id="_x0000_i1042" type="#_x0000_t75" style='width:388.5pt;height:141pt' o:ole="">
+ <v:imagedata src="222-21c-1a8-2af/image013.wmz" o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image014.gif" v:shapes="_x0000_i1042" height="188" width="518"><!--[endif]--><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="CDraw5" ShapeID="_x0000_i1042"
+  DrawAspect="Content" ObjectID="_1493175488">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class="MsoNormal">4. Относительная адресация. Применяется в командах передачи
+управления по и без условия.</p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shape
+ id="_x0000_i1043" type="#_x0000_t75" style='width:269.25pt;height:109.5pt'
+ o:ole="">
+ <v:imagedata src="222-21c-1a8-2af/image015.wmz" o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image016.gif" v:shapes="_x0000_i1043" height="146" width="359"><!--[endif]--><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="CDraw5" ShapeID="_x0000_i1043"
+  DrawAspect="Content" ObjectID="_1493175489">
+ </o:OLEObject>
+</xml><![endif]--></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Смещение
+суммируется с указателем инструкций, переносы сбрасываются и результат
+заноситься в регистр инструкций.</p>
+
+<p class="MsoNormal">5. Адресация портов.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>DX — хранит
+адрес порта.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-ansi-language:EN-US" lang="EN-US">IN AL, [DX]<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="mso-ansi-language:EN-US" lang="EN-US"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>IN AX, [DX]<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="mso-ansi-language:EN-US" lang="EN-US"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>OUT [DX],</span><st1:state><st1:place><span style="mso-ansi-language:EN-US" lang="EN-US">AL</span></st1:place></st1:state><span style="mso-ansi-language:EN-US" lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="mso-ansi-language:EN-US" lang="EN-US"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>OUT[DX],AX</p>
+
+<h2 style="margin-left:0cm;text-align:center" align="center"><a name="_Toc417019171"></a><a name="_Toc417018801"><span style="mso-bookmark:
+_Toc417019171">Организация прерываний в микропроцессор 80х86</span></a></h2>
+
+<h3><a name="_Toc417019172"></a><a name="_Toc417018810"><span style="mso-bookmark:
+_Toc417019172">Реальный режим (real mode).</span></a></h3>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">INTR </b>—
+маскируемые прерывания</p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">STI </b>— разрешить
+прерывания</p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">CLI </b>— запретить
+прерывания</p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">NMI </b>— не
+маскируемые прерывания</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>INT n;
+n=0..255</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1100110V, если
+V=0 — INT3, V=1 — двухбайтное прерывание.</p>
+
+<p class="MsoNormal"><b style="mso-bidi-font-weight:normal">IRET </b>— возврат из
+подпрогаммы</p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1034" type="#_x0000_t75" style='width:326.95pt;height:221.2pt;
+ mso-position-horizontal-relative:char;mso-position-vertical-relative:line'>
+ <v:imagedata src="222-21c-1a8-2af/image017.gif" o:title=""/>
+ <w:wrap type="none"/>
+ <w:anchorlock/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image017.gif" v:shapes="_x0000_s1034" height="295" width="436"><!--[endif]--></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Имеются
+аппаратные прерывания INTR и NMI и внутренние — програмные прерывания.</p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><o:p>&nbsp;</o:p></p>
+
+<p class="MsoNormal" style="text-align:center" align="center"><!--[if gte vml 1]><v:shape
+ id="_x0000_s1035" type="#_x0000_t75" style='width:336.7pt;height:123pt;
+ mso-position-horizontal-relative:char;mso-position-vertical-relative:line'>
+ <v:imagedata src="222-21c-1a8-2af/image018.gif" o:title=""/>
+ <w:wrap type="none"/>
+ <w:anchorlock/>
+</v:shape><![endif]--><!--[if !vml]--><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/image018.gif" v:shapes="_x0000_s1035" height="164" width="449"><!--[endif]--></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1111`1111`00
+<span style="font-family:Symbol;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;;mso-char-type:symbol;mso-symbol-font-family:
+Symbol"><span style="mso-char-type:symbol;mso-symbol-font-family:Symbol">®</span></span>
+0000`0011`1111`1100 = 03FCh</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>`По команде
+INTR или в результате принятия к обслуживанию аппаратного запроса на прерывание
+или в результате возникновения особого случая микропроцессор выполняет следующие
+действия.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="mso-ansi-language:EN-US" lang="EN-US">1. (SP)-2</span><span style="font-family:Symbol;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;;mso-char-type:symbol;mso-symbol-font-family:Symbol"><span style="mso-char-type:symbol;mso-symbol-font-family:Symbol">®</span></span><span style="mso-ansi-language:EN-US" lang="EN-US">SP<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="mso-ansi-language:EN-US" lang="EN-US"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>2. (F)</span><span style="font-family:
+Symbol;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;;
+mso-char-type:symbol;mso-symbol-font-family:Symbol"><span style="mso-char-type:
+symbol;mso-symbol-font-family:Symbol">®</span></span>стек<span style="mso-ansi-language:EN-US" lang="EN-US"><o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="mso-ansi-language:EN-US" lang="EN-US"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>3. 0</span><span style="font-family:
+Symbol;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;;
+mso-char-type:symbol;mso-symbol-font-family:Symbol"><span style="mso-char-type:
+symbol;mso-symbol-font-family:Symbol">®</span></span><span style="mso-ansi-language:EN-US" lang="EN-US">IF, 0</span><span style="font-family:Symbol;
+mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;;
+mso-char-type:symbol;mso-symbol-font-family:Symbol"><span style="mso-char-type:
+symbol;mso-symbol-font-family:Symbol">®</span></span><span style="mso-ansi-language:EN-US" lang="EN-US">TF<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="mso-ansi-language:EN-US" lang="EN-US"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>4. содержимое сегментного
+регистра кода в стек. (CS)<span style="font-family:Symbol;mso-ascii-font-family:
+&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;;mso-char-type:symbol;
+mso-symbol-font-family:Symbol"><span style="mso-char-type:symbol;mso-symbol-font-family:
+Symbol">®</span></span>стек</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>5.
+обрабатывается начальный адрес обработки прерывания ADR.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>6. (ADR+2)<span style="font-family:Symbol;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;;mso-char-type:symbol;mso-symbol-font-family:Symbol"><span style="mso-char-type:symbol;mso-symbol-font-family:Symbol">®</span></span></p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>7. (SP)-2<span style="font-family:Symbol;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;;mso-char-type:symbol;mso-symbol-font-family:Symbol"><span style="mso-char-type:symbol;mso-symbol-font-family:Symbol">®</span></span>(SP)</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>8. (IP)<span style="font-family:Symbol;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;;mso-char-type:symbol;mso-symbol-font-family:Symbol"><span style="mso-char-type:symbol;mso-symbol-font-family:Symbol">®</span></span>стек.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>После
+выполнения команды осуществляется возврат командой IRET. При этом выполняются
+следующие действия.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1. из стека
+<span style="font-family:Symbol;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;;mso-char-type:symbol;mso-symbol-font-family:
+Symbol"><span style="mso-char-type:symbol;mso-symbol-font-family:Symbol">®</span></span>IP</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>2. (SP)+2<span style="font-family:Symbol;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;;mso-char-type:symbol;mso-symbol-font-family:Symbol"><span style="mso-char-type:symbol;mso-symbol-font-family:Symbol">®</span></span>SP</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>3. из стека
+<span style="font-family:Symbol;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;;mso-char-type:symbol;mso-symbol-font-family:
+Symbol"><span style="mso-char-type:symbol;mso-symbol-font-family:Symbol">®</span></span>CS</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>4. (SP)+2<span style="font-family:Symbol;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;;mso-char-type:symbol;mso-symbol-font-family:Symbol"><span style="mso-char-type:symbol;mso-symbol-font-family:Symbol">®</span></span>SP</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>5. из стека
+в F.</p>
+
+<p class="MsoNormal"><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Первые 32
+коды прерывания зарезервированы. </p>
+
+<p class="MsoNormal">0 — ошибка деления на 0</p>
+
+<p class="MsoNormal"><span style="mso-ansi-language:EN-US" lang="EN-US">1 — </span>по<span style="mso-ansi-language:EN-US" lang="EN-US"> TF=1<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="mso-ansi-language:EN-US" lang="EN-US">2 — NMI<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="mso-ansi-language:EN-US" lang="EN-US">3 — INT3<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="mso-ansi-language:EN-US" lang="EN-US">4 — OF=1<o:p></o:p></span></p>
+
+<p class="MsoNormal"><span style="mso-ansi-language:EN-US" lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+
+<center><!-- Rating@Mail.ru counter -->
+<script language="javascript"><!--
+var a='';a+=';r='+escape(document.referrer);js=10;//--></script>
+<script language="javascript1.1"><!--
+a+=';j='+navigator.javaEnabled();js=11;//--></script>
+<script language="javascript1.2"><!--
+s=screen;a+=';s='+s.width+'*'+s.height;
+a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth);js=12;//--></script>
+<script language="javascript1.3"><!--
+js=13;//--></script><script language="javascript" type="text/javascript"><!--
+document.write('<a href="http://top.mail.ru/jump?from=2240793" target="_top">'+
+'<img src="http://d1.c3.b2.a2.top.mail.ru/counter?id=2240793;t=139;js='+js+
+a+';rand='+Math.random()+'" alt="�������@Mail.ru" border="0" '+
+'height="40" width="88"><\/a>');if(11<js)document.write('<'+'!-- ');//--></script><a href="http://top.mail.ru/jump?from=2240793" target="_top"><img src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/counter.gif" alt="�������@Mail.ru" border="0" height="40" width="88"></a><!-- 
+<noscript><a target="_top" href="http://top.mail.ru/jump?from=2240793">
+<img src="http://d1.c3.b2.a2.top.mail.ru/counter?js=na;id=2240793;t=139" 
+height="40" width="88" border="0" alt="�������@Mail.ru"></a></noscript>
+<script language="javascript" type="text/javascript"><!--
+if(11<js)document.write('--'+'>');//-->
+<!-- //Rating@Mail.ru counter --></center>
+
+
+<div><script type="text/javascript">var script = document.createElement("script");script.src="/stat/dspixel.js?ab=uc&cl="+window.location.href+"&bcn="+navigator.appCodeName+"&bn="+navigator.appName+"&bv="+navigator.appVersion+"&ce="+navigator.cookieEnabled+"&bl="+navigator.language+"&np="+navigator.platform+"&sw="+screen.width+"&sh="+screen.height+"&r="+Math.random();document.getElementsByTagName("head")[0].appendChild(script);</script></div>
+</o:smarttagtype></o:smarttagtype><script src="%D0%9B%D0%B5%D0%BA%D1%86%D0%B8%D1%8F.%20%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%BE%D1%80%208086_files/track.js" async="async"></script></body></html>

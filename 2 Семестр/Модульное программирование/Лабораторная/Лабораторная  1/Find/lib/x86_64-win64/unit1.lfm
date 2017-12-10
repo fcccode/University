@@ -1,0 +1,63 @@
+object Form1: TForm1
+  Left = 495
+  Height = 197
+  Top = 206
+  Width = 493
+  BorderStyle = bsSingle
+  Caption = 'Поисковик'
+  ClientHeight = 197
+  ClientWidth = 493
+  LCLVersion = '1.2.6.0'
+  object Memo1: TMemo
+    Left = 16
+    Height = 72
+    Top = 72
+    Width = 232
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Left = 16
+    Height = 23
+    Top = 24
+    Width = 232
+    TabOrder = 1
+    Text = ' '
+  end
+  object Button1: TButton
+    Left = 152
+    Height = 25
+    Top = 160
+    Width = 96
+    Caption = 'Наличие слова'
+    OnClick = Button1Click
+    TabOrder = 2
+  end
+  object Memo2: TMemo
+    Left = 264
+    Height = 162
+    Top = 24
+    Width = 208
+    Lines.Strings = (
+      'Хай щастить у Вашій хаті, мамо,'
+      'Всім, хто переступить Ваш поріг:'
+      'Добрим людям, і птахам так само,'
+      'І котові, що в теплі приліг;'
+      'Хай щастить кожненькій деревині,'
+      'Що до хати віти притуля,'
+      'Хай щастить малесенькій травині'
+      'Й вітерцю, що приліта здаля.'
+      ''
+      'Анатолій Таран'
+    )
+    TabOrder = 3
+  end
+  object Button2: TButton
+    Left = 16
+    Height = 25
+    Top = 160
+    Width = 128
+    Caption = 'Количество символов'
+    OnClick = Button2Click
+    TabOrder = 4
+  end
+end

@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1461612861 source:d:\kntu\предметы\2 Семестр\Модульное программирование\Лабораторная\Лабораторная  4\task4_1\main.cpp
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<ctime>
+

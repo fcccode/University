@@ -1,0 +1,70 @@
+#include <iostream>
+#include <fstream>
+#include <windows.h>
+#include <cstring>
+#include "clrscr.h"
+#include "PashinskikhModule.h"
+
+using namespace std;
+
+class Teacher{
+public:
+    Teacher(){
+        TestSuite();
+    }
+private:
+    void TestSuite(){
+        ofstream output;
+        output.open("log.txt", ios::trunc);
+
+        ifstream prj;
+        prj.open("D:\\University\\ModuleProgramming\\Pashinskikh_LAB6\\prj\\main.cpp", ios::in);
+        if (!prj.is_open()){
+            prj.close();
+            cout << "Помилка! Файл не вiдкривається!" << endl;
+            output << "Встановлені вимоги до виконання лабораторної роботи ПОРУШЕНО!" << endl;;
+            output.close();
+            for (int i=0; i!=3; i++){
+                cout << "\a";
+                Sleep(1000);
+            }
+        }
+        else {
+            output << "Розробник: Пашинських Владислав Вадимович" << endl;
+            output << "Час і дата компіляції: " << __TIMESTAMP__ << endl;
+            output.close();
+
+            int m_edge, m_weight, m_seeds;
+            streambuf *old = cout.rdbuf(0);
+            Watermelon Abstraction(m_edge = 25, m_weight = 5, m_seeds = 50);
+            cout.rdbuf(old);
+
+            for (int i=1; i!=4; i++) {
+                if (Abstraction.edge == m_edge)
+                    cout << "TEST_CASE_D " << i << ": PASSED" << endl;
+                else
+                    cout << "TEST_CASE_D " << i << ": FAILED" << endl;
+                m_edge+5;
+                m_weight+5;
+                m_seeds+5;
+            }
+
+            for (int i=1; i!=4; i++) {
+                if (Abstraction.V() == Abstraction.edge*Abstraction.edge*Abstraction.edge)
+                    cout << "TEST_CASE_V " << i << ": PASSED" << endl;
+                else
+                    cout << "TEST_CASE_V " << i << ": FAILED" << endl;
+                Abstraction.edge+5;
+
+            }
+        }
+    }
+protected:
+};
+
+int main()
+{
+    setlocale(LC_ALL, "UKR");
+    Teacher TestSuite;
+    return 0;
+}
