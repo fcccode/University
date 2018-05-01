@@ -1,0 +1,126 @@
+Задание 1
+1) (cadddr `( 1 2 3 a 4))
+2) (cddddr `( 1 2 3 4 a))
+3) (caaddr `((1)(2 3)(a 4)))
+4) (cddadr `((1)( 2 3 a)(4)))
+5) (caddr(caadr `((1)((2 3 a 4)))))
+6) (cadadr(caddar(cadadr`(1 (2 ( (3 4 ( 5 ( 6 a)))))))))
+
+
+Задание 2 
+1) (ATOM (CAR (QUOTE ((1 2) 3 4)))); -> NIL
+2) (NULL (CDDR (QUOTE ((5 6) (7 8))))); -> T
+3) (EQUAL (CAR (QUOTE ((7 )))) (CDR (QUOTE (5 7)))); -> T
+4) (ZEROP (CADDDR (QUOTE (3 2 1 0)))); -> T
+
+Задание 3
+а) (3.234*(45.6+2.43)) -> (* 3.234 (+ 45.6 2.34)) = 155,76129
+б) 55+21.3+1.54*2.5432-32 -> (- (+ 55 21.3 (* 1.54 2.5432)) 32 ) ->48,215142
+в) (34-21.5676-43)/(342+32*4.1) -> (/ (- 34 21.5676 43) (+ 342 (* 32 4.1))) -> -0,0645976331360947
+
+Задание 4
+
+а) ‘(+ 2 (* 3 5)) -> 	(‘(+ 2 (* 3 5)))
+б) (+ 2 ‘(* 3 5)) -> 	(Error(Numeric argument break))
+в) (+ 2 (’ * 3 5))-> 	(Error(Undefined function))
+г) (+ 2 (* 3 ’5)) ->  	(17)
+д) (quote ‘quote) ->  	(QUOTE QUOTE)
+е) (quote 6)      ->	(6)
+
+Задание 5
+
+//=====================================================
+(SET `GROUP (	LIST 
+				(LIST IVANOV IVAN) 
+				(LIST SMIRNOV BOGDAN) 
+				(LIST SHEVCHENKO TARAS)
+			) )
+//=====================================================
+(SET `STUDENT_INFO (LIST 
+					(LIST 27 08 1990) 
+					(LIST UNIVERSITETSKIY 8)  
+					10.1 
+					10 
+					10))
+//=====================================================
+(SET `MOTHER_INFO	(LIST
+					(LIST IVANOVA ELENA) 
+					(LIST 13 01 1962) 
+					(LIST POPOVA 10) 
+				     DOMOHOZAYKA ))
+//=====================================================
+(SET `FATHER_INFO (LIST 
+					(LIST IVANOV DMITRIY) 
+					(LIST 03 08 1956) 
+					(LIST POPOVA 10) 
+					 RADIY ))
+//=====================================================   
+  (SET (CAAR GROUP) (CONS STUDENT_INFO 
+					(CONS FATHER_INFO MOTHER_INFO)))
+					
+//=====================================================
+(SET (CAAR GROUP) 	(CONS	(LIST (LIST 27 08 1990)  (LIST UNIVERSITETSKIY 8) 10.1  10  10 )
+							(CONS (LIST (LIST IVANOV DMITRIY) (LIST 03 08 1956) (LIST POPOVA 10) RADIY)
+								  (LIST (LIST IVANOVA ELENA) (LIST 13 01 1962)  (LIST POPOVA 10) DOMOHOZAYKA)	
+							)					
+					)
+//=====================================================
+							
+(SET (CAAR GROUP) (CONS `( `(27 08 1995)  `(UNIVERSITETSKIY 8) 10.1  10  10 )
+				  (CONS `(`(IVANOV DMITRIY) `(03 08 1956) `(POPOVA 10) RADIY)
+						`(`(IVANOVA ELENA)  `(13 01 1962) `(POPOVA 10) DOMOHOZAYKA)	
+)))
+
+(SET (CAADR GROUP) (CONS `( `(07 02 1995)  `(UNIVERSITETSKIY 8) 11.1  11  11 )
+				  (CONS `(`(SMIRNOV NIKOLAY) `(03 09 1958) `(POPOVA 8) GIDROSILA)
+						`(`(SMIRNOVA OLGA)  `(18 03 1968) `(POPOVA 8) DOMOHOZAYKA)	
+)))
+
+(SET (CAADDR GROUP) (CONS `( `(27 10 1995)  `(UNIVERSITETSKIY 8) 12  11  11 )
+				  (CONS `(`(SHEVCHENKO KIRIL) `(03 01 1970) `(POPOVA 15) ONIX)
+						`(`(SHEVCHENKO ALYONA)  `(13 10 1975) `(POPOVA 15) DOMOHOZAYKA)	
+)))
+//=====================================================
+
+5.3 Для произвольно выбранных студентов с помощью базовых функций сравните:
+
+а) год рождения;
+Получить год (car(cddaar  surname))
+(eql (car(cddaar  surname)) (car(cddaar  surname))) -> bool
+
+б) успеваемость (с учетом того, что число, характеризующее средний бал, может быть как целым, так и дробным );
+Получить оценки 			(cddar surname)
+Получить оценку по лекциям 	(caddar surname)	-> ( < (caddar surname) (caddar surname)) 
+Получить оценку по практике (car(cdddar surname)) -> ( < (car(cdddar surname)) (car(cdddar surname)))
+Получить оценку по лабам 	(cadr(cdddar surname)) -> ( < (cadr(cdddar surname)) (cadr(cdddar surname)))
+
+( < ( + (caddar surname) (car(cdddar surname)) (cadr(cdddar surname))) ( + (caddar surname) (car(cdddar surname)) (cadr(cdddar surname)))) 
+
+в) выясните, не являются ли они родственниками;
+Получить информацио о маме (cddr surname)
+Получить информацио о папе (cadr surname)
+(equal (cddr surname) (cddr surname))
+(equal (cadr surname) (cadr surname))
+
+г) выясните, живут ли они с родителями.
+Получить адресс студента (cadar surname)
+Получить адресс папы (caddr(cadr surname))
+Получить адресс мамы (caddr(cddr surname))
+(eq (equal (cadar surname) (caddr(cadr surname))) 
+	(equal (cadar surname) (caddr(cddr surname))) 
+)
+	
+6.1 Для каждого студента составьте списки свойств
+
+а) оценки по лекциям;
+(setf (get surname lecture_marks) `(10 11 12 10))
+(get surname lecture_marks)
+б) оценки по практикам;
+(setf (get surname practical_marks) `(10 11 12 10))
+(get surname practical_marks)
+в) оценки по лабораторным работам.
+(setf (get surname labs_marks) `(10 11 12 10))
+(get surname labs_marks)
+
+
+
