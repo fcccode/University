@@ -11,6 +11,7 @@ namespace Labarator_1
         #region Переменные 
         Graphics drawArea;
         private int horizont;
+        private int corner;
         private int height;
         private int width;
         private int curSunSize;
@@ -44,7 +45,7 @@ namespace Labarator_1
             timer = new System.Timers.Timer(2000);
             timer.Elapsed += OnTimerElapsed;
             timer.Start();
-
+            corner = 0;
             height = drawingArea.Height;
             width =  drawingArea.Width;
 
@@ -91,7 +92,12 @@ namespace Labarator_1
         {
             using (SolidBrush rectBrush = new SolidBrush(Color.Green))
             {
+
+                PointF rotatePoint = new PointF(100.0f, 50.0f);
                 Rectangle rect = new Rectangle(0, (height - horizont), width, height);
+                Matrix myMatrix = new Matrix();
+                myMatrix.RotateAt(corner, rotatePoint, MatrixOrder.Append);
+                area.Transform = myMatrix;
                 area.DrawRectangle(new Pen(Color.Green, 3), rect);
                 area.FillRectangle(rectBrush, rect);
             }
@@ -102,8 +108,7 @@ namespace Labarator_1
         /// </summary>
         /// <param name="area"></param>
         private void DrawSun(Graphics area)
-        {
-            
+        {       
             using (SolidBrush sunBrush = new SolidBrush(Color.Yellow))
             {
                 Rectangle rect = new Rectangle(curSunPosition, 10, curSunSize, curSunSize);
@@ -192,6 +197,17 @@ namespace Labarator_1
         }
 
         /// <summary>
+        /// Угол поворота рисунка горизонта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void horizontRadTrack_Scroll(object sender, EventArgs e)
+        {
+            corner = horizontRadTrack.Value;
+            Compositor();
+        }
+
+        /// <summary>
         /// Размер солнца
         /// </summary>
         private void sunSize_Scroll(object sender, EventArgs e)
@@ -242,6 +258,7 @@ namespace Labarator_1
             Compositor();
         }
         #endregion
+
 
     }
 }
