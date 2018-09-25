@@ -1,7 +1,9 @@
-﻿using Client.Auxiliary;
+﻿using System;
+using Client.Auxiliary;
 
 namespace Client.Model
 {
+    [Serializable]
     public class ExchangeData : BindingProperty
     {
         private string _userName;
@@ -14,7 +16,6 @@ namespace Client.Model
                 OnPropertyChanged(nameof(UserName));
             }
         }
-
 
         private string _phoneNumber;
         public string PhoneNumber
@@ -38,9 +39,22 @@ namespace Client.Model
             }
         }
 
-        public ExchangeData()
+        private string _other;
+        public string Other
         {
+            get { return _other; }
+            set
+            {
+                _other = value;
+                OnPropertyChanged(nameof(Other));
+            }
+        }
 
+        public ExchangeData() { }
+
+        public byte[] GetBytes()
+        {
+            return new byte[2];
         }
     }
 }

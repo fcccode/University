@@ -35,27 +35,38 @@
 
                 <TextBox Grid.Row="1" Grid.Column="0"
                            Style="{StaticResource MainTextBoxStyle}"
-                           Text=""/>
+                           Text="{Binding IpAddress, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                 <TextBox Grid.Row="1" Grid.Column="1"
                            Style="{StaticResource MainTextBoxStyle}"
-                           Text=""/>
+                           Text="{Binding ServerPort, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                 <Button Grid.Row="0" Grid.Column="2"
                            Style="{StaticResource MainButtonStyle}"
+                           Command="{Binding CmdConnect}"
                            Content="Подключиться"/>                
                 
                 <Button Grid.Row="1" Grid.Column="2"
                            Style="{StaticResource MainButtonStyle}"
+                           Command="{Binding CmdDisconnect}"
                            Content="Отключиться"/>
 
                 <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                            Style="{StaticResource MainTextBlockStyle}"
                            Text="Текущее состояние подключения:"/>
 
-                <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
-                           Style="{StaticResource MainTextBlockStyle}"
-                           Text=""/>
+                <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock" BasedOn="{StaticResource MainTextBlockStyle}">
+                            <Setter Property="Text" Value="Отключено"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding}" Value="True">
+                                    <Setter Property="Text" Value="Подключено"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
             </Grid>
         </Border>
         <Border Grid.Row="1"
@@ -82,7 +93,7 @@
                            Text="Ф.И.О."/>
                 <TextBox Grid.Row="2"
                            Style="{StaticResource MainTextBoxStyle}"
-                           Text=""/>
+                           Text="{Binding ExData.UserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                 <TextBlock Grid.Row="3"
                            Style="{StaticResource MainTextBlockStyle}"
@@ -90,7 +101,7 @@
                 
                 <TextBox Grid.Row="4"
                            Style="{StaticResource MainTextBoxStyle}"
-                           Text=""/>
+                           Text="{Binding ExData.PhoneNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                 <TextBlock Grid.Row="5"
                            Style="{StaticResource MainTextBlockStyle}"
@@ -98,7 +109,7 @@
                 
                 <TextBox Grid.Row="6"
                            Style="{StaticResource MainTextBoxStyle}"
-                           Text=""/>
+                           Text="{Binding ExData.Department, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
 
                 <TextBlock Grid.Row="7"
@@ -107,7 +118,7 @@
 
                 <TextBox Grid.Row="8"
                            Style="{StaticResource MainTextBoxStyle}"
-                           Text=""/>
+                           Text="{Binding ExData.Other, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
             </Grid>
             </Border>
@@ -117,6 +128,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button 
                     Style="{StaticResource MainButtonStyle}"
+                    Command="{Binding CmdSendData}"
                     Content="Отправить пакет"/>
             </StackPanel>
         </Border>

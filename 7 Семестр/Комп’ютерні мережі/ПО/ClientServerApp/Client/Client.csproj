@@ -61,8 +61,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Auxiliary\Commands\ActionCommand.cs" />
+    <Compile Include="Auxiliary\Event\ExchangeClientDataReceiveEvent.cs" />
+    <Compile Include="Auxiliary\Event\ExchangeClientErrorEvent.cs" />
+    <Compile Include="Auxiliary\Event\ExchangeClientStateChangeEvent.cs" />
+    <Compile Include="Auxiliary\Extensions\SocketExtension.cs" />
     <Compile Include="Auxiliary\Helpers\BindingProperty.cs" />
     <Compile Include="Auxiliary\Helpers\EnumDescription.cs" />
+    <Compile Include="Model\AbstractClient.cs" />
     <Compile Include="Model\ExchangeData.cs" />
     <Compile Include="Model\ExchangeModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -103,10 +108,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Auxiliary\Converters\" />
-    <Folder Include="Auxiliary\Enums\" />
-    <Folder Include="Auxiliary\Extensions\" />
-    <Folder Include="Auxiliary\Interfaces\" />
     <Folder Include="Resource\Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -16,11 +16,10 @@
                 Style="{StaticResource MainBorderStyle}">
             <StackPanel Orientation="Horizontal">
                 <Button Content="Запуск сервера"
-                        Style="{StaticResource MainButtonStyle}"/>         
-                <Button Content="Остановка сервера"
+                        Command="{Binding CmdRunServer}"
                         Style="{StaticResource MainButtonStyle}"/>
-
-                <Button Content="Настройки сервера"
+                <Button Content="Остановка сервера"
+                        Command="{Binding CmdStopServer}"
                         Style="{StaticResource MainButtonStyle}"/>
             </StackPanel>
         </Border>
@@ -47,12 +46,18 @@
                 
                 <TextBox Grid.Row="1" Grid.Column="0" 
                          Style="{StaticResource MainTextBoxStyle}"
-                         Text=""/>
+                         Text="{Binding ServerModel.ServerInfo,UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBox Grid.Row="1" Grid.Column="1" 
                          Style="{StaticResource MainTextBoxStyle}"
-                         Text=""/>
+                         Text="{Binding Interval, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
+                <Button Grid.Row="0" Grid.Column="2" 
+                        Command="{Binding CmdSetInterval}"
+                        Style="{StaticResource MainButtonStyle}"
+                        Content="Очистить консоль"/>
+                
                 <Button Grid.Row="1" Grid.Column="2" 
+                        Command="{Binding CmdSetInterval}"
                         Style="{StaticResource MainButtonStyle}"
                         Content="Установить"/>
             </Grid>
@@ -68,7 +73,7 @@
                            Style="{StaticResource MainTextBlockStyle}"
                            Text="Текущее подключение:"/>
                 <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Auto">
-                <TextBox Style="{StaticResource MainTextBoxStyle}"
+                <TextBox Style="{StaticResource MainTextBoxStyle}" IsReadOnly="True"
                          Text=""/>
                 </ScrollViewer>
             </Grid>
