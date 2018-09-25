@@ -1,0 +1,77 @@
+﻿<Window x:Class="ClientServerApp.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientServerApp"
+        mc:Ignorable="d"
+        Title="Лабораторная работа №6 - Сервер" Height="500" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0"
+                Style="{StaticResource MainBorderStyle}">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Запуск сервера"
+                        Style="{StaticResource MainButtonStyle}"/>         
+                <Button Content="Остановка сервера"
+                        Style="{StaticResource MainButtonStyle}"/>
+
+                <Button Content="Настройки сервера"
+                        Style="{StaticResource MainButtonStyle}"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1"
+                Style="{StaticResource MainBorderStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" 
+                           Style="{StaticResource MainTextBlockStyle}"
+                           Text="Данные для подключения"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" 
+                           Style="{StaticResource MainTextBlockStyle}"
+                           Text="Интервал обновления"/>
+                
+                <TextBox Grid.Row="1" Grid.Column="0" 
+                         Style="{StaticResource MainTextBoxStyle}"
+                         Text=""/>
+                <TextBox Grid.Row="1" Grid.Column="1" 
+                         Style="{StaticResource MainTextBoxStyle}"
+                         Text=""/>
+
+                <Button Grid.Row="1" Grid.Column="2" 
+                        Style="{StaticResource MainButtonStyle}"
+                        Content="Установить"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" 
+                Style="{StaticResource MainBorderStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"  
+                           Style="{StaticResource MainTextBlockStyle}"
+                           Text="Текущее подключение:"/>
+                <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Auto">
+                <TextBox Style="{StaticResource MainTextBoxStyle}"
+                         Text=""/>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
