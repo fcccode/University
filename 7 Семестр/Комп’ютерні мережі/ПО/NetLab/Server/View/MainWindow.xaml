@@ -13,6 +13,71 @@
         WindowState="{Binding Source={x:Static prop:Settings.Default}, Path=AppWindowState, Mode=TwoWay}"
         Title="Server" MinHeight="450" MinWidth="800">
     <Grid>
-        
+
+        <!--#region Разметка главного окна-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <!--#endregion-->
+
+        <!--#region Панель управления-->
+        <Border Grid.Row="0" Style="{StaticResource MainViewBorderStyle}">
+            <StackPanel Orientation="Horizontal">
+                <Button Command="{Binding CmdStartServer}" Style="{StaticResource MenuButtonStyle}">
+                    <StackPanel>
+                        <TextBlock Text="Запуск сервера"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Command="{Binding CmdStopServer}" Style="{StaticResource MenuButtonStyle}">
+                    <StackPanel>
+                        <TextBlock Text="Остановка сервера"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Command="{Binding CmdSettingServer}" Style="{StaticResource MenuButtonStyle}">
+                    <StackPanel>
+                        <TextBlock Text="Настройка сервера"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Border>
+        <!--#endregion-->
+
+        <!--#region Панель управления клиентами-->
+        <Border Grid.Row="1" Style="{StaticResource MainViewBorderStyle}">
+            <Grid>
+                <!--#region Разметка панели-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <!--#endregion-->
+
+                <!--#region Список клиентов-->
+                <Border Grid.Column="0" Style="{StaticResource MiddleBorderStyle}">
+                </Border>
+                <!--#endregion-->
+
+                <!--#region Чат клиента-->
+                <Border Grid.Column="1" Style="{StaticResource MiddleBorderStyle}">
+                </Border>
+                <!--#endregion-->
+                
+            </Grid>
+        </Border>
+        <!--#endregion-->
+
+        <!--#region Панель состояния-->
+        <Border Grid.Row="2" Style="{StaticResource MainViewBorderStyle}">
+            <StatusBar>
+                <StatusBarItem>
+                    <TextBlock  Text="Количество активных подключений" Style="{StaticResource StatusBarTextBlockStyle}"/>
+                </StatusBarItem>
+            </StatusBar>
+        </Border>
+        <!--#endregion-->
     </Grid>
 </Window>

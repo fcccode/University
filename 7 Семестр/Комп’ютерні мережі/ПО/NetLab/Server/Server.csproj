@@ -45,6 +45,12 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="ToastNotifications">
+      <HintPath>..\..\..\..\..\..\..\Repositors\Верхний уровень\Имитатор СПС\Imitator_PPKP1\Imports\ToastNotifications.dll</HintPath>
+    </Reference>
+    <Reference Include="ToastNotifications.Messages">
+      <HintPath>..\..\..\..\..\..\..\Repositors\Верхний уровень\Имитатор СПС\Imitator_PPKP1\Imports\ToastNotifications.Messages.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -54,6 +60,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Auxiliary\Converters\EnumDescription.cs" />
+    <Compile Include="Auxiliary\Enums\NotifyMessageType.cs" />
+    <Compile Include="Auxiliary\Enums\ServerState.cs" />
+    <Compile Include="Auxiliary\Events\ExchangeClientDataReceiveEvent.cs" />
+    <Compile Include="Auxiliary\Events\ExchangeClientErrorEvent.cs" />
+    <Compile Include="Auxiliary\Events\ExchangeClientStateChangeEvent.cs" />
+    <Compile Include="Auxiliary\Helpers\BindingProperty.cs" />
+    <Compile Include="Auxiliary\Helpers\ExceptionProcess.cs" />
+    <Compile Include="Auxiliary\Helpers\UiDispatcherHelper.cs" />
+    <Compile Include="Auxiliary\Interfaces\IAPIEvent.cs" />
+    <Compile Include="Auxiliary\Interfaces\IReceiver.cs" />
+    <Compile Include="Model\CustomClient.cs" />
+    <Compile Include="Model\CustomServer.cs" />
+    <Compile Include="Model\NetClient\AbstractClient.cs" />
+    <Compile Include="Model\NetClient\ExchangeByTCP.cs" />
+    <Compile Include="Model\NetClient\ExchangeByUDP.cs" />
+    <Compile Include="Model\NotificationModel\ToastViewModel.cs" />
+    <Compile Include="Model\ServerSetting.cs" />
+    <Compile Include="View\ServerSettingView.xaml.cs">
+      <DependentUpon>ServerSettingView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Resource\Styles\MainViewStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -70,11 +97,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Auxiliary\Commands\ActionCommand.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ServerSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -103,12 +135,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Auxiliary\Commands\" />
-    <Folder Include="Auxiliary\Converters\" />
-    <Folder Include="Auxiliary\Enums\" />
     <Folder Include="Auxiliary\Extensions\" />
-    <Folder Include="Auxiliary\Helpers\" />
-    <Folder Include="Model\" />
     <Folder Include="Resource\Images\" />
   </ItemGroup>
   <ItemGroup>
