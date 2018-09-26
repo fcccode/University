@@ -1,27 +1,27 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
 using Client.Auxiliary;
 
 namespace Client.Model
 {
-    public class ExchangeModel: AbstractClient
+    public class ExchangeModel : AbstractClient
     {
         private Socket client;
-        public ExchangeModel(){   }
+        public ExchangeModel() { }
         public bool Connect(string ipAddress, int port)
         {
             if (IsConnect)
             { Disconnect(); }
 
-            
+
             RemoteEndPoint = new IPEndPoint(IPAddress.Parse(ipAddress), port);
             client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             client.Connect(RemoteEndPoint);
-            client.ReceiveTimeout = 2000;
-            client.SendTimeout = 2000;
-            client.SetKeepAlive(360000, 1000);
             OnStateChanged(true);
+            Task.Factory.StartNew(ReceiveData);
             return true;
         }
         public void Disconnect()
@@ -34,13 +34,42 @@ namespace Client.Model
             client.Close();
             client = null;
         }
+
+        public void ReceiveData()
+        {
+            try
+            {
+                while (IsConnect)
+                {
+                    if (!client.Poll(1000, SelectMode.SelectWrite))
+                    {
+                        throw new Exception("Обрыв связи");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Disconnect();
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         public bool SendData(byte[] data)
         {
-            if (!client.Poll(1000, SelectMode.SelectWrite))
+            try
             {
-                throw new Exception("Время ожидания канала связи");
+                if (!client.Poll(1000, SelectMode.SelectWrite))
+                {
+                    throw new Exception("Время ожидания канала связи");
+                }
+                return (client.Send(Encoding.UTF8.GetBytes("Hello")) > 0) ? true : false;
             }
-            return (client.Send(data)> 0)? true: false;
+            catch (Exception ex)
+            {
+                Disconnect();
+                Console.WriteLine(ex.Message);
+            }
+            return false;
         }
     }
 }

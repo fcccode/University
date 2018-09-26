@@ -42,7 +42,7 @@
                            Text="Данные для подключения"/>
                 <TextBlock Grid.Row="0" Grid.Column="1" 
                            Style="{StaticResource MainTextBlockStyle}"
-                           Text="Интервал обновления"/>
+                           Text="Интервал обновления (мс)"/>
                 
                 <TextBox Grid.Row="1" Grid.Column="0" 
                          Style="{StaticResource MainTextBoxStyle}"
@@ -52,7 +52,7 @@
                          Text="{Binding Interval, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
                 <Button Grid.Row="0" Grid.Column="2" 
-                        Command="{Binding CmdSetInterval}"
+                        Command="{Binding CmdClearConsole}"
                         Style="{StaticResource MainButtonStyle}"
                         Content="Очистить консоль"/>
                 
@@ -73,8 +73,8 @@
                            Style="{StaticResource MainTextBlockStyle}"
                            Text="Текущее подключение:"/>
                 <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Auto">
-                <TextBox Style="{StaticResource MainTextBoxStyle}" IsReadOnly="True"
-                         Text=""/>
+                <TextBox Style="{StaticResource MainTextBoxStyle}" IsReadOnly="True" Padding="10"
+                         Text="{Binding ConsolePanel, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
                 </ScrollViewer>
             </Grid>
         </Border>

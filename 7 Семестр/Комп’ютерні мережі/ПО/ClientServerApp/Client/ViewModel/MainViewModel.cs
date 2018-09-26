@@ -69,6 +69,8 @@ namespace Client.ViewModel
         {
             ExData = new ExchangeData();
             ExModel = new ExchangeModel();
+            IpAddress = "127.0.0.1";
+            ServerPort = 4000;
         }
 
         private void DoDisconnect()

@@ -11,7 +11,7 @@ namespace Client.Auxiliary
         public static bool IsConnected(this Socket socket)
         {
             try
-            {   return !(socket.Poll(2000, SelectMode.SelectRead) && socket.Available == 0); }
+            {   return !(socket.Poll(1000, SelectMode.SelectRead) && socket.Available == 0); }
             catch (SocketException)
             {   return false; }
         }

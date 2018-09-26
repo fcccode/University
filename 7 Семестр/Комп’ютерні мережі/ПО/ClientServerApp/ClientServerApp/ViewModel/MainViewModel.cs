@@ -1,7 +1,9 @@
 ﻿using Server.Auxiliary;
 using Server.Model;
 using System;
+using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Input;
 
@@ -64,12 +66,43 @@ namespace Server.ViewModel
             }
         }
 
-        public ExchangeModel ServerModel { get; private set; }
+        private string _consolepanel;
+        public string ConsolePanel
+        {
+            get { return _consolepanel; }
+            set
+            {
+                _consolepanel = value;
+                OnPropertyChanged(nameof(ConsolePanel));
+            }
+        }
 
+        public ExchangeModel ServerModel { get; private set; }
+        private System.Timers.Timer timer;
         public MainViewModel()
         {
-            Interval = 10;
+            Interval = 1000;
             ServerModel = new ExchangeModel();
+            ServerModel.DataReceiveEvent += ReceiveMessage;
+            timer = new System.Timers.Timer(Interval);
+            timer.Elapsed += UpdateState;
+        }
+
+        private void ReceiveMessage(object sender, PackageReceiveEvent e)
+        {
+            ConsolePanel += Encoding.UTF8.GetString(e.Data) + Environment.NewLine;
+        }
+
+        private void UpdateState(object sender, ElapsedEventArgs e)
+        {
+            try
+            {
+                ServerModel.UpdateState(out string message);
+               // string message = DateTime.Now.ToLongDateString() + Environment.NewLine;
+                ConsolePanel += message;
+            }
+            catch (Exception exception)
+            { MessageBox.Show(exception.Message); }
         }
 
         private void DoStopServer()
@@ -83,6 +116,7 @@ namespace Server.ViewModel
                 }
 
                 ServerModel.StopServer();
+                timer.Stop();
             }
             catch (Exception exception)
             { MessageBox.Show(exception.Message); }
@@ -99,6 +133,7 @@ namespace Server.ViewModel
                 }
 
                 ServerModel.RunServer();
+                timer.Start();
             }
             catch (Exception exception)
             { MessageBox.Show(exception.Message); }
@@ -114,6 +149,9 @@ namespace Server.ViewModel
                     return;
                 }
 
+                timer.Stop();
+                timer.Interval = Interval;
+                timer.Start();
 
             }
             catch (Exception exception)
@@ -125,7 +163,7 @@ namespace Server.ViewModel
         {
             try
             {
-
+                ConsolePanel = string.Empty;
             }
             catch (Exception exception)
             { MessageBox.Show(exception.Message); }

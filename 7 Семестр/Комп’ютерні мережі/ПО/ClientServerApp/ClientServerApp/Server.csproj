@@ -76,6 +76,7 @@
     <Compile Include="Auxiliary\Helpers\BindingProperty.cs" />
     <Compile Include="Auxiliary\Helpers\EnumDescription.cs" />
     <Compile Include="Model\AbstractClient.cs" />
+    <Compile Include="Model\ExchangeClient.cs" />
     <Compile Include="Model\ExchangeModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
