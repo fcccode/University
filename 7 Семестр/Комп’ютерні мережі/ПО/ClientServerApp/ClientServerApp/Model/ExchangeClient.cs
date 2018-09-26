@@ -32,8 +32,15 @@ namespace Server.Model
                     {
                         temp = new byte[client.Available];
                         client.Receive(temp);
+                        
+                        if(temp.Length == 4 && BitConverter.ToInt32(temp,0) == 1234)
+                        {
+                            IsConnect = true;
+                            continue;
+                        }
                         OnDataReceive(temp);
                         temp = null;
+
                     }
                 }
             }

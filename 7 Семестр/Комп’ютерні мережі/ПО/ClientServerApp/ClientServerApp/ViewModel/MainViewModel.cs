@@ -11,6 +11,8 @@ namespace Server.ViewModel
 {
     public class MainViewModel :BindingProperty
     {
+        #region Команды
+
         private ICommand _runServer;
         public ICommand CmdRunServer
         {
@@ -28,7 +30,7 @@ namespace Server.ViewModel
             get
             {
                 if (_stopServer == null)
-                { _stopServer = new ActionCommand(() => Task.Factory.StartNew(DoStopServer), ()=>ServerModel.IsConnect); }
+                { _stopServer = new ActionCommand(() => Task.Factory.StartNew(DoStopServer), () => ServerModel.IsConnect); }
                 return _stopServer;
             }
         }
@@ -55,6 +57,10 @@ namespace Server.ViewModel
             }
         }
 
+        #endregion
+
+        #region Свойства
+
         private int _interval;
         public int Interval
         {
@@ -79,6 +85,11 @@ namespace Server.ViewModel
 
         public ExchangeModel ServerModel { get; private set; }
         private System.Timers.Timer timer;
+
+        #endregion
+
+        #region Конструктор
+
         public MainViewModel()
         {
             Interval = 1000;
@@ -87,58 +98,93 @@ namespace Server.ViewModel
             timer = new System.Timers.Timer(Interval);
             timer.Elapsed += UpdateState;
         }
+        #endregion
 
+        #region Методы
+
+        /// <summary>
+        /// Отображение сообщения
+        /// </summary>
+        private void DisplayMessage(string message)
+        {
+            try
+            {   ConsolePanel += DateTime.Now.ToLongTimeString() + " -> " + (message + Environment.NewLine);   }
+            catch (Exception exception)
+            { MessageBox.Show(exception.Message); }
+        }
+
+        /// <summary>
+        /// Обработчик полученных пакетов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ReceiveMessage(object sender, PackageReceiveEvent e)
         {
             ConsolePanel += Encoding.UTF8.GetString(e.Data) + Environment.NewLine;
         }
 
+        /// <summary>
+        /// Обновление состояние
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateState(object sender, ElapsedEventArgs e)
         {
             try
             {
-                ServerModel.UpdateState(out string message);
-               // string message = DateTime.Now.ToLongDateString() + Environment.NewLine;
-                ConsolePanel += message;
+                string message = ServerModel.UpdateState();
+                DisplayMessage(message);
             }
             catch (Exception exception)
             { MessageBox.Show(exception.Message); }
         }
 
+        /// <summary>
+        /// Остановка сервера
+        /// </summary>
         private void DoStopServer()
         {
             try
             {
-                if(!ServerModel.IsConnect)
+                if (!ServerModel.IsConnect)
                 {
                     MessageBox.Show("Сервер не запущен");
                     return;
                 }
 
                 ServerModel.StopServer();
+                DisplayMessage("Сервер остановлен");
                 timer.Stop();
             }
             catch (Exception exception)
             { MessageBox.Show(exception.Message); }
         }
 
+        /// <summary>
+        /// Запуск сервера
+        /// </summary>
         private void DoRunServer()
         {
             try
             {
+                DisplayMessage("Запуск сервера...");
                 if (ServerModel.IsConnect)
                 {
-                    MessageBox.Show("Сервер уже запущен");
+                    DisplayMessage("Ошибка сервер уже запущен");
                     return;
                 }
 
                 ServerModel.RunServer();
+                DisplayMessage("Сервер запущен");
                 timer.Start();
             }
             catch (Exception exception)
             { MessageBox.Show(exception.Message); }
         }
 
+        /// <summary>
+        /// Установка интервала
+        /// </summary>
         private void DoSetInterval()
         {
             try
@@ -158,15 +204,16 @@ namespace Server.ViewModel
             { MessageBox.Show(exception.Message); }
         }
 
-
+        /// <summary>
+        /// Очистка полученных сообщений
+        /// </summary>
         private void DoClearConsole()
         {
             try
-            {
-                ConsolePanel = string.Empty;
-            }
+            {   ConsolePanel = string.Empty; }
             catch (Exception exception)
             { MessageBox.Show(exception.Message); }
-        }
+        } 
+        #endregion
     }
 }

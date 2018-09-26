@@ -112,8 +112,13 @@ namespace Client.ViewModel
                 if(!ExModel.IsConnect)
                 { MessageBox.Show("Нет активного подключения"); return; }
 
-                if (!ExModel.SendData(ExData.GetBytes()))
-                { MessageBox.Show("Не удалось подключиться"); }
+                byte[] data = ExData.GetBytes();
+
+                if (data == null)
+                { MessageBox.Show("Заполнены не все поля"); return; }
+
+                if (!ExModel.SendData(data))
+                { MessageBox.Show("Не удалось отправить"); }
             }
             catch (Exception exception)
             { MessageBox.Show(exception.Message); }

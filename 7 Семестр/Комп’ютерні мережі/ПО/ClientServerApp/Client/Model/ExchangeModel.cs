@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using Client.Auxiliary;
+
 
 namespace Client.Model
 {
     public class ExchangeModel : AbstractClient
     {
         private Socket client;
-        public ExchangeModel() { }
+        private System.Timers.Timer timer;
+        public ExchangeModel()
+        {
+           
+
+        }
         public bool Connect(string ipAddress, int port)
         {
             if (IsConnect)
@@ -45,6 +50,9 @@ namespace Client.Model
                     {
                         throw new Exception("Обрыв связи");
                     }
+
+                    client.Send(BitConverter.GetBytes(1234));
+                    Thread.Sleep(2000);
                 }
             }
             catch (Exception ex)
@@ -62,7 +70,7 @@ namespace Client.Model
                 {
                     throw new Exception("Время ожидания канала связи");
                 }
-                return (client.Send(Encoding.UTF8.GetBytes("Hello")) > 0) ? true : false;
+                return (client.Send(data) > 0) ? true : false;
             }
             catch (Exception ex)
             {

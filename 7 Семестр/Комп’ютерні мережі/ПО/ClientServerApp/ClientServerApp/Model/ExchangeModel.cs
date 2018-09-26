@@ -26,12 +26,11 @@ namespace Server.Model
             }
         }
 
-
         private TcpListener server;
 
         public ExchangeModel()
         {
-            RemoteEndPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 4000);
+            RemoteEndPoint = new IPEndPoint(IPAddress.Parse("192.168.0.10"), 4000);
             ServerInfo = RemoteEndPoint.ToString();
             ClientList = new List<ExchangeClient>();
         }
@@ -75,6 +74,7 @@ namespace Server.Model
                         exClient = new ExchangeClient(client);
                         exClient.DataReceiveEvent += ReceiveData;
                         ClientList.Add(exClient);
+                        OnDataReceive(Encoding.UTF8.GetBytes(string.Format( "Новое подключение Ip {0} Статус Online", ((IPEndPoint)client.RemoteEndPoint).Address)));
                     }
                 }
             }
@@ -87,14 +87,18 @@ namespace Server.Model
             OnDataReceive(e.Data);
         }
 
-        public void UpdateState(out string message)
+        public string UpdateState()
         {
+            if(ClientList.Count==0)
+            {   return "Нет активных подключений"; }
+
             StringBuilder builder = new StringBuilder();
+            builder.Append("Количество активных подключений " + ClientList.Count.ToString() + Environment.NewLine);
             foreach(ExchangeClient client in ClientList)
             {
-                builder.Append(client.UpdateState());
+                builder.Append(client.ClientInfo + " Статус Online " + Environment.NewLine);
             }
-            message = builder.ToString();
+            return builder.ToString();
         }
     }
 }
