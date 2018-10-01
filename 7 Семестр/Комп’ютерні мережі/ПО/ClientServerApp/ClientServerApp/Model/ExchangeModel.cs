@@ -30,7 +30,7 @@ namespace Server.Model
 
         public ExchangeModel()
         {
-            RemoteEndPoint = new IPEndPoint(IPAddress.Parse("192.168.0.10"), 4000);
+            RemoteEndPoint = new IPEndPoint(IPAddress.Parse("192.168.0.1"), 4000);
             ServerInfo = RemoteEndPoint.ToString();
             ClientList = new List<ExchangeClient>();
         }
