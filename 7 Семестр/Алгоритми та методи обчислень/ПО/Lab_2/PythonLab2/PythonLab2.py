@@ -1,13 +1,22 @@
 from math import *
 import matplotlib.pyplot as plt
+import scipy.special
 
 #************************************************************************
 user_points = [0.37, 0.58, 0.73, 0.92]
 fpar = 5
 spar = 10
 variant =19
+result1= []
+result2= [] 
+coord1 = []
+coord2 = []
+for i in range(spar):
+    coord2.append((1.0/spar)*i);
+  
+for i in range(fpar):
+    coord1.append((1.0/fpar)*i);
 #************************************************************************
-
 
 #************************************************************************
 # Заданая функция
@@ -20,21 +29,9 @@ def Function(x):
 # Расчет коэфициента
 #************************************************************************
 def BinomialKoefficient(k, n):
-    return factorial(n) / (factorial(k) * factorial(n - k))
+    div = (factorial(n) /(factorial(k) * factorial(n - k)))
+    return div
 #************************************************************************
-
-def C(k , n):
-    c = 1.0
-    z = 1.0
-    i = k + 1
-    while i<=n:
-        c*=i
-        i = i + 1
-    i =2
-    while i<=(n-k):
-        z*=i
-        i = i + 1
-    return c/z
 
 #************************************************************************
 # Расчет по Полиному
@@ -43,26 +40,21 @@ def BernshtanePolinome(x, n):
     value = 0.0
 
     for k in range(n):
-        value += (BinomialKoefficient(k,n) * Function(k / n) * pow(x, k) * pow((1-x), (n - k)))
+        value += (Function(k/n)* BinomialKoefficient(k,n) * pow(x, k) * pow((1-x),(n - k)))
     return value
 #************************************************************************
 
 
 #************************************************************************
 # Задание №1
-figure = plt.figure()
-ax = figure.add_axes([0, 0, 1, 1])
+for x in coord1:
+    result1.append(BernshtanePolinome(x, fpar))
 
-result1=[]
-for i in range(fpar):
-    result1.append(BernshtanePolinome(i, fpar))
+for x in coord2:
+    result2.append(BernshtanePolinome(x, spar))
 
-result2=[] 
-for i in range(spar):
-    result2.append(BernshtanePolinome(i, spar))
-
-plt.plot(range(spar), result2, color='blue', linewidth=2., label="B" + str(spar)) 
-plt.scatter(range(fpar), result1,color='red', label="B" + str(fpar))
+plt.plot(coord1, result1, color='blue', label="B" + str(fpar)) 
+plt.plot(coord2, result2, color='red', label="B" + str(spar))
 
 plt.grid(True)
 plt.legend()
@@ -72,8 +64,8 @@ plt.show()
 
 #************************************************************************
 # Задание №2
-print("Погрешность В5 %d = %f" %(fpar,abs(Function(fpar)-BernshtanePolinome(fpar, fpar))))
-print("Погрешность В10 %d = %f"%(spar, abs(Function(spar)-BernshtanePolinome(spar, spar))))
+print("Погрешность В5 %d = %f" %(fpar,abs(Function(0.1)-BernshtanePolinome(0.1, fpar))))
+print("Погрешность В10 %d = %f"%(spar, abs(Function(0.1)-BernshtanePolinome(0.1, spar))))
 #************************************************************************
 
 #************************************************************************
