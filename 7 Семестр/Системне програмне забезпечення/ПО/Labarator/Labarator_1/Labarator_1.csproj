@@ -74,9 +74,9 @@
     <Compile Include="Auxiliary\Helpers\BindingProperty.cs" />
     <Compile Include="Auxiliary\Helpers\EnumDescription.cs" />
     <Compile Include="Auxiliary\Interfaces\IIdentifyModel.cs" />
-    <Compile Include="Model\CompareStateModel.cs" />
-    <Compile Include="Model\FirstMethod.cs" />
-    <Compile Include="Model\SecondMethod.cs" />
+    <Compile Include="Model\HashItem.cs" />
+    <Compile Include="Model\IdentityInfo.cs" />
+    <Compile Include="Model\SimpleTable.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
