@@ -39,15 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Enum\IdentityType.cs" />
+    <Compile Include="Enum\IdentifierType.cs" />
+    <Compile Include="Enum\LexemGroupType.cs" />
+    <Compile Include="Enum\LexemType.cs" />
     <Compile Include="Helper\BindingProperty.cs" />
     <Compile Include="Helper\EnumDescription.cs" />
-    <Compile Include="Indetity\HashIdentitytable.cs" />
-    <Compile Include="Indetity\IdentityInfo.cs" />
-    <Compile Include="Indetity\SimpleIndentityTable.cs" />
+    <Compile Include="LexemItentifierModel\HashIdentitytable.cs" />
+    <Compile Include="LexemItentifierModel\IdentitifierInfo.cs" />
+    <Compile Include="LexemItentifierModel\SimpleIndentityTable.cs" />
     <Compile Include="Interface\IIdentityFeature.cs" />
-    <Compile Include="Model\LexemAnalyzer.cs" />
+    <Compile Include="LexemAnalyzerModel\Lexem.cs" />
+    <Compile Include="LexemAnalyzerModel\LexemGroup.cs" />
+    <Compile Include="LexemAnalyzerModel\LexemParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

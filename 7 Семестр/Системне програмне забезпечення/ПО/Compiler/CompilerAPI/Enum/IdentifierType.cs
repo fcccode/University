@@ -2,7 +2,7 @@
 
 namespace CompilerAPI.Enum
 {
-    public enum IdentityType
+    public enum IdentifierType
     {
         [Description("Переменная")]
         VARIABLE,

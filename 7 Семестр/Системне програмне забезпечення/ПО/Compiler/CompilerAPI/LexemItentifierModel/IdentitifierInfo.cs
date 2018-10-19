@@ -1,17 +1,17 @@
 ﻿using CompilerAPI.Enum;
 
-namespace CompilerAPI.Indetity
+namespace CompilerAPI.LexemItentifierModel
 {
     /// <summary>
     /// Информация о идентификаторе
     /// </summary>
-    public class IdentityInfo
+    public class IdentitifierInfo
     {
         public string ItemName { get; private set; }
         public object ItemValue { get; set; }
-        public IdentityType ItemType {get; private set;}
+        public IdentifierType ItemType {get; private set;}
        
-        public IdentityInfo(string key, IdentityType type)
+        public IdentitifierInfo(string key, IdentifierType type)
         {
             ItemName = key;
             ItemType = type;

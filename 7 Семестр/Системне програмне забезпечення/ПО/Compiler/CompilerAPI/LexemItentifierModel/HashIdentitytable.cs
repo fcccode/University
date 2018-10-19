@@ -1,15 +1,13 @@
-﻿using CompilerAPI.Enum;
-using CompilerAPI.Helper;
+﻿using CompilerAPI.Helper;
 using CompilerAPI.Interface;
 
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 
-namespace CompilerAPI.Indetity
+namespace CompilerAPI.LexemItentifierModel
 {
     /// <summary>
     /// Таблица идентификаторов построенная на основе хэш таблиц
@@ -40,11 +38,11 @@ namespace CompilerAPI.Indetity
         /// <summary>
         /// Таблица элементов, только для чтения
         /// </summary>
-        public ReadOnlyCollection<IdentityInfo> Items
+        public ReadOnlyCollection<IdentitifierInfo> Items
         {
             get
             {
-                return table.Values.Cast<IdentityInfo>().ToList().AsReadOnly(); 
+                return table.Values.Cast<IdentitifierInfo>().ToList().AsReadOnly(); 
             }
         }
 
@@ -113,7 +111,7 @@ namespace CompilerAPI.Indetity
         /// Добавление элемента в таблицу
         /// </summary>
         /// <param name="value"></param>
-        public void AddItem(IdentityInfo value)
+        public void AddItem(IdentitifierInfo value)
         {
             if (value == null)
             { throw new ArgumentNullException(nameof(value)); }
@@ -139,7 +137,7 @@ namespace CompilerAPI.Indetity
         /// </summary>
         /// <param name="key">ключ</param>
         /// <returns>Найденный объект или null</returns>
-        public IdentityInfo FindItem(string key)
+        public IdentitifierInfo FindItem(string key)
         {
 
             if (string.IsNullOrEmpty(key))
@@ -151,7 +149,7 @@ namespace CompilerAPI.Indetity
             if (!table.ContainsKey(key))
             { return null; }
 
-            IdentityInfo item = table[key] as IdentityInfo;
+            IdentitifierInfo item = table[key] as IdentitifierInfo;
             TotalOperationCount += 1;
             return item;
         }

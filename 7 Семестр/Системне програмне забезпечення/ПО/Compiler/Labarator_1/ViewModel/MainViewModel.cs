@@ -1,6 +1,7 @@
 ﻿using CompilerAPI.Enum;
-using CompilerAPI.Indetity;
 using CompilerAPI.Interface;
+using CompilerAPI.LexemAnalyzerModel;
+using CompilerAPI.LexemItentifierModel;
 
 using Labarator_1.Auxiliary;
 
@@ -160,6 +161,10 @@ namespace Labarator_1.ViewModel
             _simpleTable = new SimpleIndentityTable();
             _identifyList = new List<string>();
             separator = new char[] { ' ', '\r', '\0', ';', '=' };
+            string input = "int main (){ int a = 10; int d = 11;}";
+            LexemParser parser = new LexemParser();
+            var result  = parser.GetLexems(input);
+            parser.RunScanning(result);
         }
        
         #endregion
@@ -198,14 +203,14 @@ namespace Labarator_1.ViewModel
             if (_identifyList == null)
             { throw new ArgumentNullException(nameof(_identifyList)); }
 
-            IdentityInfo item = null;
+            IdentitifierInfo item = null;
             SimpleTableWrapper.TotalOperationCount = 0;
             foreach (string identity in IdentifyList)
             {
                 if (string.IsNullOrEmpty(identity))
                     continue;
 
-                item = new IdentityInfo(identity, IdentityType.VARIABLE)
+                item = new IdentitifierInfo(identity, IdentifierType.VARIABLE)
                 {
                     ItemValue = string.Empty
                 };
@@ -228,14 +233,14 @@ namespace Labarator_1.ViewModel
             if (_identifyList == null)
             { throw new ArgumentNullException(nameof(_identifyList)); }
 
-            IdentityInfo item = null;
+            IdentitifierInfo item = null;
             HashTableWrapper.TotalOperationCount = 0;
             foreach (string identity in IdentifyList)
             {
                 if (string.IsNullOrEmpty(identity))
                     continue;
 
-                item = new IdentityInfo(identity, IdentityType.VARIABLE)
+                item = new IdentitifierInfo(identity, IdentifierType.VARIABLE)
                 {
                     ItemValue = string.Empty
                 };

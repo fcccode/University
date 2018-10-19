@@ -1,4 +1,4 @@
-﻿using CompilerAPI.Indetity;
+﻿using CompilerAPI.LexemItentifierModel;
 using System.Collections.ObjectModel;
 
 namespace CompilerAPI.Interface
@@ -14,12 +14,12 @@ namespace CompilerAPI.Interface
         string ElapsedTime { get; set; }
         int TotalOperationCount { get; set; }
         int MiddleOperationCount { get; set; }
-        ReadOnlyCollection<IdentityInfo> Items { get; }
+        ReadOnlyCollection<IdentitifierInfo> Items { get; }
         #endregion
 
         #region Функционал
-        void AddItem(IdentityInfo value);
-        IdentityInfo FindItem(string key);
+        void AddItem(IdentitifierInfo value);
+        IdentitifierInfo FindItem(string key);
         bool RemoveItem(string key);
         void ClearItems();
         #endregion

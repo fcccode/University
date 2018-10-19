@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
-namespace CompilerAPI.Indetity
+namespace CompilerAPI.LexemItentifierModel
 {
     /// <summary>
     /// Таблица идентификаторов
@@ -23,12 +23,12 @@ namespace CompilerAPI.Indetity
         /// <summary>
         /// Внутреннее представление таблицы
         /// </summary>
-        private List<IdentityInfo> _items;
+        private List<IdentitifierInfo> _items;
 
         /// <summary>
         /// Диагностический таймеры
         /// </summary>
-        private Stopwatch timer;
+        private readonly Stopwatch timer;
         #endregion
 
         #region Свойства
@@ -36,7 +36,7 @@ namespace CompilerAPI.Indetity
         /// <summary>
         /// Таблица элементов, только для чтения
         /// </summary>
-        public ReadOnlyCollection<IdentityInfo> Items { get { return _items.AsReadOnly(); } }
+        public ReadOnlyCollection<IdentitifierInfo> Items { get { return _items.AsReadOnly(); } }
 
         /// <summary>
         /// Общее количество операций 
@@ -90,7 +90,7 @@ namespace CompilerAPI.Indetity
         /// </summary>
         public SimpleIndentityTable()
         {
-            _items = new List<IdentityInfo>();
+            _items = new List<IdentitifierInfo>();
             timer = new Stopwatch();
         }
 
@@ -102,7 +102,7 @@ namespace CompilerAPI.Indetity
         /// Добавление элемента в таблицу
         /// </summary>
         /// <param name="value"></param>
-        public void AddItem(IdentityInfo value)
+        public void AddItem(IdentitifierInfo value)
         {
             if (value == null)
             { throw new ArgumentNullException(nameof(value)); }
@@ -113,7 +113,7 @@ namespace CompilerAPI.Indetity
             if (value.ItemName.Length > MAX_IDENTIFY_LENGTH)
             { throw new ArgumentNullException(@"Длина ключа превышает лимит в {MAX_IDENTIFY_LENGTH}"); }
 
-            foreach (IdentityInfo item in _items)
+            foreach (IdentitifierInfo item in _items)
             {
                 TotalOperationCount++;
                 if (item.ItemName == value.ItemName)
@@ -129,7 +129,7 @@ namespace CompilerAPI.Indetity
         /// </summary>
         /// <param name="key">ключ</param>
         /// <returns>Найденный объект или null</returns>
-        public IdentityInfo FindItem(string key)
+        public IdentitifierInfo FindItem(string key)
         {
 
             if (string.IsNullOrEmpty(key))
@@ -139,7 +139,7 @@ namespace CompilerAPI.Indetity
             { throw new ArgumentNullException(nameof(_items)); }
 
 
-            foreach (IdentityInfo item in _items)
+            foreach (IdentitifierInfo item in _items)
             {
                 TotalOperationCount++;
                 if (item.ItemName == key)
@@ -162,7 +162,7 @@ namespace CompilerAPI.Indetity
             if (_items == null)
             { throw new ArgumentNullException(nameof(_items)); }
 
-            foreach (IdentityInfo item in _items)
+            foreach (IdentitifierInfo item in _items)
             {
                 TotalOperationCount++;
                 if (item.ItemName == key)
