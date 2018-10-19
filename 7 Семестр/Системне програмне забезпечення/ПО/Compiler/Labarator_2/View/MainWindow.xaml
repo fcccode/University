@@ -18,7 +18,7 @@
         </Grid.ColumnDefinitions>
         <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding FilePath, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MainTextBoxStyle}"/>
        
-        <Button Grid.Row="0" Grid.Column="1" Command="{Binding CmdSelectFile}" Content="Обзор" Style="{StaticResource MainButtonStyle}"/>
+        <Button Grid.Row="0" Grid.Column="1" Command="{Binding CmdSelectFile}" Content="Обзор" Style="{StaticResource MainButtonStyle}" Padding="15,5,15,5"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
             <Button Command="{Binding CmdRunAnalyze}"       Content="Запуск анализатора" Style="{StaticResource MainButtonStyle}"/>
