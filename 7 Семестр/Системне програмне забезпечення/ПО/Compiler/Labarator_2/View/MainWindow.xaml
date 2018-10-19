@@ -7,58 +7,40 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
-        <TabControl>
-            <TabItem Header="Исходный код" >
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    
-                    <TextBox Grid.Row="0" Grid.Column="0" 
-                             Text="{Binding FilePath, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MainTextBoxStyle}"/>
-                    <Button Grid.Row="0" Grid.Column="1"
-                            Command="{Binding CmdSelectFile}"
-                            Content="Обзор"
-                            Style="{StaticResource MainButtonStyle}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding FilePath, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MainTextBoxStyle}"/>
+       
+        <Button Grid.Row="0" Grid.Column="1" Command="{Binding CmdSelectFile}" Content="Обзор" Style="{StaticResource MainButtonStyle}"/>
 
-                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
-                        <Button Command=""
-                            Content="Запуск анализатора"
-                            Style="{StaticResource MainButtonStyle}"/>
-                        <Button 
-                            Command=""
-                            Content="Очистить результат"
-                            Style="{StaticResource MainButtonStyle}"/>
-                    </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <Button Command="{Binding CmdRunAnalyze}"       Content="Запуск анализатора" Style="{StaticResource MainButtonStyle}"/>
+            <Button Command="{Binding CmdResetProperty}"    Content="Очистить результат" Style="{StaticResource MainButtonStyle}"/>
+        </StackPanel>
 
-                    <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
-                             Text="{Binding InputFile, UpdateSourceTrigger=PropertyChanged}"
+        <TabControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <TabItem Header="Исходный код" > 
+                <TextBox  Grid.ColumnSpan="2" Text="{Binding InputFile, UpdateSourceTrigger=PropertyChanged}"
                              Style="{StaticResource MainTextBoxStyle}" IsReadOnly="True"/>
-
-                </Grid>
             </TabItem>
 
             <TabItem Header="Таблица лексем">
-                <Grid>
-                    <ListView ItemsSource="{Binding }" >
+                <ListView ItemsSource="{Binding LexemList}" >
+                    <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="#" />
-                            <GridViewColumn Header="Лексема"/>
-                            <GridViewColumn Header="Значение"/>
+                            <GridViewColumn Header="#"        Width="50"  DisplayMemberBinding="{Binding Number}"/>
+                            <GridViewColumn Header="Лексема"  Width="200" DisplayMemberBinding="{Binding TokenType, Converter={StaticResource EnumToDescription}}"/>
+                            <GridViewColumn Header="Значение" Width="200" DisplayMemberBinding="{Binding Value}"/>
                         </GridView>
-                    </ListView>
-                </Grid>
-            </TabItem>
-
-            <TabItem Header="Таблица идентификаторов">
-                <Grid>
-                </Grid>
+                    </ListView.View>
+                </ListView>
             </TabItem>
         </TabControl>
     </Grid>

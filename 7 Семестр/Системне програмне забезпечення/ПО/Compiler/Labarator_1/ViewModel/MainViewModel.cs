@@ -1,6 +1,5 @@
 ﻿using CompilerAPI.Enum;
 using CompilerAPI.Interface;
-using CompilerAPI.LexemAnalyzerModel;
 using CompilerAPI.LexemItentifierModel;
 
 using Labarator_1.Auxiliary;
@@ -161,10 +160,6 @@ namespace Labarator_1.ViewModel
             _simpleTable = new SimpleIndentityTable();
             _identifyList = new List<string>();
             separator = new char[] { ' ', '\r', '\0', ';', '=' };
-            string input = "int main (){ int a = 10; int d = 11;}";
-            LexemParser parser = new LexemParser();
-            var result  = parser.GetLexems(input);
-            parser.RunScanning(result);
         }
        
         #endregion

@@ -1,4 +1,6 @@
 ﻿using CompilerAPI.Enum;
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -8,32 +10,43 @@ namespace CompilerAPI.LexemAnalyzerModel
 {
     public class LexemParser
     {
+        #region Переменные
+
         public const int MAX_IDENTIER_LENGTH = 32;
-        private List<LexemGroup> tokenGroup;
+        private List<LexemGroup> lexemGroup; 
+        
+        #endregion
+
+        #region Конструктор
 
         public LexemParser()
         {
-            tokenGroup = new List<LexemGroup>();
+            lexemGroup = new List<LexemGroup>();
             Initialize();
         }
+
+        #endregion
+     
+        #region Методы
+
         public ReadOnlyCollection<Lexem> GetLexems(string sourceText)
         {
             List<Lexem> tokens = null;
 
-            if (tokenGroup == null || tokenGroup.Count <= 0)
-            { return null; }
+            if (lexemGroup == null || lexemGroup.Count <= 0)
+            { throw new ArgumentException("Отсутствует грамматика исходного языка"); }
 
             string formingPattern = string.Empty;
-            foreach (LexemGroup item in tokenGroup)
+            foreach (LexemGroup item in lexemGroup)
             {
-                if(item != tokenGroup.Last())
+                if (item != lexemGroup.Last())
                     formingPattern += item.Value + "|";
                 else
                     formingPattern += item.Value;
             }
 
             if (string.IsNullOrEmpty(formingPattern))
-            { return null; }
+            { throw new ArgumentException("Не удалось сформировать регулярное выражение"); }
 
             MatchCollection collection = Regex.Matches(sourceText, formingPattern);
             if (collection.Count > 0)
@@ -50,24 +63,23 @@ namespace CompilerAPI.LexemAnalyzerModel
                         tokens.Add(context);
                 }
             }
+            else
+            {
+                throw new System.Exception("Не корректные входные данные");
+            }
 
             tokens.Add(new Lexem(LexemGroupType.END_OF_SEQUENCE, string.Empty));
             return tokens.AsReadOnly();
         }
-        public bool RunScanning(IEnumerable<Lexem> lexems)
-        {
-            List<Lexem> list = lexems.ToList();
-            return true;
-        }
         private Lexem FindContext(string lqlText)
         {
             Lexem lexem = null;
-            foreach (var tokenDefinition in tokenGroup)
+            foreach (var tokenDefinition in lexemGroup)
             {
                 lexem = tokenDefinition.Match(lqlText);
 
                 if (lexem != null)
-                {   return lexem; }
+                { return lexem; }
             }
 
             return null;
@@ -75,24 +87,26 @@ namespace CompilerAPI.LexemAnalyzerModel
         private void Initialize()
         {
             string[] separators = new string[]
-                       {
+            {
                 @"\{", @"\}", @"\(", @"\)", @"\[", @"\]", @"\;" , @"\:", @"\`", @"\'", @"\." , @"\?", @"\+", @"\-", @"\*", @"\/", @"\^",
                 @"\~", @"\=", @"\!", @"\>", @"\<"
-                       };
+            };
 
             string[] keywords = new string[]
             {
                 "int", "double", "float", "char", "string","struct", "main", "static", "if", "else", "switch",
-                "while", "break", "continue"
+                "while", "break", "continue", "return"
             };
 
             string[] identifiers = new string[]
             {
                 @"__\w{1,32}\s?" , @"_\w{1,32}\s?", @"\b\w+\s?"
             };
-            tokenGroup.Add(new LexemGroup(LexemGroupType.KEYWORD, keywords));
-            tokenGroup.Add(new LexemGroup(LexemGroupType.IDENTIFIER, identifiers));
-            tokenGroup.Add(new LexemGroup(LexemGroupType.SEPARATOR, separators));
-        }
+            lexemGroup.Add(new LexemGroup(LexemGroupType.KEYWORD, keywords));
+            lexemGroup.Add(new LexemGroup(LexemGroupType.IDENTIFIER, identifiers));
+            lexemGroup.Add(new LexemGroup(LexemGroupType.SEPARATOR, separators));
+        } 
+     
+        #endregion
     }
 }

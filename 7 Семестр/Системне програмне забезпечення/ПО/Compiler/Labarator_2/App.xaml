@@ -2,10 +2,15 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Labarator_2"
+             xmlns:aux="clr-namespace:Labarator_2.Auxiliary"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <!--Конвертер преобразует из Enum в строковое представление-->
+                    <aux:ConvertEnumToDescription x:Key="EnumToDescription"/>
+                </ResourceDictionary>
                 <ResourceDictionary Source="Resource/Styles/MainViewStyle.xaml"/>
                 <ResourceDictionary Source="Resource/Templates/MainViewTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>

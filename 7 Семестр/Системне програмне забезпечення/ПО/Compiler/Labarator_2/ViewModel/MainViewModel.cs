@@ -1,22 +1,20 @@
-﻿using CompilerAPI.Enum;
-using CompilerAPI.Indetity;
-using CompilerAPI.Interface;
+﻿using CompilerAPI.Interface;
+using CompilerAPI.LexemAnalyzerModel;
+using CompilerAPI.LexemItentifierModel;
 
 using Labarator_2.Auxiliary;
 
 using Microsoft.Win32;
 
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 
 namespace Labarator_1.ViewModel
 {
-    public class MainViewModel :BindingProperty
+    public class MainViewModel : BindingProperty
     {
         #region Команды
 
@@ -64,20 +62,7 @@ namespace Labarator_1.ViewModel
 
         #endregion
 
-        #region Переменные
-
-        private readonly char[] separator;
-
-        #endregion
-
         #region Свойство
-
-        private HashIdentityTable _hashtable;
-        public IIdentityFeature HashTableWrapper
-        {
-            get { return _hashtable; }
-        }
-
         private string _inputFile;
         public string InputFile
         {
@@ -100,23 +85,18 @@ namespace Labarator_1.ViewModel
             }
         }
 
+        /// <summary>
+        /// Список лексем
+        /// </summary>
+        public ReadOnlyCollection<Lexem> LexemList { get; private set; }
+
         #endregion
 
         #region Конструктор
 
         public MainViewModel()
         {
-
-            _hashtable = new HashIdentityTable();
-            separator = new char[] { ' ', '\r', '\0', ';', '=' };
         }
-       
-        #endregion
-
-        #region Методы
-
-
-       
 
         #endregion
 
@@ -134,16 +114,21 @@ namespace Labarator_1.ViewModel
                 {
                     Filter = "Текстовый файл (.txt) | *.txt"
                 };
-                
-                if (openFileDialog.ShowDialog() == true)
-                {
-                    FilePath = openFileDialog.FileName;
 
-                    if (!string.IsNullOrEmpty(FilePath))
-                    {
-                        InputFile = File.ReadAllText(openFileDialog.FileName);
-                    }
+                if (openFileDialog.ShowDialog() == false)
+                {
+                    return;
                 }
+                FilePath = openFileDialog.FileName;
+
+                if (string.IsNullOrEmpty(FilePath))
+                {
+                    MessageBox.Show("Не удалось получить путь к файлу");
+                    return;
+                }
+
+                InputFile = File.ReadAllText(openFileDialog.FileName);
+
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -157,7 +142,20 @@ namespace Labarator_1.ViewModel
         {
             try
             {
+                if (string.IsNullOrEmpty(InputFile))
+                {
+                    MessageBox.Show("Нет данных для анализа");
+                    return;
+                }
 
+                LexemParser parser = new LexemParser();
+
+                if(parser == null)
+                {   throw new ArgumentNullException(nameof(parser));    }
+
+
+                LexemList = parser.GetLexems(InputFile);
+                OnPropertyChanged(nameof(LexemList));
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }
@@ -171,24 +169,11 @@ namespace Labarator_1.ViewModel
         {
             try
             {
-
-                if(_hashtable != null)
-                {
-                    _hashtable.ClearItems();
-                    OnPropertyChanged(nameof(HashTableWrapper));
-                }
-
-
-                HashTableWrapper.TotalOperationCount = 0;
-                HashTableWrapper.MiddleOperationCount = 0;
-
-
                 FilePath = string.Empty;
                 InputFile = string.Empty;
-         
 
-
-      
+                LexemList = null;
+                OnPropertyChanged(nameof(LexemList));
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message); }

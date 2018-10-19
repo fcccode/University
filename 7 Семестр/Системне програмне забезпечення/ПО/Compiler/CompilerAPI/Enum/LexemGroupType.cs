@@ -7,11 +7,11 @@ namespace CompilerAPI.Enum
     /// </summary>
     public enum LexemGroupType
     {
-        [Description("Ключевые слова")]
+        [Description("Ключевое слово")]
         KEYWORD,
-        [Description("Идентификаторы")]
+        [Description("Идентификатор")]
         IDENTIFIER,
-        [Description("Разделители")]
+        [Description("Разделитель")]
         SEPARATOR,
         [Description("Конец потока")]
         END_OF_SEQUENCE
