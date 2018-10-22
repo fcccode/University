@@ -8,14 +8,10 @@ class Graph:
         self.ROW = len(graph)
   
     def BFS(self, s, t, parent):
-        '''Возвращает true, если есть путь от источника к истоку. 
-        Также заполняет родительский элемент [], чтобы сохранить путь '''
-
         visited = [False] * (self.ROW)
         queue = collections.deque()
         queue.append(s)
-        visited[s] = True
-         
+        visited[s] = True       
         while queue:
             u = queue.popleft()
             for ind, val in enumerate(self.graph[u]):
@@ -25,7 +21,6 @@ class Graph:
                     parent[ind] = u
         return visited[t]
              
-    # Возвращает максимальный поток от источника до истока в данном графе
     def FordFulkerson(self, source, sink):
         parent = [-1] * (self.ROW)
         max_flow = 0 
@@ -48,19 +43,18 @@ class Graph:
 
 if __name__ == "__main__":
    
-   adj_matrix = [[0, 16, 13, 0, 0, 0], 
-                 [0, 0, 10, 12, 0, 0], 
-                 [0, 4, 0,  0,  14,0], 
-                 [0, 0, 9,  0,  0, 20], 
-                 [0, 0, 0,  7,  0, 4], 
-                 [0, 0, 0,  0,  0, 0]] 
+   adj_matrix = [[0, 16, 13, 0,  0, 0], 
+                 [0, 0,  10, 12, 0, 0], 
+                 [0, 4,  0,  0,  14,0], 
+                 [0, 0,  9,  0,  0, 20], 
+                 [0, 0,  0,  7,  0, 4], 
+                 [0, 0,  0,  0,  0, 0]] 
 
    source = 0
    sink = 5
-
    graph = Graph(adj_matrix)
-   max_flow = graph.FordFulkerson(source, sink)
-  
+   max_flow = graph.FordFulkerson(source, sink) 
    print("Максимальная пропускная способность %d " % max_flow) 
+   print();
  
   
