@@ -38,7 +38,7 @@ namespace Labarator_1.ViewModel
         /// Запуск анализатора
         /// </summary>
         private ICommand runAnalyze;
-        public ICommand CmdRunAnalyze
+        public ICommand CmdRunLexemAnalyzer
         {
             get
             {

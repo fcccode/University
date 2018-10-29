@@ -1,6 +1,4 @@
-﻿using CompilerAPI.Interface;
-using CompilerAPI.LexemAnalyzerModel;
-using CompilerAPI.LexemItentifierModel;
+﻿using CompilerAPI.LexemAnalyzerModel;
 
 using Labarator_2.Auxiliary;
 
@@ -12,7 +10,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Labarator_1.ViewModel
+namespace Labarator_2.ViewModel
 {
     public class MainViewModel : BindingProperty
     {
@@ -36,7 +34,7 @@ namespace Labarator_1.ViewModel
         /// Запуск анализатора
         /// </summary>
         private ICommand runAnalyze;
-        public ICommand CmdRunAnalyze
+        public ICommand CmdRunLexemAnalyzer
         {
             get
             {

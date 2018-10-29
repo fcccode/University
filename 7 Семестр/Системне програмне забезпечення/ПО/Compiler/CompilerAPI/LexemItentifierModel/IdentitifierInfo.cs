@@ -3,7 +3,7 @@
 namespace CompilerAPI.LexemItentifierModel
 {
     /// <summary>
-    /// Информация о идентификаторе
+    /// Структура идентификатора
     /// </summary>
     public class IdentitifierInfo
     {
