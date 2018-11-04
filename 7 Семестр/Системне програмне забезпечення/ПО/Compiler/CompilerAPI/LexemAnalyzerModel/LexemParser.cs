@@ -86,9 +86,6 @@ namespace CompilerAPI.LexemAnalyzerModel
         }
         private void Initialize()
         {
-            
-
-
             string[] separators = new string[]
             {
                 @"\{", @"\}", @"\(", @"\)", @"\[", @"\]", @"\;" , @"\:", @"\`", @"\'", @"\." , @"\?", @"\+", @"\-", @"\*", @"\/", @"\^",

@@ -1,0 +1,59 @@
+﻿<Window x:Class="Labarator_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Labarator_3"
+        xmlns:aux="clr-namespace:Labarator_3.Auxiliary"
+        xmlns:model="clr-namespace:CompilerAPI.SyntaxAnalyzerModel;assembly=CompilerAPI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding FilePath, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MainTextBoxStyle}"/>
+       
+        <Button Grid.Row="0" Grid.Column="1" Command="{Binding CmdSelectFile}" Content="Обзор" Style="{StaticResource MainButtonStyle}" Padding="15,5,15,5"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <Button Command="{Binding CmdRunLexemAnalyzer}"       Content="Сканировать" Style="{StaticResource MainButtonStyle}" ToolTip="Запуск лексического анализатора"/>
+            <Button Command="{Binding CmdRunSyntaxAnalyzer}"    Content="Проанализировать" Style="{StaticResource MainButtonStyle}" ToolTip="Запуск синтаксического анализатора"/>
+            <Button Command="{Binding CmdResetProperty}"    Content="Очистить результат" Style="{StaticResource MainButtonStyle}"/>
+        </StackPanel>
+
+        <TabControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <TabItem Header="Исходный код" > 
+                <TextBox  Grid.ColumnSpan="2" Text="{Binding InputFile, UpdateSourceTrigger=PropertyChanged}"
+                             Style="{StaticResource MainTextBoxStyle}" IsReadOnly="True"/>
+            </TabItem>
+
+            <TabItem Header="Таблица лексем">
+                <ListView ItemsSource="{Binding LexemList}" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="#"        Width="50"  DisplayMemberBinding="{Binding Number}"/>
+                            <GridViewColumn Header="Лексема"  Width="200" DisplayMemberBinding="{Binding TokenType, Converter={StaticResource EnumToDescription}}"/>
+                            <GridViewColumn Header="Значение" Width="200" DisplayMemberBinding="{Binding Value}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            <TabItem Header="Синтаксическое дерево">
+                <TreeView ItemsSource="{Binding SyntaxTree}" Style="{StaticResource TreeViewStyle}" ItemContainerStyle="{StaticResource TreeViewItemStyle}">
+                    <TreeView.Resources>
+                        <HierarchicalDataTemplate DataType="{x:Type model:SyntaxNode}" ItemsSource="{Binding Children}">
+                            <TextBlock Text="{Binding DisplayName}" Style="{StaticResource TreeViewTextBlockStyle}"/>
+                        </HierarchicalDataTemplate>
+                    </TreeView.Resources>
+                </TreeView>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
