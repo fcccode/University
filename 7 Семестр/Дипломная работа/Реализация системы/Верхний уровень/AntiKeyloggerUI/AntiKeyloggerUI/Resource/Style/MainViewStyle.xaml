@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--#region Общее управление стилями-->
+    <SolidColorBrush Color="#EBECEF"    x:Key="MainViewColor"/>
+    <SolidColorBrush Color="Black"      x:Key="MainFontColor"/>
+    <SolidColorBrush Color="#9DA0AA"    x:Key="MainBorderColor"/>
+    <SolidColorBrush Color="White"      x:Key="ReserveViewColor"/>
+   
+  
+    <sys:Double x:Key="MainFontSize">12</sys:Double>
+    <FontFamily x:Key="MainFontFamily">Times New Roman</FontFamily>
+    <!--#endregion-->
+
+</ResourceDictionary>
