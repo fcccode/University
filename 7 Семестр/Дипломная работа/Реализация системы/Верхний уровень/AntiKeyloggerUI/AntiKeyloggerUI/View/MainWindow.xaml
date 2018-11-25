@@ -1,0 +1,17 @@
+﻿<Window x:Class="AntiKeyloggerUI.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:property="clr-namespace:AntiKeyloggerUI.Properties"
+        mc:Ignorable="d"
+       
+        Height="{Binding Source={x:Static property:Settings.Default}, Path=MainViewHeigth,Mode=TwoWay}"
+        Width="{Binding  Source={x:Static property:Settings.Default}, Path=MainViewWidth, Mode=TwoWay}"
+        Top="{Binding    Source={x:Static property:Settings.Default}, Path=MainViewTop,   Mode=TwoWay}"
+        Left="{Binding   Source={x:Static property:Settings.Default}, Path=MainViewLeft,  Mode=TwoWay}"
+        Title="{Binding  Source={x:Static property:Settings.Default}, Path=MainViewTitle, Mode=OneWay}" >
+    <Grid>
+        
+    </Grid>
+</Window>
