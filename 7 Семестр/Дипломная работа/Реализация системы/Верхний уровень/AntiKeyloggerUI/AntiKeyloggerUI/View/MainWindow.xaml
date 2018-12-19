@@ -5,13 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:property="clr-namespace:AntiKeyloggerUI.Properties"
         mc:Ignorable="d"
+        
+        WindowStyle="None"
+        AllowsTransparency="True"
        
         Height="{Binding Source={x:Static property:Settings.Default}, Path=MainViewHeigth,Mode=TwoWay}"
         Width="{Binding  Source={x:Static property:Settings.Default}, Path=MainViewWidth, Mode=TwoWay}"
         Top="{Binding    Source={x:Static property:Settings.Default}, Path=MainViewTop,   Mode=TwoWay}"
         Left="{Binding   Source={x:Static property:Settings.Default}, Path=MainViewLeft,  Mode=TwoWay}"
         Title="{Binding  Source={x:Static property:Settings.Default}, Path=MainViewTitle, Mode=OneWay}" >
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="25" GlassFrameThickness="-1"/>
+    </WindowChrome.WindowChrome> 
     <Grid>
-        
+        <Grid VerticalAlignment="Top" Background="DarkGray">
+            <StackPanel WindowChrome.IsHitTestVisibleInChrome="True" 
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Height="25"
+                        Orientation="Horizontal">
+                <Button Width="25" Content="_" Name="minimizeButton"/>
+                <Button Width="25" Content="+"  Name="maximazeButton"/>
+                <Button Width="25" Content="x" Name="closeButton"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
